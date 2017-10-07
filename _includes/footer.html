@@ -1,22 +1,5 @@
-<div class="wrapper">
-    <div style="text-align:center;">
-        <p>2017. Yungon Park</p>
-{% if site.github_username %}
-                <a href="https://github.com/{{ site.github_username }}">
-                    <i class="fa fa-github"></i> GitHub
-                </a>
-{% endif %}
-
-{% if site.facebook_username %}
-                <a href="https://www.facebook.com/{{ site.facebook_username }}">
-                    <i class="fa fa-facebook"></i> Facebook
-                </a>
-{% endif %}
-
-{% if site.twitter_username %}
-                <a href="https://twitter.com/{{ site.twitter_username }}">
-                    <i class="fa fa-twitter"></i> Twitter
-                </a>
-{% endif %}
-    </div>
-</div>
+<footer class="site-footer">
+    <button class="go-to-top"></button>
+    <p class="copyright"><a href="{{ "" | absolute_url }}" title="{{ site.title }}">{{site.title}}</a> &copy; {{ site.time | date: '%Y' }} | <a href="{{ "/feed.xml" | absolute_url }}" title="RSS Feed">RSS Feed</a></p>
+    <p class="poweredby">powered by <a href="https://jekyllrb.com/" title="Jekyll">Jekyll</a> with the <a href="https://github.com/jwillmer/jekyllDecent" title="jekyllDecent Theme">jekyllDecent</a> theme</p>
+</footer>
