@@ -1,5 +1,5 @@
 default:                                                      # Fallback if nothing is specified
-  initial:      yungon                                       # used for author lookup in posts and for first two characters in the about page back button
+  initial:      yg                                       # used for author lookup in posts and for first two characters in the about page back button
   name:         "Yungon Park"                               # used to display author name
   cover:        /assets/mountain-alternative-cover.jpg        # OPTIONAL: defines location of cover image in about page
   picture:      /assets/johndoe.jpg                           # OPTIONAL: author picture
@@ -24,7 +24,7 @@ default:                                                      # Fallback if noth
   s500px:                                                     # OPTIONAL: used in the about page
   reddit:                                                     # OPTIONAL: used in the about page
 yungon:
-  initial:      yungon
+  initial:      yg
   name:         "Yungon Park"       
   cover:        /assets/mountain-alternative-cover.jpg  
   picture:      /assets/johndoe.jpg  
