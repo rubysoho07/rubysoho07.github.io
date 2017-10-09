@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
 // header
 .main-header {
     margin-bottom: 50px;
@@ -59,10 +61,10 @@
 
     .page-title {
         a {
-            font-family: Mrs Saint Delafield;
+            font-family: 'Noto Sans KR', sans-serif;
             font-size: 70px;
             word-spacing: 15px;
-            line-height: 1.2;
+            line-height: 1.4;
             text-decoration: none;
             text-shadow: 1px 1px 5px rgba($color-black, 0.3);
         }
@@ -71,8 +73,7 @@
     .page-description {
         font-size: 18px;
         font-weight: normal;
-        font-style: italic;
-        font-family: 'Merriweather', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+        font-family: 'Noto Sans KR Regular', sans-serif;
         color: rgba($color-text-header, 0.8);
     }
 }
