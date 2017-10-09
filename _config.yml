@@ -7,7 +7,7 @@
 
 # Site settings
 title:            Gonigoni!
-subtitle:         Gonigoni's Development Blog
+subtitle:         개발에 대한 이런저런 기록들
 description:      개발 중에 겪었던 일들을 다루는 블로그입니다.
 keywords:         
 language:         "ko" # default language of the blog. Language codes: http://www.w3schools.com/tags/ref_language_codes.asp

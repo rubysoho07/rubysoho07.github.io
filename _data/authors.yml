@@ -3,7 +3,7 @@ default:                                                      # Fallback if noth
   name:         "Yungon Park"                               # used to display author name
   cover:        /assets/mountain-alternative-cover.jpg        # OPTIONAL: defines location of cover image in about page
   picture:      /assets/johndoe.jpg                           # OPTIONAL: author picture
-  bio:          개발자입니다.                               # OPTIONAL: text below author name in posts
+  bio:          From Daegu to Seoul, working as a software developer.   # OPTIONAL: text below author name in posts
   location:     Korea                                       # OPTIONAL: used to display location of the author
   website:                          						  # OPTIONAL: link to the author of a post
   email:        hahafree12@gmail.com                                              # OPTIONAL: used in the about page
@@ -28,7 +28,7 @@ yungon:
   name:         "Yungon Park"       
   cover:        /assets/mountain-alternative-cover.jpg  
   picture:      /assets/johndoe.jpg  
-  bio:          개발자입니다.
+  bio:          From Daegu to Seoul, working as a software developer.
   location:     Korea
   email:        hahafree12@gmail.com   
   twitter:      rubysoho07    
