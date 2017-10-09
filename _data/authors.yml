@@ -2,7 +2,7 @@ default:                                                      # Fallback if noth
   initial:      yg                                       # used for author lookup in posts and for first two characters in the about page back button
   name:         "Yungon Park"                               # used to display author name
   cover:        /assets/mountain-alternative-cover.jpg        # OPTIONAL: defines location of cover image in about page
-  picture:      /assets/johndoe.jpg                           # OPTIONAL: author picture
+  picture:      /assets/avatar.png                           # OPTIONAL: author picture
   bio:          From Daegu to Seoul, working as a software developer.   # OPTIONAL: text below author name in posts
   location:     Korea                                       # OPTIONAL: used to display location of the author
   website:                          						  # OPTIONAL: link to the author of a post
@@ -27,7 +27,7 @@ yungon:
   initial:      yg
   name:         "Yungon Park"       
   cover:        /assets/mountain-alternative-cover.jpg  
-  picture:      /assets/johndoe.jpg  
+  picture:      /assets/avatar.png  
   bio:          From Daegu to Seoul, working as a software developer.
   location:     Korea
   email:        hahafree12@gmail.com   
