@@ -3,6 +3,7 @@ layout: post
 title: "이직 시도 후기 - 2017년 하반기"
 categories: anything
 tags: 이직
+comments: true
 ---
 
 > 이 포스트는 개인적으로 이직을 준비하는 과정에서 느낀 점들을 정리한 글입니다.
