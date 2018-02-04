@@ -12,8 +12,13 @@ excerpt:
 
 ### 경력
 
-* (2014.01 ~ 2016.12) 유비쿼스(판교)
-* (2017.05 ~ 현재) 한국교육학술정보원(KERIS, 대구) - 인턴
+* (2014.01 ~ 2016.12) [유비쿼스](http://www.ubiquoss.com) - S/W 연구소 연구원
+* (2017.05 ~ 2017.12) [한국교육학술정보원](http://www.keris.or.kr) - 미래교육연구본부 표준품질부 인턴
+* (2018.01 ~ 현재) [아이스크림에듀](http://www.home-learn.co.kr) - 지능정보기술연구소 대리
+
+### Contribution
+
+* [IMS Global Caliper Sensor API (Python)](https://github.com/IMSGlobal/caliper-python-public)
 
 ### Conference 발표
 
