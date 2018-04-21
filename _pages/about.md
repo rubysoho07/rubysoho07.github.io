@@ -12,9 +12,9 @@ excerpt:
 
 ### 경력
 
-* (2014.01 ~ 2016.12) [유비쿼스](http://www.ubiquoss.com) - S/W 연구소 연구원
-* (2017.05 ~ 2017.12) [한국교육학술정보원](http://www.keris.or.kr) - 미래교육연구본부 표준품질부 인턴
-* (2018.01 ~ 현재) [아이스크림에듀](http://www.home-learn.co.kr) - 지능정보기술연구소 대리
+* (2014.01 ~ 2016.12) [유비쿼스](http://www.ubiquoss.com)
+* (2017.05 ~ 2017.12) [한국교육학술정보원](http://www.keris.or.kr) (인턴)
+* (2018.01 ~ 현재) [아이스크림에듀](http://www.home-learn.co.kr)
 
 ### Contribution
 
@@ -28,15 +28,23 @@ excerpt:
 ### 프로그래밍 언어 경험
 
 * C
-* Python
+* Python: Django, BeautifulSoup, Flask
 * Java
 * JavaScript
 
-### 개발 도구 및 기타 경험
+### OS, 데이터베이스, 클라우드
 
-* Linux
-* AWS
+* Linux: Ubuntu, CentOS
+* AWS: EC2, S3, Lambda, etc.
+* PostgreSQL: 개인 프로젝트 한정
+* MongoDB
+
+### 형상 관리 및 이슈 트래커
+
 * Subversion(SVN), Git
 * Redmine
+
+### 기타 생산성 도구
+
 * Slack
 * Trello
