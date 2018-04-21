@@ -3,7 +3,7 @@ layout: post
 title: "sed를 이용한 텍스트 파일 바꾸기"
 categories: Linux
 tags: Linux, sed
-comments: false
+comments: true
 ---
 
 쉘 스크립트를 만들 때, 텍스트 파일의 내용을 바꾸는 것이 필요할 때가 있다. 이 경우 `sed`를 쓰는데, sed의 사용 방법이 헷갈릴 때가 많아 이 기회에 정리를 해 보고자 한다. 이 글에서는 기본적인 사용 방법과 내가 주로 사용하는 기능만 정리하였다. sed가 지원하는 전체 기능이 궁금하다면, man page(`man sed`)를 확인하는 것이 최선이다. 
