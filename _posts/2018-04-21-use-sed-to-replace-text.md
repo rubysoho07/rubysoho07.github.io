@@ -6,7 +6,7 @@ tags: Linux, sed
 comments: true
 ---
 
-쉘 스크립트를 만들 때, 텍스트 파일의 내용을 바꾸는 것이 필요할 때가 있다. 이 경우 `sed`를 쓰는데, sed의 사용 방법이 헷갈릴 때가 많아 이 기회에 정리를 해 보고자 한다. 이 글에서는 기본적인 사용 방법과 내가 주로 사용하는 기능만 정리하였다. sed가 지원하는 전체 기능이 궁금하다면, man page(`man sed`)를 확인하는 것이 최선이다. 
+쉘 스크립트를 만들 때, 텍스트 파일의 내용을 바꾸는 기능이 필요할 때가 있다. 이 경우 `sed`를 쓰는데, sed의 사용 방법이 헷갈릴 때가 많아 이 기회에 정리를 해 보고자 한다. 이 글에서는 기본적인 사용 방법과 내가 주로 사용하는 기능만 정리하였다. sed가 지원하는 전체 기능이 궁금하다면, man page(`man sed`)를 확인하는 것이 최선이다. 
 
 ### 텍스트 바꾸기
 
@@ -53,11 +53,11 @@ $ cat test.txt
  1024  aaa list --global
 ```
 
-### 예제 2: 패턴 안에 `/`와 같은 특수문자가 들어가는 경우
+#### 예제 2: 패턴 안에 `/`와 같은 특수문자가 들어가는 경우
 
 그런데, 내가 대체하려는 패턴 안에 `/`와 같은 특수문자가 들어가면 어떻게 해야 할까? 이 경우 `\`를 앞에 붙여주면 된다. 
 
-`test.txt` 파일에서 `com/example`을 `net/example`로 바꾸려고 한다. 
+`test.txt` 파일에서 `com/example`을 `net/example`로 바꾸려고 한다.
 
 원본 파일은 다음과 같다. 
 
@@ -71,7 +71,7 @@ $ cat test.txt
  1139  git clone https://gitlab.com/example/caliper-dashboard-test.git
 ```
 
-다음과 같이 `/` 앞에 `\`를 붙여서 바꿔준다.
+이 경우 `sed`를 실행할 때 `/`를 그대로 쓰게 되면 바꿀 패턴으로 인식하여 엉뚱한 결과가 발생할 것이다. 다음과 같이 `/` 앞에 `\`를 붙여서 바꿔준다.
 
 ```
 $ sed -i 's/com\/example/net\/example/g' test.txt
@@ -127,6 +127,21 @@ $ cat test.txt
 원래 명령: `sed -i 's/n.m/aaa/g' test.txt`
 macOS에서 쓰는 방법: `sed -i '' -e 's/n.m/aaa/g' test.txt`
 
+### 여담2: 'unterminated `s' command' 오류가 발생하는 경우
+
+다음과 같이 썼을 때 'unterminated `s' command' 오류가 발생하는 경우가 있다.
+
+```
+sudo sed -i 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=1024x768' /etc/default/grub
+```
+
+이 경우 아래와 같이 조건식 끝에 `/`를 하나 더 추가한다. 
+
+```
+sudo sed 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=1024x768' /etc/default/grub
+```
+
 #### 참고한 내용들
 
-[https://stackoverflow.com/questions/19456518/invalid-command-code-despite-escaping-periods-using-sed](https://stackoverflow.com/questions/19456518/invalid-command-code-despite-escaping-periods-using-sed)
+* [https://stackoverflow.com/questions/19456518/invalid-command-code-despite-escaping-periods-using-sed](https://stackoverflow.com/questions/19456518/invalid-command-code-despite-escaping-periods-using-sed)
+* [https://unix.stackexchange.com/questions/168862/why-does-sed-outputs-char-53-unterminated-s-command](https://unix.stackexchange.com/questions/168862/why-does-sed-outputs-char-53-unterminated-s-command)
