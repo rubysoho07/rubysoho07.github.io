@@ -31,7 +31,7 @@ Ran 0 tests in 0.000s
 OK
 ```
 
-왜 그럴까? `unittest` 라이브러리는 기본적으로 실행하는 top-level 디렉터리에서 `test`로 시작하는 파일을 찾아서 테스트를 수행한다. [(참고)](https://docs.python.org/3/library/unittest.html#test-discovery) 일단 파일 이름을 test로 시작하도록 바꾼 뒤 테스트해 보자. 
+왜 그럴까? `unittest` 라이브러리는 기본적으로 실행하는 top-level 디렉터리에서 `test`로 시작하는 파일을 찾아서 테스트를 수행한다. [(참고)](https://docs.python.org/3/library/unittest.html#test-discovery) 일단 파일 이름을 test로 시작하도록 바꾼 뒤 아래와 같이 테스트해 보자. 
 
 ```
 $ mv aaa.py test.py
@@ -42,6 +42,8 @@ Ran 1 test in 0.000s
 
 OK
 ```
+
+위와 같이 테스트가 수행된 것을 볼 수 있다.
 
 개인적으로는 Java의 Maven을 사용할 때와 같이, 소스 파일과 테스트 파일을 별도의 디렉터리에 저장하는 방식을 선호한다. 
 
