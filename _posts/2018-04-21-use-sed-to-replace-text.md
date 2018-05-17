@@ -138,7 +138,7 @@ sudo sed -i 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=1024x768' /etc/default/grub
 이 경우 아래와 같이 조건식 끝에 `/`를 하나 더 추가한다. 
 
 ```
-sudo sed 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=1024x768' /etc/default/grub
+sudo sed -i 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=1024x768/' /etc/default/grub
 ```
 
 #### 참고한 내용들

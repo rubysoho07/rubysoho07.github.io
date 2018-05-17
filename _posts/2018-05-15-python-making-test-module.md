@@ -54,7 +54,6 @@ OK
 아래 스크린샷과 같은 화면은 메뉴에서 Run -> Edit Configurations 메뉴를 클릭하면 확인할 수 있다. 
 
 아래와 같은 화면이 나오지 않는 경우, 왼쪽 위의 `+`버튼을 누르고, `Python Tests` -> `Unittests`를 클릭해서 추가해 준다.
-는
 <figure>
     <img src="{{ "media/img/python-making-test-module-screenshot-1.png" | absolute_url }}">
     <figcaption>PyCharm 테스트 설정</figcaption>
