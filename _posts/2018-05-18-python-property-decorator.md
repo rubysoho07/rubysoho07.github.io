@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Python @property 데코레이터와 getter/setter"
+title: "Python `@property` 데코레이터와 getter/setter"
 categories: Python
 tags: Python, property, getter, setter
 comments: true
 ---
 
-예전에 어떤 소스를 보다가 클래스 내부에 @property 데코레이터가 붙어 있는 경우를 본 적이 있다. 어떤 경우에 사용하는지 궁금해서 한 번 정리해 보려 한다.
+예전에 어떤 소스를 보다가 클래스 내부에 `@property` 데코레이터가 붙어 있는 경우를 본 적이 있다. 어떤 경우에 사용하는지 궁금해서 한 번 정리해 보려 한다.
 
 ### property() 함수
 
@@ -39,7 +39,7 @@ class C:
 
 C 클래스의 인스턴스 c가 있다고 가정하자. `c.x`를 하면 getter인 getx 함수가 호출될 것이고, `c.x = (임의의 값)`을 수행하면 setter인 setx를 호출할 것이다. 그리고 del c.x를 수행하면 deleter인 delx가 호출될 것이다.
 
-### @property decorator
+### `@property` decorator
 
 아래에 있는 예제를 살펴보자. 
 
