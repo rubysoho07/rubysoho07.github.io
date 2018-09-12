@@ -24,6 +24,7 @@ excerpt:
 
 * [PyCon APAC 2016 (Lightning Talk) - Django로 음반 관리하기](https://www.slideshare.net/YungonPark/2016-pycon-apac-lightning-talk-django)
 * [PyCon KR 2017 - 케이블 영화 채널 편성표 수집하기 - MovieScheduler](https://www.pycon.kr/2017/program/183)
+* [PyCon KR 2018 - 파이썬으로 학생 들여다보기](https://www.pycon.kr/2018/program/32)
 
 ### 프로그래밍 언어 경험
 
