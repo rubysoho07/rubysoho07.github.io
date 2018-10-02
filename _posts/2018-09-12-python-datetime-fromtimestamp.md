@@ -22,7 +22,7 @@ comments: true
 잘 동작한다. 심지어 Windows 10에 깔린 Ubuntu를 이용했고, 3.5.x 버전인데도 멀쩡히 잘 돌아간다. 
 
 <figure>
-    <img src="{{ "media/img/python_fromtimestamp_windows.png" | absolute_url }}">
+    <img src="{{ "media/img/python_fromtimestamp_ubuntu.png" | absolute_url }}">
     <figcaption>Ubuntu에서는 정상적으로 동작한다.</figcaption>
 </figure>
 
