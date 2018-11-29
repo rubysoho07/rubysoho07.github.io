@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "이직 시도 후기 - 2017년 하반기"
-categories: anything
+categories: Everything
 tags: 이직
 comments: true
 ---
