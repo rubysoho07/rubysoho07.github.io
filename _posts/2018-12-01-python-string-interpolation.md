@@ -3,7 +3,7 @@ layout: post
 title: "파이썬 문자열 다루기 - str.format()"
 categories: Python
 tags: 문자열, format
-comments: false
+comments: true
 ---
 
 문자열을 다루다 보면 `.format()`을 사용하는데, .format()으로 어떻게 문자열 중간을 채워볼 지에 대해 알아보겠다. 이 글은 필요할 때 매번 찾아보다가 귀찮아서 정리해 본 것이다.
