@@ -20,30 +20,36 @@ excerpt:
 
 * [IMS Global Caliper Sensor API (Python)](https://github.com/IMSGlobal/caliper-python-public)
 
-### Conference 발표
+### 발표
 
 * [PyCon APAC 2016 (Lightning Talk) - Django로 음반 관리하기](https://www.slideshare.net/YungonPark/2016-pycon-apac-lightning-talk-django)
 * [PyCon KR 2017 - 케이블 영화 채널 편성표 수집하기 - MovieScheduler](https://www.pycon.kr/2017/program/183)
 * [PyCon KR 2018 - 파이썬으로 학생 들여다보기](https://www.pycon.kr/2018/program/32)
+* [AWS Summit Seoul 2019 - AWS 기반 지속 가능한 데이터 분석 플랫폼 구축하기](https://www.slideshare.net/awskorea/aws-aws-summit-seoul-2019-141290094)
+* [삼성 청년 SW 아카데미(SSAFY) - 나의 8년(2012~2019)](https://www.slideshare.net/secret/GJrlfZ2Eh9ybAX)
 
 ### 프로그래밍 언어 경험
 
-* C
 * Python: Django, BeautifulSoup, Flask
+* C
 * Java
 * JavaScript
 
 ### OS, 데이터베이스, 클라우드
 
 * Linux: Ubuntu, CentOS
-* AWS: EC2, S3, Lambda, etc.
-* PostgreSQL: 개인 프로젝트 한정
+* AWS
+    * Compute: EC2, Lambda, ECS, ECR, Step Functions
+    * Storage: S3
+    * Database: RDS, Redshift
+    * Analysis: Kinesis Data Streams, Kinesis Firehose, Glue
+* MySQL, PostgreSQL
 * MongoDB
 
 ### 형상 관리 및 이슈 트래커
 
 * Subversion(SVN), Git
-* Redmine
+* Redmine, Jira, Confluence
 
 ### 기타 생산성 도구
 
