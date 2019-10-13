@@ -6,7 +6,9 @@ tags: AWS, EC2, MongoDB
 comments: true
 ---
 
-최근에 AWS에서 MongoDB와 호환되는 [DocumentDB](https://aws.amazon.com/ko/documentdb/)를 출시했지만, 아직 서울 리전에서는 사용할 수 없다. 
+최근에 AWS에서 MongoDB와 호환되는 [DocumentDB](https://aws.amazon.com/ko/documentdb/)를 출시했지만, ~~아직 서울 리전에서는 사용할 수 없다.~~
+
+(2019년 5월에 서울 리전에 출시되었습니다. [링크한 글을 확인해 주세요~](https://aws.amazon.com/ko/blogs/korea/amazon-documentdb-and-kinesis-analytics-seoul-region/))
 
 그렇지만 필요에 따라 MongoDB를 쓸 일이 있을 것이다. AWS에서 Bitnami의 이미지를 활용해서 EC2에 MongoDB를 올려보고, 시험 삼아 데이터를 넣어보자. 
 
