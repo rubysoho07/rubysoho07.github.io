@@ -3,7 +3,7 @@ layout: post
 title: "Hortonworks Sandbox를 AWS에서 사용하기"
 categories: AWS
 tags: AWS, EC2, Hadoop, Big Data
-comments: false
+comments: true
 ---
 
 ## 들어가며
