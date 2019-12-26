@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on GoniGoni!</title>
+    <link>/categories/</link>
+    <description>Recent content in Categories on GoniGoni!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Tue, 22 Oct 2019 21:02:00 +0900</lastBuildDate>
+    
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AWS</title>
+      <link>/categories/aws/</link>
+      <pubDate>Tue, 22 Oct 2019 21:02:00 +0900</pubDate>
+      
+      <guid>/categories/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Everything</title>
+      <link>/categories/everything/</link>
+      <pubDate>Tue, 01 Jan 2019 18:13:00 +0900</pubDate>
+      
+      <guid>/categories/everything/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>/categories/linux/</link>
+      <pubDate>Tue, 25 Dec 2018 17:15:00 +0900</pubDate>
+      
+      <guid>/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>/categories/python/</link>
+      <pubDate>Sat, 01 Dec 2018 20:54:00 +0900</pubDate>
+      
+      <guid>/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>/categories/git/</link>
+      <pubDate>Tue, 02 Oct 2018 23:46:00 +0900</pubDate>
+      
+      <guid>/categories/git/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

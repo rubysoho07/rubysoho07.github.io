@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ko-kr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>AWS Lambda에서 별칭(alias)으로 함수 버전 구분하기 - GoniGoni!</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	
+	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-131546844-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/" title="GoniGoni!" rel="home">
+				<div class="logo__title">GoniGoni!</div>
+				<div class="logo__tagline">개발 블로그이지만 개발 말고 다른 이야기도 합니다.</div>
+			</a>
+		</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">AWS Lambda에서 별칭(alias)으로 함수 버전 구분하기</h1>
+			
+		</header><div class="content post__content clearfix">
+			<p>test라는 함수가 있고, dev, release라는 별칭(alias)이 존재한다고 하자. 그리고 모든 별칭은 동일한 버전을 가리킨다고 하자.</p>
+<p>이 경우 context 객체의 invoked_function_arn은 어떻게 달라지는지 보자. 테스트를 위해, 다음과 같이 파이썬으로 함수를 작성하였다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> json
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lambda_handler</span>(event, context): 
+    <span style="color:#66d9ef">print</span>(context<span style="color:#f92672">.</span>invoked_function_arn)
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Success</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><p>그리고 CloudWatch에 기록된 로그를 보자.</p>
+<p>dev인 경우</p>
+<pre><code>START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1
+arn:aws:lambda:ap-northeast-2:256724228018:function:test:dev
+END RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a
+REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a  Duration: 1.56 ms       Billed Duration: 100 ms         Memory Size: 128 MB     Max Memory Used: 22 MB
+</code></pre><p>release인 경우</p>
+<pre><code>START RequestId: d6b91b43-5fb3-11e8-88fd-494e3ecde1f0 Version: 1
+arn:aws:lambda:ap-northeast-2:256724228018:function:test:release
+END RequestId: d6b91b43-5fb3-11e8-88fd-494e3ecde1f0
+REPORT RequestId: d6b91b43-5fb3-11e8-88fd-494e3ecde1f0  Duration: 0.32 ms       Billed Duration: 100 ms         Memory Size: 128 MB     Max Memory Used: 22 MB
+</code></pre><p><code>arn:aws:lambda:ap-northeast-2:256724228018:function:test:dev</code>와 같이 맨 끝에 별칭이 붙는다. &ldquo;:&ldquo;로 구분하면 될 것 같다.</p>
+<p>참고로, function_version은 별칭에 상관 없이 1로 출력된다. context 객체 내의 다른 속성들은 아래 참고자료를 참조하자.</p>
+<h3 id="heading">참고자료</h3>
+<p><a href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/python-context-object.html">https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/python-context-object.html</a></p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/aws/" rel="tag">AWS</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/lambda/" rel="tag">Lambda</a></li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2019 Yungon Park.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

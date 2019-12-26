@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>테스트 on GoniGoni!</title>
+    <link>/tags/%ED%85%8C%EC%8A%A4%ED%8A%B8/</link>
+    <description>Recent content in 테스트 on GoniGoni!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Tue, 15 May 2018 22:35:00 +0900</lastBuildDate>
+    
+	<atom:link href="/tags/%ED%85%8C%EC%8A%A4%ED%8A%B8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>파이썬에서 테스트 코드를 만들면서 겪은 일들</title>
+      <link>/posts/python-making-test-module/</link>
+      <pubDate>Tue, 15 May 2018 22:35:00 +0900</pubDate>
+      
+      <guid>/posts/python-making-test-module/</guid>
+      <description>이번 글에서는 파이썬에서 테스트 코드를 만들면서 겪었던 시행착오에 대해 소개하고자 한다. 여기서는 파이썬에 내장된 unittest를 이용한다.
+테스트를 수행하는 기준은? 간단한 코드를 만들어 보자. 파일 이름은 aaa.py로 저장한다.
+import unittestclass TestExample(unittest.TestCase):def test_a(self):self.assertEqual(1 == 2, False)그리고 쉘에서 python -m unittest를 입력하면, 아무 테스트도 실행하지 않는다.
+$ python -m unittest----------------------------------------------------------------------Ran 0 tests in 0.000sOK왜 그럴까? unittest 라이브러리는 기본적으로 실행하는 top-level 디렉터리에서 test로 시작하는 파일을 찾아서 테스트를 수행한다.</description>
+    </item>
+    
+  </channel>
+</rss>

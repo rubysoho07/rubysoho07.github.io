@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Everything on GoniGoni!</title>
+    <link>/categories/everything/</link>
+    <description>Recent content in Everything on GoniGoni!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Tue, 01 Jan 2019 18:13:00 +0900</lastBuildDate>
+    
+	<atom:link href="/categories/everything/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2018년 회고</title>
+      <link>/posts/retrospect-2018/</link>
+      <pubDate>Tue, 01 Jan 2019 18:13:00 +0900</pubDate>
+      
+      <guid>/posts/retrospect-2018/</guid>
+      <description>개인적으로는 변화가 많은 한 해였습니다. 업무의 분야가 바뀌었고, 새로운 환경에 적응해야 했으며, 주로 쓰는 프로그래밍 언어도 바뀌었습니다. 2018년에 일어났던 일들 중 주요한 몇 가지에 대해 다루어 보려고 합니다.
+서비스를 만드는 경험 서비스를 만드는 기업으로 이직하겠다는 생각은 계속 했지만, 이를 행동으로 옮긴 건 작년이 처음이었습니다. 그 과정에서 제가 느낀 점은 두 가지로 요약할 수 있을 것 같아요.
+1. 협업 이야기 저는 서비스를 기반부터 개발하는 경험이 부족했습니다. 교육 분야에서 비슷한 서비스를 개발한 사례가 많지 않아, 특히 데이터를 다루는 서비스를 어떻게 개발하는지에 대해 많이 찾아봤었습니다.</description>
+    </item>
+    
+    <item>
+      <title>책 리뷰 - &#39;인문학도, 개발자되다&#39;</title>
+      <link>/posts/become-dev-book-review/</link>
+      <pubDate>Thu, 29 Nov 2018 23:36:00 +0900</pubDate>
+      
+      <guid>/posts/become-dev-book-review/</guid>
+      <description>책 소개 제 주변에는 학교를 졸업하고 만난 분들을 제외하면 개발자로 일하시는 분이 거의 없다시피 합니다. 그러다 보니 저에게 개발자의 업무 또는 어떻게 개발자가 될 수 있는지에 대해 물어보시는 분들이 가끔씩 계십니다. 하지만 저는 경력이 아직 5년이 되지 않았고, 말빨(?)이 약한 편이라 개발자라는 직업에 대해 섣불리 말씀드리기 조심스럽습니다.
+그러던 와중에 &amp;lsquo;인문학도, 개발자되다(마르코 저, 영진닷컴)&#39; 라는 책을 접하게 되었습니다. 이 책은 저자인 마르코님이 개발자로 전직을 하게 된 계기와 과정, 개발자로 일하기 위해서 어떤 능력이 필요한지, 그리고 앞으로 어떻게 개발 능력을 키워나가야 될 지에 대해 이야기하고 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>이직 시도 후기 - 2017년 하반기</title>
+      <link>/posts/my-trial-for-moving/</link>
+      <pubDate>Sun, 10 Dec 2017 16:02:00 +0900</pubDate>
+      
+      <guid>/posts/my-trial-for-moving/</guid>
+      <description>이 포스트는 개인적으로 이직을 준비하는 과정에서 느낀 점들을 정리한 글입니다. 차후 발생 가능한 문제를 막기 위해, 채용 프로세스나 면접 질문을 언급하는 과정에서 특정한 기업을 지칭하지 않습니다. 구직/구인 과정에서 참고로 봐 주시면 좋겠습니다.
+ 배경 프로필에도 적어 놓았지만, 저는 아직 인턴 신분으로 일하고 있습니다. 저희 기관 특성 상 정규직 T/O가 나오기 어렵기 때문에, 이직을 결심하고 여러 군데에 서류를 제출하기 시작했습니다.
+일단 지금까지의 프로필을 요약하면 다음과 같습니다.
+ 복수전공으로 컴퓨터학부를 전공 (본 전공은 사범대에서 사회교육) 첫 직장은 임베디드 쪽 경력으로 시작 (리눅스 기반, C 언어 주로 사용) 현재는 공공기관 인턴으로 근무 (부서에서는 개발자 역할을 하고 있습니다) Python, Django 기반의 Toy project 개발 경험 PyCon Korea 2017 발표자로 참석  그리고 주로 제가 지원한 곳은 스타트업이 많았습니다.</description>
+    </item>
+    
+  </channel>
+</rss>

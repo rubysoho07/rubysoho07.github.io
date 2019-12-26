@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>모니터링 on GoniGoni!</title>
+    <link>/tags/%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/</link>
+    <description>Recent content in 모니터링 on GoniGoni!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Tue, 25 Dec 2018 17:15:00 +0900</lastBuildDate>
+    
+	<atom:link href="/tags/%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Netstat으로 리눅스 서버에서 클라이언트 접속 확인하기</title>
+      <link>/posts/how-to-see-netstat/</link>
+      <pubDate>Tue, 25 Dec 2018 17:15:00 +0900</pubDate>
+      
+      <guid>/posts/how-to-see-netstat/</guid>
+      <description>회사에서 개발한 웹 서비스의 내부 테스트 버전을 배포하고, 다음과 같은 질문을 받았다.
+ 박대리님, 서버에서 클라이언트가 몇 명이 접속 중인지 알 수 있는 방법이 있을까요?
+ 사실 여러 사람을 대상으로 하는 웹 서비스를 개발하고 배포하는 건 처음이라, 이걸 어떻게 알 수 있는지 궁금하긴 했다.
+그래서, how to get the number of connections from web server라는 키워드로 구글 검색을 해 보았다.
+  여기 나오는 문서들 중에서 가장 많이 언급되는 유틸리티가 netstat인데, 여기서 연결 개수를 어떻게 체크해 볼 수 있는지 알아보자.</description>
+    </item>
+    
+  </channel>
+</rss>

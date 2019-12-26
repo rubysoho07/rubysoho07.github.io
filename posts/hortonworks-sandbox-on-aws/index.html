@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ko-kr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Hortonworks Sandbox를 AWS에서 사용하기 - GoniGoni!</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	
+	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-131546844-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/" title="GoniGoni!" rel="home">
+				<div class="logo__title">GoniGoni!</div>
+				<div class="logo__tagline">개발 블로그이지만 개발 말고 다른 이야기도 합니다.</div>
+			</a>
+		</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Hortonworks Sandbox를 AWS에서 사용하기</h1>
+			
+		</header><div class="content post__content clearfix">
+			<h2 id="heading">들어가며</h2>
+<p>최근에 <a href="http://www.yes24.com/Product/Goods/44307209">&lsquo;하둡과 스파크를 활용한 실용 데이터 과학&rsquo;</a>이라는 책을 읽고 따라해 보고 있다. 이 책에서는 실습을 위해 호튼웍스(Hortonworks)의 Sandbox 이미지를 사용해 보기를 권장하고 있다. 그런데 설치 방법을 찾다 보니, 권장 사양이 높은 것 같다는 생각이 들었다. 이 이미지를 VirtualBox에서 사용할 때, 메모리 용량이 8GB로 설정되어 있었다. 그런데 지금 내가 쓰고 있는 노트북의 메모리 용량이 8GB라 좀 어려울 것 같았다. 그래서 AWS에 이 이미지를 올려보게 되었다.</p>
+<p><strong>(주의: 이 글에서 설명하는 내용은 AWS의 Free Tier 범위를 넘어가므로 사용한 만큼 요금이 부과됩니다. 크레딧이 있거나 비용 지불이 가능한 경우에 사용하시기 바랍니다. 비용 발생에 대한 책임은 독자에게 있습니다.)</strong></p>
+<h2 id="hortonworks-sandbox--">Hortonworks Sandbox 이미지 받기</h2>
+<p><a href="https://www.cloudera.com/downloads/hortonworks-sandbox/hdp.html">다운로드 사이트로 이동</a></p>
+<p>위의 사이트에 들어가 보면, 설치 타입을 VMWare, Virtualbox, Docker 중 하나로 선택할 수 있다. 나는 Virtualbox를 선택했다. (참고로 Hortonworks는 최근에  클라우데라와 합병했다고 한다)</p>
+<p>다운로드 받기 전에 이것저것 물어보는데, 아래의 체크박스에 체크하지 않아도 모든 텍스트박스만 채우면 받을 수 있다.</p>
+<p>나는 2.5 버전을 받았다. 3.0, 2.6.5 버전은 AMI로 변환하는 과정에서 커널 문제 때문에 변환이 안 되어 이전 버전을 사용했다.</p>
+<p>참고로 이미지 용량이 10GB를 넘으므로, 여유있게 기다리자. (집에서 다운로드 받는데 1시간 정도 걸렸다)</p>
+<h2 id="--">시작 전 세팅</h2>
+<p>먼저 IAM 계정을 설정하고, 내 노트북에는 AWS CLI를 설치했다.</p>
+<p>IAM 계정 설정에 대해서는 <a href="https://docs.aws.amazon.com/ko_kr/IAM/latest/UserGuide/getting-started_create-admin-group.html">AWS의 문서</a>를 참고하면 된다. 굳이 내가 설명하지 않아도 될 것 같아 문서만 링크했다.</p>
+<p>(물론 실제 운영 중인 서비스라면 AdministratorAccess를 부여하는 것은 지양해야 한다만, 설명의 편의를 위해 이렇게 진행하겠다)</p>
+<p>그리고 AWS CLI 설치는 <a href="https://aws.amazon.com/ko/cli/">AWS 명령줄 인터페이스</a> 문서를 참고한다.</p>
+<p>파이썬이 설치되어 있다면, 터미널에서 <code>python -m pip install awscli</code>를 입력해서 설치하는 것이 가장 빠를 것이다.</p>
+<h2 id="s3-----">S3 버킷에 가상 머신 이미지 업로드</h2>
+<p>여기부터 이미지를 import 하는 과정까지는 CLI로 진행해 보겠다.</p>
+<p>먼저 버킷을 생성한다. <code>&lt;Bucket name&gt;</code>이라고 표시된 부분은 원하는 대로 변경한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws s3api create-bucket --bucket &lt;Bucket name&gt; --create-bucket-configuration LocationConstraint<span style="color:#f92672">=</span>ap-northeast-2
+<span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;Location&#34;</span>: <span style="color:#e6db74">&#34;http://&lt;Bucket name&gt;.s3.amazonaws.com/&#34;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>참고로 <code>us-east-1</code> 리전 외에는 LocationConstraint 옵션을 주어야 한다. 나는 서울 리전(ap-northeast-2)에 버킷을 만들었다. (<a href="https://stackoverflow.com/questions/49174673/aws-s3api-create-bucket-bucket-make-exception">참고자료</a>)</p>
+<p>이제 다운로드 받은 이미지를 S3 버킷에 업로드한다. <code>&lt;Bucket name&gt;</code>은 앞에서 만든 버킷 이름으로 변경한다. 그리고 <code>&lt;file path and name&gt;</code>은 다운로드한 VM 이미지 파일의 전체 경로로 변경한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws s3 cp &lt;file path and name&gt; s3://&lt;Bucket name&gt;/
+</code></pre></div><p>참고로 <code>aws s3api put-object</code>를 이용하면 <a href="https://docs.aws.amazon.com/ko_kr/AmazonS3/latest/dev/UploadingObjects.html">단일 작업으로 올릴 수 있는 파일 크기가 5GB로 제한되어 있으므로</a> 업로드를 할 수 없다. 아마 이런 오류를 볼 수 있을 것이다.</p>
+<p><code>An error occurred (EntityTooLarge) when calling the PutObject operation: Your proposed upload exceeds the maximum allowed size</code></p>
+<p>위의 <code>aws s3 cp</code>를 이용하거나 멀티파트 업로드를 이용해 업로드하면 된다.</p>
+<p>(이 작업도 시간이 많이 소요된다. 내 노트북으로는 30분 정도 걸렸던 것 같다.)</p>
+<h2 id="---ami-">가상 머신 이미지를 AMI로 등록하기</h2>
+<p>가상 머신 이미지를 AMI로 등록하기 위해서는 vmimport라는 서비스 역할이 필요하며, IAM 정책을 역할에 연결해야 한다.</p>
+<p><a href="https://docs.aws.amazon.com/ko_kr/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role">AWS 문서</a>를 참조하여 IAM 역할을 만든 뒤 다음 단계로 진행한다.</p>
+<p>이제 다음과 같이 JSON 파일을 만든 뒤 저장한다. (VirtualBox 이미지이므로, Format 속성을 ova로 설정한다.)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+    {
+        <span style="color:#f92672">&#34;Description&#34;</span>: <span style="color:#e6db74">&#34;&lt;임의의 설명&gt;&#34;</span>,
+        <span style="color:#f92672">&#34;Format&#34;</span>: <span style="color:#e6db74">&#34;ova&#34;</span>,
+        <span style="color:#f92672">&#34;UserBucket&#34;</span>: {
+            <span style="color:#f92672">&#34;S3Bucket&#34;</span>: <span style="color:#e6db74">&#34;&lt;bucket name&gt;&#34;</span>,
+            <span style="color:#f92672">&#34;S3Key&#34;</span>: <span style="color:#e6db74">&#34;&lt;image name&gt;&#34;</span>
+        }
+    }
+]
+</code></pre></div><p>이 파일을 저장한 뒤 다음 명령을 터미널에서 실행한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> aws ec2 import-image --description <span style="color:#e6db74">&#34;&lt;임의의 설명&gt;&#34;</span> --disk-containers <span style="color:#e6db74">&#34;file://&lt;작성한 JSON 파일의 위치&gt;&#34;</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;Description&#34;</span>: <span style="color:#e6db74">&#34;&lt;임의의 설명&gt;&#34;</span>,
+    <span style="color:#e6db74">&#34;ImportTaskId&#34;</span>: <span style="color:#e6db74">&#34;import-ami-&lt;자동으로 지정되는 숫자/알파벳&gt;&#34;</span>,
+    <span style="color:#e6db74">&#34;Progress&#34;</span>: <span style="color:#e6db74">&#34;2&#34;</span>,
+    <span style="color:#e6db74">&#34;SnapshotDetails&#34;</span>: <span style="color:#f92672">[</span>
+        <span style="color:#f92672">{</span>
+            <span style="color:#e6db74">&#34;DiskImageSize&#34;</span>: 0.0,
+            <span style="color:#e6db74">&#34;Format&#34;</span>: <span style="color:#e6db74">&#34;OVA&#34;</span>,
+            <span style="color:#e6db74">&#34;UserBucket&#34;</span>: <span style="color:#f92672">{</span>
+                <span style="color:#e6db74">&#34;S3Bucket&#34;</span>: <span style="color:#e6db74">&#34;&lt;bucket name&gt;&#34;</span>,
+                <span style="color:#e6db74">&#34;S3Key&#34;</span>: <span style="color:#e6db74">&#34;&lt;image file name&gt;&#34;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">]</span>,
+    <span style="color:#e6db74">&#34;Status&#34;</span>: <span style="color:#e6db74">&#34;active&#34;</span>,
+    <span style="color:#e6db74">&#34;StatusMessage&#34;</span>: <span style="color:#e6db74">&#34;pending&#34;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>이 작업도 시간이 오래 소요될 것이다. 작업 진행 중인 상태를 보려면 다음 명령을 입력한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws ec2 describe-import-image-tasks --import-task-ids import-ami-&lt;자동으로 지정되는 숫자/알파벳&gt;
+<span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;ImportImageTasks&#34;</span>: <span style="color:#f92672">[</span>
+        <span style="color:#f92672">{</span>
+            <span style="color:#e6db74">&#34;Description&#34;</span>: <span style="color:#e6db74">&#34;&lt;임의의 설명&gt;&#34;</span>,
+            <span style="color:#e6db74">&#34;ImportTaskId&#34;</span>: <span style="color:#e6db74">&#34;import-ami-&lt;자동으로 지정되는 숫자/알파벳&gt;&#34;</span>,
+            <span style="color:#e6db74">&#34;Progress&#34;</span>: <span style="color:#e6db74">&#34;30&#34;</span>,
+            <span style="color:#e6db74">&#34;SnapshotDetails&#34;</span>: <span style="color:#f92672">[</span>
+                <span style="color:#f92672">{</span>
+                    <span style="color:#e6db74">&#34;DiskImageSize&#34;</span>: 11772940288.0,
+                    <span style="color:#e6db74">&#34;Format&#34;</span>: <span style="color:#e6db74">&#34;VMDK&#34;</span>,
+                    <span style="color:#e6db74">&#34;Status&#34;</span>: <span style="color:#e6db74">&#34;completed&#34;</span>,
+                    <span style="color:#e6db74">&#34;UserBucket&#34;</span>: <span style="color:#f92672">{</span>
+                        <span style="color:#e6db74">&#34;S3Bucket&#34;</span>: <span style="color:#e6db74">&#34;&lt;bucket name&gt;&#34;</span>,
+                        <span style="color:#e6db74">&#34;S3Key&#34;</span>: <span style="color:#e6db74">&#34;&lt;image file name&gt;&#34;</span>
+                    <span style="color:#f92672">}</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">]</span>,
+            <span style="color:#e6db74">&#34;Status&#34;</span>: <span style="color:#e6db74">&#34;active&#34;</span>,
+            <span style="color:#e6db74">&#34;StatusMessage&#34;</span>: <span style="color:#e6db74">&#34;completed&#34;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">]</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>StatusMessage 값이 &ldquo;completed&quot;가 될 때까지 기다리면 이 AMI를 EC2에 올릴 수 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;ImportImageTasks&#34;</span>: [
+        {
+            <span style="color:#f92672">&#34;Architecture&#34;</span>: <span style="color:#e6db74">&#34;x86_64&#34;</span>,
+            <span style="color:#f92672">&#34;Description&#34;</span>: <span style="color:#e6db74">&#34;&lt;임의의 설명&gt;&#34;</span>,
+            <span style="color:#f92672">&#34;ImageId&#34;</span>: <span style="color:#e6db74">&#34;ami-&lt;자동으로 지정되는 숫자/알파벳&gt;&#34;</span>,
+            <span style="color:#f92672">&#34;ImportTaskId&#34;</span>: <span style="color:#e6db74">&#34;import-ami-&lt;자동으로 지정되는 숫자/알파벳&gt;&#34;</span>,
+            <span style="color:#f92672">&#34;LicenseType&#34;</span>: <span style="color:#e6db74">&#34;BYOL&#34;</span>,
+            <span style="color:#f92672">&#34;Platform&#34;</span>: <span style="color:#e6db74">&#34;Linux&#34;</span>,
+            <span style="color:#f92672">&#34;SnapshotDetails&#34;</span>: [
+                {
+                    <span style="color:#f92672">&#34;DeviceName&#34;</span>: <span style="color:#e6db74">&#34;/dev/sda1&#34;</span>,
+                    <span style="color:#f92672">&#34;DiskImageSize&#34;</span>: <span style="color:#ae81ff">11772940288.0</span>,
+                    <span style="color:#f92672">&#34;Format&#34;</span>: <span style="color:#e6db74">&#34;VMDK&#34;</span>,
+                    <span style="color:#f92672">&#34;SnapshotId&#34;</span>: <span style="color:#e6db74">&#34;snap-04525706b9b899bf0&#34;</span>,
+                    <span style="color:#f92672">&#34;Status&#34;</span>: <span style="color:#e6db74">&#34;completed&#34;</span>,
+                    <span style="color:#f92672">&#34;UserBucket&#34;</span>: {
+                        <span style="color:#f92672">&#34;S3Bucket&#34;</span>: <span style="color:#e6db74">&#34;&lt;bucket name&gt;&#34;</span>,
+                        <span style="color:#f92672">&#34;S3Key&#34;</span>: <span style="color:#e6db74">&#34;&lt;image file name&gt;&#34;</span>
+                    }
+                }
+            ],
+            <span style="color:#f92672">&#34;Status&#34;</span>: <span style="color:#e6db74">&#34;completed&#34;</span>
+        }
+    ]
+}
+</code></pre></div><h2 id="ec2-">EC2 설정하기</h2>
+<p>EC2 콘솔에서 <strong>인스턴스 시작</strong>을 클릭한다. 이 화면에서 왼쪽 메뉴에 있는 <strong>나의 AMI</strong>를 클릭한 뒤, 새로 생성된 AMI를 선택한다.</p>
+<figure>
+    <img src="/img/hdp-1.png"/> 
+</figure>
+
+<p>그 다음부터는 일반적인 EC2 인스턴스를 만드는 것과 같이 동일하게 진행하면 된다.</p>
+<p>참고로 일부 인스턴스 유형은 제한되어 있으니 적절하게 선택하자.</p>
+<h2 id="heading-1">참고자료</h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/vm-import/latest/userguide/vmimport-image-import.html">VM Import/Export를 사용하여 VM을 이미지로 가져오기</a></li>
+<li><a href="https://ahmadhajjar.me/blog/2018/04/28/how-to-run-hortonworks-hdp-2-5-in-aws-ec2/">How to Run Hortonworks HDP 2.5 in AWS EC2</a></li>
+</ul>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/aws/" rel="tag">AWS</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/ec2/" rel="tag">EC2</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/hadoop/" rel="tag">Hadoop</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/big-data/" rel="tag">Big Data</a></li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2019 Yungon Park.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

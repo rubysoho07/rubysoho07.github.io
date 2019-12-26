@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>문자열 on GoniGoni!</title>
+    <link>/tags/%EB%AC%B8%EC%9E%90%EC%97%B4/</link>
+    <description>Recent content in 문자열 on GoniGoni!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Sat, 01 Dec 2018 20:54:00 +0900</lastBuildDate>
+    
+	<atom:link href="/tags/%EB%AC%B8%EC%9E%90%EC%97%B4/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>파이썬 문자열 다루기 - str.format()</title>
+      <link>/posts/python-string-interpolation/</link>
+      <pubDate>Sat, 01 Dec 2018 20:54:00 +0900</pubDate>
+      
+      <guid>/posts/python-string-interpolation/</guid>
+      <description>문자열을 다루다 보면 .format()을 사용하는데, .format()으로 어떻게 문자열 중간을 채워볼 지에 대해 알아보겠다. 이 글은 필요할 때 매번 찾아보다가 귀찮아서 정리해 본 것이다.
+들어가기 전에&amp;hellip; 혹시 C를 배워본 적이 있는지? C에는 printf()라는 함수가 있다. 변수의 내용을 표시하기 위해 아래 코드와 같이 %d, %f등의 문자열을 사용한 적이 있을 것이다.
+int a = 0;printf(&amp;#39;%d&amp;#39;, a);파이썬 또한 이런 방법을 지원한다. 하지만 튜플이나 딕셔너리와 같은 자료형은 제대로 표시되지 않는 문제가 있다고 한다. 자세한 내용은 링크를 참조하자.</description>
+    </item>
+    
+    <item>
+      <title>Python 날짜/시간을 문자열로 만들기 위한 규칙 정리</title>
+      <link>/posts/python-datetime-string-formatting/</link>
+      <pubDate>Mon, 14 May 2018 23:24:00 +0900</pubDate>
+      
+      <guid>/posts/python-datetime-string-formatting/</guid>
+      <description>파이썬을 쓰다 보면 문자열을 다루는 경우가 많은데, 문자열을 특정한 양식에 맞추어야 하는 경우가 종종 있었다. 이 경우 PyFormat과 같은 사이트를 참조한다. 하지만 날짜나 시간을 formatting 할 때는 상세한 규칙이 정리되어 있지 않아서 이 참에 정리를 해 보려고 한다.
+문자열을 넣거나 숫자를 다루는 경우, PyFormat에 자세한 내용이 있어서 생략한다.
+이 글에서는 현재 시간을 datetime 객체로 받고, 이를 가지고 날짜와 시간을 문자열로 formatting 해 볼 것이다. (아래 코드 참조)
+import datetimenow = datetime.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ko-kr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Python `@property` 데코레이터와 getter/setter - GoniGoni!</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	
+	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-131546844-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/" title="GoniGoni!" rel="home">
+				<div class="logo__title">GoniGoni!</div>
+				<div class="logo__tagline">개발 블로그이지만 개발 말고 다른 이야기도 합니다.</div>
+			</a>
+		</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Python `@property` 데코레이터와 getter/setter</h1>
+			
+		</header><div class="content post__content clearfix">
+			<p>예전에 어떤 소스를 보다가 클래스 내부에 <code>@property</code> 데코레이터가 붙어 있는 경우를 본 적이 있다. 어떤 경우에 사용하는지 궁금해서 한 번 정리해 보려 한다.</p>
+<h3 id="property-">property() 함수</h3>
+<p>먼저 property() 함수에 대해 살펴보자.</p>
+<pre><code>class property(fget=None, fset=None, fdel=None, doc=None)
+</code></pre><p>페이지 아래에 링크한 자료를 살펴보면, property 함수는 property 속성을 반환한다고 나와 있다. 그리고 fget 인자에는 속성 값에 대한 getter 함수, fset 인자에는 속성 값에 대한 setter 함수, fdel 인자에는 속성 값을 지우는 함수를 지정한다고 한다. 그리고 doc 인자는 속성에 대한 docstring을 넣어주면 된다.</p>
+<p>예제를 살펴보자.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">C</span>:
+    <span style="color:#66d9ef">def</span> __init__(self):
+        self<span style="color:#f92672">.</span>_x <span style="color:#f92672">=</span> None
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">getx</span>(self):
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>_x
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">setx</span>(self, value):
+        self<span style="color:#f92672">.</span>_x <span style="color:#f92672">=</span> value
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">delx</span>(self):
+        <span style="color:#66d9ef">del</span> self<span style="color:#f92672">.</span>_x
+
+    x <span style="color:#f92672">=</span> property(getx, setx, delx, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">I</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">m the </span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">x</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74"> property.</span><span style="color:#e6db74">&#34;</span>)
+</code></pre></div><p>C 클래스의 인스턴스 c가 있다고 가정하자. <code>c.x</code>를 하면 getter인 getx 함수가 호출될 것이고, <code>c.x = (임의의 값)</code>을 수행하면 setter인 setx를 호출할 것이다. 그리고 del c.x를 수행하면 deleter인 delx가 호출될 것이다.</p>
+<h3 id="property-decorator"><code>@property</code> decorator</h3>
+<p>아래에 있는 예제를 살펴보자.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Parrot</span>:
+    <span style="color:#66d9ef">def</span> __init__(self):
+        self<span style="color:#f92672">.</span>_voltage <span style="color:#f92672">=</span> <span style="color:#ae81ff">100000</span>
+
+    <span style="color:#a6e22e">@property</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">voltage</span>(self):
+        <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">Get the current voltage.</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>_voltage
+</code></pre></div><p>Parrot 클래스의 voltage 부분을 살펴보자. <code>@property</code> 데코레이터가 붙어있음을 알 수 있다. 만약 Parrot 클래스의 인스턴스를 만들고, 아래와 같이 voltage 값을 조회하도록 하면 다음과 같은 결과를 볼 수 있을 것이다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;</span><span style="color:#f92672">&gt;</span> p <span style="color:#f92672">=</span> Parrot()
+<span style="color:#f92672">&gt;&gt;</span><span style="color:#f92672">&gt;</span> p<span style="color:#f92672">.</span>voltage
+<span style="color:#ae81ff">100000</span>
+</code></pre></div><p>그러면 voltage property에 새로운 값을 넣으려고 하면 어떻게 될까?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;</span><span style="color:#f92672">&gt;</span> p<span style="color:#f92672">.</span>voltage <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000000</span>
+Traceback (most recent call last):
+  File <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&lt;stdin&gt;</span><span style="color:#e6db74">&#34;</span>, line <span style="color:#ae81ff">1</span>, <span style="color:#f92672">in</span> <span style="color:#f92672">&lt;</span>module<span style="color:#f92672">&gt;</span>
+<span style="color:#a6e22e">AttributeError</span>: can<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">t set attribute</span>
+</code></pre></div><p>위와 같이 <code>can't set attribute</code>라는 오류 메시지를 볼 수 있다. 그렇다면, 새로운 값을 설정할 수 있게 만드려면 어떻게 해야 할까?</p>
+<p>이 property에 setter를 지정해 주면 된다. 아래 예제에서 <code>@voltage.setter</code>가 붙은 부분에 주목하자.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Parrot</span>:
+    <span style="color:#66d9ef">def</span> __init__(self):
+        self<span style="color:#f92672">.</span>_voltage <span style="color:#f92672">=</span> <span style="color:#ae81ff">100000</span>
+    
+    <span style="color:#a6e22e">@property</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">voltage</span>(self):
+        <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">Get the current voltage.</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>_voltage
+    
+    <span style="color:#a6e22e">@voltage.setter</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">voltage</span>(self, value):
+        <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">Set the new voltage.</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+        self<span style="color:#f92672">.</span>_voltage <span style="color:#f92672">=</span> value
+</code></pre></div><p>이렇게 <code>@(property 이름).setter</code>를 지정하면 setter를 만들 수 있다. 원래의 property와 동일한 이름의 함수를 추가해야 함에 유의하자. (위의 예제에서는 <code>voltage</code>)</p>
+<p>아래와 같이 테스트 해 보면 정상적으로 작동하는 것을 알 수 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;</span><span style="color:#f92672">&gt;</span> p<span style="color:#f92672">.</span>voltage <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000000</span>
+<span style="color:#f92672">&gt;&gt;</span><span style="color:#f92672">&gt;</span> p<span style="color:#f92672">.</span>voltage
+<span style="color:#ae81ff">1000000</span>
+</code></pre></div><p>deleter 또한 <code>@(property 이름).deleter</code>로 지정할 수 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a6e22e">@voltage.deleter</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">voltage</span>(self):
+    <span style="color:#66d9ef">del</span> self<span style="color:#f92672">.</span>_voltage
+</code></pre></div><h3 id="heading">참고자료</h3>
+<p><a href="https://docs.python.org/3/library/functions.html#property">https://docs.python.org/3/library/functions.html#property</a></p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/python/" rel="tag">Python</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/property/" rel="tag">property</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/getter/" rel="tag">getter</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/setter/" rel="tag">setter</a></li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2019 Yungon Park.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

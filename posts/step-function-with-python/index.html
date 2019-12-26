@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ko-kr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Python으로 Step Functions 활동 만들기 - GoniGoni!</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	
+	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-131546844-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/" title="GoniGoni!" rel="home">
+				<div class="logo__title">GoniGoni!</div>
+				<div class="logo__tagline">개발 블로그이지만 개발 말고 다른 이야기도 합니다.</div>
+			</a>
+		</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Python으로 Step Functions 활동 만들기</h1>
+			
+		</header><div class="content post__content clearfix">
+			<p>AWS에는 <a href="https://aws.amazon.com/ko/step-functions/">Step Functions</a>라는 서비스가 있다. 여러 개의 활동(activity)를 조합해서 순서대로 또는 반복적으로 원하는 작업을 실행할 수 있도록 해 주는 서비스이다.</p>
+<p>일반적으로는 여러 개의 Lambda 함수를 연결해서 사용하는 경우가 많다. 하지만 Lambda 함수의 실행 시간이 5분을 넘어가면, 다른 방법을 고려해야 한다. 이럴 때 활동을 생성하고 이를 수행하는 코드를 작성하면, 오래 걸리는 작업도 Step Functions로 이용할 수 있다.</p>
+<h2 id="activity-">활동(Activity) 만들기</h2>
+<ol>
+<li>Step Functions 콘솔의 왼쪽 메뉴에서 <code>활동</code>을 클릭한다.</li>
+<li>화면이 바뀌면 우측의 <code>활동 생성</code>을 클릭하여 새로운 활동을 만든다.</li>
+<li>활동 이름 입력 창에서 임의의 활동 이름을 입력한다.</li>
+<li>여기서 나오는 ARN을 메모한다. 활동 이름은 알고 있어도 되지만 몰라도 상관은 없다.</li>
+</ol>
+<h2 id="-state-machine-">상태 머신(State Machine) 만들기</h2>
+<ol>
+<li>콘솔의 왼쪽 메뉴에서 <code>상태 머신</code>을 클릭한다.</li>
+<li>우측 상단의 <code>상태 머신 생성</code>을 클릭한다.</li>
+<li>상태 머신의 이름을 입력하고, 필요한 경우 IAM 역할을 생성한다. <!-- raw HTML omitted --> (<code>나를 위한 역할 생성</code>에 체크, <code>AWS Step Functions이 Lambda 함수에 대한...</code> 옵션에 체크)</li>
+<li>그리고 <code>상태 머신 정의</code> 칸에는 다음과 같이 입력한다. (여기가 앞에서 메모한 ARN이 사용되는 부분이다. ARN은 뒤에서도 이용하니 메모를 버리지 말자.)</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;StartAt&#34;</span>: <span style="color:#e6db74">&#34;TestActivity&#34;</span>,
+  <span style="color:#f92672">&#34;States&#34;</span>: {
+    <span style="color:#f92672">&#34;TestActivity&#34;</span>: {
+      <span style="color:#f92672">&#34;Type&#34;</span>: <span style="color:#e6db74">&#34;Task&#34;</span>,
+      <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;앞에서 메모한 ARN 주소&#34;</span>,
+      <span style="color:#f92672">&#34;End&#34;</span>: <span style="color:#66d9ef">true</span>
+    }
+  }
+}
+</code></pre></div><p>간단하게 설명을 하자면,</p>
+<ol>
+<li>이 상태 머신은 TestActivity부터 동작을 시작한다.</li>
+<li>TestActivity의 작동이 끝나면 이 상태 머신의 작동도 끝난다는 의미이다.</li>
+</ol>
+<h2 id="---">파이썬으로 작동할 내용 코딩하기</h2>
+<p>먼저 작업을 실행할 수 있도록 해 보자.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> boto3
+<span style="color:#f92672">import</span> json
+
+<span style="color:#75715e"># Step Functions에 대한 Client를 생성한다. </span>
+client <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>client(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">stepfunctions</span><span style="color:#e6db74">&#39;</span>)
+
+<span style="color:#75715e"># 실행 요청이 들어올 때까지 대기한다.</span>
+response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>get_activity_task(
+    activityArn<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">앞에서 메모한 ARN 주소</span><span style="color:#e6db74">&#39;</span>,
+    workerName<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">TestWorker</span><span style="color:#e6db74">&#39;</span>
+)
+</code></pre></div><p><code>get_activity_task</code>에서 <code>activityArn</code>은 앞에서 메모한 ARN을 입력하면 된다. <code>workerName</code>은 따로 적어 주지 않아도 된다. 원래 용도는 작업이 할당된 worker를 구분하기 위한 용도이다.</p>
+<p>그리고 <code>import json</code>이 들어간 이유는 나중에 확인할 수 있다.</p>
+<p>이 결과로 반환되는 값은 <strong>dictionary</strong>다. 반환되는 값과 의미는 다음과 같다.</p>
+<ul>
+<li><strong>taskToken</strong>: 작업을 구분하기 위한 Token이다. 작업을 수행 중인지를 알려주거나(HeartBeat) 성공, 실패 여부를 전달할 때 사용한다.</li>
+<li><strong>input</strong>: State Machine이 시작될 때나 앞에서 수행한 내용에서 입력된 값이다. JSON 포맷의 문자열로 전달된다.</li>
+</ul>
+<p>각 값은 아래와 같이 가져올 수 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">task_token <span style="color:#f92672">=</span> response[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">taskToken</span><span style="color:#e6db74">&#39;</span>]
+activity_input <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>loads(response[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">input</span><span style="color:#e6db74">&#39;</span>])
+</code></pre></div><p>입력 값을 가져올 때, JSON 포맷의 문자열을 dictionary로 변환하기 위해 <code>json.loads()</code>를 이용하였다. <code>import json</code>이 앞에 있는 이유는 여기 있었다.</p>
+<p>그 다음으로는 가져온 값으로 처리할 내용을 자유롭게 적어준다. 사실 가져온 값과 상관 없이 수행하고 싶은 내용을 적어도 무방하다. (<a href="https://gist.github.com/rubysoho07/4892af6d47e364ebb976b715738e3163">전체 코드</a>)</p>
+<p>이제 성공과 실패를 갈라보자.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">if</span> activity_input[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">in</span><span style="color:#e6db74">&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">SUCCESS</span><span style="color:#e6db74">&#39;</span>:
+    <span style="color:#75715e"># 작업 성공 시, Task가 성공했음을 알린다.</span>
+    response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>send_task_success(
+        taskToken<span style="color:#f92672">=</span>task_token,
+        output<span style="color:#f92672">=</span>json<span style="color:#f92672">.</span>dumps({ <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">result</span><span style="color:#e6db74">&#39;</span>: activity_input })
+    )
+<span style="color:#66d9ef">else</span>:
+    <span style="color:#75715e"># 작업 실패 시, Task가 실패했음을 알린다.</span>
+    response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>send_task_failure(
+        taskToken<span style="color:#f92672">=</span>task_token,
+        error<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">NO_SUCCESS_INPUT</span><span style="color:#e6db74">&#39;</span>,
+        cause<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Input is not </span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">SUCCESS</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#39;</span>
+    )
+</code></pre></div><ul>
+<li><strong>작업이 성공했을 때는 <code>send_task_success</code>를 호출한다.</strong> 앞에서 가져온 Task Token과 결과 값을 JSON 형식의 문자열로 전달해야 한다. 앞의 코드에서 <code>import json</code>을 쓴 이유가 여기에도 있다.</li>
+<li><strong>작업이 실패했을 때는 <code>send_task_failure</code>를 호출한다.</strong> Task Token은 당연히 들어가야 하고, <code>error</code>에는 임의의 오류 코드, <code>cause</code>에는 에러가 발생한 이유를 적는다.</li>
+</ul>
+<h2 id="--">테스트 해 보기</h2>
+<p>앞에서 만들었던 스크립트를 EC2에서 실행하면, 활동을 수행하기 위해 기다릴 것이다. (혹시 스크립트를 실행할 수 없다면, AWS CLI로 사용자 설정을 해야 한다. 또한 이 사용자는 Step Functions를 실행할 권한을 갖고 있어야 한다.)</p>
+<p>그리고 콘솔에서 앞에서 만들었던 상태 머신으로 들어가면, 주황색의 <code>실행 시작</code>이라는 버튼을 볼 수 있다.</p>
+<p>실행 ID는 임의로 입력하고, 입력 내용은 다음과 같이 입력한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;in&#34;</span>: <span style="color:#e6db74">&#34;SUCCESS&#34;</span>
+}
+</code></pre></div><p>이 경우는 성공한다. 실행 결과는 다음과 같다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;output&#34;</span>: {
+    <span style="color:#f92672">&#34;result&#34;</span>: {
+      <span style="color:#f92672">&#34;in&#34;</span>: <span style="color:#e6db74">&#34;SUCCESS&#34;</span>
+    }
+  }
+}
+</code></pre></div><p>실패하는 경우를 만드려면, <code>&quot;in&quot;</code> 부분에 임의의 값을 입력한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;in&#34;</span>: <span style="color:#e6db74">&#34;RANDOM&#34;</span>
+}
+</code></pre></div><p>실패 시에는 실행 이벤트 내역에서 ActivityFailed 부분을 참고하면 오류 내용을 파악할 수 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;error&#34;</span>: <span style="color:#e6db74">&#34;NO_SUCCESS_INPUT&#34;</span>,
+  <span style="color:#f92672">&#34;cause&#34;</span>: <span style="color:#e6db74">&#34;Input is not \&#34;SUCCESS\&#34;&#34;</span>
+}
+</code></pre></div><h2 id="heading">참고자료</h2>
+<p><a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/stepfunctions.html">Boto 3 Documentation - Step Functions(SFN)</a></p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/aws/" rel="tag">AWS</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/step-functions/" rel="tag">Step Functions</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/ec2/" rel="tag">EC2</a></li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2019 Yungon Park.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

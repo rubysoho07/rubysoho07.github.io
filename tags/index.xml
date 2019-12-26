@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on GoniGoni!</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on GoniGoni!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Tue, 22 Oct 2019 21:02:00 +0900</lastBuildDate>
+    
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AWS</title>
+      <link>/tags/aws/</link>
+      <pubDate>Tue, 22 Oct 2019 21:02:00 +0900</pubDate>
+      
+      <guid>/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CloudFormation</title>
+      <link>/tags/cloudformation/</link>
+      <pubDate>Tue, 22 Oct 2019 21:02:00 +0900</pubDate>
+      
+      <guid>/tags/cloudformation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lambda</title>
+      <link>/tags/lambda/</link>
+      <pubDate>Tue, 22 Oct 2019 21:02:00 +0900</pubDate>
+      
+      <guid>/tags/lambda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SAM</title>
+      <link>/tags/sam/</link>
+      <pubDate>Tue, 22 Oct 2019 21:02:00 +0900</pubDate>
+      
+      <guid>/tags/sam/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Big Data</title>
+      <link>/tags/big-data/</link>
+      <pubDate>Wed, 16 Oct 2019 21:05:00 +0900</pubDate>
+      
+      <guid>/tags/big-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EC2</title>
+      <link>/tags/ec2/</link>
+      <pubDate>Wed, 16 Oct 2019 21:05:00 +0900</pubDate>
+      
+      <guid>/tags/ec2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hadoop</title>
+      <link>/tags/hadoop/</link>
+      <pubDate>Wed, 16 Oct 2019 21:05:00 +0900</pubDate>
+      
+      <guid>/tags/hadoop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MongoDB</title>
+      <link>/tags/mongodb/</link>
+      <pubDate>Sat, 16 Feb 2019 22:30:00 +0900</pubDate>
+      
+      <guid>/tags/mongodb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2018년</title>
+      <link>/tags/2018%EB%85%84/</link>
+      <pubDate>Tue, 01 Jan 2019 18:13:00 +0900</pubDate>
+      
+      <guid>/tags/2018%EB%85%84/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>회고</title>
+      <link>/tags/%ED%9A%8C%EA%B3%A0/</link>
+      <pubDate>Tue, 01 Jan 2019 18:13:00 +0900</pubDate>
+      
+      <guid>/tags/%ED%9A%8C%EA%B3%A0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>netstat</title>
+      <link>/tags/netstat/</link>
+      <pubDate>Tue, 25 Dec 2018 17:15:00 +0900</pubDate>
+      
+      <guid>/tags/netstat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>네트워크</title>
+      <link>/tags/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/</link>
+      <pubDate>Tue, 25 Dec 2018 17:15:00 +0900</pubDate>
+      
+      <guid>/tags/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>모니터링</title>
+      <link>/tags/%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/</link>
+      <pubDate>Tue, 25 Dec 2018 17:15:00 +0900</pubDate>
+      
+      <guid>/tags/%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>format</title>
+      <link>/tags/format/</link>
+      <pubDate>Sat, 01 Dec 2018 20:54:00 +0900</pubDate>
+      
+      <guid>/tags/format/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>문자열</title>
+      <link>/tags/%EB%AC%B8%EC%9E%90%EC%97%B4/</link>
+      <pubDate>Sat, 01 Dec 2018 20:54:00 +0900</pubDate>
+      
+      <guid>/tags/%EB%AC%B8%EC%9E%90%EC%97%B4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>리뷰</title>
+      <link>/tags/%EB%A6%AC%EB%B7%B0/</link>
+      <pubDate>Thu, 29 Nov 2018 23:36:00 +0900</pubDate>
+      
+      <guid>/tags/%EB%A6%AC%EB%B7%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>책</title>
+      <link>/tags/%EC%B1%85/</link>
+      <pubDate>Thu, 29 Nov 2018 23:36:00 +0900</pubDate>
+      
+      <guid>/tags/%EC%B1%85/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Boto3</title>
+      <link>/tags/boto3/</link>
+      <pubDate>Thu, 29 Nov 2018 00:38:00 +0900</pubDate>
+      
+      <guid>/tags/boto3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Paginator</title>
+      <link>/tags/paginator/</link>
+      <pubDate>Thu, 29 Nov 2018 00:38:00 +0900</pubDate>
+      
+      <guid>/tags/paginator/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>S3</title>
+      <link>/tags/s3/</link>
+      <pubDate>Thu, 29 Nov 2018 00:38:00 +0900</pubDate>
+      
+      <guid>/tags/s3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Step Functions</title>
+      <link>/tags/step-functions/</link>
+      <pubDate>Thu, 04 Oct 2018 23:21:00 +0900</pubDate>
+      
+      <guid>/tags/step-functions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>font</title>
+      <link>/tags/font/</link>
+      <pubDate>Thu, 04 Oct 2018 21:34:00 +0900</pubDate>
+      
+      <guid>/tags/font/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>oh-my-zsh</title>
+      <link>/tags/oh-my-zsh/</link>
+      <pubDate>Thu, 04 Oct 2018 21:34:00 +0900</pubDate>
+      
+      <guid>/tags/oh-my-zsh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Visual Studio Code</title>
+      <link>/tags/visual-studio-code/</link>
+      <pubDate>Thu, 04 Oct 2018 21:34:00 +0900</pubDate>
+      
+      <guid>/tags/visual-studio-code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>VSCode</title>
+      <link>/tags/vscode/</link>
+      <pubDate>Thu, 04 Oct 2018 21:34:00 +0900</pubDate>
+      
+      <guid>/tags/vscode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zsh</title>
+      <link>/tags/zsh/</link>
+      <pubDate>Thu, 04 Oct 2018 21:34:00 +0900</pubDate>
+      
+      <guid>/tags/zsh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MySQL</title>
+      <link>/tags/mysql/</link>
+      <pubDate>Wed, 03 Oct 2018 14:24:00 +0900</pubDate>
+      
+      <guid>/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RDS</title>
+      <link>/tags/rds/</link>
+      <pubDate>Wed, 03 Oct 2018 14:24:00 +0900</pubDate>
+      
+      <guid>/tags/rds/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>/tags/git/</link>
+      <pubDate>Tue, 02 Oct 2018 23:46:00 +0900</pubDate>
+      
+      <guid>/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>datetime</title>
+      <link>/tags/datetime/</link>
+      <pubDate>Thu, 13 Sep 2018 00:08:00 +0900</pubDate>
+      
+      <guid>/tags/datetime/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fromtimestamp</title>
+      <link>/tags/fromtimestamp/</link>
+      <pubDate>Thu, 13 Sep 2018 00:08:00 +0900</pubDate>
+      
+      <guid>/tags/fromtimestamp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>/tags/python/</link>
+      <pubDate>Thu, 13 Sep 2018 00:08:00 +0900</pubDate>
+      
+      <guid>/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pep-8</title>
+      <link>/tags/pep-8/</link>
+      <pubDate>Sat, 26 May 2018 10:32:00 +0900</pubDate>
+      
+      <guid>/tags/pep-8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>underscore</title>
+      <link>/tags/underscore/</link>
+      <pubDate>Sat, 26 May 2018 10:32:00 +0900</pubDate>
+      
+      <guid>/tags/underscore/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>getter</title>
+      <link>/tags/getter/</link>
+      <pubDate>Fri, 18 May 2018 23:36:00 +0900</pubDate>
+      
+      <guid>/tags/getter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>property</title>
+      <link>/tags/property/</link>
+      <pubDate>Fri, 18 May 2018 23:36:00 +0900</pubDate>
+      
+      <guid>/tags/property/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>setter</title>
+      <link>/tags/setter/</link>
+      <pubDate>Fri, 18 May 2018 23:36:00 +0900</pubDate>
+      
+      <guid>/tags/setter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>시간대</title>
+      <link>/tags/%EC%8B%9C%EA%B0%84%EB%8C%80/</link>
+      <pubDate>Thu, 17 May 2018 22:06:00 +0900</pubDate>
+      
+      <guid>/tags/%EC%8B%9C%EA%B0%84%EB%8C%80/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>내장 함수</title>
+      <link>/tags/%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98/</link>
+      <pubDate>Wed, 16 May 2018 23:27:00 +0900</pubDate>
+      
+      <guid>/tags/%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>테스트</title>
+      <link>/tags/%ED%85%8C%EC%8A%A4%ED%8A%B8/</link>
+      <pubDate>Tue, 15 May 2018 22:35:00 +0900</pubDate>
+      
+      <guid>/tags/%ED%85%8C%EC%8A%A4%ED%8A%B8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>/tags/linux/</link>
+      <pubDate>Sat, 21 Apr 2018 21:09:00 +0900</pubDate>
+      
+      <guid>/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sed</title>
+      <link>/tags/sed/</link>
+      <pubDate>Sat, 21 Apr 2018 21:09:00 +0900</pubDate>
+      
+      <guid>/tags/sed/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>이직</title>
+      <link>/tags/%EC%9D%B4%EC%A7%81/</link>
+      <pubDate>Sun, 10 Dec 2017 16:02:00 +0900</pubDate>
+      
+      <guid>/tags/%EC%9D%B4%EC%A7%81/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
