@@ -3,12 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/tags/aws/</loc>
-    <lastmod>2019-10-22T21:02:00+09:00</lastmod>
+    <loc>/categories/</loc>
+    <lastmod>2020-01-01T20:43:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/everything/</loc>
+    <lastmod>2020-01-01T20:43:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-01-01T20:43:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2020-01-01T20:43:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-01-01T20:43:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/%EA%B5%90%EC%9C%A1/</loc>
+    <lastmod>2020-01-01T20:43:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/%EC%8B%A0%EC%9E%85-%EC%82%AC%EC%9B%90/</loc>
+    <lastmod>2020-01-01T20:43:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/retrospect-lecture-for-newbie/</loc>
+    <lastmod>2020-01-01T20:43:58+09:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/aws/</loc>
+    <lastmod>2019-10-22T21:02:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/aws/</loc>
     <lastmod>2019-10-22T21:02:00+09:00</lastmod>
   </url>
   
@@ -18,17 +58,7 @@
   </url>
   
   <url>
-    <loc>/categories/</loc>
-    <lastmod>2019-10-22T21:02:00+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/cloudformation/</loc>
-    <lastmod>2019-10-22T21:02:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
     <lastmod>2019-10-22T21:02:00+09:00</lastmod>
   </url>
   
@@ -38,17 +68,7 @@
   </url>
   
   <url>
-    <loc>/posts/</loc>
-    <lastmod>2019-10-22T21:02:00+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/sam/</loc>
-    <lastmod>2019-10-22T21:02:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2019-10-22T21:02:00+09:00</lastmod>
   </url>
   
@@ -89,11 +109,6 @@
   
   <url>
     <loc>/posts/retrospect-2018/</loc>
-    <lastmod>2019-01-01T18:13:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/everything/</loc>
     <lastmod>2019-01-01T18:13:00+09:00</lastmod>
   </url>
   
@@ -238,12 +253,12 @@
   </url>
   
   <url>
-    <loc>/categories/git/</loc>
+    <loc>/tags/git/</loc>
     <lastmod>2018-10-02T23:46:00+09:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/git/</loc>
+    <loc>/categories/git/</loc>
     <lastmod>2018-10-02T23:46:00+09:00</lastmod>
   </url>
   

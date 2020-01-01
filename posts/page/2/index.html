@@ -51,6 +51,23 @@ if (!doNotTrack) {
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
+			<a href="/posts/vscode-oh-my-zsh/" rel="bookmark">
+			VSCode와 oh-my-zsh를 사용할 때 터미널 글꼴이 깨진다면
+			</a>
+		</h3>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		최근에 oh-my-zsh를 써 보기 시작했다. (써보면 편하다고는 하는데, 아직까지는 체감을 못하고 있긴 하다.)
+그런데 Visual Studio Code에서 터미널을 쓸 때, 아래처럼 글꼴이 깨지는 현상이 있었다. (현재 테마는 &ldquo;agnoster&quot;이다.)
+  이 문제에 대해 찾아보니, 다음과 같은 이슈를 발견할 수 있었다.
+https://github.com/Microsoft/vscode/issues/7116
+여기서 제시하는 해결책은 다음과 같다.
+ &ldquo;SourceCodePro+Powerline+Awesome Regular&rdquo; 글꼴을 받아 설치한다. 링크 Visual Studio Code 설정에서 terminal.integrated.fontFamily 항목에 'SourceCodePro+Powerline+Awesome Regular'를 넣는다. (작은 따옴표를 포함해야 한다!)  그러면 아래와 같이 터미널의 글꼴이 깨지지 않게 된다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
 			<a href="/posts/logging-rds/" rel="bookmark">
 			RDS MySQL에서 일반/느린 쿼리 로그 찍기
 			</a>
@@ -184,21 +201,6 @@ sum(iterable[, start])iterable 객체를 받아서 각 요소들의 합을 구�
 import unittestclass TestExample(unittest.TestCase):def test_a(self):self.assertEqual(1 == 2, False)그리고 쉘에서 python -m unittest를 입력하면, 아무 테스트도 실행하지 않는다.
 $ python -m unittest----------------------------------------------------------------------Ran 0 tests in 0.000sOK왜 그럴까? unittest 라이브러리는 기본적으로 실행하는 top-level 디렉터리에서 test로 시작하는 파일을 찾아서 테스트를 수행한다.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/posts/python-datetime-string-formatting/" rel="bookmark">
-			Python 날짜/시간을 문자열로 만들기 위한 규칙 정리
-			</a>
-		</h3>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		파이썬을 쓰다 보면 문자열을 다루는 경우가 많은데, 문자열을 특정한 양식에 맞추어야 하는 경우가 종종 있었다. 이 경우 PyFormat과 같은 사이트를 참조한다. 하지만 날짜나 시간을 formatting 할 때는 상세한 규칙이 정리되어 있지 않아서 이 참에 정리를 해 보려고 한다.
-문자열을 넣거나 숫자를 다루는 경우, PyFormat에 자세한 내용이 있어서 생략한다.
-이 글에서는 현재 시간을 datetime 객체로 받고, 이를 가지고 날짜와 시간을 문자열로 formatting 해 볼 것이다. (아래 코드 참조)
-import datetimenow = datetime.
-	</div>
 </article>
 </main>
 
@@ -278,12 +280,14 @@ import datetimenow = datetime.
 		<a class="widget-taglist__link widget__link btn" href="/tags/visual-studio-code/" title="Visual Studio Code">Visual Studio Code</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/vscode/" title="VSCode">VSCode</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zsh/" title="zsh">zsh</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B5%90%EC%9C%A1/" title="교육">교육</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98/" title="내장 함수">내장 함수</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" title="네트워크">네트워크</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%A6%AC%EB%B7%B0/" title="리뷰">리뷰</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/" title="모니터링">모니터링</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%AC%B8%EC%9E%90%EC%97%B4/" title="문자열">문자열</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%8B%9C%EA%B0%84%EB%8C%80/" title="시간대">시간대</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%8B%A0%EC%9E%85-%EC%82%AC%EC%9B%90/" title="신입 사원">신입 사원</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9D%B4%EC%A7%81/" title="이직">이직</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%B1%85/" title="책">책</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%85%8C%EC%8A%A4%ED%8A%B8/" title="테스트">테스트</a>
