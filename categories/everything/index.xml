@@ -6,10 +6,21 @@
     <description>Recent content in Everything on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 01 Jan 2020 20:43:58 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 04 Jan 2020 15:11:05 +0900</lastBuildDate>
     
 	<atom:link href="/categories/everything/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Retrospect 2019</title>
+      <link>/posts/retrospect-2019/</link>
+      <pubDate>Sat, 04 Jan 2020 15:11:05 +0900</pubDate>
+      
+      <guid>/posts/retrospect-2019/</guid>
+      <description>2020년이 된 지 4일이 되었지만, 지난 1년 간에 있었던 일들을 정리해 보려 합니다.
+발표 AWS Summit Seoul 2019 커뮤니티 세션에서 저희 부서의 데이터 저장 기반 구축 사례를 소개했습니다. 다음 영상에서 확인하실 수 있습니다. (슬라이드는 여기를 눌러주세요)
+  PyCon Korea 외의 다른 행사에서 발표하는 건 처음이었는데요. 정말 많은 분들이 오셔서 긴장했는데, 어떻게든 잘 넘어갔던 것 같아요. 발표한 내용은 재작년(2018) 말 기준으로 구성했던 내용이고, 현재 저희 팀의 AWS 인프라는 많은 부분이 바뀐 상태입니다.</description>
+    </item>
     
     <item>
       <title>신입 사원 교육 후기: 이상과 현실</title>
