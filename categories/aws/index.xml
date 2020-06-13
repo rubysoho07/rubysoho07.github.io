@@ -41,9 +41,9 @@
       <description>최근에 AWS에서 MongoDB와 호환되는 DocumentDB를 출시했지만, 아직 서울 리전에서는 사용할 수 없다.
 (2019년 5월에 서울 리전에 출시되었습니다. 링크한 글을 확인해 주세요~)
 그렇지만 필요에 따라 MongoDB를 쓸 일이 있을 것이다. AWS에서 Bitnami의 이미지를 활용해서 EC2에 MongoDB를 올려보고, 시험 삼아 데이터를 넣어보자.
-EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어간다. 아래 스크린샷과 같은 화면이 나오면, &amp;lsquo;인스턴스 시작&#39;을 누른다.
+EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어간다. 아래 스크린샷과 같은 화면이 나오면, &amp;lsquo;인스턴스 시작&amp;rsquo;을 누른다.
   그리고 검색어에서 MongoDB를 입력하고, 왼쪽에서 AWS Marketplace를 누른다.
-  스크롤을 아래로 내리다 보면, &amp;lsquo;MongoDB Certified by Bitnami&#39;가 있다.</description>
+  스크롤을 아래로 내리다 보면, &amp;lsquo;MongoDB Certified by Bitnami&amp;rsquo;가 있다.</description>
     </item>
     
     <item>
@@ -89,9 +89,9 @@ Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로
       <guid>/posts/check-lambda-version/</guid>
       <description>test라는 함수가 있고, dev, release라는 별칭(alias)이 존재한다고 하자. 그리고 모든 별칭은 동일한 버전을 가리킨다고 하자.
 이 경우 context 객체의 invoked_function_arn은 어떻게 달라지는지 보자. 테스트를 위해, 다음과 같이 파이썬으로 함수를 작성하였다.
-import jsondef lambda_handler(event, context): print(context.invoked_function_arn)return &amp;#34;Success&amp;#34;그리고 CloudWatch에 기록된 로그를 보자.
+import json def lambda_handler(event, context): print(context.invoked_function_arn) return &amp;#34;Success&amp;#34; 그리고 CloudWatch에 기록된 로그를 보자.
 dev인 경우
-START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1arn:aws:lambda:ap-northeast-2:256724228018:function:test:devEND RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67aREPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Duration: 1.56 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 22 MBrelease인 경우</description>
+START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1 arn:aws:lambda:ap-northeast-2:256724228018:function:test:dev END RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Duration: 1.56 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 22 MB release인 경우</description>
     </item>
     
   </channel>

@@ -52,14 +52,14 @@ if (!doNotTrack) {
 		</header><div class="content post__content clearfix">
 			<p>AWS에는 <a href="https://aws.amazon.com/ko/step-functions/">Step Functions</a>라는 서비스가 있다. 여러 개의 활동(activity)를 조합해서 순서대로 또는 반복적으로 원하는 작업을 실행할 수 있도록 해 주는 서비스이다.</p>
 <p>일반적으로는 여러 개의 Lambda 함수를 연결해서 사용하는 경우가 많다. 하지만 Lambda 함수의 실행 시간이 5분을 넘어가면, 다른 방법을 고려해야 한다. 이럴 때 활동을 생성하고 이를 수행하는 코드를 작성하면, 오래 걸리는 작업도 Step Functions로 이용할 수 있다.</p>
-<h2 id="activity-">활동(Activity) 만들기</h2>
+<h2 id="활동activity-만들기">활동(Activity) 만들기</h2>
 <ol>
 <li>Step Functions 콘솔의 왼쪽 메뉴에서 <code>활동</code>을 클릭한다.</li>
 <li>화면이 바뀌면 우측의 <code>활동 생성</code>을 클릭하여 새로운 활동을 만든다.</li>
 <li>활동 이름 입력 창에서 임의의 활동 이름을 입력한다.</li>
 <li>여기서 나오는 ARN을 메모한다. 활동 이름은 알고 있어도 되지만 몰라도 상관은 없다.</li>
 </ol>
-<h2 id="-state-machine-">상태 머신(State Machine) 만들기</h2>
+<h2 id="상태-머신state-machine-만들기">상태 머신(State Machine) 만들기</h2>
 <ol>
 <li>콘솔의 왼쪽 메뉴에서 <code>상태 머신</code>을 클릭한다.</li>
 <li>우측 상단의 <code>상태 머신 생성</code>을 클릭한다.</li>
@@ -81,18 +81,18 @@ if (!doNotTrack) {
 <li>이 상태 머신은 TestActivity부터 동작을 시작한다.</li>
 <li>TestActivity의 작동이 끝나면 이 상태 머신의 작동도 끝난다는 의미이다.</li>
 </ol>
-<h2 id="---">파이썬으로 작동할 내용 코딩하기</h2>
+<h2 id="파이썬으로-작동할-내용-코딩하기">파이썬으로 작동할 내용 코딩하기</h2>
 <p>먼저 작업을 실행할 수 있도록 해 보자.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> boto3
 <span style="color:#f92672">import</span> json
 
-<span style="color:#75715e"># Step Functions에 대한 Client를 생성한다. </span>
-client <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>client(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">stepfunctions</span><span style="color:#e6db74">&#39;</span>)
+<span style="color:#75715e"># Step Functions에 대한 Client를 생성한다. </span>
+client <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>client(<span style="color:#e6db74">&#39;stepfunctions&#39;</span>)
 
-<span style="color:#75715e"># 실행 요청이 들어올 때까지 대기한다.</span>
+<span style="color:#75715e"># 실행 요청이 들어올 때까지 대기한다.</span>
 response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>get_activity_task(
-    activityArn<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">앞에서 메모한 ARN 주소</span><span style="color:#e6db74">&#39;</span>,
-    workerName<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">TestWorker</span><span style="color:#e6db74">&#39;</span>
+    activityArn<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;앞에서 메모한 ARN 주소&#39;</span>,
+    workerName<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;TestWorker&#39;</span>
 )
 </code></pre></div><p><code>get_activity_task</code>에서 <code>activityArn</code>은 앞에서 메모한 ARN을 입력하면 된다. <code>workerName</code>은 따로 적어 주지 않아도 된다. 원래 용도는 작업이 할당된 worker를 구분하기 위한 용도이다.</p>
 <p>그리고 <code>import json</code>이 들어간 이유는 나중에 확인할 수 있다.</p>
@@ -102,29 +102,29 @@ response <span style="color:#f92672">=</span> client<span style="color:#f92672">
 <li><strong>input</strong>: State Machine이 시작될 때나 앞에서 수행한 내용에서 입력된 값이다. JSON 포맷의 문자열로 전달된다.</li>
 </ul>
 <p>각 값은 아래와 같이 가져올 수 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">task_token <span style="color:#f92672">=</span> response[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">taskToken</span><span style="color:#e6db74">&#39;</span>]
-activity_input <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>loads(response[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">input</span><span style="color:#e6db74">&#39;</span>])
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">task_token <span style="color:#f92672">=</span> response[<span style="color:#e6db74">&#39;taskToken&#39;</span>]
+activity_input <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>loads(response[<span style="color:#e6db74">&#39;input&#39;</span>])
 </code></pre></div><p>입력 값을 가져올 때, JSON 포맷의 문자열을 dictionary로 변환하기 위해 <code>json.loads()</code>를 이용하였다. <code>import json</code>이 앞에 있는 이유는 여기 있었다.</p>
 <p>그 다음으로는 가져온 값으로 처리할 내용을 자유롭게 적어준다. 사실 가져온 값과 상관 없이 수행하고 싶은 내용을 적어도 무방하다. (<a href="https://gist.github.com/rubysoho07/4892af6d47e364ebb976b715738e3163">전체 코드</a>)</p>
 <p>이제 성공과 실패를 갈라보자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">if</span> activity_input[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">in</span><span style="color:#e6db74">&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">SUCCESS</span><span style="color:#e6db74">&#39;</span>:
-    <span style="color:#75715e"># 작업 성공 시, Task가 성공했음을 알린다.</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">if</span> activity_input[<span style="color:#e6db74">&#39;in&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;SUCCESS&#39;</span>:
+    <span style="color:#75715e"># 작업 성공 시, Task가 성공했음을 알린다.</span>
     response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>send_task_success(
         taskToken<span style="color:#f92672">=</span>task_token,
-        output<span style="color:#f92672">=</span>json<span style="color:#f92672">.</span>dumps({ <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">result</span><span style="color:#e6db74">&#39;</span>: activity_input })
+        output<span style="color:#f92672">=</span>json<span style="color:#f92672">.</span>dumps({ <span style="color:#e6db74">&#39;result&#39;</span>: activity_input })
     )
 <span style="color:#66d9ef">else</span>:
-    <span style="color:#75715e"># 작업 실패 시, Task가 실패했음을 알린다.</span>
+    <span style="color:#75715e"># 작업 실패 시, Task가 실패했음을 알린다.</span>
     response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>send_task_failure(
         taskToken<span style="color:#f92672">=</span>task_token,
-        error<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">NO_SUCCESS_INPUT</span><span style="color:#e6db74">&#39;</span>,
-        cause<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Input is not </span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">SUCCESS</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#39;</span>
+        error<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;NO_SUCCESS_INPUT&#39;</span>,
+        cause<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Input is not &#34;SUCCESS&#34;&#39;</span>
     )
 </code></pre></div><ul>
 <li><strong>작업이 성공했을 때는 <code>send_task_success</code>를 호출한다.</strong> 앞에서 가져온 Task Token과 결과 값을 JSON 형식의 문자열로 전달해야 한다. 앞의 코드에서 <code>import json</code>을 쓴 이유가 여기에도 있다.</li>
 <li><strong>작업이 실패했을 때는 <code>send_task_failure</code>를 호출한다.</strong> Task Token은 당연히 들어가야 하고, <code>error</code>에는 임의의 오류 코드, <code>cause</code>에는 에러가 발생한 이유를 적는다.</li>
 </ul>
-<h2 id="--">테스트 해 보기</h2>
+<h2 id="테스트-해-보기">테스트 해 보기</h2>
 <p>앞에서 만들었던 스크립트를 EC2에서 실행하면, 활동을 수행하기 위해 기다릴 것이다. (혹시 스크립트를 실행할 수 없다면, AWS CLI로 사용자 설정을 해야 한다. 또한 이 사용자는 Step Functions를 실행할 권한을 갖고 있어야 한다.)</p>
 <p>그리고 콘솔에서 앞에서 만들었던 상태 머신으로 들어가면, 주황색의 <code>실행 시작</code>이라는 버튼을 볼 수 있다.</p>
 <p>실행 ID는 임의로 입력하고, 입력 내용은 다음과 같이 입력한다.</p>
@@ -148,7 +148,7 @@ activity_input <span style="color:#f92672">=</span> json<span style="color:#f926
   <span style="color:#f92672">&#34;error&#34;</span>: <span style="color:#e6db74">&#34;NO_SUCCESS_INPUT&#34;</span>,
   <span style="color:#f92672">&#34;cause&#34;</span>: <span style="color:#e6db74">&#34;Input is not \&#34;SUCCESS\&#34;&#34;</span>
 }
-</code></pre></div><h2 id="heading">참고자료</h2>
+</code></pre></div><h2 id="참고자료">참고자료</h2>
 <p><a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/stepfunctions.html">Boto 3 Documentation - Step Functions(SFN)</a></p>
 
 		</div>
@@ -199,7 +199,7 @@ activity_input <span style="color:#f92672">=</span> json<span style="color:#f926
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2019 Yungon Park.
+			&copy; 2020 Yungon Park.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>

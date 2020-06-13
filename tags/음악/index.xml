@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>음악 on GoniGoni!</title>
+    <link>/tags/%EC%9D%8C%EC%95%85/</link>
+    <description>Recent content in 음악 on GoniGoni!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Sat, 13 Jun 2020 12:59:28 +0900</lastBuildDate>
+    
+	<atom:link href="/tags/%EC%9D%8C%EC%95%85/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>요즘 좋아하는 노래들</title>
+      <link>/posts/favorite-music-nowadays/</link>
+      <pubDate>Sat, 13 Jun 2020 12:59:28 +0900</pubDate>
+      
+      <guid>/posts/favorite-music-nowadays/</guid>
+      <description>제 인생의 즐거움 중 가장 큰 것들을 뽑으라면 축구와 락 페스티벌이라 할 수 있습니다. 근데 요즘은 코로나 때문에 락페든 축구든 직관이 불가능한 상황이죠. 그러다 보니 유튜브에서 락 페스티벌 공연 영상을 자주 봤었어요. 원래 알고 있던 노래도 있지만, 새로 알게된 노래들 중 최근에 자주 들었던 노래들을 소개해 드리려고 합니다. 한 편으로는 블로그에 GitHub Actions를 걸어놨는데, 이게 제대로 동작하는지 테스트해 보고 싶어서 쓰는 글이기도 합니다.
+Idles - Danny Nedelko   원래 뮤직비디오도 좋지만, 개인적으로는 작년 글라스톤베리에서 공연했던 영상을 더 좋아합니다.</description>
+    </item>
+    
+  </channel>
+</rss>

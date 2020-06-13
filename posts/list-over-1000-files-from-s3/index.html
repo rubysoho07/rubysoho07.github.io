@@ -52,18 +52,18 @@ if (!doNotTrack) {
 		</header><div class="content post__content clearfix">
 			<p>S3 버킷에는 여러 파일들을 저장할 수 있다. 그런데, 버킷에 저장된 파일의 목록을 보고 싶은 경우가 있을 것이다. 하지만, AWS의 Python SDK인 Boto3에서 <code>list_objects()</code>나 <code>list_objects_v2()</code> 함수를 이용하면 최대 1,000개까지의 object만 가져올 수 있다. <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.list_objects_v2">[참고]</a> (근본적으로는 AWS의 API가 최대 1,000개까지의 object만 가져오도록 구현되어 있다. - <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/v2-RESTBucketGET.html">[참고]</a>)</p>
 <p>이런 문제를 해결하기 위해, 다음과 같이 Paginator를 이용해 보자.</p>
-<h3 id="paginator-">Paginator 이용하기</h3>
-<h4 id="get-paginator-paginator-">get_paginator()로 Paginator 가져오기</h4>
+<h3 id="paginator-이용하기">Paginator 이용하기</h3>
+<h4 id="get_paginator로-paginator-가져오기">get_paginator()로 Paginator 가져오기</h4>
 <p>기본적으로 S3를 담당할 클라이언트를 생성한 뒤, get_paginator()로 Paginator를 가져온다. 여기서는 하나의 버킷에서 object들을 가져오기 위해 <code>list_objects_v2</code>를 이용한다. (Boto3 문서에서는 <code>list_objects()</code>보다 <code>list_objects_v2()</code>를 이용하는 것을 권장하니 이를 이용하자.)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> boto3
 
-client <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>client(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">s3</span><span style="color:#e6db74">&#39;</span>)
-paginator <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>get_paginator(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">list_objects_v2</span><span style="color:#e6db74">&#39;</span>)
-</code></pre></div><h4 id="paginator-----">Paginator를 이용해서 버킷의 파일 목록 가져오기</h4>
+client <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>client(<span style="color:#e6db74">&#39;s3&#39;</span>)
+paginator <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>get_paginator(<span style="color:#e6db74">&#39;list_objects_v2&#39;</span>)
+</code></pre></div><h4 id="paginator를-이용해서-버킷의-파일-목록-가져오기">Paginator를 이용해서 버킷의 파일 목록 가져오기</h4>
 <p>Paginator의 <code>paginate()</code> 메소드를 이용하면, 지정한 paginator에서 응답을 페이지 단위로 저장하는 iterator를 만든다. 게시판에서 페이지 단위로 글 목록을 만드는 것과 비슷하다고 보면 된다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">response_iterator <span style="color:#f92672">=</span> paginator<span style="color:#f92672">.</span>paginate(
-    Bucket<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">string</span><span style="color:#e6db74">&#39;</span>,
-    Prefix<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">string</span><span style="color:#e6db74">&#39;</span>
+    Bucket<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;string&#39;</span>,
+    Prefix<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;string&#39;</span>
 )
 </code></pre></div><p>일단 자주 쓸만한 옵션에 대해 설명해 보겠다. 자세한 내용은 아래 참고자료에 링크한 문서를 확인해 보자.</p>
 <ul>
@@ -72,17 +72,17 @@ paginator <span style="color:#f92672">=</span> client<span style="color:#f92672"
 </ul>
 <p>이렇게 생성된 iterator를 이용해 파일 이름만 출력해 보자. 여기서 파일 이름은 앞에서 지정한 <code>Prefix</code> 옵션을 포함해서 출력된다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> page <span style="color:#f92672">in</span> response_iterator:
-    <span style="color:#66d9ef">for</span> content <span style="color:#f92672">in</span> page[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Contents</span><span style="color:#e6db74">&#39;</span>]:
-        <span style="color:#66d9ef">print</span>(content[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Key</span><span style="color:#e6db74">&#39;</span>])
+    <span style="color:#66d9ef">for</span> content <span style="color:#f92672">in</span> page[<span style="color:#e6db74">&#39;Contents&#39;</span>]:
+        <span style="color:#66d9ef">print</span>(content[<span style="color:#e6db74">&#39;Key&#39;</span>])
 </code></pre></div><p>위의 코드에서 <code>content['Key']</code> 부분에서 <code>'Key'</code> 대신 다른 정보도 가져올 수 있다.</p>
 <ul>
 <li><code>LastModified</code>: 마지막으로 수정된 날짜/시간이다. (DateTime 형)</li>
 <li><code>Size</code>: 정수(int)로 되어 있고, 바이트 단위이다.</li>
 <li><code>StorageClass</code>: 저장된 파일의 스토리지 클래스이다. 따로 스토리지 클래스를 지정하지 않았다면 <code>STANDARD</code>라는 문자열을 볼 수 있다.</li>
 </ul>
-<h3 id="heading">여담</h3>
+<h3 id="여담">여담</h3>
 <p>Paginator는 위에서 언급한 것처럼 파일 목록을 가져오는 경우 외에도 사용할 수 있다. 또한 S3 외의 서비스에서도 Paginator를 사용할 수 있다. 예를 들어 AWS Lambda에서 사용 중인 함수의 목록을 관리할 때, <code>list_functions()</code>를 이용할 때가 있다. 하지만 <code>list_functions()</code>가 반환하는 최대 함수 수는 50개이다. 이 경우에도 Paginator를 이용해 50 개가 넘는 함수 목록을 얻을 수 있다.</p>
-<h3 id="heading-1">참고자료</h3>
+<h3 id="참고자료">참고자료</h3>
 <p><a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Paginator.ListObjectsV2">Boto3 - S3.Paginator.ListObjectsV2</a></p>
 
 		</div>
@@ -134,7 +134,7 @@ paginator <span style="color:#f92672">=</span> client<span style="color:#f92672"
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2019 Yungon Park.
+			&copy; 2020 Yungon Park.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>

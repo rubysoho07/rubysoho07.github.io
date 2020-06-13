@@ -6,10 +6,91 @@
     <description>Recent content in Tags on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 22 Oct 2019 21:02:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2020 12:59:28 +0900</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Arcade Fire</title>
+      <link>/tags/arcade-fire/</link>
+      <pubDate>Sat, 13 Jun 2020 12:59:28 +0900</pubDate>
+      
+      <guid>/tags/arcade-fire/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Belle and Sebastian</title>
+      <link>/tags/belle-and-sebastian/</link>
+      <pubDate>Sat, 13 Jun 2020 12:59:28 +0900</pubDate>
+      
+      <guid>/tags/belle-and-sebastian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Beta Band</title>
+      <link>/tags/beta-band/</link>
+      <pubDate>Sat, 13 Jun 2020 12:59:28 +0900</pubDate>
+      
+      <guid>/tags/beta-band/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Idles</title>
+      <link>/tags/idles/</link>
+      <pubDate>Sat, 13 Jun 2020 12:59:28 +0900</pubDate>
+      
+      <guid>/tags/idles/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>음악</title>
+      <link>/tags/%EC%9D%8C%EC%95%85/</link>
+      <pubDate>Sat, 13 Jun 2020 12:59:28 +0900</pubDate>
+      
+      <guid>/tags/%EC%9D%8C%EC%95%85/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2019년</title>
+      <link>/tags/2019%EB%85%84/</link>
+      <pubDate>Sat, 04 Jan 2020 15:11:05 +0900</pubDate>
+      
+      <guid>/tags/2019%EB%85%84/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>회고</title>
+      <link>/tags/%ED%9A%8C%EA%B3%A0/</link>
+      <pubDate>Sat, 04 Jan 2020 15:11:05 +0900</pubDate>
+      
+      <guid>/tags/%ED%9A%8C%EA%B3%A0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>교육</title>
+      <link>/tags/%EA%B5%90%EC%9C%A1/</link>
+      <pubDate>Wed, 01 Jan 2020 20:43:58 +0900</pubDate>
+      
+      <guid>/tags/%EA%B5%90%EC%9C%A1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>신입 사원</title>
+      <link>/tags/%EC%8B%A0%EC%9E%85-%EC%82%AC%EC%9B%90/</link>
+      <pubDate>Wed, 01 Jan 2020 20:43:58 +0900</pubDate>
+      
+      <guid>/tags/%EC%8B%A0%EC%9E%85-%EC%82%AC%EC%9B%90/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>AWS</title>
@@ -89,15 +170,6 @@
       <pubDate>Tue, 01 Jan 2019 18:13:00 +0900</pubDate>
       
       <guid>/tags/2018%EB%85%84/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>회고</title>
-      <link>/tags/%ED%9A%8C%EA%B3%A0/</link>
-      <pubDate>Tue, 01 Jan 2019 18:13:00 +0900</pubDate>
-      
-      <guid>/tags/%ED%9A%8C%EA%B3%A0/</guid>
       <description></description>
     </item>
     

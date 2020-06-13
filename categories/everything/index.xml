@@ -6,10 +6,41 @@
     <description>Recent content in Everything on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 01 Jan 2019 18:13:00 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2020 12:59:28 +0900</lastBuildDate>
     
 	<atom:link href="/categories/everything/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>요즘 좋아하는 노래들</title>
+      <link>/posts/favorite-music-nowadays/</link>
+      <pubDate>Sat, 13 Jun 2020 12:59:28 +0900</pubDate>
+      
+      <guid>/posts/favorite-music-nowadays/</guid>
+      <description>제 인생의 즐거움 중 가장 큰 것들을 뽑으라면 축구와 락 페스티벌이라 할 수 있습니다. 근데 요즘은 코로나 때문에 락페든 축구든 직관이 불가능한 상황이죠. 그러다 보니 유튜브에서 락 페스티벌 공연 영상을 자주 봤었어요. 원래 알고 있던 노래도 있지만, 새로 알게된 노래들 중 최근에 자주 들었던 노래들을 소개해 드리려고 합니다. 한 편으로는 블로그에 GitHub Actions를 걸어놨는데, 이게 제대로 동작하는지 테스트해 보고 싶어서 쓰는 글이기도 합니다.
+Idles - Danny Nedelko   원래 뮤직비디오도 좋지만, 개인적으로는 작년 글라스톤베리에서 공연했던 영상을 더 좋아합니다.</description>
+    </item>
+    
+    <item>
+      <title>Retrospect 2019</title>
+      <link>/posts/retrospect-2019/</link>
+      <pubDate>Sat, 04 Jan 2020 15:11:05 +0900</pubDate>
+      
+      <guid>/posts/retrospect-2019/</guid>
+      <description>2020년이 된 지 4일이 되었지만, 지난 1년 간에 있었던 일들을 정리해 보려 합니다.
+발표 AWS Summit Seoul 2019 커뮤니티 세션에서 저희 부서의 데이터 저장 기반 구축 사례를 소개했습니다. 다음 영상에서 확인하실 수 있습니다. (슬라이드는 여기를 눌러주세요)
+  PyCon Korea 외의 다른 행사에서 발표하는 건 처음이었는데요. 정말 많은 분들이 오셔서 긴장했는데, 어떻게든 잘 넘어갔던 것 같아요. 발표한 내용은 재작년(2018) 말 기준으로 구성했던 내용이고, 현재 저희 팀의 AWS 인프라는 많은 부분이 바뀐 상태입니다.</description>
+    </item>
+    
+    <item>
+      <title>신입 사원 교육 후기: 이상과 현실</title>
+      <link>/posts/retrospect-lecture-for-newbie/</link>
+      <pubDate>Wed, 01 Jan 2020 20:43:58 +0900</pubDate>
+      
+      <guid>/posts/retrospect-lecture-for-newbie/</guid>
+      <description>연말에 회고를 쓰신 분들을 많이 보게 됩니다. 저는 여러 일들이 있어 이제서야 한숨 돌렸는데요. 작년 회고는 두 개의 글로 나누어 작성하려고 합니다. 먼저 최근에 진행했었던 신입사원 교육 후기(가르치는 사람의 입장에서)를 먼저 공유해 드립니다. 나머지 이야기는 이번 주말에 작성하려고 합니다.
+어떻게 해서 신입 사원을 뽑게 되었는가? 저희 팀의 인프라 담당자는 저를 포함하여 두 명뿐이었습니다. 시간이 지나면서 저희가 갖고 있는 데이터를 기반으로 하는 서비스가 조금씩 늘어났고, 그러면서 업무가 늘어나는 상황이었습니다. 이에 처음에는 경력자를 뽑으려고 했으나, 어려웠던 상황이었는데요.</description>
+    </item>
     
     <item>
       <title>2018년 회고</title>

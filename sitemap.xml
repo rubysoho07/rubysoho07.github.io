@@ -3,6 +3,91 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/tags/arcade-fire/</loc>
+    <lastmod>2020-06-13T12:59:28+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/belle-and-sebastian/</loc>
+    <lastmod>2020-06-13T12:59:28+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/beta-band/</loc>
+    <lastmod>2020-06-13T12:59:28+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2020-06-13T12:59:28+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/everything/</loc>
+    <lastmod>2020-06-13T12:59:28+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-06-13T12:59:28+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/idles/</loc>
+    <lastmod>2020-06-13T12:59:28+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2020-06-13T12:59:28+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-06-13T12:59:28+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/favorite-music-nowadays/</loc>
+    <lastmod>2020-06-13T12:59:28+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/%EC%9D%8C%EC%95%85/</loc>
+    <lastmod>2020-06-13T12:59:28+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/2019%EB%85%84/</loc>
+    <lastmod>2020-01-04T15:11:05+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/retrospect-2019/</loc>
+    <lastmod>2020-01-04T15:11:05+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/%ED%9A%8C%EA%B3%A0/</loc>
+    <lastmod>2020-01-04T15:11:05+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/%EA%B5%90%EC%9C%A1/</loc>
+    <lastmod>2020-01-01T20:43:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/%EC%8B%A0%EC%9E%85-%EC%82%AC%EC%9B%90/</loc>
+    <lastmod>2020-01-01T20:43:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/retrospect-lecture-for-newbie/</loc>
+    <lastmod>2020-01-01T20:43:58+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/aws/</loc>
     <lastmod>2019-10-22T21:02:00+09:00</lastmod>
   </url>
@@ -18,17 +103,7 @@
   </url>
   
   <url>
-    <loc>/categories/</loc>
-    <lastmod>2019-10-22T21:02:00+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/cloudformation/</loc>
-    <lastmod>2019-10-22T21:02:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
     <lastmod>2019-10-22T21:02:00+09:00</lastmod>
   </url>
   
@@ -38,17 +113,7 @@
   </url>
   
   <url>
-    <loc>/posts/</loc>
-    <lastmod>2019-10-22T21:02:00+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/sam/</loc>
-    <lastmod>2019-10-22T21:02:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2019-10-22T21:02:00+09:00</lastmod>
   </url>
   
@@ -89,16 +154,6 @@
   
   <url>
     <loc>/posts/retrospect-2018/</loc>
-    <lastmod>2019-01-01T18:13:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/everything/</loc>
-    <lastmod>2019-01-01T18:13:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/%ED%9A%8C%EA%B3%A0/</loc>
     <lastmod>2019-01-01T18:13:00+09:00</lastmod>
   </url>
   

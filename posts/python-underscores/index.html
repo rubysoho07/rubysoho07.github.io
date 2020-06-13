@@ -65,22 +65,22 @@ if (!doNotTrack) {
 <p>파이썬 모듈에서 C나 C++로 작성한 확장 모듈을 이용할 때, C나 C++ 모듈은 앞에 <code>_</code>를 하나 붙여준다. PEP-8 문서에서는 <code>_socket</code>을 예로 들고 있다.</p>
 <h3 id="global-variable-names">Global Variable Names</h3>
 <p><code>from M import *</code>을 사용하여 모듈을 import 하는 경우, <code>__all__</code> 변수를 사용해서 특정한 global 변수를 외부에서 쓰지 못 하도록 막을 수 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># M.py</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># M.py</span>
 __all__ <span style="color:#f92672">=</span> [aaa, bbb]
 
 aaa <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">bbb</span>():
-    <span style="color:#66d9ef">return</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">bbb</span><span style="color:#e6db74">&#39;</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;bbb&#39;</span>
 
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">ccc</span>():
-    <span style="color:#66d9ef">return</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">ccc</span><span style="color:#e6db74">&#39;</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;ccc&#39;</span>
 </code></pre></div><p>아래와 같이 M 모듈을 import 하고 ccc를 실행하면 예외가 발생한다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> M <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 
 <span style="color:#66d9ef">print</span>(aaa)
 <span style="color:#66d9ef">print</span>(bbb)
 
-<span style="color:#75715e"># 여기서 예외가 발생한다.</span>
+<span style="color:#75715e"># 여기서 예외가 발생한다.</span>
 <span style="color:#66d9ef">print</span>(ccc)
 </code></pre></div><h3 id="method-names-and-instance-variables">Method Names and Instance Variables</h3>
 <ul>
@@ -90,14 +90,14 @@ aaa <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
 <blockquote>
 <p>참고: Foo 클래스가 <code>__a</code>라는 속성이 있으면, <code>Foo.__a</code>로 접근할 수 없다. 사용자는 <code>Foo._Foo__a</code>로만 접근할 수 있다. 상/하위 클래스 간 이름이 충돌하지 않도록 구현하는 경우에만 사용해야 한다.</p>
 </blockquote>
-<h3 id="designing-for-inheritance---">Designing for Inheritance (상속을 위한 디자인)</h3>
+<h3 id="designing-for-inheritance-상속을-위한-디자인">Designing for Inheritance (상속을 위한 디자인)</h3>
 <p>Java나 C++과 같은 언어에서는 <code>public</code>, <code>private</code>와 같이 속성이나 메소드의 접근 가능 범위를 지정해 주는 키워드가 존재한다. 하지만 파이썬에는 그런 키워드가 없다. 대신에 다음과 같은 코딩 스타일을 이용한다.</p>
 <ul>
 <li>Public attribute는 처음에 <code>_</code>을 붙이지 않는다.</li>
 <li>Public attribute가 예약된 키워드와 충돌하면 뒤에 <code>_</code>를 붙인다.</li>
 <li>클래스가 상속되고, 상속된 클래스에서 사용하지 않을 속성이 있다면 2개의 <code>_</code>로 시작하고 끝에는 <code>_</code>를 붙이지 않는다.</li>
 </ul>
-<h3 id="--">기타 다른 이야기</h3>
+<h3 id="기타-다른-이야기">기타 다른 이야기</h3>
 <p>Python에서 <code>_</code>를 쓰는 다른 용법이 있는데, 개인적으로 몰랐던 부분이 있어서 아래 링크한 글이 많은 도움이 되었다.</p>
 <ul>
 <li>Interpreter에서 마지막 값을 저장</li>
@@ -155,7 +155,7 @@ aaa <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2019 Yungon Park.
+			&copy; 2020 Yungon Park.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>

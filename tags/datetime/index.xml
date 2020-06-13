@@ -32,7 +32,7 @@ Ubuntu에서는? 잘 동작한다. 심지어 Windows 10에 깔린 Ubuntu를 이�
       <description>여러 국가에 걸쳐 시간과 관련된 데이터를 얻을 때 시간대가 가장 이슈가 될 것이다. 그리고 AWS와 같이 UTC를 기준으로 하는 서비스가 있기 때문에, 우리나라의 시간대를 기준으로 프로그램을 만들 때 고민이 되는 부분이 있다.
 시간대를 다루기 위해 pytz와 같은 라이브러리가 있지만, 이번에는 파이썬이 기본적으로 제공하는 datetime 모듈만 이용해서 시간대를 다루어 보고자 한다.
 현재 시간 구하기 / UTC 기준 시간 구하기 현재 시간을 구하기 위해서는 datetime.datetime.now()를 이용한다.
-&amp;gt;&amp;gt;&amp;gt; import datetime&amp;gt;&amp;gt;&amp;gt; datetime.datetime.now()datetime.datetime(2018, 5, 17, 21, 43, 13, 554579)한편, UTC 기준의 현재 시간을 구하기 위해서는 datetime.</description>
+&amp;gt;&amp;gt;&amp;gt; import datetime &amp;gt;&amp;gt;&amp;gt; datetime.datetime.now() datetime.datetime(2018, 5, 17, 21, 43, 13, 554579) 한편, UTC 기준의 현재 시간을 구하기 위해서는 datetime.</description>
     </item>
     
   </channel>

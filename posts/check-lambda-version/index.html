@@ -56,7 +56,7 @@ if (!doNotTrack) {
 
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lambda_handler</span>(event, context): 
     <span style="color:#66d9ef">print</span>(context<span style="color:#f92672">.</span>invoked_function_arn)
-    <span style="color:#66d9ef">return</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Success</span><span style="color:#e6db74">&#34;</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Success&#34;</span>
 </code></pre></div><p>그리고 CloudWatch에 기록된 로그를 보자.</p>
 <p>dev인 경우</p>
 <pre><code>START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1
@@ -70,7 +70,7 @@ END RequestId: d6b91b43-5fb3-11e8-88fd-494e3ecde1f0
 REPORT RequestId: d6b91b43-5fb3-11e8-88fd-494e3ecde1f0  Duration: 0.32 ms       Billed Duration: 100 ms         Memory Size: 128 MB     Max Memory Used: 22 MB
 </code></pre><p><code>arn:aws:lambda:ap-northeast-2:256724228018:function:test:dev</code>와 같이 맨 끝에 별칭이 붙는다. &ldquo;:&ldquo;로 구분하면 될 것 같다.</p>
 <p>참고로, function_version은 별칭에 상관 없이 1로 출력된다. context 객체 내의 다른 속성들은 아래 참고자료를 참조하자.</p>
-<h3 id="heading">참고자료</h3>
+<h3 id="참고자료">참고자료</h3>
 <p><a href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/python-context-object.html">https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/python-context-object.html</a></p>
 
 		</div>
@@ -120,7 +120,7 @@ REPORT RequestId: d6b91b43-5fb3-11e8-88fd-494e3ecde1f0  Duration: 0.32 ms       
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2019 Yungon Park.
+			&copy; 2020 Yungon Park.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>

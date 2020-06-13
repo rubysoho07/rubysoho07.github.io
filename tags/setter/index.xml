@@ -19,7 +19,7 @@
       <guid>/posts/python-property-decorator/</guid>
       <description>예전에 어떤 소스를 보다가 클래스 내부에 @property 데코레이터가 붙어 있는 경우를 본 적이 있다. 어떤 경우에 사용하는지 궁금해서 한 번 정리해 보려 한다.
 property() 함수 먼저 property() 함수에 대해 살펴보자.
-class property(fget=None, fset=None, fdel=None, doc=None)페이지 아래에 링크한 자료를 살펴보면, property 함수는 property 속성을 반환한다고 나와 있다. 그리고 fget 인자에는 속성 값에 대한 getter 함수, fset 인자에는 속성 값에 대한 setter 함수, fdel 인자에는 속성 값을 지우는 함수를 지정한다고 한다. 그리고 doc 인자는 속성에 대한 docstring을 넣어주면 된다.</description>
+class property(fget=None, fset=None, fdel=None, doc=None) 페이지 아래에 링크한 자료를 살펴보면, property 함수는 property 속성을 반환한다고 나와 있다. 그리고 fget 인자에는 속성 값에 대한 getter 함수, fset 인자에는 속성 값에 대한 setter 함수, fdel 인자에는 속성 값을 지우는 함수를 지정한다고 한다. 그리고 doc 인자는 속성에 대한 docstring을 넣어주면 된다.</description>
     </item>
     
   </channel>

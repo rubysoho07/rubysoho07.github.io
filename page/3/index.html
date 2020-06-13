@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="ko-kr">
 <head>
-	<meta name="generator" content="Hugo 0.62.0" />
+	<meta name="generator" content="Hugo 0.72.0" />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,6 +50,51 @@ if (!doNotTrack) {
 	<article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
+			<a href="/posts/python-built-in-functions/" rel="bookmark">
+			몰라서 찾아 봤던 파이썬 내장 함수 모음
+			</a>
+		</h3>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		파이썬을 쓰다가 필요한 기능이 있어서 찾아 보면, 언어 자체에서 지원하는 기능인 경우가 종종 있었다. 지금까지 파이썬을 다루면서 찾아봤던 내장 함수들을 정리해 본다.
+아래에서 계속 iterable이라는 말을 많이 쓸 것이다. iterable에는 sequence type인 list, str, tuple 뿐만 아니라 non-sequence type인 dict, file object, 그리고 Sequence semantics를 구현하기 위해 __iter__()나 __getitem__() method가 정의되어 있는 클래스의 object 등이 있다. (참고)
+sum(): 각각의 item을 합치기 참고: https://docs.python.org/3/library/functions.html#sum
+sum(iterable[, start]) iterable 객체를 받아서 각 요소들의 합을 구한다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
+			<a href="/posts/python-making-test-module/" rel="bookmark">
+			파이썬에서 테스트 코드를 만들면서 겪은 일들
+			</a>
+		</h3>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		이번 글에서는 파이썬에서 테스트 코드를 만들면서 겪었던 시행착오에 대해 소개하고자 한다. 여기서는 파이썬에 내장된 unittest를 이용한다.
+테스트를 수행하는 기준은? 간단한 코드를 만들어 보자. 파일 이름은 aaa.py로 저장한다.
+import unittest class TestExample(unittest.TestCase): def test_a(self): self.assertEqual(1 == 2, False) 그리고 쉘에서 python -m unittest를 입력하면, 아무 테스트도 실행하지 않는다.
+$ python -m unittest ---------------------------------------------------------------------- Ran 0 tests in 0.000s OK 왜 그럴까? unittest 라이브러리는 기본적으로 실행하는 top-level 디렉터리에서 test로 시작하는 파일을 찾아서 테스트를 수행한다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
+			<a href="/posts/python-datetime-string-formatting/" rel="bookmark">
+			Python 날짜/시간을 문자열로 만들기 위한 규칙 정리
+			</a>
+		</h3>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		파이썬을 쓰다 보면 문자열을 다루는 경우가 많은데, 문자열을 특정한 양식에 맞추어야 하는 경우가 종종 있었다. 이 경우 PyFormat과 같은 사이트를 참조한다. 하지만 날짜나 시간을 formatting 할 때는 상세한 규칙이 정리되어 있지 않아서 이 참에 정리를 해 보려고 한다.
+문자열을 넣거나 숫자를 다루는 경우, PyFormat에 자세한 내용이 있어서 생략한다.
+이 글에서는 현재 시간을 datetime 객체로 받고, 이를 가지고 날짜와 시간을 문자열로 formatting 해 볼 것이다. (아래 코드 참조)
+import datetime now = datetime.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
 			<a href="/posts/use-sed-to-replace-text/" rel="bookmark">
 			sed를 이용한 텍스트 파일 바꾸기
 			</a>
@@ -59,7 +104,7 @@ if (!doNotTrack) {
 	<div class="content list__excerpt post__content clearfix">
 		쉘 스크립트를 만들 때, 텍스트 파일의 내용을 바꾸는 기능이 필요할 때가 있다. 이 경우 sed를 쓰는데, sed의 사용 방법이 헷갈릴 때가 많아 이 기회에 정리를 해 보고자 한다. 이 글에서는 기본적인 사용 방법과 내가 주로 사용하는 기능만 정리하였다. sed가 지원하는 전체 기능이 궁금하다면, man page(man sed)를 확인하는 것이 최선이다.
 텍스트 바꾸기 기본적으로 sed를 이용해서 텍스트를 바꾸는 방법은 다음과 같다.
-$ sed -i 's/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g' &lt;파일 이름&gt;여기서 -i, s/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/, g가 의미하는 내용은 다음과 같다.
+$ sed -i 's/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g' &lt;파일 이름&gt; 여기서 -i, s/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/, g가 의미하는 내용은 다음과 같다.
 	</div>
 </article><article class="list__item post">
 	<header class="list__header">
@@ -121,7 +166,11 @@ $ sed -i 's/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g' &lt;파일 이름&gt;
 	<h4 class="widget__title">Tags</h4>
 	<div class="widget__content">
 		<a class="widget-taglist__link widget__link btn" href="/tags/2018%EB%85%84/" title="2018년">2018년</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/2019%EB%85%84/" title="2019년">2019년</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/arcade-fire/" title="Arcade Fire">Arcade Fire</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws/" title="AWS">AWS</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/belle-and-sebastian/" title="Belle and Sebastian">Belle and Sebastian</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/beta-band/" title="Beta Band">Beta Band</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/big-data/" title="Big Data">Big Data</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/boto3/" title="Boto3">Boto3</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/cloudformation/" title="CloudFormation">CloudFormation</a>
@@ -133,6 +182,7 @@ $ sed -i 's/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g' &lt;파일 이름&gt;
 		<a class="widget-taglist__link widget__link btn" href="/tags/getter/" title="getter">getter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/git/" title="Git">Git</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/hadoop/" title="Hadoop">Hadoop</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/idles/" title="Idles">Idles</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/lambda/" title="Lambda">Lambda</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/mongodb/" title="MongoDB">MongoDB</a>
@@ -153,12 +203,15 @@ $ sed -i 's/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g' &lt;파일 이름&gt;
 		<a class="widget-taglist__link widget__link btn" href="/tags/visual-studio-code/" title="Visual Studio Code">Visual Studio Code</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/vscode/" title="VSCode">VSCode</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zsh/" title="zsh">zsh</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B5%90%EC%9C%A1/" title="교육">교육</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98/" title="내장 함수">내장 함수</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" title="네트워크">네트워크</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%A6%AC%EB%B7%B0/" title="리뷰">리뷰</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/" title="모니터링">모니터링</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%AC%B8%EC%9E%90%EC%97%B4/" title="문자열">문자열</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%8B%9C%EA%B0%84%EB%8C%80/" title="시간대">시간대</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%8B%A0%EC%9E%85-%EC%82%AC%EC%9B%90/" title="신입 사원">신입 사원</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9D%8C%EC%95%85/" title="음악">음악</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9D%B4%EC%A7%81/" title="이직">이직</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%B1%85/" title="책">책</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%85%8C%EC%8A%A4%ED%8A%B8/" title="테스트">테스트</a>
@@ -202,7 +255,7 @@ $ sed -i 's/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g' &lt;파일 이름&gt;
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2019 Yungon Park.
+			&copy; 2020 Yungon Park.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>
