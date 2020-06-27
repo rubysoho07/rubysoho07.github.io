@@ -102,7 +102,7 @@ aws s3 cp layer_pandas.zip s3://<span style="color:#f92672">(</span>S3 버킷 �
 <span style="color:#75715e"># 그러면 (S3 버킷 이름)/layer_pandas.zip으로 올라가게 된다.</span> 
 
 <span style="color:#75715e"># Lambda Layer 만들기</span>
-aws lambda publish-layer-version --layer-name layer-pandas --compatible-runtimes <span style="color:#e6db74">&#34;python3.6&#34;</span> --content S3Bucket<span style="color:#f92672">=</span>yungon-lambda-layer,S3Key<span style="color:#f92672">=</span>layer_pandas.zip
+aws lambda publish-layer-version --layer-name layer-pandas --compatible-runtimes <span style="color:#e6db74">&#34;python3.6&#34;</span> --content S3Bucket<span style="color:#f92672">=(</span>S3 버킷 이름<span style="color:#f92672">)</span>,S3Key<span style="color:#f92672">=</span>layer_pandas.zip
 
 <span style="color:#75715e"># 이 명령의 실행 결과는 다음과 같다.</span>
 <span style="color:#f92672">{</span>
