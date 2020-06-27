@@ -6,10 +6,23 @@
     <description>Recent content on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 13 Jun 2020 12:59:28 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jun 2020 21:45:40 +0900</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AWS Lambda에 Pandas 올리기</title>
+      <link>/posts/pandas-on-aws-lambda/</link>
+      <pubDate>Sat, 27 Jun 2020 21:45:40 +0900</pubDate>
+      
+      <guid>/posts/pandas-on-aws-lambda/</guid>
+      <description>팀 내에서는 Lambda 안에 파이썬 코드를 올려서 쓰고 있지만, 혹시 Pandas와 같은 라이브러리를 Lambda에 올리려면 어떻게 해야 할 지 궁금해서 정리해 본다.
+이 예제에서는 Pandas를 Lambda Layer로 만들고, Layer를 Lambda 함수에 연결해서 사용해 보려고 한다.
+AWS Lambda(Lambda Layer)의 제한 AWS Lambda에는 Lambda Layer라고 해서 의존성이 필요한 것들을 묶어서 별도의 계층으로 만들어 쓸 수 있도록 하고 있다.
+하지만 이런 기능도 제한이 있으니 한 번 확인해 보자.
+참고 문서  AWS Lambda 제한 AWS Lambda 계층  주요 제한 사항  하나의 함수에서 사용할 수 있는 Layer 수: 5 개 함수와 Layer를 모두 합하여 250 MB를 초과할 수 없음  Pandas Lambda Layer 만들기 Lambda Layer의 내용은 /opt 디렉터리에 들어가게 된다.</description>
+    </item>
     
     <item>
       <title>요즘 좋아하는 노래들</title>

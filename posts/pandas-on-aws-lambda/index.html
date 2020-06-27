@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ko-kr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>AWS Lambda에 Pandas 올리기 - GoniGoni!</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	
+	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-131546844-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/" title="GoniGoni!" rel="home">
+				<div class="logo__title">GoniGoni!</div>
+				<div class="logo__tagline">개발 블로그이지만 개발 말고 다른 이야기도 합니다.</div>
+			</a>
+		</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">AWS Lambda에 Pandas 올리기</h1>
+			
+		</header><div class="content post__content clearfix">
+			<p>팀 내에서는 Lambda 안에 파이썬 코드를 올려서 쓰고 있지만, 혹시 Pandas와 같은 라이브러리를 Lambda에 올리려면 어떻게 해야 할 지 궁금해서 정리해 본다.</p>
+<p>이 예제에서는 Pandas를 Lambda Layer로 만들고, Layer를 Lambda 함수에 연결해서 사용해 보려고 한다.</p>
+<h2 id="aws-lambdalambda-layer의-제한">AWS Lambda(Lambda Layer)의 제한</h2>
+<p>AWS Lambda에는 Lambda Layer라고 해서 의존성이 필요한 것들을 묶어서 별도의 계층으로 만들어 쓸 수 있도록 하고 있다.</p>
+<p>하지만 이런 기능도 제한이 있으니 한 번 확인해 보자.</p>
+<h3 id="참고-문서">참고 문서</h3>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/gettingstarted-limits.html">AWS Lambda 제한</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/configuration-layers.html">AWS Lambda 계층</a></li>
+</ul>
+<h3 id="주요-제한-사항">주요 제한 사항</h3>
+<ul>
+<li>하나의 함수에서 사용할 수 있는 Layer 수: 5 개</li>
+<li>함수와 Layer를 모두 합하여 250 MB를 초과할 수 없음</li>
+</ul>
+<h2 id="pandas-lambda-layer-만들기">Pandas Lambda Layer 만들기</h2>
+<p>Lambda Layer의 내용은 <code>/opt</code> 디렉터리에 들어가게 된다. 파이썬 코드의 경우 <code>/opt/python</code>이나 <code>/opt/python/lib/python(버전-예:3.8)/site-packages</code> 디렉터리에 풀릴 것이다.</p>
+<p>그래서, Layer를 압축 파일로 만들 때는 <code>python</code> 디렉터리 내에 필요한 라이브러리가 들어가도록 구성하면 된다. 동일한 라이브러리를 Lambda에서 지원하는 파이썬 버전에 따라 넣고 싶다면, <code>python/lib/python(버전)/site-packages</code>에 들어가도록 만들자.</p>
+<p><strong>예제: Lambda Layer 압축 파일의 구조</strong></p>
+<p>아래 내용은 Pillow 라이브러리를 Lambda Layer로 구성하는 경우이다. 다른 언어에 대한 내용은 참고 문서의 두번째 항목을 참고하면 된다.</p>
+<pre><code>pillow.zip
+│ python/PIL
+└ python/Pillow-5.3.0.dist-info
+</code></pre><p>이러한 설명을 바탕으로 Pandas를 Lambda Layer에 넣으면 되는데, Pandas는 C 코드를 포함하고 있기 때문에 OS나 CPU 종류에 따라 필요한 라이브러리를 빌드해서 첨부해야 한다.</p>
+<p>이를 위해 Docker를 사용하자. 다음 내용은 Docker에서 Amazon Linux 1 버전의 이미지를 실행해서 Pandas를 설치한다.</p>
+<p>Lambda 런타임이 어떤 OS를 사용하는지 알고 싶다면 <a href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/lambda-runtimes.html">AWS Lambda 런타임</a> 문서를 참고한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir layer_pandas
+cd layer_pandas
+mkdir python
+docker run --rm -it -v $PWD/python:/layer amazonlinux:1 bash
+
+<span style="color:#75715e"># 여기서부터는 Docker 이미지에서 실행하는 내용이다.</span> 
+yum install -y python36                 <span style="color:#75715e"># Python 3.7 버전은 Amazon Linux 1 버전에서 동작하지만, yum으로는 설치할 수 없으니 유의!</span>
+cd layer
+python3 -m pip install pandas -t .      <span style="color:#75715e"># Pandas와 의존성 있는 라이브러리를 /layer에 설치한다.</span>
+rm -r *.dist-info __pycache__           <span style="color:#75715e"># 필요 없는 파일을 지운다.</span>
+exit                                    <span style="color:#75715e"># 컨테이너를 종료한다.</span> 
+
+<span style="color:#75715e"># Layer를 zip 파일로 만든다. (명령으로 하기 귀찮으면 그냥 Finder(macOS)나 Nautilus(우분투)를 써도 된다)</span>
+zip -r layer_pandas.zip .
+<span style="color:#75715e"># ls -l 명령으로 확인해 보면, 53MB 정도의 용량을 차지하고 있음을 볼 수 있다.</span> 
+</code></pre></div><p>이제 AWS CLI로 Layer를 생성해 보자.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">aws lambda publish-layer-version --layer-name layer-pandas --compatible-runtimes <span style="color:#e6db74">&#34;python3.6&#34;</span> --zip-file fileb://$PWD/layer_pandas.zip
+</code></pre></div><p>하지만 다음과 같은 오류가 발생할 것이다. 참고로 69,905,067 바이트면 69.9 MB이고, Layer 자체의 용량은 54 MB 정도이지만 다른 방법을 찾아봐야 한다.</p>
+<pre><code>An error occurred (RequestEntityTooLargeException) when calling the PublishLayerVersion operation: Request must be smaller than 69905067 bytes for the PublishLayerVersion operation
+</code></pre><p>그래서 S3에 Layer를 업로드 후 이 파일을 바탕으로 Layer를 만들어 보자.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># S3에 버킷 만들고 파일 업로드 하기</span>
+aws s3 mb s3://<span style="color:#f92672">(</span>S3 버킷 이름<span style="color:#f92672">)</span>
+aws s3 cp layer_pandas.zip s3://<span style="color:#f92672">(</span>S3 버킷 이름<span style="color:#f92672">)</span>
+<span style="color:#75715e"># 그러면 (S3 버킷 이름)/layer_pandas.zip으로 올라가게 된다.</span> 
+
+<span style="color:#75715e"># Lambda Layer 만들기</span>
+aws lambda publish-layer-version --layer-name layer-pandas --compatible-runtimes <span style="color:#e6db74">&#34;python3.6&#34;</span> --content S3Bucket<span style="color:#f92672">=</span>yungon-lambda-layer,S3Key<span style="color:#f92672">=</span>layer_pandas.zip
+
+<span style="color:#75715e"># 이 명령의 실행 결과는 다음과 같다.</span>
+<span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;Content&#34;</span>: <span style="color:#f92672">{</span>
+        <span style="color:#e6db74">&#34;Location&#34;</span>: <span style="color:#e6db74">&#34;https://awslambda-ap-ne-2-layers.s3.(Region 정보).amazonaws.com/snapshots/...&#34;</span>,
+        <span style="color:#e6db74">&#34;CodeSha256&#34;</span>: <span style="color:#e6db74">&#34;(생략)&#34;</span>,
+        <span style="color:#e6db74">&#34;CodeSize&#34;</span>: <span style="color:#ae81ff">56268526</span>
+    <span style="color:#f92672">}</span>,
+    <span style="color:#e6db74">&#34;LayerArn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:lambda:(Region 정보):(Account ID):layer:layer-pandas&#34;</span>,
+    <span style="color:#e6db74">&#34;LayerVersionArn&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:lambda:(Region 정보):(Account ID):layer:layer-pandas:1&#34;</span>,
+    <span style="color:#e6db74">&#34;Description&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+    <span style="color:#e6db74">&#34;CreatedDate&#34;</span>: <span style="color:#e6db74">&#34;2020-06-27T13:56:18.637+0000&#34;</span>,
+    <span style="color:#e6db74">&#34;Version&#34;</span>: 1,
+    <span style="color:#e6db74">&#34;CompatibleRuntimes&#34;</span>: <span style="color:#f92672">[</span>
+        <span style="color:#e6db74">&#34;python3.6&#34;</span>
+    <span style="color:#f92672">]</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>이 결과에서 <code>LayerVersionArn</code> 정보를 잘 메모해 두자.</p>
+<h2 id="lambda-layer를-적용하기">Lambda Layer를 적용하기</h2>
+<p>먼저 Lambda 콘솔에서 다음과 같은 설정으로 Lambda 함수를 만들자. 방금 만든 Layer의 버전이 3.6 기준이므로, 함수의 런타임 버전은 Python 3.6으로 설정해야 한다.</p>
+<figure>
+    <img src="/img/pandas-on-aws-lambda-1.png"/> 
+</figure>
+
+<p>이제 함수가 생성되었으면, 하단의 Layers를 클릭 후 <code>[Add a layer]</code> 버튼을 누른다. 그리고 방금 만든 Layer 이름과 버전을 지정 후 추가 버튼을 누른다. (처음 만들었다면 버전 번호는 1일 것이다)</p>
+<figure>
+    <img src="/img/pandas-on-aws-lambda-2.png"/> 
+</figure>
+
+<p>마지막으로 Pandas를 제대로 사용할 수 있는지 테스트 해 보자.</p>
+<p>Lambda 함수의 코드를 다음과 같이 입력해 보자. 아래 코드를 그대로 복사해도 된다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> json
+
+<span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lambda_handler</span>(event, context):
+    
+    my_data <span style="color:#f92672">=</span> [<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">30</span>]
+    
+    s <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series(data<span style="color:#f92672">=</span>my_data)
+    
+    <span style="color:#66d9ef">print</span>(s)
+    
+    <span style="color:#66d9ef">return</span> {
+        <span style="color:#e6db74">&#39;statusCode&#39;</span>: <span style="color:#ae81ff">200</span>,
+        <span style="color:#e6db74">&#39;body&#39;</span>: json<span style="color:#f92672">.</span>dumps(<span style="color:#e6db74">&#39;Hello from Lambda!&#39;</span>)
+    }
+</code></pre></div><p>함수를 저장하고, 테스트 이벤트 구성으로 테스트용 이벤트를 만든 뒤 <strong>테스트</strong> 버튼을 눌러서 테스트 해 보자. 약간의 시간이 걸릴 수도 있지만 호출에 성공하고 다음과 같은 로그를 볼 수 있을 것이다.</p>
+<p>이 예제에서는 Pandas의 Series 타입의 데이터를 만들었기 때문에 0 10, 1 20, 2 30&hellip; 과 같이 출력된다.</p>
+<pre><code>START RequestId: 5dddcd14-8325-4771-ae70-69cb3f20c514 Version: $LATEST
+0    10
+1    20
+2    30
+dtype: int64
+END RequestId: 5dddcd14-8325-4771-ae70-69cb3f20c514
+REPORT RequestId: 5dddcd14-8325-4771-ae70-69cb3f20c514	Duration: 1.49 ms	Billed Duration: 100 ms	Memory Size: 128 MB	Max Memory Used: 111 MB	Init Duration: 802.38 ms	
+</code></pre><p>모든 것들을 다 테스트 했다면, 리소스를 정리하는 것을 잊어서는 안 된다. 다음 리소스는 모두 삭제하자.</p>
+<ul>
+<li>Lambda 함수</li>
+<li>S3 버킷</li>
+<li>Lambda Layer</li>
+</ul>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/aws/" rel="tag">AWS</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/lambda/" rel="tag">Lambda</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/pandas/" rel="tag">Pandas</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/serverless/" rel="tag">Serverless</a></li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gonigoni-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2020 Yungon Park.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>
