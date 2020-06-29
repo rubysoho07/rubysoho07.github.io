@@ -6,7 +6,7 @@
     <description>Recent content in Tags on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 27 Jun 2020 21:45:40 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jun 2020 20:58:17 +0900</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,18 +14,45 @@
     <item>
       <title>AWS</title>
       <link>/tags/aws/</link>
-      <pubDate>Sat, 27 Jun 2020 21:45:40 +0900</pubDate>
+      <pubDate>Mon, 29 Jun 2020 20:58:17 +0900</pubDate>
       
       <guid>/tags/aws/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>CloudFormation</title>
+      <link>/tags/cloudformation/</link>
+      <pubDate>Mon, 29 Jun 2020 20:58:17 +0900</pubDate>
+      
+      <guid>/tags/cloudformation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Lambda</title>
       <link>/tags/lambda/</link>
-      <pubDate>Sat, 27 Jun 2020 21:45:40 +0900</pubDate>
+      <pubDate>Mon, 29 Jun 2020 20:58:17 +0900</pubDate>
       
       <guid>/tags/lambda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SAM</title>
+      <link>/tags/sam/</link>
+      <pubDate>Mon, 29 Jun 2020 20:58:17 +0900</pubDate>
+      
+      <guid>/tags/sam/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Serverless</title>
+      <link>/tags/serverless/</link>
+      <pubDate>Mon, 29 Jun 2020 20:58:17 +0900</pubDate>
+      
+      <guid>/tags/serverless/</guid>
       <description></description>
     </item>
     
@@ -35,15 +62,6 @@
       <pubDate>Sat, 27 Jun 2020 21:45:40 +0900</pubDate>
       
       <guid>/tags/pandas/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Serverless</title>
-      <link>/tags/serverless/</link>
-      <pubDate>Sat, 27 Jun 2020 21:45:40 +0900</pubDate>
-      
-      <guid>/tags/serverless/</guid>
       <description></description>
     </item>
     
@@ -125,24 +143,6 @@
       <pubDate>Wed, 01 Jan 2020 20:43:58 +0900</pubDate>
       
       <guid>/tags/%EC%8B%A0%EC%9E%85-%EC%82%AC%EC%9B%90/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CloudFormation</title>
-      <link>/tags/cloudformation/</link>
-      <pubDate>Tue, 22 Oct 2019 21:02:00 +0900</pubDate>
-      
-      <guid>/tags/cloudformation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SAM</title>
-      <link>/tags/sam/</link>
-      <pubDate>Tue, 22 Oct 2019 21:02:00 +0900</pubDate>
-      
-      <guid>/tags/sam/</guid>
       <description></description>
     </item>
     

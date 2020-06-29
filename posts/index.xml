@@ -6,10 +6,19 @@
     <description>Recent content in Posts on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 27 Jun 2020 21:45:40 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jun 2020 20:58:17 +0900</lastBuildDate>
     
 	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AWS SAM에서 중첩된 스택 배포 시 유의해야 할 것들</title>
+      <link>/posts/aws-sam-nested-stack/</link>
+      <pubDate>Mon, 29 Jun 2020 20:58:17 +0900</pubDate>
+      
+      <guid>/posts/aws-sam-nested-stack/</guid>
+      <description>팀에서 AWS SAM을 적극적으로 사용하고 있는데, SAM을 쓰면서 느낀 점들을 예전에 글로 남긴 적이 있었다. 그런데 SAM은 CloudFormation 스택으로 리소스를 생성하다 보니, CloudFormation의 제약 사항을 그대로 가지고 있다. 예를 들어 하나의 CloudFormation 템플릿에서 선언할 수 있는 리소스 수는 200개를 넘지 않아야 한다는 것이 대표적일 것이다. 이러한 문제를 겪으면서, 많은 리소스로 구성되어 있는 애플리케이션을 여러 스택으로 나누는 작업을 해야 했다. 이 글에서는 하나의 서버리스 애플리케이션을 여러 스택으로 나누는 문제를 해결하면서 겪었던 일들을 기록해 보려고 한다.</description>
+    </item>
     
     <item>
       <title>AWS Lambda에 Pandas 올리기</title>
