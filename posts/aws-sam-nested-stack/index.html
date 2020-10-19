@@ -56,87 +56,87 @@ if (!doNotTrack) {
 <h3 id="output-참조">Output 참조</h3>
 <p>여러 중첩 스택(nested stack)을 사용하면서, 중첩 스택의 값을 참조하고 싶을 때 사용한다.</p>
 <p>먼저 CloudFormation의 Outputs 영역에 스택 밖에서 사용할 수 있는 값을 지정한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">Resources</span>:
-  <span style="color:#66d9ef">MyFunction</span>:
-    <span style="color:#66d9ef">Type</span>: AWS::Serverless::Function
-    <span style="color:#66d9ef">Properties</span>:
-      <span style="color:#66d9ef">CodeUri</span>: <span style="color:#e6db74">&#39;파일 경로&#39;</span>
-      <span style="color:#66d9ef">Role</span>: <span style="color:#e6db74">&#39;IAM Role ARN&#39;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Resources</span>:
+  <span style="color:#f92672">MyFunction</span>:
+    <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">AWS::Serverless::Function</span>
+    <span style="color:#f92672">Properties</span>:
+      <span style="color:#f92672">CodeUri</span>: <span style="color:#e6db74">&#39;파일 경로&#39;</span>
+      <span style="color:#f92672">Role</span>: <span style="color:#e6db74">&#39;IAM Role ARN&#39;</span>
       <span style="color:#75715e"># ...</span>
 
-<span style="color:#66d9ef">Outputs</span>:
-  <span style="color:#66d9ef">FunctionArn</span>:
-    <span style="color:#66d9ef">Value</span>: !Ref MyFunction.Alias
-    <span style="color:#66d9ef">Description</span>: 설명을 아무거나 적는다.
+<span style="color:#f92672">Outputs</span>:
+  <span style="color:#f92672">FunctionArn</span>:
+    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref MyFunction.Alias</span>
+    <span style="color:#f92672">Description</span>: <span style="color:#ae81ff">설명을 아무거나 적는다.</span>
 </code></pre></div><p>이 값을 참조하는 스택에서는 먼저 참조할 스택을 가져오고, Outputs 값에 있는 내용을 가져오려면 다음과 같이 참조하면 된다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">Resources</span>:
-  <span style="color:#66d9ef">NestedApplication</span>:
-    <span style="color:#66d9ef">Type</span>: AWS::Serverless::Application
-      <span style="color:#66d9ef">Properties</span>:
-        <span style="color:#66d9ef">Location</span>: nested/template.yaml
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Resources</span>:
+  <span style="color:#f92672">NestedApplication</span>:
+    <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">AWS::Serverless::Application</span>
+      <span style="color:#f92672">Properties</span>:
+        <span style="color:#f92672">Location</span>: <span style="color:#ae81ff">nested/template.yaml</span>
   
-  <span style="color:#66d9ef">TestStateMachine</span>:
-    <span style="color:#66d9ef">Type</span>: AWS::Serverless::StateMachine
-    <span style="color:#66d9ef">Properties</span>:
-      <span style="color:#66d9ef">Role</span>: <span style="color:#e6db74">&#39;IAM Role ARN&#39;</span>
-      <span style="color:#66d9ef">DefinitionUri</span>: statemachine/definition.json
-      <span style="color:#66d9ef">DefinitionSubstitutions</span>:
-        <span style="color:#66d9ef">NestedMyFunction</span>: !GetAtt NestedApplication.Outputs.FunctionArn
+  <span style="color:#f92672">TestStateMachine</span>:
+    <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">AWS::Serverless::StateMachine</span>
+    <span style="color:#f92672">Properties</span>:
+      <span style="color:#f92672">Role</span>: <span style="color:#e6db74">&#39;IAM Role ARN&#39;</span>
+      <span style="color:#f92672">DefinitionUri</span>: <span style="color:#ae81ff">statemachine/definition.json</span>
+      <span style="color:#f92672">DefinitionSubstitutions</span>:
+        <span style="color:#f92672">NestedMyFunction</span>: !<span style="color:#ae81ff">GetAtt NestedApplication.Outputs.FunctionArn</span>
 </code></pre></div><h3 id="export">Export</h3>
 <p>Export는 내가 만든 스택에서 내보낸 값을 아예 다른 스택에서도 사용할 수 있도록 하는 개념이다. 예를 들어 네트워크 설정을 하나의 스택으로 구성하고, VPC나 서브넷 설정을 export 했다고 가정하자. 동일한 계정 및 리전에 있는 다른 스택이 네트워크 설정을 갖고 있는 스택에서 내보낸 값들을 가져다가 쓸 수 있는 것이다.</p>
 <p>값을 내보낼 때는 다음과 같이 한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">Outputs</span>:
-  <span style="color:#66d9ef">FunctionArn</span>:
-    <span style="color:#66d9ef">Value</span>: !Ref MyFunction.Alias
-    <span style="color:#66d9ef">Description</span>: 설명을 아무거나 적는다.
-    <span style="color:#66d9ef">Export</span>:
-      <span style="color:#66d9ef">Name</span>: SharedValueToImport     <span style="color:#75715e"># 이 이름을 기준으로 다른 스택에서 가져올 수 있다.</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Outputs</span>:
+  <span style="color:#f92672">FunctionArn</span>:
+    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref MyFunction.Alias</span>
+    <span style="color:#f92672">Description</span>: <span style="color:#ae81ff">설명을 아무거나 적는다.</span>
+    <span style="color:#f92672">Export</span>:
+      <span style="color:#f92672">Name</span>: <span style="color:#ae81ff">SharedValueToImport    </span> <span style="color:#75715e"># 이 이름을 기준으로 다른 스택에서 가져올 수 있다.</span>
 </code></pre></div><p>Export 된 값을 가져다 쓰려면 다음과 같이 하면 된다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">Fn::ImportValue</span>: SharedValueToImport
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Fn::ImportValue</span>: <span style="color:#ae81ff">SharedValueToImport</span>
 
 <span style="color:#75715e"># 또는 다음과 같이 단축해서 쓸 수도 있다. </span>
-<span style="color:#66d9ef">!ImportValue</span>: SharedValueToImport
+<span style="color:#f92672">!ImportValue</span>: <span style="color:#ae81ff">SharedValueToImport</span>
 </code></pre></div><p>당연한 말이지만, 다른 스택에서 내보낸 값이 등록되어 있지 않은 상태에서 ImportValue를 하면 스택 배포에 실패한다.</p>
 <h2 id="sam에서-nested-application-설정하기-vs-cloudformation에서-nested-stack-설정하기">SAM에서 Nested Application 설정하기 vs. CloudFormation에서 Nested Stack 설정하기</h2>
 <h3 id="cloudformation에서-nested-stack-설정하기">CloudFormation에서 Nested Stack 설정하기</h3>
 <p>다음과 같이 설정할 수 있다. (<a href="https://docs.aws.amazon.com/ko_kr/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html">AWS 문서 참조</a>)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">Type</span>: AWS::CloudFormation::Stack
-<span style="color:#66d9ef">Properties</span>: 
-  <span style="color:#66d9ef">NotificationARNs</span>: 
-    - String
-  <span style="color:#66d9ef">Parameters</span>: 
-    <span style="color:#66d9ef">Key </span>: Value
-  <span style="color:#66d9ef">Tags</span>: 
-    - Tag
-  <span style="color:#66d9ef">TemplateURL</span>: String
-  <span style="color:#66d9ef">TimeoutInMinutes</span>: Integer
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Type</span>: <span style="color:#ae81ff">AWS::CloudFormation::Stack</span>
+<span style="color:#f92672">Properties</span>: 
+  <span style="color:#f92672">NotificationARNs</span>: 
+    - <span style="color:#ae81ff">String</span>
+  <span style="color:#f92672">Parameters</span>: 
+    <span style="color:#f92672">Key </span>: <span style="color:#ae81ff">Value</span>
+  <span style="color:#f92672">Tags</span>: 
+    - <span style="color:#ae81ff">Tag</span>
+  <span style="color:#f92672">TemplateURL</span>: <span style="color:#ae81ff">String</span>
+  <span style="color:#f92672">TimeoutInMinutes</span>: <span style="color:#ae81ff">Integer</span>
 </code></pre></div><p>참고로 TemplateURL은 S3 버킷에 있는 템플릿을 가리켜야 한다. 템플릿을 수정할 때마다 올리려면 귀찮으니 <code>aws cloudformation package</code> 명령 실행 후 생성된 파일을 이용해 스택을 배포하면 번거로운 일을 줄일 수 있을 것이다.</p>
 <h3 id="sam에서-nested-application-설정하기">SAM에서 Nested Application 설정하기</h3>
 <p>SAM은 Application이라는 단위로 서버리스 애플리케이션을 관리한다. 이 문서를 참조하여 생성해 보자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">Type</span>: AWS::Serverless::Application
-<span style="color:#66d9ef">Properties</span>:
-  <span style="color:#66d9ef">Location</span>: String | ApplicationLocationObject
-  <span style="color:#66d9ef">NotificationARNs</span>: List
-  <span style="color:#66d9ef">Parameters</span>: Map
-  <span style="color:#66d9ef">Tags</span>: Map
-  <span style="color:#66d9ef">TimeoutInMinutes</span>: Integer
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Type</span>: <span style="color:#ae81ff">AWS::Serverless::Application</span>
+<span style="color:#f92672">Properties</span>:
+  <span style="color:#f92672">Location</span>: <span style="color:#ae81ff">String | ApplicationLocationObject</span>
+  <span style="color:#f92672">NotificationARNs</span>: <span style="color:#ae81ff">List</span>
+  <span style="color:#f92672">Parameters</span>: <span style="color:#ae81ff">Map</span>
+  <span style="color:#f92672">Tags</span>: <span style="color:#ae81ff">Map</span>
+  <span style="color:#f92672">TimeoutInMinutes</span>: <span style="color:#ae81ff">Integer</span>
 </code></pre></div><p>여기서 Location 속성의 값은 CloudFormation/SAM 템플릿을 포함하고 있는 S3 내의 템플릿 URL, 로컬 파일 경로 등을 사용할 수 있다.</p>
 <p>중첩된 SAM 애플리케이션의 배포 방법은 아래 항목에서 다룰 예정이다.</p>
 <h2 id="cloudformation의-awsstepfunctionsstatemachine-vs-sam의-awsserverlessstatemachine">CloudFormation의 AWS::StepFunctions::StateMachine vs. SAM의 AWS::Serverless::StateMachine</h2>
 <p>올해 5월에 <a href="https://aws.amazon.com/ko/about-aws/whats-new/2020/05/aws-sam-adds-support-for-aws-step-functions/">SAM에서 자체적으로 Step Functions를 지원</a>하게 되었다. 이전과 같으면 <code>AWS::StepFunctions::StateMachine</code> 리소스를 가져와야 했지만, 이제는 <code>AWS::Serverless::StateMachine</code>이라는 리소스를 가져와서 작업하면 된다. 다만 이 기능은 SAM CLI 기준으로 0.52.0 버전부터 지원하니 이 점은 유의해야 한다. 이 변화로 Step Functions의 State Machine 정의를 SAM Template 밖에 선언할 수 있게 되어서 좀 더 좋아졌다고 생각한다.</p>
 <p><a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html">AWS SAM의 문서</a>를 참고해서 만들어 보면 다음과 같이 만들 수 있을 것이다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">Type</span>: AWS::Serverless::StateMachine
-<span style="color:#66d9ef">Properties</span>:
-  <span style="color:#66d9ef">Definition</span>: Map
-  <span style="color:#66d9ef">DefinitionSubstitutions</span>: Map
-  <span style="color:#66d9ef">DefinitionUri</span>: String | S3Location
-  <span style="color:#66d9ef">Events</span>: EventSource
-  <span style="color:#66d9ef">Logging</span>: LoggingConfiguration
-  <span style="color:#66d9ef">Name</span>: String
-  <span style="color:#66d9ef">Policies</span>: String | List | Map
-  <span style="color:#66d9ef">Role</span>: String
-  <span style="color:#66d9ef">Tags</span>: Map
-  <span style="color:#66d9ef">Type</span>: String
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Type</span>: <span style="color:#ae81ff">AWS::Serverless::StateMachine</span>
+<span style="color:#f92672">Properties</span>:
+  <span style="color:#f92672">Definition</span>: <span style="color:#ae81ff">Map</span>
+  <span style="color:#f92672">DefinitionSubstitutions</span>: <span style="color:#ae81ff">Map</span>
+  <span style="color:#f92672">DefinitionUri</span>: <span style="color:#ae81ff">String | S3Location</span>
+  <span style="color:#f92672">Events</span>: <span style="color:#ae81ff">EventSource</span>
+  <span style="color:#f92672">Logging</span>: <span style="color:#ae81ff">LoggingConfiguration</span>
+  <span style="color:#f92672">Name</span>: <span style="color:#ae81ff">String</span>
+  <span style="color:#f92672">Policies</span>: <span style="color:#ae81ff">String | List | Map</span>
+  <span style="color:#f92672">Role</span>: <span style="color:#ae81ff">String</span>
+  <span style="color:#f92672">Tags</span>: <span style="color:#ae81ff">Map</span>
+  <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">String</span>
 </code></pre></div><ul>
 <li>State Machine의 정의가 단순하다면, 그냥 <code>Definition</code> 속성에다 JSON 형태로 넣으면 된다.</li>
 <li>로컬에 있는 State Machine의 정의를 참조하려면 <code>DefinitionUri</code> 속성에 경로를 적어 넣으면 된다.</li>
@@ -160,10 +160,10 @@ if (!doNotTrack) {
 <p>먼저 nested application을 빌드한다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sam build --template template.nested.yaml --build-dir target_dir/
 </code></pre></div><p>그러면 프로젝트 루트 디렉터리 밑에 target_dir 디렉터리가 생성될 것이고, 그 안에 template.yaml 파일이 생성될 것이다. 프로젝트 루트 폴더에 있는 template.yaml 파일에서 template.nested.yaml 파일을 참조하는 부분을 다음과 같이 바꾸어야 한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">DashboardLambdaStack</span>:
-  <span style="color:#66d9ef">Type</span>: AWS::Serverless::Application
-    <span style="color:#66d9ef">Properties</span>:
-      <span style="color:#66d9ef">Location</span>: ./target_dir/template.yaml
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">DashboardLambdaStack</span>:
+  <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">AWS::Serverless::Application</span>
+    <span style="color:#f92672">Properties</span>:
+      <span style="color:#f92672">Location</span>: <span style="color:#ae81ff">./target_dir/template.yaml</span>
 </code></pre></div><p>그리고 루트 애플리케이션을 빌드한다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sam build --template template.yaml
 </code></pre></div><p>그러면 기본적으로 <code>.aws-sam</code> 디렉터리가 만들어지고 이 안에 template.yaml 파일이 생성될 것이다.</p>

@@ -6,11 +6,7 @@
     <description>Recent content in Boto3 on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 29 Nov 2018 00:38:00 +0900</lastBuildDate>
-    
-	<atom:link href="/tags/boto3/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 29 Nov 2018 00:38:00 +0900</lastBuildDate><atom:link href="/tags/boto3/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>S3 버킷의 객체가 1,000개를 넘을 때 객체 목록 조회하기</title>
       <link>/posts/list-over-1000-files-from-s3/</link>

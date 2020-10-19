@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="ko-kr">
 <head>
-	<meta name="generator" content="Hugo 0.73.0" />
+	<meta name="generator" content="Hugo 0.76.5" />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,6 +48,22 @@ if (!doNotTrack) {
 			
 <main class="main list" role="main">
 	<article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
+			<a href="/posts/porting-simcity-backup-to-golang/" rel="bookmark">
+			SimCity 백업 프로그램을 Go로 포팅하기
+			</a>
+		</h3>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		어릴적부터 도시를 짓는 게임을 좋아했습니다. 예전에 심시티 3000을 제 돈 주고 산 걸로 시작해서, 심시티 4를 거쳐 지금은 시티즈 스카이라인을 가끔씩 플레이합니다.
+예전에 쓰던 컴퓨터에서 심시티 4를 돌릴 때 외부에서 받은 건물이나, 제가 만든 도시, 그리고 스크린샷을 백업하는 프로그램을 파이썬으로 만든 적이 있었습니다.
+그러다가 이 프로그램을 Go로 포팅하는 일을 해 보고 싶어서 시도해 보게 되었습니다.
+파일 목록을 검색하고 파일을 쓰고 읽는 부분들이 많아서, 개인적으로는 해 볼 만한 내용이었다고 생각합니다.
+그러면 어떤 차이가 있는지 한 번 살펴보도록 하겠습니다.
+	</div>
+</article><article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
 			<a href="/posts/aws-sam-nested-stack/" rel="bookmark">
@@ -173,22 +189,6 @@ EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어�
 서비스를 만드는 경험 서비스를 만드는 기업으로 이직하겠다는 생각은 계속 했지만, 이를 행동으로 옮긴 건 작년이 처음이었습니다. 그 과정에서 제가 느낀 점은 두 가지로 요약할 수 있을 것 같아요.
 1. 협업 이야기 저는 서비스를 기반부터 개발하는 경험이 부족했습니다. 교육 분야에서 비슷한 서비스를 개발한 사례가 많지 않아, 특히 데이터를 다루는 서비스를 어떻게 개발하는지에 대해 많이 찾아봤었습니다.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/posts/how-to-see-netstat/" rel="bookmark">
-			Netstat으로 리눅스 서버에서 클라이언트 접속 확인하기
-			</a>
-		</h3>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		회사에서 개발한 웹 서비스의 내부 테스트 버전을 배포하고, 다음과 같은 질문을 받았다.
- 박대리님, 서버에서 클라이언트가 몇 명이 접속 중인지 알 수 있는 방법이 있을까요?
- 사실 여러 사람을 대상으로 하는 웹 서비스를 개발하고 배포하는 건 처음이라, 이걸 어떻게 알 수 있는지 궁금하긴 했다.
-그래서, how to get the number of connections from web server라는 키워드로 구글 검색을 해 보았다.
-  여기 나오는 문서들 중에서 가장 많이 언급되는 유틸리티가 netstat인데, 여기서 연결 개수를 어떻게 체크해 볼 수 있는지 알아보자.
-	</div>
 </article>
 </main>
 
@@ -222,6 +222,9 @@ EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어�
 				<a class="widget__link" href="/categories/git/">Git</a>
 			</li>
 			<li class="widget__item">
+				<a class="widget__link" href="/categories/go/">Go</a>
+			</li>
+			<li class="widget__item">
 				<a class="widget__link" href="/categories/linux/">Linux</a>
 			</li>
 			<li class="widget__item">
@@ -249,6 +252,8 @@ EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어�
 		<a class="widget-taglist__link widget__link btn" href="/tags/fromtimestamp/" title="fromtimestamp">fromtimestamp</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/getter/" title="getter">getter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/git/" title="Git">Git</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/go/" title="Go">Go</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/golang/" title="Golang">Golang</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/hadoop/" title="Hadoop">Hadoop</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/idles/" title="Idles">Idles</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/lambda/" title="Lambda">Lambda</a>
@@ -268,6 +273,7 @@ EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어�
 		<a class="widget-taglist__link widget__link btn" href="/tags/sed/" title="sed">sed</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/serverless/" title="Serverless">Serverless</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/setter/" title="setter">setter</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/simcity/" title="SimCity">SimCity</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/step-functions/" title="Step Functions">Step Functions</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/underscore/" title="underscore">underscore</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/visual-studio-code/" title="Visual Studio Code">Visual Studio Code</a>

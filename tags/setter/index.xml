@@ -6,11 +6,7 @@
     <description>Recent content in setter on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Fri, 18 May 2018 23:36:00 +0900</lastBuildDate>
-    
-	<atom:link href="/tags/setter/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 18 May 2018 23:36:00 +0900</lastBuildDate><atom:link href="/tags/setter/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python `@property` 데코레이터와 getter/setter</title>
       <link>/posts/python-property-decorator/</link>

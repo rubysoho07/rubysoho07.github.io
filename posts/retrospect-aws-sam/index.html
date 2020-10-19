@@ -97,70 +97,70 @@ if (!doNotTrack) {
 <p>S3 버킷을 만들고, 거기에 Lambda Trigger를 연동하고, 필요한 IAM Role을 생성했을 때 이런 이슈가 발생했었다. 이러면 IAM Role이 S3와 Lambda를 참조하고, Lambda가 S3와 IAM Role을 참조하는 상황이어서 그런 것 같았다.</p>
 <p>이 경우 아래와 같이 S3 버킷 이름을 Parameters에 빼고, Lambda, S3 버킷, IAM Role이 참조하도록 만들었더니 해결되었다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># 윗부분 생략 </span>
-<span style="color:#66d9ef">Parameters</span>:
-  <span style="color:#66d9ef">MyBucketName</span>:
-    <span style="color:#66d9ef">Type</span>: String
-    <span style="color:#66d9ef">Default</span>: yungon-test-bucket
+<span style="color:#f92672">Parameters</span>:
+  <span style="color:#f92672">MyBucketName</span>:
+    <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">String</span>
+    <span style="color:#f92672">Default</span>: <span style="color:#ae81ff">yungon-test-bucket</span>
 
 <span style="color:#75715e"># 중간 생략</span>
 
-<span style="color:#66d9ef">Resources</span>:
+<span style="color:#f92672">Resources</span>:
   <span style="color:#75715e"># 함수 부분</span>
-  <span style="color:#66d9ef">MyFunction</span>:
-    <span style="color:#66d9ef">Type</span>: AWS::Serverless::Function
+  <span style="color:#f92672">MyFunction</span>:
+    <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">AWS::Serverless::Function</span>
     <span style="color:#75715e"># ...</span>
-    <span style="color:#66d9ef">Events</span>:
-      <span style="color:#66d9ef">MyS3Event</span>:
-        <span style="color:#66d9ef">Type</span>: S3
-        <span style="color:#66d9ef">Properties</span>:
-          <span style="color:#66d9ef">Bucket</span>: !Ref MyBucketName
-          <span style="color:#66d9ef">Events</span>: s3:ObjectCreated:*
+    <span style="color:#f92672">Events</span>:
+      <span style="color:#f92672">MyS3Event</span>:
+        <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">S3</span>
+        <span style="color:#f92672">Properties</span>:
+          <span style="color:#f92672">Bucket</span>: !<span style="color:#ae81ff">Ref MyBucketName</span>
+          <span style="color:#f92672">Events</span>: <span style="color:#ae81ff">s3:ObjectCreated:*</span>
           <span style="color:#75715e"># ...</span>
   
   <span style="color:#75715e"># 버킷 생성 부분</span>
-  <span style="color:#66d9ef">MyBucket</span>:
-    <span style="color:#66d9ef">Type</span>: AWS::S3::Bucket
-    <span style="color:#66d9ef">Properties</span>:
-      <span style="color:#66d9ef">BucketName</span>: !Ref MyBucketName
+  <span style="color:#f92672">MyBucket</span>:
+    <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">AWS::S3::Bucket</span>
+    <span style="color:#f92672">Properties</span>:
+      <span style="color:#f92672">BucketName</span>: !<span style="color:#ae81ff">Ref MyBucketName</span>
   
   <span style="color:#75715e"># IAM Role 만드는 부분은 생략</span>
 </code></pre></div><h3 id="api-gateway와-cognito-연동하기">API Gateway와 Cognito 연동하기</h3>
 <p>참고자료: <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-controlling-access-to-apis.html">AWS 문서 - Controlling Access to API Gateway APIs</a></p>
 <p>보통은 API 리소스의 Auth 속성에 설정해 주면 된다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">Resources</span>:
-  <span style="color:#66d9ef">MyApi</span>:
-    <span style="color:#66d9ef">Type</span>: AWS::Serverless::Api
-    <span style="color:#66d9ef">Properties</span>:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Resources</span>:
+  <span style="color:#f92672">MyApi</span>:
+    <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">AWS::Serverless::Api</span>
+    <span style="color:#f92672">Properties</span>:
       <span style="color:#75715e"># 잠깐 생략</span>
-      <span style="color:#66d9ef">Auth</span>:
-        <span style="color:#66d9ef">DefaultAuthorizer</span>: MyCognitoAuthorizer
-        <span style="color:#66d9ef">Authorizers</span>:
-          <span style="color:#66d9ef">MyCognitoAuthorizer</span>:
+      <span style="color:#f92672">Auth</span>:
+        <span style="color:#f92672">DefaultAuthorizer</span>: <span style="color:#ae81ff">MyCognitoAuthorizer</span>
+        <span style="color:#f92672">Authorizers</span>:
+          <span style="color:#f92672">MyCognitoAuthorizer</span>:
             <span style="color:#75715e"># Resources 속성 안에 MyCognitoUserPool이 있다고 가정한다.</span>
-            <span style="color:#66d9ef">UserPoolArn</span>: !GetAtt MyCognitoUserPool.Arn   
+            <span style="color:#f92672">UserPoolArn</span>: !<span style="color:#ae81ff">GetAtt MyCognitoUserPool.Arn   </span>
 </code></pre></div><p>API 리소스 안에 DefinitionBody 속성을 설정했다면, DefinitionBody 속성에도 이런 내용을 넣어야 할 것이다. (물론 Function 리소스의 Events 속성에 API를 연결했다면 없어도 무방하다)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">paths</span>: 
-  <span style="color:#66d9ef">/test-path</span>: 
-    <span style="color:#66d9ef">post</span>: 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">paths</span>: 
+  <span style="color:#f92672">/test-path</span>: 
+    <span style="color:#f92672">post</span>: 
       <span style="color:#75715e"># 중간 과정 생략</span>
-      <span style="color:#66d9ef">security</span>: 
-        - <span style="color:#66d9ef">MyCognitoAuthorizer</span>: 
+      <span style="color:#f92672">security</span>: 
+        - <span style="color:#f92672">MyCognitoAuthorizer</span>: 
           - <span style="color:#e6db74">&#34;scope&#34;</span> 
 </code></pre></div><p>상세한 내용은 위의 참고자료를 확인하자.</p>
 <h3 id="s3-트리거가-왜-동작하지-않을까">S3 트리거가 왜 동작하지 않을까?</h3>
 <p>참고자료: <a href="https://github.com/awslabs/serverless-application-model/issues/300">관련 GitHub 이슈</a></p>
 <p>S3의 특정 조건을 기준으로 Events 속성을 지정했는데, 배포 후 살펴보니 Lambda 함수에 트리거 정보가 없었다.</p>
 <p>이 경우 아래와 같이 Lambda의 Permission을 Resources에 추가하면 해결 가능하더라.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">Resources</span>:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Resources</span>:
   <span style="color:#75715e"># 함수(TestLambdaFunction)나 버킷(TestBucket) 관련 정보가 있다고 가정합니다.</span>
-  <span style="color:#66d9ef">MyFunctionPermission</span>:
-    <span style="color:#66d9ef">Type</span>: AWS::Lambda::Permission
-    <span style="color:#66d9ef">Properties</span>:
-      <span style="color:#66d9ef">Action</span>: lambda:invokeFunction
-      <span style="color:#66d9ef">SourceAccount</span>: !Sub ${AWS::AccountId}
-      <span style="color:#66d9ef">FunctionName</span>: !Ref TestLambdaFunction.Alias
-      <span style="color:#66d9ef">Principal</span>: s3.amazonaws.com
-      <span style="color:#66d9ef">SourceArn</span>: !GetAtt TestBucket.Arn
+  <span style="color:#f92672">MyFunctionPermission</span>:
+    <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">AWS::Lambda::Permission</span>
+    <span style="color:#f92672">Properties</span>:
+      <span style="color:#f92672">Action</span>: <span style="color:#ae81ff">lambda:invokeFunction</span>
+      <span style="color:#f92672">SourceAccount</span>: !<span style="color:#ae81ff">Sub ${AWS::AccountId}</span>
+      <span style="color:#f92672">FunctionName</span>: !<span style="color:#ae81ff">Ref TestLambdaFunction.Alias</span>
+      <span style="color:#f92672">Principal</span>: <span style="color:#ae81ff">s3.amazonaws.com</span>
+      <span style="color:#f92672">SourceArn</span>: !<span style="color:#ae81ff">GetAtt TestBucket.Arn</span>
 </code></pre></div><h2 id="결론">결론?</h2>
 <p>SAM을 쓰기 시작한 지 5개월 정도 된 것 같다. Python과 Docker를 사용하는 환경이라면, 또는 팀이 이들 기술을 기반으로 한다면, Lambda 함수들을 관리할 때 SAM을 쓰는 것도 괜찮은 선택인 것 같다. (물론 AWS를 쓰는 환경이 아니라면 어쩔 수 없다) 다만 대부분의 문서들이 한글로 번역되어 있지 않다는 점이 단점이라 할 수 있을 것 같다. 하지만 CloudFormation 문서들을 한글로도 볼 수 있으니 상관 없을 수도 있겠다.</p>
 

@@ -6,11 +6,7 @@
     <description>Recent content in Linux on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 21 Apr 2018 21:09:00 +0900</lastBuildDate>
-    
-	<atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 21 Apr 2018 21:09:00 +0900</lastBuildDate><atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>sed를 이용한 텍스트 파일 바꾸기</title>
       <link>/posts/use-sed-to-replace-text/</link>

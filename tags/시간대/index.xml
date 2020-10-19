@@ -6,11 +6,7 @@
     <description>Recent content in 시간대 on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 17 May 2018 22:06:00 +0900</lastBuildDate>
-    
-	<atom:link href="/tags/%EC%8B%9C%EA%B0%84%EB%8C%80/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 17 May 2018 22:06:00 +0900</lastBuildDate><atom:link href="/tags/%EC%8B%9C%EA%B0%84%EB%8C%80/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python Datetime으로 서로 다른 시간대 다루기</title>
       <link>/posts/python-datetime-test/</link>

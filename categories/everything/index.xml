@@ -6,11 +6,7 @@
     <description>Recent content in Everything on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 13 Jun 2020 12:59:28 +0900</lastBuildDate>
-    
-	<atom:link href="/categories/everything/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 13 Jun 2020 12:59:28 +0900</lastBuildDate><atom:link href="/categories/everything/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>요즘 좋아하는 노래들</title>
       <link>/posts/favorite-music-nowadays/</link>

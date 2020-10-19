@@ -6,11 +6,7 @@
     <description>Recent content in Linux on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 25 Dec 2018 17:15:00 +0900</lastBuildDate>
-    
-	<atom:link href="/categories/linux/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 25 Dec 2018 17:15:00 +0900</lastBuildDate><atom:link href="/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Netstat으로 리눅스 서버에서 클라이언트 접속 확인하기</title>
       <link>/posts/how-to-see-netstat/</link>

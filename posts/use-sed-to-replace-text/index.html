@@ -117,8 +117,8 @@ if (!doNotTrack) {
 <p>이 경우 다음과 같이 <code>-i</code> 뒤에 <code>''</code>를 넣고, 패턴 앞에 <code>-e</code> 옵션을 넣어 해결하면 된다.</p>
 <p>원래 명령: <code>sed -i 's/n.m/aaa/g' test.txt</code>
 macOS에서 쓰는 방법: <code>sed -i '' -e 's/n.m/aaa/g' test.txt</code></p>
-<h3 id="여담2-unterminated-s-command-오류가-발생하는-경우">여담2: &lsquo;unterminated `s&rsquo; command&rsquo; 오류가 발생하는 경우</h3>
-<p>다음과 같이 썼을 때 &lsquo;unterminated `s&rsquo; command&rsquo; 오류가 발생하는 경우가 있다.</p>
+<h3 id="여담2-unterminated-s-command-오류가-발생하는-경우">여담2: &lsquo;unterminated `s&rsquo; command' 오류가 발생하는 경우</h3>
+<p>다음과 같이 썼을 때 &lsquo;unterminated `s&rsquo; command' 오류가 발생하는 경우가 있다.</p>
 <pre><code>sudo sed -i 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=1024x768' /etc/default/grub
 </code></pre><p>이 경우 아래와 같이 조건식 끝에 <code>/</code>를 하나 더 추가한다.</p>
 <pre><code>sudo sed -i 's/#GRUB_GFXMODE=640x480/GRUB_GFXMODE=1024x768/' /etc/default/grub

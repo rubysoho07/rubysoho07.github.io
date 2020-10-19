@@ -81,16 +81,16 @@ cd layer_pandas
 mkdir python
 docker run --rm -it -v $PWD/python:/layer amazonlinux:1 bash
 
-<span style="color:#75715e"># 여기서부터는 Docker 이미지에서 실행하는 내용이다.</span> 
+<span style="color:#75715e"># 여기서부터는 Docker 이미지에서 실행하는 내용이다. </span>
 yum install -y python36                 <span style="color:#75715e"># Python 3.7 버전은 Amazon Linux 1 버전에서 동작하지만, yum으로는 설치할 수 없으니 유의!</span>
 cd layer
 python3 -m pip install pandas -t .      <span style="color:#75715e"># Pandas와 의존성 있는 라이브러리를 /layer에 설치한다.</span>
 rm -r *.dist-info __pycache__           <span style="color:#75715e"># 필요 없는 파일을 지운다.</span>
-exit                                    <span style="color:#75715e"># 컨테이너를 종료한다.</span> 
+exit                                    <span style="color:#75715e"># 컨테이너를 종료한다. </span>
 
 <span style="color:#75715e"># Layer를 zip 파일로 만든다. (명령으로 하기 귀찮으면 그냥 Finder(macOS)나 Nautilus(우분투)를 써도 된다)</span>
 zip -r layer_pandas.zip .
-<span style="color:#75715e"># ls -l 명령으로 확인해 보면, 53MB 정도의 용량을 차지하고 있음을 볼 수 있다.</span> 
+<span style="color:#75715e"># ls -l 명령으로 확인해 보면, 53MB 정도의 용량을 차지하고 있음을 볼 수 있다. </span>
 </code></pre></div><p>이제 AWS CLI로 Layer를 생성해 보자.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">aws lambda publish-layer-version --layer-name layer-pandas --compatible-runtimes <span style="color:#e6db74">&#34;python3.6&#34;</span> --zip-file fileb://$PWD/layer_pandas.zip
 </code></pre></div><p>하지만 다음과 같은 오류가 발생할 것이다. 참고로 69,905,067 바이트면 69.9 MB이고, Layer 자체의 용량은 54 MB 정도이지만 다른 방법을 찾아봐야 한다.</p>
@@ -99,7 +99,7 @@ zip -r layer_pandas.zip .
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># S3에 버킷 만들고 파일 업로드 하기</span>
 aws s3 mb s3://<span style="color:#f92672">(</span>S3 버킷 이름<span style="color:#f92672">)</span>
 aws s3 cp layer_pandas.zip s3://<span style="color:#f92672">(</span>S3 버킷 이름<span style="color:#f92672">)</span>
-<span style="color:#75715e"># 그러면 (S3 버킷 이름)/layer_pandas.zip으로 올라가게 된다.</span> 
+<span style="color:#75715e"># 그러면 (S3 버킷 이름)/layer_pandas.zip으로 올라가게 된다. </span>
 
 <span style="color:#75715e"># Lambda Layer 만들기</span>
 aws lambda publish-layer-version --layer-name layer-pandas --compatible-runtimes <span style="color:#e6db74">&#34;python3.6&#34;</span> --content S3Bucket<span style="color:#f92672">=(</span>S3 버킷 이름<span style="color:#f92672">)</span>,S3Key<span style="color:#f92672">=</span>layer_pandas.zip
