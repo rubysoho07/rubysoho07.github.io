@@ -51,6 +51,20 @@ if (!doNotTrack) {
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
+			<a href="/posts/python-map-reduce-filter/" rel="bookmark">
+			Python의 map() filter() reduce() 사용 방법 정리
+			</a>
+		</h3>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		가끔씩 Python의 map(), filter(), reduce()에 대해 헷갈리는 것들이 있어서 정리해 본다.
+map(function, iterable, &hellip;)  Reference: Python 문서 참조  iterable에 있는 모든 요소에 function을 적용하여 그 결과를 반환한다. function은 여러 인자를 받을 수 있어야 하고, 모든 iterable의 아이템에 동시에 적용되도록 해야 한다.
+&gt;&gt;&gt; l1 = [1, 2, 3, 4] &gt;&gt;&gt; map(lambda x: x * 2, l1) &lt;map object at 0x1006d1040&gt; map()을 수행한 결과는 map object로 반환되므로, 이를 list나 tuple로 바꾸는 작업이 필요하다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
 			<a href="/posts/python-string-interpolation/" rel="bookmark">
 			파이썬 문자열 다루기 - str.format()
 			</a>
@@ -221,6 +235,7 @@ import datetime now = datetime.
 		<a class="widget-taglist__link widget__link btn" href="/tags/cloudformation/" title="CloudFormation">CloudFormation</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/datetime/" title="datetime">datetime</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ec2/" title="EC2">EC2</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/filter/" title="filter">filter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/font/" title="font">font</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/format/" title="format">format</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/fromtimestamp/" title="fromtimestamp">fromtimestamp</a>
@@ -232,6 +247,7 @@ import datetime now = datetime.
 		<a class="widget-taglist__link widget__link btn" href="/tags/idles/" title="Idles">Idles</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/lambda/" title="Lambda">Lambda</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/map/" title="map">map</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/mongodb/" title="MongoDB">MongoDB</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/mysql/" title="MySQL">MySQL</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/netstat/" title="netstat">netstat</a>
@@ -242,6 +258,7 @@ import datetime now = datetime.
 		<a class="widget-taglist__link widget__link btn" href="/tags/property/" title="property">property</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/rds/" title="RDS">RDS</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/reduce/" title="reduce">reduce</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/s3/" title="S3">S3</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sam/" title="SAM">SAM</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sed/" title="sed">sed</a>

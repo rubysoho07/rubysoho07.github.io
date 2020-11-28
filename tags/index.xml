@@ -6,7 +6,52 @@
     <description>Recent content in Tags on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 19 Oct 2020 20:44:49 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Nov 2020 13:13:35 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>filter</title>
+      <link>/tags/filter/</link>
+      <pubDate>Sat, 28 Nov 2020 13:13:35 +0900</pubDate>
+      
+      <guid>/tags/filter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>map</title>
+      <link>/tags/map/</link>
+      <pubDate>Sat, 28 Nov 2020 13:13:35 +0900</pubDate>
+      
+      <guid>/tags/map/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>/tags/python/</link>
+      <pubDate>Sat, 28 Nov 2020 13:13:35 +0900</pubDate>
+      
+      <guid>/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reduce</title>
+      <link>/tags/reduce/</link>
+      <pubDate>Sat, 28 Nov 2020 13:13:35 +0900</pubDate>
+      
+      <guid>/tags/reduce/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>내장 함수</title>
+      <link>/tags/%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98/</link>
+      <pubDate>Sat, 28 Nov 2020 13:13:35 +0900</pubDate>
+      
+      <guid>/tags/%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Go</title>
       <link>/tags/go/</link>
@@ -404,15 +449,6 @@
     </item>
     
     <item>
-      <title>Python</title>
-      <link>/tags/python/</link>
-      <pubDate>Thu, 13 Sep 2018 00:08:00 +0900</pubDate>
-      
-      <guid>/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>pep-8</title>
       <link>/tags/pep-8/</link>
       <pubDate>Sat, 26 May 2018 10:32:00 +0900</pubDate>
@@ -463,15 +499,6 @@
       <pubDate>Thu, 17 May 2018 22:06:00 +0900</pubDate>
       
       <guid>/tags/%EC%8B%9C%EA%B0%84%EB%8C%80/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>내장 함수</title>
-      <link>/tags/%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98/</link>
-      <pubDate>Wed, 16 May 2018 23:27:00 +0900</pubDate>
-      
-      <guid>/tags/%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98/</guid>
       <description></description>
     </item>
     
