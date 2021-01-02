@@ -141,7 +141,7 @@ if (!doNotTrack) {
 <li>State Machine의 정의가 단순하다면, 그냥 <code>Definition</code> 속성에다 JSON 형태로 넣으면 된다.</li>
 <li>로컬에 있는 State Machine의 정의를 참조하려면 <code>DefinitionUri</code> 속성에 경로를 적어 넣으면 된다.</li>
 <li>상황에 따라 바뀔 수 있는 것들은 <code>DefinitionSubstitutions</code>에 넣으면 된다. (예를 들어 State Machine 정의에 <code>${속성 이름}</code> 값이 있으면, <code>DefinitionSubstitutions</code> 속성 아래에 <code>속성 이름: 들어가야 하는 값</code>과 같이 넣으면 된다.)</li>
-<li><code>Role</code>이나 <code>Polities</code> 속성 중 하나는 필수로 들어가야 한다.</li>
+<li><code>Role</code>이나 <code>Policies</code> 속성 중 하나는 필수로 들어가야 한다.</li>
 </ul>
 <h2 id="sam에서-중첩된-애플리케이션-빌드패키징">SAM에서 중첩된 애플리케이션 빌드/패키징</h2>
 <p>SAM CLI로 중첩된 애플리케이션을 한 번에 배포하고 싶을 때 recursive 하게 빌드하지 않는다. (<a href="https://github.com/awslabs/aws-sam-cli/issues/1213">GitHub 이슈 참조</a>) 많은 사람들이 이러한 기능을 원하고 있지만 아직까지는 소식이 없으니, 다음과 같이 해 보자.</p>
@@ -231,7 +231,7 @@ if (!doNotTrack) {
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2020 Yungon Park.
+			&copy; 2021 Yungon Park.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>
