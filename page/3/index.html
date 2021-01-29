@@ -50,6 +50,22 @@ if (!doNotTrack) {
 	<article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
+			<a href="/posts/git-error-at/" rel="bookmark">
+			Git 원격 저장소에서 사용자 이름에 &#39;@&#39;이 들어가면 동작하지 않는 경우
+			</a>
+		</h3>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		부서에서 사용하는 CodeCommit에 Push를 하려고 하는데, 아래와 같은 오류 때문에 Push를 할 수 없었다.
+fatal: UriFormatException encountered. queryUrl 보통 이런 문제가 발생하면 오류 메시지를 먼저 찾아 보는 편인데, 이상하게 검색이 잘 안 됐었다. (컨디션이 안 좋아서 그랬던가&hellip;-_-) 그러다가 다음과 같은 내용을 발견했다.
+https://github.com/Microsoft/Git-Credential-Manager-for-Windows/issues/587
+내용을 요약하면 다음과 같다.
+ Git 원격 저장소의 사용자 이름이 이메일 주소인 경우 이러한 오류가 발생한다. RFC3986에 따르면, URI에 이미 할당되어 있는 문자는 :/?#[]@!$&amp;'()*+,;=이다. @의 경우, %40으로 바꾸면(escaping) 문제를 해결할 수 있다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
 			<a href="/posts/check-lambda-version/" rel="bookmark">
 			AWS Lambda에서 별칭(alias)으로 함수 버전 구분하기
 			</a>
@@ -182,27 +198,13 @@ import datetime now = datetime.
 텍스트 바꾸기 기본적으로 sed를 이용해서 텍스트를 바꾸는 방법은 다음과 같다.
 $ sed -i 's/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g' &lt;파일 이름&gt; 여기서 -i, s/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/, g가 의미하는 내용은 다음과 같다.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/posts/my-trial-for-moving/" rel="bookmark">
-			이직 시도 후기 - 2017년 하반기
-			</a>
-		</h3>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		이 포스트는 개인적으로 이직을 준비하는 과정에서 느낀 점들을 정리한 글입니다. 차후 발생 가능한 문제를 막기 위해, 채용 프로세스나 면접 질문을 언급하는 과정에서 특정한 기업을 지칭하지 않습니다. 구직/구인 과정에서 참고로 봐 주시면 좋겠습니다.
- 배경 프로필에도 적어 놓았지만, 저는 아직 인턴 신분으로 일하고 있습니다. 저희 기관 특성 상 정규직 T/O가 나오기 어렵기 때문에, 이직을 결심하고 여러 군데에 서류를 제출하기 시작했습니다.
-일단 지금까지의 프로필을 요약하면 다음과 같습니다.
- 복수전공으로 컴퓨터학부를 전공 (본 전공은 사범대에서 사회교육) 첫 직장은 임베디드 쪽 경력으로 시작 (리눅스 기반, C 언어 주로 사용) 현재는 공공기관 인턴으로 근무 (부서에서는 개발자 역할을 하고 있습니다) Python, Django 기반의 Toy project 개발 경험 PyCon Korea 2017 발표자로 참석  그리고 주로 제가 지원한 곳은 스타트업이 많았습니다.
-	</div>
 </article>
 </main>
 
 <div class="pagination">
 	<a class="pagination__item pagination__item--prev btn" href="/page/2/">«</a>
-	<span class="pagination__item pagination__item--current">3/3</span>
+	<span class="pagination__item pagination__item--current">3/4</span>
+	<a class="pagination__item pagination__item--next btn" href="/page/4/">»</a>
 </div>
 
 
@@ -222,6 +224,9 @@ $ sed -i 's/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g' &lt;파일 이름&gt;
 		<ul class="widget__list">
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/aws/">AWS</a>
+			</li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/data-engineering/">Data Engineering</a>
 			</li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/everything/">Everything</a>
@@ -266,6 +271,7 @@ $ sed -i 's/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g' &lt;파일 이름&gt;
 		<a class="widget-taglist__link widget__link btn" href="/tags/golang/" title="Golang">Golang</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/hadoop/" title="Hadoop">Hadoop</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/idles/" title="Idles">Idles</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/kafka/" title="Kafka">Kafka</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/lambda/" title="Lambda">Lambda</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/map/" title="map">map</a>
@@ -290,6 +296,7 @@ $ sed -i 's/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g' &lt;파일 이름&gt;
 		<a class="widget-taglist__link widget__link btn" href="/tags/underscore/" title="underscore">underscore</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/visual-studio-code/" title="Visual Studio Code">Visual Studio Code</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/vscode/" title="VSCode">VSCode</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/zookeeper/" title="ZooKeeper">ZooKeeper</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zsh/" title="zsh">zsh</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B5%90%EC%9C%A1/" title="교육">교육</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98/" title="내장 함수">내장 함수</a>

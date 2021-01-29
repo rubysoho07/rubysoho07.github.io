@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ZooKeeper on GoniGoni!</title>
+    <link>/tags/zookeeper/</link>
+    <description>Recent content in ZooKeeper on GoniGoni!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Sun, 24 Jan 2021 19:36:57 +0900</lastBuildDate><atom:link href="/tags/zookeeper/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>데이터 수집 단계를 처음부터 구현해 보기</title>
+      <link>/posts/collecting-data-from-scratch/</link>
+      <pubDate>Sun, 24 Jan 2021 19:36:57 +0900</pubDate>
+      
+      <guid>/posts/collecting-data-from-scratch/</guid>
+      <description>2021년에는 매월 최소한 글 한 편은 블로그에 올려야겠다고 생각했습니다. 그 달에 공부했던 것, 새로 알게 된 것들을 주로 정리해서 올릴 예정입니다.
+이번 달은 &amp;lsquo;데이터 수집 단계를 처음부터 구현해 보기&amp;rsquo; 라는 주제로 테스트 해 본 것들을 정리해 보겠습니다.
+왜 이 일을 하게 되었나? 지금 제가 회사에서 하는 일은 학생의 학습 데이터를 수집하고 분석하는 인프라를 구축/운영하는 것입니다. 3년 간 AWS를 기반으로 여러 서비스들을 운영해 보면서, &amp;lsquo;만약 AWS를 쓰지 않는 환경이라면, 어떻게 시스템 구축을 할 것인가?</description>
+    </item>
+    
+  </channel>
+</rss>
