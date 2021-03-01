@@ -51,6 +51,20 @@ if (!doNotTrack) {
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
+			<a href="/posts/use-sed-to-replace-text/" rel="bookmark">
+			sed를 이용한 텍스트 파일 바꾸기
+			</a>
+		</h3>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		쉘 스크립트를 만들 때, 텍스트 파일의 내용을 바꾸는 기능이 필요할 때가 있다. 이 경우 sed를 쓰는데, sed의 사용 방법이 헷갈릴 때가 많아 이 기회에 정리를 해 보고자 한다. 이 글에서는 기본적인 사용 방법과 내가 주로 사용하는 기능만 정리하였다. sed가 지원하는 전체 기능이 궁금하다면, man page(man sed)를 확인하는 것이 최선이다.
+텍스트 바꾸기 기본적으로 sed를 이용해서 텍스트를 바꾸는 방법은 다음과 같다.
+$ sed -i 's/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g' &lt;파일 이름&gt; 여기서 -i, s/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/, g가 의미하는 내용은 다음과 같다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
 			<a href="/posts/my-trial-for-moving/" rel="bookmark">
 			이직 시도 후기 - 2017년 하반기
 			</a>
@@ -117,6 +131,7 @@ if (!doNotTrack) {
 		<a class="widget-taglist__link widget__link btn" href="/tags/2018%EB%85%84/" title="2018년">2018년</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/2019%EB%85%84/" title="2019년">2019년</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/2020%EB%85%84/" title="2020년">2020년</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/airflow/" title="Airflow">Airflow</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/arcade-fire/" title="Arcade Fire">Arcade Fire</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws/" title="AWS">AWS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/belle-and-sebastian/" title="Belle and Sebastian">Belle and Sebastian</a>
