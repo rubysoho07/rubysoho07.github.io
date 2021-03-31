@@ -6,7 +6,19 @@
     <description>Recent content in Posts on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 01 Mar 2021 17:00:00 +0900</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Mar 2021 21:53:01 +0900</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Locust 1.0 이후 달라진 점들 요약</title>
+      <link>/posts/locust-update/</link>
+      <pubDate>Tue, 30 Mar 2021 21:53:01 +0900</pubDate>
+      
+      <guid>/posts/locust-update/</guid>
+      <description>작년 이맘때에 AWSKRUG에서 ECS+Locust로 부하 테스트 진행하기라는 주제로 발표를 한 적이 있었습니다.
+그러다가 5월에 Locust 1.0 버전이 나왔는데요. 최신 버전의 Locust로 부하 테스트를 진행하다 보니 바뀐 부분이 많아서, 새 버전으로 테스트를 수행하기 위해 필요한 내용 위주로 다시 정리해 보려고 합니다.
+이 글은 위에 링크한 슬라이드 중 11~19 페이지의 내용을 대체합니다. 지금부터 한 번 살펴보겠습니다.
+Locust -&amp;gt; User 클래스 이름 변경 한 명의 사용자를 표현하는 Locust 클래스가 &amp;lsquo;User&amp;rsquo;로 이름을 바꾸었습니다. HTTP를 이용하는 클라이언트는 HttpLocust에서 HttpUser로 클래스 이름을 바꾸었습니다.</description>
+    </item>
+    
     <item>
       <title>데이터 분석 워크플로우를 처음부터 만들어 보기</title>
       <link>/posts/data-workflow-from-scratch/</link>
