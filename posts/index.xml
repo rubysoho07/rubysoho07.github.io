@@ -6,7 +6,20 @@
     <description>Recent content in Posts on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 30 Mar 2021 21:53:01 +0900</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Apr 2021 21:20:19 +0900</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>데이터 분석 워크플로우를 처음부터 만들어 보기 (2)</title>
+      <link>/posts/data-workflow-from-scratch-2/</link>
+      <pubDate>Mon, 26 Apr 2021 21:20:19 +0900</pubDate>
+      
+      <guid>/posts/data-workflow-from-scratch-2/</guid>
+      <description>2월에 올렸던 데이터 분석 워크플로우를 처음부터 만들어 보기에 이어서 작성하는 두번째 글입니다.
+그동안 시도해 봤던 것들은 다음과 같습니다.
+ S3 버킷에 원격으로 로그 올리도록 설정하기 Airflow 2.x 버전에서 KubernetesExecutor를 사용하는 데, DAG이나 Task를 수동으로 실행할 때 에러가 발생하는 이유는? DAG에서 DB 이용하기: DB와 관련된 Operator 이용하기, Hooks 이용하기 S3에서 파일을 가져와서 분석하기: S3Hook  테스트 한 환경은 Airflow 2.0.1, 2.0.2 버전입니다.
+전체 내용은 GitHub 저장소에서 확인하실 수 있습니다.
+S3 버킷에 원격으로 로그를 올리도록 설정하기 지난 글에서 시스템 구성으로 KubernetesExecutor를 이용한다고 말씀드렸습니다.</description>
+    </item>
+    
     <item>
       <title>Locust 1.0 이후 달라진 점들 요약</title>
       <link>/posts/locust-update/</link>
