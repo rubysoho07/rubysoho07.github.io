@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="ko-kr">
 <head>
-	<meta name="generator" content="Hugo 0.82.1" />
+	<meta name="generator" content="Hugo 0.83.1" />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,6 +48,19 @@ if (!doNotTrack) {
 			
 <main class="main list" role="main">
 	<article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
+			<a href="/posts/favorite-music-nowadays/" rel="bookmark">
+			요즘 좋아하는 노래들
+			</a>
+		</h3>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		제 인생의 즐거움 중 가장 큰 것들을 뽑으라면 축구와 락 페스티벌이라 할 수 있습니다. 근데 요즘은 코로나 때문에 락페든 축구든 직관이 불가능한 상황이죠. 그러다 보니 유튜브에서 락 페스티벌 공연 영상을 자주 봤었어요. 원래 알고 있던 노래도 있지만, 새로 알게된 노래들 중 최근에 자주 들었던 노래들을 소개해 드리려고 합니다. 한 편으로는 블로그에 GitHub Actions를 걸어놨는데, 이게 제대로 동작하는지 테스트해 보고 싶어서 쓰는 글이기도 합니다.
+Idles - Danny Nedelko   원래 뮤직비디오도 좋지만, 개인적으로는 작년 글라스톤베리에서 공연했던 영상을 더 좋아합니다.
+	</div>
+</article><article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
 			<a href="/posts/retrospect-2019/" rel="bookmark">
@@ -115,8 +128,8 @@ if (!doNotTrack) {
 (2019년 5월에 서울 리전에 출시되었습니다. 링크한 글을 확인해 주세요~)
 그렇지만 필요에 따라 MongoDB를 쓸 일이 있을 것이다. AWS에서 Bitnami의 이미지를 활용해서 EC2에 MongoDB를 올려보고, 시험 삼아 데이터를 넣어보자.
 EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어간다. 아래 스크린샷과 같은 화면이 나오면, &lsquo;인스턴스 시작&rsquo;을 누른다.
-  그리고 검색어에서 MongoDB를 입력하고, 왼쪽에서 AWS Marketplace를 누른다.
-  스크롤을 아래로 내리다 보면, &lsquo;MongoDB Certified by Bitnami&rsquo;가 있다.
+ 그리고 검색어에서 MongoDB를 입력하고, 왼쪽에서 AWS Marketplace를 누른다.
+ 스크롤을 아래로 내리다 보면, &lsquo;MongoDB Certified by Bitnami&rsquo;가 있다.
 	</div>
 </article><article class="list__item post">
 	<header class="list__header">
@@ -146,7 +159,7 @@ EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어�
  박대리님, 서버에서 클라이언트가 몇 명이 접속 중인지 알 수 있는 방법이 있을까요?
  사실 여러 사람을 대상으로 하는 웹 서비스를 개발하고 배포하는 건 처음이라, 이걸 어떻게 알 수 있는지 궁금하긴 했다.
 그래서, how to get the number of connections from web server라는 키워드로 구글 검색을 해 보았다.
-  여기 나오는 문서들 중에서 가장 많이 언급되는 유틸리티가 netstat인데, 여기서 연결 개수를 어떻게 체크해 볼 수 있는지 알아보자.
+ 여기 나오는 문서들 중에서 가장 많이 언급되는 유틸리티가 netstat인데, 여기서 연결 개수를 어떻게 체크해 볼 수 있는지 알아보자.
 	</div>
 </article><article class="list__item post">
 	<header class="list__header">
@@ -174,20 +187,6 @@ int a = 0; printf(&#39;%d&#39;, a); 파이썬 또한 이런 방법을 지원한�
 	<div class="content list__excerpt post__content clearfix">
 		책 소개 제 주변에는 학교를 졸업하고 만난 분들을 제외하면 개발자로 일하시는 분이 거의 없다시피 합니다. 그러다 보니 저에게 개발자의 업무 또는 어떻게 개발자가 될 수 있는지에 대해 물어보시는 분들이 가끔씩 계십니다. 하지만 저는 경력이 아직 5년이 되지 않았고, 말빨(?)이 약한 편이라 개발자라는 직업에 대해 섣불리 말씀드리기 조심스럽습니다.
 그러던 와중에 &lsquo;인문학도, 개발자되다(마르코 저, 영진닷컴)' 라는 책을 접하게 되었습니다. 이 책은 저자인 마르코님이 개발자로 전직을 하게 된 계기와 과정, 개발자로 일하기 위해서 어떤 능력이 필요한지, 그리고 앞으로 어떻게 개발 능력을 키워나가야 될 지에 대해 이야기하고 있습니다.
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/posts/list-over-1000-files-from-s3/" rel="bookmark">
-			S3 버킷의 객체가 1,000개를 넘을 때 객체 목록 조회하기
-			</a>
-		</h3>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		S3 버킷에는 여러 파일들을 저장할 수 있다. 그런데, 버킷에 저장된 파일의 목록을 보고 싶은 경우가 있을 것이다. 하지만, AWS의 Python SDK인 Boto3에서 list_objects()나 list_objects_v2() 함수를 이용하면 최대 1,000개까지의 object만 가져올 수 있다. [참고] (근본적으로는 AWS의 API가 최대 1,000개까지의 object만 가져오도록 구현되어 있다. - [참고])
-이런 문제를 해결하기 위해, 다음과 같이 Paginator를 이용해 보자.
-Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로 S3를 담당할 클라이언트를 생성한 뒤, get_paginator()로 Paginator를 가져온다. 여기서는 하나의 버킷에서 object들을 가져오기 위해 list_objects_v2를 이용한다.
 	</div>
 </article>
 </main>
@@ -272,6 +271,7 @@ Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로
 		<a class="widget-taglist__link widget__link btn" href="/tags/mysql/" title="MySQL">MySQL</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/netstat/" title="netstat">netstat</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/oh-my-zsh/" title="oh-my-zsh">oh-my-zsh</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/open-badges/" title="Open Badges">Open Badges</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/paginator/" title="Paginator">Paginator</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pandas/" title="Pandas">Pandas</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pep-8/" title="pep-8">pep-8</a>
@@ -285,6 +285,7 @@ Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로
 		<a class="widget-taglist__link widget__link btn" href="/tags/serverless/" title="Serverless">Serverless</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/setter/" title="setter">setter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/simcity/" title="SimCity">SimCity</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/standard/" title="Standard">Standard</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/step-functions/" title="Step Functions">Step Functions</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/underscore/" title="underscore">underscore</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/visual-studio-code/" title="Visual Studio Code">Visual Studio Code</a>

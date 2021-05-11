@@ -6,7 +6,18 @@
     <description>Recent content on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 26 Apr 2021 21:20:19 +0900</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 May 2021 12:55:57 +0900</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Open Badges 소개</title>
+      <link>/posts/open-badges-introduction/</link>
+      <pubDate>Sat, 01 May 2021 12:55:57 +0900</pubDate>
+      
+      <guid>/posts/open-badges-introduction/</guid>
+      <description>저는 초등학생 때 아람단에 가입해서 이런저런 활동들을 해 봤는데요. 열심히 활동하는 편은 아니었지만, 뭔가 활동을 하면 배지를 얻을 수 있었습니다. 적극적으로 활동하는 친구들은 아람단 단복에 정말 많은 배지들을 달고 있었던 기억이 납니다.
+이러한 배지 시스템은 스마트 폰의 앱이나 웹 사이트에서도 볼 수 있습니다. 예를 들어 제가 운동할 때 사용하는 앱 중 하나인 Nike Training Club은 특정한 조건을 달성하면 새로운 기록을 만들 수 있는데요.
+아래는 Nike Training Club 앱에서 제가 달성한 기록들 중 일부입니다.</description>
+    </item>
+    
     <item>
       <title>데이터 분석 워크플로우를 처음부터 만들어 보기 (2)</title>
       <link>/posts/data-workflow-from-scratch-2/</link>
@@ -171,8 +182,8 @@ Idles - Danny Nedelko   원래 뮤직비디오도 좋지만, 개인적으로는 
 (2019년 5월에 서울 리전에 출시되었습니다. 링크한 글을 확인해 주세요~)
 그렇지만 필요에 따라 MongoDB를 쓸 일이 있을 것이다. AWS에서 Bitnami의 이미지를 활용해서 EC2에 MongoDB를 올려보고, 시험 삼아 데이터를 넣어보자.
 EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어간다. 아래 스크린샷과 같은 화면이 나오면, &amp;lsquo;인스턴스 시작&amp;rsquo;을 누른다.
-  그리고 검색어에서 MongoDB를 입력하고, 왼쪽에서 AWS Marketplace를 누른다.
-  스크롤을 아래로 내리다 보면, &amp;lsquo;MongoDB Certified by Bitnami&amp;rsquo;가 있다.</description>
+ 그리고 검색어에서 MongoDB를 입력하고, 왼쪽에서 AWS Marketplace를 누른다.
+ 스크롤을 아래로 내리다 보면, &amp;lsquo;MongoDB Certified by Bitnami&amp;rsquo;가 있다.</description>
     </item>
     
     <item>
@@ -196,7 +207,7 @@ EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어�
  박대리님, 서버에서 클라이언트가 몇 명이 접속 중인지 알 수 있는 방법이 있을까요?
  사실 여러 사람을 대상으로 하는 웹 서비스를 개발하고 배포하는 건 처음이라, 이걸 어떻게 알 수 있는지 궁금하긴 했다.
 그래서, how to get the number of connections from web server라는 키워드로 구글 검색을 해 보았다.
-  여기 나오는 문서들 중에서 가장 많이 언급되는 유틸리티가 netstat인데, 여기서 연결 개수를 어떻게 체크해 볼 수 있는지 알아보자.</description>
+ 여기 나오는 문서들 중에서 가장 많이 언급되는 유틸리티가 netstat인데, 여기서 연결 개수를 어떻게 체크해 볼 수 있는지 알아보자.</description>
     </item>
     
     <item>
@@ -250,7 +261,7 @@ Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로
       <guid>/posts/vscode-oh-my-zsh/</guid>
       <description>최근에 oh-my-zsh를 써 보기 시작했다. (써보면 편하다고는 하는데, 아직까지는 체감을 못하고 있긴 하다.)
 그런데 Visual Studio Code에서 터미널을 쓸 때, 아래처럼 글꼴이 깨지는 현상이 있었다. (현재 테마는 &amp;ldquo;agnoster&amp;quot;이다.)
-  이 문제에 대해 찾아보니, 다음과 같은 이슈를 발견할 수 있었다.
+ 이 문제에 대해 찾아보니, 다음과 같은 이슈를 발견할 수 있었다.
 https://github.com/Microsoft/vscode/issues/7116
 여기서 제시하는 해결책은 다음과 같다.
  &amp;ldquo;SourceCodePro+Powerline+Awesome Regular&amp;rdquo; 글꼴을 받아 설치한다. 링크 Visual Studio Code 설정에서 terminal.integrated.fontFamily 항목에 &#39;SourceCodePro+Powerline+Awesome Regular&#39;를 넣는다. (작은 따옴표를 포함해야 한다!)  그러면 아래와 같이 터미널의 글꼴이 깨지지 않게 된다.</description>
@@ -263,11 +274,12 @@ https://github.com/Microsoft/vscode/issues/7116
       
       <guid>/posts/logging-rds/</guid>
       <description>RDS MySQL을 이용하면, 아래와 같이 CloudWatch에 일반/감사/느린 쿼리 로그를 찍도록 설정할 수 있다.
-  로그 찍기 설정(RDS 인스턴스 생성 시)
+ 로그 찍기 설정(RDS 인스턴스 생성 시)
   그리고 RDS 콘솔에 들어가면 로그 파일을 볼 수 있는데, 일반 로그나 느린 쿼리 로그를 찾을 수 없었다. 그래서 CloudWatch Logs를 찾아봤지만, 역시 로그가 없었다.
-  로그 파일이 없다(-_-&amp;hellip;)
+ 로그 파일이 없다(-_-&amp;hellip;)
   그 이유를 찾아 보니, 파라미터 그룹에 로그 관련 설정을 하지 않은 것이 원인이었다.
-다음과 같이 설정하면 된다.</description>
+다음과 같이 설정하면 된다.
+먼저, RDS 콘솔에서 파라미터 그룹 메뉴를 클릭한다.</description>
     </item>
     
     <item>
@@ -303,11 +315,11 @@ START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1 arn:aws:lambda:
       
       <guid>/posts/python-datetime-fromtimestamp/</guid>
       <description>최근에 Timestamp가 있는 데이터를 다루다가, 신기한 버그를 발견하여 여기에 기록해 본다. 해당 문제가 수정된 것 같기는 한데, 아직 배포는 안 된 것 같다.
-Windows에서 발생하는 버그   fromtimestamp 함수의 버그 (Windows)
+Windows에서 발생하는 버그  fromtimestamp 함수의 버그 (Windows)
   해당 이슈에 대해 설명한 부분을 확인하면, 0에서 86399 사이의 값을 입력하면 OSError가 발생한다.
 Ubuntu에서는? 잘 동작한다. 심지어 Windows 10에 깔린 Ubuntu를 이용했고, 3.5.x 버전인데도 멀쩡히 잘 돌아간다.
-  Ubuntu에서는 정상적으로 동작한다.
-  참고자료  https://bugs.</description>
+ Ubuntu에서는 정상적으로 동작한다.
+  참고자료  https://bugs.python.org/issue29097 https://docs.python.org/3/whatsnew/changelog.html  </description>
     </item>
     
     <item>

@@ -108,8 +108,7 @@ if (!doNotTrack) {
 <p>Producer와 Consumer는 StatefulSet으로 구성할 필요가 없다고 생각하여, 그냥 Deployment - Service로 구성하였습니다.</p>
 <h2 id="실제로-데이터가-많이-들어오면">실제로 데이터가 많이 들어오면?</h2>
 <p>실제로 데이터가 많이 들어온 경우를 가정해서 테스트 해 보았습니다. Locust를 통해서 테스트를 해 봤는데, 아래와 같은 이슈가 있네요. (Users 1,000 / Spawn Rate(Users spawned/sec) 50으로 테스트 하였습니다.)</p>
-<figure>
-    <img src="/img/cdfs-1.png"/> 
+<figure><img src="/img/cdfs-1.png"/>
 </figure>
 
 <p>이슈 내용을 요약하면 다음과 같습니다.</p>
@@ -147,8 +146,7 @@ Topic: test-topic       PartitionCount: <span style="color:#ae81ff">6</span>    
 <p>그러면 결론은, Upstream 서버에서 요청~응답을 받는 시간이 너무 오래 걸린다는 의미입니다. 그리고 Upstream 서버라면 제가 만든 Producer 프로그램을 의미할 것입니다. Producer에 문제가 있는지 고민해 보겠습니다.</p>
 <p>생각해 보니, 이 문제는 Producer 쪽으로 요청이 들어올 때마다 계속해서 연결을 시도하여 발생했습니다. 그래서, 처음 Producer 애플리케이션이 시작할 때 Kafka에 연결하고, 요청을 처리할 때 이 연결을 참조하도록 <a href="https://github.com/rubysoho07/collect-data-from-scratch/commit/969b9c635017873fab39db9a220bb57c3578af21">프로그램을 수정</a>하였습니다. 어떻게 보면 기본적인 부분인데 좀 부끄럽네요 😅</p>
 <p>그렇게 해서 동일 조건으로 테스트 해 보니, 성능이 확실히 향상된 것을 볼 수 있었습니다.</p>
-<figure>
-    <img src="/img/cdfs-2.png"/> 
+<figure><img src="/img/cdfs-2.png"/>
 </figure>
 
 <p>앞에서 언급했던 Partition의 개념을 생각해 보면, Partition 개수 조정과 함께 다음 내용도 고려해야 할 것 같습니다.</p>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open Badges on GoniGoni!</title>
+    <link>/tags/open-badges/</link>
+    <description>Recent content in Open Badges on GoniGoni!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Sat, 01 May 2021 12:55:57 +0900</lastBuildDate><atom:link href="/tags/open-badges/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Open Badges 소개</title>
+      <link>/posts/open-badges-introduction/</link>
+      <pubDate>Sat, 01 May 2021 12:55:57 +0900</pubDate>
+      
+      <guid>/posts/open-badges-introduction/</guid>
+      <description>저는 초등학생 때 아람단에 가입해서 이런저런 활동들을 해 봤는데요. 열심히 활동하는 편은 아니었지만, 뭔가 활동을 하면 배지를 얻을 수 있었습니다. 적극적으로 활동하는 친구들은 아람단 단복에 정말 많은 배지들을 달고 있었던 기억이 납니다.
+이러한 배지 시스템은 스마트 폰의 앱이나 웹 사이트에서도 볼 수 있습니다. 예를 들어 제가 운동할 때 사용하는 앱 중 하나인 Nike Training Club은 특정한 조건을 달성하면 새로운 기록을 만들 수 있는데요.
+아래는 Nike Training Club 앱에서 제가 달성한 기록들 중 일부입니다.</description>
+    </item>
+    
+  </channel>
+</rss>

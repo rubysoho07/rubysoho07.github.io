@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="ko-kr">
 <head>
-	<meta name="generator" content="Hugo 0.82.1" />
+	<meta name="generator" content="Hugo 0.83.1" />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,6 +50,20 @@ if (!doNotTrack) {
 	<article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
+			<a href="/posts/list-over-1000-files-from-s3/" rel="bookmark">
+			S3 버킷의 객체가 1,000개를 넘을 때 객체 목록 조회하기
+			</a>
+		</h3>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		S3 버킷에는 여러 파일들을 저장할 수 있다. 그런데, 버킷에 저장된 파일의 목록을 보고 싶은 경우가 있을 것이다. 하지만, AWS의 Python SDK인 Boto3에서 list_objects()나 list_objects_v2() 함수를 이용하면 최대 1,000개까지의 object만 가져올 수 있다. [참고] (근본적으로는 AWS의 API가 최대 1,000개까지의 object만 가져오도록 구현되어 있다. - [참고])
+이런 문제를 해결하기 위해, 다음과 같이 Paginator를 이용해 보자.
+Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로 S3를 담당할 클라이언트를 생성한 뒤, get_paginator()로 Paginator를 가져온다. 여기서는 하나의 버킷에서 object들을 가져오기 위해 list_objects_v2를 이용한다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
 			<a href="/posts/step-function-with-python/" rel="bookmark">
 			Python으로 Step Functions 활동 만들기
 			</a>
@@ -73,7 +87,7 @@ if (!doNotTrack) {
 	<div class="content list__excerpt post__content clearfix">
 		최근에 oh-my-zsh를 써 보기 시작했다. (써보면 편하다고는 하는데, 아직까지는 체감을 못하고 있긴 하다.)
 그런데 Visual Studio Code에서 터미널을 쓸 때, 아래처럼 글꼴이 깨지는 현상이 있었다. (현재 테마는 &ldquo;agnoster&quot;이다.)
-  이 문제에 대해 찾아보니, 다음과 같은 이슈를 발견할 수 있었다.
+ 이 문제에 대해 찾아보니, 다음과 같은 이슈를 발견할 수 있었다.
 https://github.com/Microsoft/vscode/issues/7116
 여기서 제시하는 해결책은 다음과 같다.
  &ldquo;SourceCodePro+Powerline+Awesome Regular&rdquo; 글꼴을 받아 설치한다. 링크 Visual Studio Code 설정에서 terminal.integrated.fontFamily 항목에 'SourceCodePro+Powerline+Awesome Regular'를 넣는다. (작은 따옴표를 포함해야 한다!)  그러면 아래와 같이 터미널의 글꼴이 깨지지 않게 된다.
@@ -89,11 +103,12 @@ https://github.com/Microsoft/vscode/issues/7116
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		RDS MySQL을 이용하면, 아래와 같이 CloudWatch에 일반/감사/느린 쿼리 로그를 찍도록 설정할 수 있다.
-  로그 찍기 설정(RDS 인스턴스 생성 시)
+ 로그 찍기 설정(RDS 인스턴스 생성 시)
   그리고 RDS 콘솔에 들어가면 로그 파일을 볼 수 있는데, 일반 로그나 느린 쿼리 로그를 찾을 수 없었다. 그래서 CloudWatch Logs를 찾아봤지만, 역시 로그가 없었다.
-  로그 파일이 없다(-_-&hellip;)
+ 로그 파일이 없다(-_-&hellip;)
   그 이유를 찾아 보니, 파라미터 그룹에 로그 관련 설정을 하지 않은 것이 원인이었다.
 다음과 같이 설정하면 된다.
+먼저, RDS 콘솔에서 파라미터 그룹 메뉴를 클릭한다.
 	</div>
 </article><article class="list__item post">
 	<header class="list__header">
@@ -138,11 +153,11 @@ START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1 arn:aws:lambda:
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		최근에 Timestamp가 있는 데이터를 다루다가, 신기한 버그를 발견하여 여기에 기록해 본다. 해당 문제가 수정된 것 같기는 한데, 아직 배포는 안 된 것 같다.
-Windows에서 발생하는 버그   fromtimestamp 함수의 버그 (Windows)
+Windows에서 발생하는 버그  fromtimestamp 함수의 버그 (Windows)
   해당 이슈에 대해 설명한 부분을 확인하면, 0에서 86399 사이의 값을 입력하면 OSError가 발생한다.
 Ubuntu에서는? 잘 동작한다. 심지어 Windows 10에 깔린 Ubuntu를 이용했고, 3.5.x 버전인데도 멀쩡히 잘 돌아간다.
-  Ubuntu에서는 정상적으로 동작한다.
-  참고자료  https://bugs.
+ Ubuntu에서는 정상적으로 동작한다.
+  참고자료  https://bugs.python.org/issue29097 https://docs.python.org/3/whatsnew/changelog.html  
 	</div>
 </article><article class="list__item post">
 	<header class="list__header">
@@ -186,21 +201,6 @@ class property(fget=None, fset=None, fdel=None, doc=None) 페이지 아래에 �
 시간대를 다루기 위해 pytz와 같은 라이브러리가 있지만, 이번에는 파이썬이 기본적으로 제공하는 datetime 모듈만 이용해서 시간대를 다루어 보고자 한다.
 현재 시간 구하기 / UTC 기준 시간 구하기 현재 시간을 구하기 위해서는 datetime.datetime.now()를 이용한다.
 &gt;&gt;&gt; import datetime &gt;&gt;&gt; datetime.datetime.now() datetime.datetime(2018, 5, 17, 21, 43, 13, 554579) 한편, UTC 기준의 현재 시간을 구하기 위해서는 datetime.
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/posts/python-built-in-functions/" rel="bookmark">
-			몰라서 찾아 봤던 파이썬 내장 함수 모음
-			</a>
-		</h3>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		파이썬을 쓰다가 필요한 기능이 있어서 찾아 보면, 언어 자체에서 지원하는 기능인 경우가 종종 있었다. 지금까지 파이썬을 다루면서 찾아봤던 내장 함수들을 정리해 본다.
-아래에서 계속 iterable이라는 말을 많이 쓸 것이다. iterable에는 sequence type인 list, str, tuple 뿐만 아니라 non-sequence type인 dict, file object, 그리고 Sequence semantics를 구현하기 위해 __iter__()나 __getitem__() method가 정의되어 있는 클래스의 object 등이 있다. (참고)
-sum(): 각각의 item을 합치기 참고: https://docs.python.org/3/library/functions.html#sum
-sum(iterable[, start]) iterable 객체를 받아서 각 요소들의 합을 구한다.
 	</div>
 </article>
 </main>
@@ -285,6 +285,7 @@ sum(iterable[, start]) iterable 객체를 받아서 각 요소들의 합을 구�
 		<a class="widget-taglist__link widget__link btn" href="/tags/mysql/" title="MySQL">MySQL</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/netstat/" title="netstat">netstat</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/oh-my-zsh/" title="oh-my-zsh">oh-my-zsh</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/open-badges/" title="Open Badges">Open Badges</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/paginator/" title="Paginator">Paginator</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pandas/" title="Pandas">Pandas</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pep-8/" title="pep-8">pep-8</a>
@@ -298,6 +299,7 @@ sum(iterable[, start]) iterable 객체를 받아서 각 요소들의 합을 구�
 		<a class="widget-taglist__link widget__link btn" href="/tags/serverless/" title="Serverless">Serverless</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/setter/" title="setter">setter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/simcity/" title="SimCity">SimCity</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/standard/" title="Standard">Standard</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/step-functions/" title="Step Functions">Step Functions</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/underscore/" title="underscore">underscore</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/visual-studio-code/" title="Visual Studio Code">Visual Studio Code</a>

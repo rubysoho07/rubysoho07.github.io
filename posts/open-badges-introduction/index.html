@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ko-kr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Open Badges 소개 - GoniGoni!</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	
+	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-131546844-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/" title="GoniGoni!" rel="home">
+				<div class="logo__title">GoniGoni!</div>
+				<div class="logo__tagline">개발 블로그이지만 개발 말고 다른 이야기도 합니다.</div>
+			</a>
+		</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Open Badges 소개</h1>
+			
+		</header><div class="content post__content clearfix">
+			<p>저는 초등학생 때 아람단에 가입해서 이런저런 활동들을 해 봤는데요. 열심히 활동하는 편은 아니었지만, 뭔가 활동을 하면 배지를 얻을 수 있었습니다. 적극적으로 활동하는 친구들은 아람단 단복에 정말 많은 배지들을 달고 있었던 기억이 납니다.</p>
+<p>이러한 배지 시스템은 스마트 폰의 앱이나 웹 사이트에서도 볼 수 있습니다. 예를 들어 제가 운동할 때 사용하는 앱 중 하나인 Nike Training Club은 특정한 조건을 달성하면 새로운 기록을 만들 수 있는데요.</p>
+<p>아래는 Nike Training Club 앱에서 제가 달성한 기록들 중 일부입니다.</p>
+<figure><img src="/img/open-badges-introduction-1.jpeg" width="30%"/>
+</figure>
+
+<p>그런데, 제가 달성한 기록을 전 세계의 어떤 플랫폼에서든 인증받을 수 있다면 어떨까요? 문서나 카드로 만든 자격증이 없어도, 제가 다른 플랫폼으로 저의 데이터를 옮기더라도 저의 기록을 보존할 수 있다면 좋지 않을까요?</p>
+<p>이런 문제를 해결하기 위해 모질라(Mozilla) 재단은 2010년에 Open Badges라는 규격을 소개했습니다. 지금은 여러 에듀테크 관련 기업/기관들이 모인 IMS Global Learning Consortium에서 규격을 관리하고 있는데요.</p>
+<p>이번 글에서는 Open Badges의 기본 구조를 소개하고, 어떻게 활용할 수 있을지에 대해 이야기 해 보겠습니다.</p>
+<h1 id="기본-구조">기본 구조</h1>
+<p>Open Badges는 스킬이나 성취를 표현하기 위한 메타데이터를 포함한 디지털 배지입니다. Open Badges에는 다음과 같은 특성이 있습니다.</p>
+<ul>
+<li>Open Badges의 규격은 표준화되어 있고, 웹에서 쉽게 공유할 수 있습니다.</li>
+<li>각각의 Open Badge는 이미지 및 관련 정보들을 포함하고 있고, 배지를 받은 사람, 발행자, 그리고 이를 증명하는 자료를 포함하고 있습니다.</li>
+<li>Open Badges는 하나의 플랫폼에서 다른 플랫폼으로 쉽게 옮길 수 있습니다.</li>
+</ul>
+<p>Open Badges의 기본 구조는 다음 그림으로 요약할 수 있습니다.</p>
+<figure><img src="https://openbadges.org/sites/default/files/assets/Open%20Badges/Build%20Page/OB_Best_Practices.svg"
+         alt="출처: openbadges.org / This image is licenced under a Creative Commons Attribution 4.0 International License."/><figcaption>
+            <p>출처: <a href="https://openbadges.org/build">openbadges.org</a> / This image is licenced under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+        </figcaption>
+</figure>
+
+<p>하나의 Open Badge는 다음 요소를 갖고 있습니다.</p>
+<ul>
+<li>Issuer Profile: 배지를 수여하는 개인이나 단체에 대한 정보입니다.</li>
+<li>BadgeClass: 발행자가 알 수 있는 성취에 대한 정보입니다. 예를 들어 코스에 대한 정보, 이미지 등이 들어갈 수 있습니다.</li>
+<li>Assertion: 배지에 대한 개인의 성취 정보입니다. Assertion은 하나의 BadgeClass와 연결하고, 배지를 받는 사람의 정보를 포함합니다. 상세한 정보에는 배지를 언제 받았는지, 수령자에 대한 정보, (필수는 아니지만) 증거 자료 및 만료 일자 등이 있겠지요.</li>
+</ul>
+<p>전체적인 시스템 안에는 다음과 같은 역할이 있습니다.</p>
+<ul>
+<li>Issuer: BadgeClass의 생성과 Assertion의 발급을 담당하는 애플리케이션</li>
+<li>Displayer: Open Badge들과 연관된 정보를 표시하고, 배지에 대한 인증을 제공하는 애플리케이션</li>
+<li>Host: 배지를 import하고, 취합하고, 공개적으로 제공하는 애플리케이션. 배지를 획득한 사람들이 요청에 따라 배지를 다른 서비스로 내보내는 작업도 할 수 있습니다.</li>
+</ul>
+<p>그렇다면, 각각의 사용자들은 배지를 어떻게 만들고 이용할 수 있을까요?</p>
+<h2 id="badge-만들기-개발자">Badge 만들기 (개발자)</h2>
+<p>제가 개발자다 보니, 개발자 관점에서 보는 내용이 좀 더 길어질 것 같네요. 이 부분이 필요 없다면 다음으로 넘어가셔도 무방합니다. <a href="https://site.imsglobal.org/certifications?refinementList%5Bstandards_lvlx%5D%5B0%5D=Open%20Badges">Open Badges 스펙을 구현한 프로그램들</a>이 이미 존재하기 때문에, 굳이 처음부터 개발할 필요가 없기도 합니다.</p>
+<p>현재 최신 표준은 <a href="https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/index.html">Open Badges v2.0</a>이며, 2.1 버전이 개발 중입니다. 아래 설명들은 2.0 버전을 기준으로 합니다.</p>
+<p>Open Badges의 데이터는 JSON-LD 포맷으로 구성되어 있습니다. 이러한 데이터는 성취에 대한 메타데이터를 포함하고 있는데요. 예제를 보여드리겠습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;@context&#34;</span>: <span style="color:#e6db74">&#34;https://w3id.org/openbadges/v2&#34;</span>,
+  <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;https://example.org/assertions/123&#34;</span>,
+  <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Assertion&#34;</span>,
+  <span style="color:#f92672">&#34;recipient&#34;</span>: {
+    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;email&#34;</span>,
+    <span style="color:#f92672">&#34;identity&#34;</span>: <span style="color:#e6db74">&#34;alice@example.org&#34;</span>
+  },
+  <span style="color:#f92672">&#34;issuedOn&#34;</span>: <span style="color:#e6db74">&#34;2016-12-31T23:59:59+00:00&#34;</span>,
+  <span style="color:#f92672">&#34;verification&#34;</span>: {
+    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;hosted&#34;</span>
+  },
+  <span style="color:#f92672">&#34;badge&#34;</span>: {
+    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;BadgeClass&#34;</span>,
+    <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;https://example.org/badges/5&#34;</span>,
+    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;3-D Printmaster&#34;</span>,
+    <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;This badge is awarded for passing the 3-D printing knowledge and safety test.&#34;</span>,
+    <span style="color:#f92672">&#34;image&#34;</span>: <span style="color:#e6db74">&#34;https://example.org/badges/5/image&#34;</span>,
+    <span style="color:#f92672">&#34;criteria&#34;</span>: {
+      <span style="color:#f92672">&#34;narrative&#34;</span>: <span style="color:#e6db74">&#34;Students are tested on knowledge and safety, .....&#34;</span>
+    },
+    <span style="color:#f92672">&#34;issuer&#34;</span>: {
+      <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;https://example.org/issuer&#34;</span>,
+      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Profile&#34;</span>,
+      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Example Maker Society&#34;</span>,
+      <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://example.org&#34;</span>,
+      <span style="color:#f92672">&#34;email&#34;</span>: <span style="color:#e6db74">&#34;contact@example.org&#34;</span>,
+      <span style="color:#f92672">&#34;verification&#34;</span>: {
+         <span style="color:#f92672">&#34;allowedOrigins&#34;</span>: <span style="color:#e6db74">&#34;example.org&#34;</span>
+      }
+    }
+  }
+}
+</code></pre></div><p>기본적인 데이터 클래스는 다음과 같습니다.</p>
+<ul>
+<li><a href="https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/index.html#Assertion">Assertion</a>: 위의 설명과 링크를 참조하세요.</li>
+<li><a href="https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/index.html#BadgeClass">BadgeClass</a>: 위의 설명과 링크를 참조하세요.</li>
+<li><a href="https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/index.html#Profile">Profile</a>: Open Badge를 사용하는 entity나 단체를 표현하는 정보의 모음입니다. Issuer를 Profile로 표현하여야 하고, 배지를 받는 사람이나 배지를 주는 사람들을 표현하는 데 사용할 수 있습니다.</li>
+</ul>
+<p>그러면 위의 예제는 다음과 같이 설명할 수 있습니다.</p>
+<ul>
+<li><code>type</code>이 <code>Assertion</code>이므로, 개인이 받은 배지에 대한 정보입니다.</li>
+<li>이 배지를 받은 사람은 <code>recipient</code> 속성에 있는 값으로 확인할 수 있습니다. 이메일 주소가 <code>alice@example.org</code>인 사람에게 발급되었네요.</li>
+<li>이 배지는 UTC 기준으로 2016년 12월 31일 23:59:59에 발급되었습니다. (<code>issuedOn</code> 속성을 확인하세요)</li>
+<li>이 Assertion을 검증하기 위한 정보는 <code>verification</code>에서 확인할 수 있습니다. <code>type</code>이 <code>hosted</code>인 경우, Assertion의 ID를 기준으로 검증하면 된다고 합니다.</li>
+<li>배지의 내용은 <code>badge</code>에서 확인할 수 있습니다.
+<ul>
+<li><code>BadgeClass</code> 타입으로 생성합니다.</li>
+<li><code>name</code>과 <code>description</code>으로 이 배지의 이름과 설명을 확인할 수 있습니다.</li>
+<li><code>image</code>는 이 배지의 이미지입니다. PNG나 SVG 이미지여야 한다고 하네요.</li>
+<li><code>criteria</code>는 이 배지를 얻기 위한 조건을 설명합니다.</li>
+<li><code>issuer</code>는 이 배지를 발행한 기관에 대한 정보입니다. <code>Profile</code> 타입으로 생성합니다.
+<ul>
+<li><code>name</code>, <code>url</code>, <code>email</code>등의 정보로 <code>Example Maker Society</code>라는 단체라는 것을 알 수 있습니다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="제공하여야-하는-기능들">제공하여야 하는 기능들</h3>
+<p>Open Badges를 구현하려면 어떤 기능이 필요한지 요약해 보겠습니다.</p>
+<ul>
+<li>
+<p>Publishing Badge Objects: Open Badges 데이터는 JSON-LD 문서로 생성하여야 한다.</p>
+</li>
+<li>
+<p>Data Validation: 배지를 구성하는 Badge Object들이 적절하게 생성되었는지 확인하는 과정</p>
+<ul>
+<li>모든 필수적인 배지 객체는 적절히 연결되어 있고, Validator에서 <code>200 OK</code> 메시지를 반환하여 사용 가능하다. (200 OK 외에도 3xx redirect가 허용되지만, 적절한 자원이 200 OK를 반환하여 종료하여야 함)</li>
+<li>Optional한 연결된 배지 객체는 사용 가능하다.</li>
+<li>각각의 배지 객체는 유효한 JSON-LD 문서이다.</li>
+<li>각각의 배지 객체는 클래스에 대한 모든 필수 속성을 포함한다.</li>
+<li>각각의 배지 객체는 어휘에 정의된 속성과, 이 속성에 정의된 데이터 타입에 맞는 값을 포함한다.</li>
+</ul>
+</li>
+<li>
+<p>Verification: 배지를 구성하는 데이터들이 목적에 맞는지 확인하는 과정</p>
+<ul>
+<li>모든 배지 객체는 data validation을 통과한다.</li>
+<li>모든 배지 객체는 VerificationObjects에 선언된 규칙에 따라 적절한 Issuer Profile에 의해 생성되었다.</li>
+<li>Assertion은 예상되는 수령인의 유효한 속성 값에 부여되었다. (예: recipient의 이메일 주소 값이 유효한 경우)</li>
+<li>배지를 발행한 사람(기관)은 선언된 BadgeClass의 Assertion을 수여할 권한이 있다.</li>
+<li>Assertion이 만료되지 않았다.</li>
+<li>배지를 발행한 사람(기관)이 Assertion을 취소하지 않았다.</li>
+</ul>
+</li>
+</ul>
+<p>배지 데이터의 발급과 검증 과정들은 <a href="https://www.imsglobal.org/sites/default/files/Badges/OBv2p0Final/index.html#implementation">Implementation</a> 문서에 좀 더 자세하게 나와 있으니, 관심이 있다면 이 문서를 한 번 참고해 보시는 것이 좋겠네요.</p>
+<h2 id="badge-발행하기-기관">Badge 발행하기 (기관)</h2>
+<ul>
+<li>이 문단의 내용은 <a href="https://openbadges.org/issue">링크</a>한 글을 기반으로 작성하였습니다.</li>
+</ul>
+<p>Open Badges를 발행할 수 있는 기관에는 어떤 것들이 있을까요? 위 링크에서는 다음과 같이 이야기 하고 있습니다.</p>
+<ul>
+<li>학교 및 대학교</li>
+<li>고융주</li>
+<li>커뮤니티 및 비영리 단체</li>
+<li>정부 기관</li>
+<li>도서관 및 박물관</li>
+<li>이벤트 주최자</li>
+<li>특정한 스킬을 필요로 하는 회사나 단체</li>
+</ul>
+<p>기관에서는 다음과 같은 과정으로 배지를 디자인합니다.</p>
+<ul>
+<li>학습 과정 및 평가를 제공</li>
+<li>Open Badge의 기술 표준에 맞게, 학습 과정과 평가를 표현할 수 있는 배지를 생성</li>
+<li>배지 기준을 달성한 경우 배지를 제공</li>
+</ul>
+<h2 id="badge를-얻고-공유하기-사용자">Badge를 얻고 공유하기 (사용자)</h2>
+<ul>
+<li>이 문단의 내용은 <a href="https://openbadges.org/earn">링크</a>한 글을 기반으로 작성하였습니다.</li>
+</ul>
+<p>학생이나 수강생이 배지를 받았다면, 이를 관리할 수 있는 툴로 배지를 관리할 수 있습니다. 여러 기관에서 배지를 받았어도, 이를 한 곳에 모아 관리할 수 있다고 하네요. (물론 프로그램마다 기능이 다를 수는 있습니다)</p>
+<p>이러한 배지들은 개인이 특정한 스킬을 얻었음을 증명하는 데 사용할 수 있습니다. 만약 사람을 채용하는 입장이라면, 사람들이 이력서에 올린 배지들을 쉽게 검증할 수도 있을 것입니다.</p>
+<h1 id="어떻게-활용할-수-있을까">어떻게 활용할 수 있을까?</h1>
+<p>Open Badges를 이용하는 일반적인 경우는 다음과 같습니다.</p>
+<ul>
+<li>학교나 기관에서 강의를 만들고, 조건에 따라 배지를 획득할 수 있도록 합니다.</li>
+<li>학생은 강의를 듣고, 배지를 획득합니다.</li>
+<li>획득한 배지는 이력서에 넣거나, 링크드인 프로필에 올릴 수 있습니다.</li>
+</ul>
+<p>이 글에서는 Open Badges와는 조금 다르지만, 실제로 디지털 배지를 사용하는 예를 한 번 들어보겠습니다.</p>
+<p>만약 AWS 자격증을 획득하신 적이 있다면, <a href="https://aws.training">AWS Training and Certification</a> 페이지가 익숙할 것입니다.</p>
+<p>자격증 사이트에서 읽었던 공지 중에, 다음과 같은 글이 있었습니다.</p>
+<blockquote>
+<p>Share AWS Certifications with New Digital Badges</p>
+<p>AWS Certification digital badges now provided via Credly’s Acclaim platform</p>
+<p>AWS Certification provides digital badges as a benefit of getting AWS Certified to showcase certification status. With digital badges on Credly’s Acclaim platform, you now have more flexible options for recognition and verification. Take advantage of one-click badge sharing on social media newsfeeds, tools for embedding verifiable badges on websites, and an optional public profile with all earned AWS Certification badges.</p>
+</blockquote>
+<blockquote>
+<p>새 디지털 배지로 AWS 인증 공유</p>
+<p>이제 Credly Acclaim 플랫폼을 통해 제공되는 AWS 인증 디지털 배지.</p>
+<p>AWS 인증은 인증 상태를 보여주는 디지털 배지를 인증 취득 혜택 중 하나로 제공합니다. 이제 Credly Acclaim 플랫폼에서 디지털 배지가 제공되므로 손쉽게 인정을 받고 확인할 수 있게 되었습니다. 소셜 미디어 뉴스피드에서 한 번의 클릭으로 배지를 공유하고, 도구를 통해 확인 가능한 배지를 웹 사이트에 포함시키고, 모든 취득 AWS 인증 배지가 포함된 공개 프로필(선택 사항)을 이용할 수 있습니다.</p>
+</blockquote>
+<p>이 공지에 나와있는 것처럼, 이전에 받았던 AWS 자격증을 Credly의 Acclaim 플랫폼으로 이전하는 작업이 있었는데요. 이 Acclaim 시스템이 <a href="https://site.imsglobal.org/certifications/credly/acclaim#cert_pane_nid_403553">Open Badges 규격에 대한 인증</a>을 받은 상태이긴 합니다. 하지만 <a href="https://www.credly.com/docs/issued_badges#get-issued-badges">Credly의 문서</a>를 참고해 보면, Open Badges 규격과는 다르게 운영되고 있는 것을 볼 수 있습니다.</p>
+<p>이제 배지를 확인해 보겠습니다.</p>
+<p>Credly에서 <a href="https://www.credly.com/badges/457a156b-a8db-4cab-b94b-ac6bc1f55913">제가 받은 AWS Certified Solutions Architect - Associate 배지</a>를 확인해 보면, 다음과 같은 정보를 보실 수 있습니다.</p>
+<ul>
+<li>획득한 날짜</li>
+<li>배지 이미지</li>
+<li>배지에 대한 설명</li>
+<li>만료 일자</li>
+</ul>
+<p>그리고 상단의 Verify 버튼을 누르면, 이 배지를 검증할 수도 있습니다. 그 결과 아래 스크린샷과 같은 내용을 확인할 수 있습니다.</p>
+<figure><img src="/img/open-badges-introduction-2.png" width="30%"/>
+</figure>
+
+<p>이 내용의 의미는 다음과 같습니다.</p>
+<ul>
+<li>AWS의 Training and Certification이 2020년 4월 12일에 Credly를 사용하여 발급하였습니다.</li>
+<li>저에게 발급한 배지임을 확인할 수 있습니다.</li>
+<li>마지막으로 업데이트된 날짜는 5월 7일입니다.</li>
+</ul>
+<p>이 자격증을 갖고 있다고 이력서에 썼는데, 채용 담당자가 이력서의 내용을 검증할 때 유용하겠죠.</p>
+<h1 id="마무리하며">마무리하며</h1>
+<p>최근에 나타나는 이슈 중 하나를 언급해 보면, 구직자나 고용주들 간 원하는 역량이 일치하지 않아 고생하는 사례들을 종종 볼 수 있습니다. 요즘 같은 시기에는 개발자 채용에서 이러한 문제를 흔히 볼 수 있는데요.</p>
+<p>예전에 출장을 가서 Open Badges에 대한 내용들을 보면, 구직자와 고용주 간 불일치를 이러한 Digital Badge로 해결해 보자는 이야기들이 종종 나왔던 것 같습니다. 학교나 기관은 구직자가 배운 것을 증명할 수 있는 디지털 배지를 발급하고, 고용주는 구직자의 역량을 검증하는 데 디지털 배지를 이용할 수 있을 것입니다. 그리고 이러한 배지의 신뢰성을 더하기 위해 블록체인을 도입해 보자는 이야기도 나왔던 것 같네요.</p>
+<p>저는 굳이 이런 거창한 이야기들이 아니어도, 사람들이 성취한 것을 데이터로 만들고 쉽게 검증할 수 있는 시스템을 만드려는 노력이 흥미롭게 느껴졌습니다. 그래서 이번달 블로그 글의 주제는 Open Badges로 정해 보았습니다.</p>
+<p>마지막으로 이 글은 <strong>지금 제가 재직중인 회사의 입장과는 무관함을 알려드립니다.</strong></p>
+<h1 id="참고-자료">참고 자료</h1>
+<ul>
+<li><a href="https://openbadges.org/">IMS Open Badges</a></li>
+<li><a href="https://support.mozilla.org/ko/products/open-badges">Mozilla의 Open Badges 도움말</a></li>
+</ul>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/open-badges/" rel="tag">Open Badges</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/standard/" rel="tag">Standard</a></li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gonigoni-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 Yungon Park.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

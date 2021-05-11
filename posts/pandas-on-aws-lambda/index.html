@@ -123,13 +123,11 @@ aws lambda publish-layer-version --layer-name layer-pandas --compatible-runtimes
 </code></pre></div><p>이 결과에서 <code>LayerVersionArn</code> 정보를 잘 메모해 두자.</p>
 <h2 id="lambda-layer를-적용하기">Lambda Layer를 적용하기</h2>
 <p>먼저 Lambda 콘솔에서 다음과 같은 설정으로 Lambda 함수를 만들자. 방금 만든 Layer의 버전이 3.6 기준이므로, 함수의 런타임 버전은 Python 3.6으로 설정해야 한다.</p>
-<figure>
-    <img src="/img/pandas-on-aws-lambda-1.png"/> 
+<figure><img src="/img/pandas-on-aws-lambda-1.png"/>
 </figure>
 
 <p>이제 함수가 생성되었으면, 하단의 Layers를 클릭 후 <code>[Add a layer]</code> 버튼을 누른다. 그리고 방금 만든 Layer 이름과 버전을 지정 후 추가 버튼을 누른다. (처음 만들었다면 버전 번호는 1일 것이다)</p>
-<figure>
-    <img src="/img/pandas-on-aws-lambda-2.png"/> 
+<figure><img src="/img/pandas-on-aws-lambda-2.png"/>
 </figure>
 
 <p>마지막으로 Pandas를 제대로 사용할 수 있는지 테스트 해 보자.</p>
