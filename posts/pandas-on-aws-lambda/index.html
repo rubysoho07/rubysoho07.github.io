@@ -76,6 +76,10 @@ if (!doNotTrack) {
 </code></pre><p>이러한 설명을 바탕으로 Pandas를 Lambda Layer에 넣으면 되는데, Pandas는 C 코드를 포함하고 있기 때문에 OS나 CPU 종류에 따라 필요한 라이브러리를 빌드해서 첨부해야 한다.</p>
 <p>이를 위해 Docker를 사용하자. 다음 내용은 Docker에서 Amazon Linux 1 버전의 이미지를 실행해서 Pandas를 설치한다.</p>
 <p>Lambda 런타임이 어떤 OS를 사용하는지 알고 싶다면 <a href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/lambda-runtimes.html">AWS Lambda 런타임</a> 문서를 참고한다.</p>
+<p><em>(2021-05-15 추가)</em></p>
+<blockquote>
+<p><a href="https://aws.amazon.com/premiumsupport/knowledge-center/lambda-layer-simulated-docker/">다음 링크</a>를 참고하여 런타임에 맞는 Docker 이미지(예: <code>public.ecr.aws/sam/build-python3.6</code>)를 사용하여 레이어를 구성할 수도 있다. (3.6 대신 다른 버전으로 바꿀 수 있음)</p>
+</blockquote>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir layer_pandas
 cd layer_pandas
 mkdir python
