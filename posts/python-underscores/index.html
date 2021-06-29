@@ -77,11 +77,11 @@ aaa <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
 </code></pre></div><p>아래와 같이 M 모듈을 import 하고 ccc를 실행하면 예외가 발생한다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> M <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 
-<span style="color:#66d9ef">print</span>(aaa)
-<span style="color:#66d9ef">print</span>(bbb)
+print(aaa)
+print(bbb)
 
 <span style="color:#75715e"># 여기서 예외가 발생한다.</span>
-<span style="color:#66d9ef">print</span>(ccc)
+print(ccc)
 </code></pre></div><h3 id="method-names-and-instance-variables">Method Names and Instance Variables</h3>
 <ul>
 <li>앞에 1개의 <code>_</code>를 붙이는 경우: non-public 메소드/인스턴스 변수임을 의미한다.</li>

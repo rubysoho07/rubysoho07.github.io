@@ -138,7 +138,7 @@ aws lambda publish-layer-version --layer-name layer-pandas --compatible-runtimes
 <p>Lambda 함수의 코드를 다음과 같이 입력해 보자. 아래 코드를 그대로 복사해도 된다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> json
 
-<span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
 
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lambda_handler</span>(event, context):
     
@@ -146,7 +146,7 @@ aws lambda publish-layer-version --layer-name layer-pandas --compatible-runtimes
     
     s <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series(data<span style="color:#f92672">=</span>my_data)
     
-    <span style="color:#66d9ef">print</span>(s)
+    print(s)
     
     <span style="color:#66d9ef">return</span> {
         <span style="color:#e6db74">&#39;statusCode&#39;</span>: <span style="color:#ae81ff">200</span>,

@@ -112,8 +112,8 @@ if (!doNotTrack) {
     regions_list <span style="color:#f92672">=</span> []
 
     <span style="color:#75715e"># Check today&#39;s region backup exists.</span>
-    <span style="color:#66d9ef">if</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>exists(backup_path<span style="color:#f92672">+</span>region_file_name) <span style="color:#f92672">is</span> True:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Already backuped today&#39;s regions data.&#34;</span>)
+    <span style="color:#66d9ef">if</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>exists(backup_path<span style="color:#f92672">+</span>region_file_name) <span style="color:#f92672">is</span> <span style="color:#66d9ef">True</span>:
+        print(<span style="color:#e6db74">&#34;Already backuped today&#39;s regions data.&#34;</span>)
         <span style="color:#66d9ef">return</span>
 
     <span style="color:#75715e"># Go to regions_path.</span>
@@ -124,14 +124,14 @@ if (!doNotTrack) {
         <span style="color:#66d9ef">for</span> name <span style="color:#f92672">in</span> names:
             regions_list<span style="color:#f92672">.</span>append(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(root, name))
 
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Make regions file list ... Done. &#34;</span>, len(regions_list), <span style="color:#e6db74">&#34; files.&#34;</span>)
+    print(<span style="color:#e6db74">&#34;Make regions file list ... Done. &#34;</span>, len(regions_list), <span style="color:#e6db74">&#34; files.&#34;</span>)
     sys<span style="color:#f92672">.</span>stdout<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;Making backup : &#34;</span>)
 
     <span style="color:#75715e"># Make zip file.</span>
     make_backup_file(region_file_name, regions_list)
     os<span style="color:#f92672">.</span>rename(region_file_name, backup_path<span style="color:#f92672">+</span>region_file_name)
 
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Making regions backup ... Done.&#34;</span>)
+    print(<span style="color:#e6db74">&#34;Making regions backup ... Done.&#34;</span>)
 </code></pre></div><p><code>os.walk</code> 함수는 root, dirnames, filenames를 튜플로 반환합니다. root는 디렉터리 이름, dirnames는 하위 디렉터리 이름, 그리고 filenames는 디렉터리가 아닌 파일의 이름 리스트입니다.</p>
 <p>하위 디렉터리 이름은 딱히 필요 없어서 <code>_</code>로 대체했습니다.</p>
 <p>파일의 전체 경로를 얻기 위해 <code>os.path.join(root, name)</code>을 호출하는 것을 볼 수 있습니다.</p>

@@ -89,12 +89,12 @@ if (!doNotTrack) {
 <li><code>l5 = [1, 2, 3, 4, 5, 6]</code> 중에서 짝수인 2, 4, 6을 담아서 filter object에 반환한다.</li>
 </ul>
 <p>그럼 function 부분에 <code>None</code>을 넣으면 어떻게 될까?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> list(filter(None, l5))
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> list(filter(<span style="color:#66d9ef">None</span>, l5))
 [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>]
 </code></pre></div><p>원래의 리스트를 그대로 반환한다. 감이 안 잡히니 다른 예제로 테스트 해 보자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> l6 <span style="color:#f92672">=</span> [True, False, True, False]
-<span style="color:#f92672">&gt;&gt;&gt;</span> list(filter(None, l6))
-[True, True]
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> l6 <span style="color:#f92672">=</span> [<span style="color:#66d9ef">True</span>, <span style="color:#66d9ef">False</span>, <span style="color:#66d9ef">True</span>, <span style="color:#66d9ef">False</span>]
+<span style="color:#f92672">&gt;&gt;&gt;</span> list(filter(<span style="color:#66d9ef">None</span>, l6))
+[<span style="color:#66d9ef">True</span>, <span style="color:#66d9ef">True</span>]
 </code></pre></div><p>즉, function을 지정해 주지 않더라도 iterable의 각 element 중 False인 것은 제외하고 반환한다.</p>
 <h1 id="reducefunction-iterable-initializer">reduce(function, iterable[, initializer])</h1>
 <p>Python 3으로 오면서 reduce가 내장 함수에서 빠졌다고 한다. 대신 Python에 내장된 functools 라이브러리에서 import 해서 사용할 수 있다.</p>
@@ -129,7 +129,7 @@ if (!doNotTrack) {
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> reduce(<span style="color:#66d9ef">lambda</span> x, y: x<span style="color:#f92672">+</span>y, [<span style="color:#ae81ff">1</span>], <span style="color:#ae81ff">1</span>)
 <span style="color:#ae81ff">2</span>
 </code></pre></div><p>그리고 iterable에 None을 넣거나 빈 리스트를 넣으면 다음과 같이 동작한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> reduce(<span style="color:#66d9ef">lambda</span> x, y: x<span style="color:#f92672">+</span>y, None, <span style="color:#ae81ff">1</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> reduce(<span style="color:#66d9ef">lambda</span> x, y: x<span style="color:#f92672">+</span>y, <span style="color:#66d9ef">None</span>, <span style="color:#ae81ff">1</span>)
 Traceback (most recent call last):
   File <span style="color:#e6db74">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#ae81ff">1</span>, <span style="color:#f92672">in</span> <span style="color:#f92672">&lt;</span>module<span style="color:#f92672">&gt;</span>
 <span style="color:#a6e22e">TypeError</span>: reduce() arg <span style="color:#ae81ff">2</span> must support iteration

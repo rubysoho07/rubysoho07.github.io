@@ -58,7 +58,7 @@ if (!doNotTrack) {
 <p>예제를 살펴보자.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">C</span>:
     <span style="color:#66d9ef">def</span> __init__(self):
-        self<span style="color:#f92672">.</span>_x <span style="color:#f92672">=</span> None
+        self<span style="color:#f92672">.</span>_x <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
 
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">getx</span>(self):
         <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>_x
@@ -101,7 +101,7 @@ Traceback (most recent call last):
         <span style="color:#e6db74">&#34;&#34;&#34;Get the current voltage.&#34;&#34;&#34;</span>
         <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>_voltage
     
-    <span style="color:#a6e22e">@voltage.setter</span>
+    <span style="color:#a6e22e">@voltage</span><span style="color:#f92672">.</span>setter
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">voltage</span>(self, value):
         <span style="color:#e6db74">&#34;&#34;&#34;Set the new voltage.&#34;&#34;&#34;</span>
         self<span style="color:#f92672">.</span>_voltage <span style="color:#f92672">=</span> value
@@ -111,7 +111,7 @@ Traceback (most recent call last):
 <span style="color:#f92672">&gt;&gt;&gt;</span> p<span style="color:#f92672">.</span>voltage
 <span style="color:#ae81ff">1000000</span>
 </code></pre></div><p>deleter 또한 <code>@(property 이름).deleter</code>로 지정할 수 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a6e22e">@voltage.deleter</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a6e22e">@voltage</span><span style="color:#f92672">.</span>deleter
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">voltage</span>(self):
     <span style="color:#66d9ef">del</span> self<span style="color:#f92672">.</span>_voltage
 </code></pre></div><h3 id="참고자료">참고자료</h3>

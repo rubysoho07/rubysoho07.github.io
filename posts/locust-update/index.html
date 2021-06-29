@@ -68,7 +68,7 @@ if (!doNotTrack) {
 
     <span style="color:#a6e22e">@task</span>
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">my_task</span>(self):
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;User instance (</span><span style="color:#e6db74">%r</span><span style="color:#e6db74">) executing my_task&#34;</span> <span style="color:#f92672">%</span> self)
+        print(<span style="color:#e6db74">&#34;User instance (</span><span style="color:#e6db74">%r</span><span style="color:#e6db74">) executing my_task&#34;</span> <span style="color:#f92672">%</span> self)
 </code></pre></div><p>이렇게 하면 task1 함수를 1초에 한 번씩 실행하겠네요.</p>
 <p>그리고 여러 개의 @task 데코레이터로 실행하는 경우, 비율을 지정할 수도 있습니다.</p>
 <ul>
@@ -106,13 +106,13 @@ if (!doNotTrack) {
 <p>test_start, test_stop 이벤트에 리스너를 지정하는 예제는 다음과 같습니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> locust <span style="color:#f92672">import</span> events
 
-<span style="color:#a6e22e">@events.test_start.add_listener</span>
+<span style="color:#a6e22e">@events</span><span style="color:#f92672">.</span>test_start<span style="color:#f92672">.</span>add_listener
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_test_start</span>(environment, <span style="color:#f92672">**</span>kwargs):
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;A new test is starting&#34;</span>)
+    print(<span style="color:#e6db74">&#34;A new test is starting&#34;</span>)
 
-<span style="color:#a6e22e">@events.test_stop.add_listener</span>
+<span style="color:#a6e22e">@events</span><span style="color:#f92672">.</span>test_stop<span style="color:#f92672">.</span>add_listener
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_test_stop</span>(environment, <span style="color:#f92672">**</span>kwargs):
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;A new test is ending&#34;</span>)
+    print(<span style="color:#e6db74">&#34;A new test is ending&#34;</span>)
 </code></pre></div><ul>
 <li>각각의 Locust 프로세스의 시작 시 호출하는 코드가 필요할 때: <code>init</code> 이벤트를 사용
 <ul>
@@ -124,12 +124,12 @@ if (!doNotTrack) {
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> locust <span style="color:#f92672">import</span> events
 <span style="color:#f92672">from</span> locust.runners <span style="color:#f92672">import</span> MasterRunner
 
-<span style="color:#a6e22e">@events.init.add_listener</span>
+<span style="color:#a6e22e">@events</span><span style="color:#f92672">.</span>init<span style="color:#f92672">.</span>add_listener
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_locust_init</span>(environment, <span style="color:#f92672">**</span>kwargs):
     <span style="color:#66d9ef">if</span> isinstance(environment<span style="color:#f92672">.</span>runner, MasterRunner):
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;I&#39;m on master node&#34;</span>)
+        print(<span style="color:#e6db74">&#34;I&#39;m on master node&#34;</span>)
     <span style="color:#66d9ef">else</span>:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;I&#39;m on a worker or standalone node&#34;</span>)
+        print(<span style="color:#e6db74">&#34;I&#39;m on a worker or standalone node&#34;</span>)
 </code></pre></div><p>추가로 참고할 만한 문서를 링크해 드립니다. 필요할 때 참고하시면 될 것 같아요.</p>
 <ul>
 <li><a href="https://docs.locust.io/en/stable/api.html#event-hooks">사용 가능한 이벤트의 종류와 필요한 parameter</a></li>

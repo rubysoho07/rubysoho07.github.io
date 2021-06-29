@@ -74,7 +74,7 @@ c <span style="color:#f92672">=</span> Connection(
     password<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;secret_access_key&#39;</span>
 )
 
-<span style="color:#66d9ef">print</span>(c<span style="color:#f92672">.</span>get_uri())
+print(c<span style="color:#f92672">.</span>get_uri())
 <span style="color:#75715e"># 결과: &#39;aws://my_access_key:secret_access_key@&#39;</span>
 </code></pre></div><p>이 값을 기준으로 <code>AIRFLOW_CONN_(CONNECTION_ID_NAME)</code> 이라는 환경변수를 설정합니다. 이렇게 하면 <code>connection_id_name</code>이라는 Connection이 설정됩니다.</p>
 <p>다만, 이 환경 변수로 지정한 Connection은 Airflow UI에 표시되지 않음에 유의합니다. (<a href="http://airflow.apache.org/docs/apache-airflow/stable/howto/connection.html#storing-a-connection-in-environment-variables">출처</a>)</p>
@@ -165,7 +165,7 @@ task_1 <span style="color:#f92672">=</span> PostgresOperator(
     rows <span style="color:#f92672">=</span> hook<span style="color:#f92672">.</span>get_records(<span style="color:#e6db74">&#34;SELECT * FROM table_name LIMIT 10;&#34;</span>)
 
     <span style="color:#66d9ef">for</span> row <span style="color:#f92672">in</span> rows:
-        <span style="color:#66d9ef">print</span>(row)
+        print(row)
 
 task_2 <span style="color:#f92672">=</span> PythonOperator(
     task_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;run_query_with_python&#39;</span>,
@@ -186,11 +186,11 @@ task_2 <span style="color:#f92672">=</span> PythonOperator(
     keys <span style="color:#f92672">=</span> hook<span style="color:#f92672">.</span>list_keys(<span style="color:#e6db74">&#39;bucket_name&#39;</span>)
 
     <span style="color:#66d9ef">for</span> key <span style="color:#f92672">in</span> keys:
-        <span style="color:#66d9ef">print</span>(key)
+        print(key)
 
         obj <span style="color:#f92672">=</span> hook<span style="color:#f92672">.</span>get_key(key, <span style="color:#e6db74">&#39;bucket_name&#39;</span>)
 
-        <span style="color:#66d9ef">print</span>(obj<span style="color:#f92672">.</span>bucket_name, obj<span style="color:#f92672">.</span>key)
+        print(obj<span style="color:#f92672">.</span>bucket_name, obj<span style="color:#f92672">.</span>key)
 
 
 task_1 <span style="color:#f92672">=</span> PythonOperator(

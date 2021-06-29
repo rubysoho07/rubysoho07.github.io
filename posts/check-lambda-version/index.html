@@ -55,7 +55,7 @@ if (!doNotTrack) {
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> json
 
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lambda_handler</span>(event, context): 
-    <span style="color:#66d9ef">print</span>(context<span style="color:#f92672">.</span>invoked_function_arn)
+    print(context<span style="color:#f92672">.</span>invoked_function_arn)
     <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Success&#34;</span>
 </code></pre></div><p>그리고 CloudWatch에 기록된 로그를 보자.</p>
 <p>dev인 경우</p>

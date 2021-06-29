@@ -61,29 +61,29 @@ printf(<span style="color:#960050;background-color:#1e0010">&#39;</span><span st
 <ul>
 <li>순서 없이 표현하기</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;{} {}&#34;</span><span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;Hello&#34;</span>, <span style="color:#e6db74">&#34;Python&#34;</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;Hello&#34;</span>, <span style="color:#e6db74">&#34;Python&#34;</span>)
 <span style="color:#e6db74">&#39;Hello Python&#39;</span>
 </code></pre></div><p>기본적으로 <code>format()</code> 안에 들어간 순서대로 문자열에 들어간다.</p>
 <ul>
 <li>순서를 지정해서 표현하기</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;{1} {0}&#34;</span><span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;Hello&#34;</span>, <span style="color:#e6db74">&#34;Python&#34;</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{1}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{0}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;Hello&#34;</span>, <span style="color:#e6db74">&#34;Python&#34;</span>)
 <span style="color:#e6db74">&#39;Python Hello&#39;</span>
 </code></pre></div><p><code>{0}</code> 자리에는 처음에 넣은 <code>Hello</code>가 들어간다.
 <code>{1}</code> 자리에는 두번째로 넣은 <code>Python</code>이 들어간다.</p>
 <p>여기서 순서는 <strong>0부터 시작함</strong>에 유의하자. 두 개를 넣었는데 1부터 시작해서 2까지 쓰는 경우, 다음과 같은 에러를 만날 수 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;{2} {1}&#34;</span><span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;Hello&#34;</span>, <span style="color:#e6db74">&#34;Python&#34;</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{2}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{1}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;Hello&#34;</span>, <span style="color:#e6db74">&#34;Python&#34;</span>)
 Traceback (most recent call last):
   File <span style="color:#e6db74">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#ae81ff">1</span>, <span style="color:#f92672">in</span> <span style="color:#f92672">&lt;</span>module<span style="color:#f92672">&gt;</span>
 <span style="color:#a6e22e">IndexError</span>: tuple index out of range
 </code></pre></div><ul>
 <li>이름을 지정해서 표현하기</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;{greeting} {name}&#34;</span><span style="color:#f92672">.</span>format(greeting<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Hello&#34;</span>, name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Python&#34;</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{greeting}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{name}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(greeting<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Hello&#34;</span>, name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Python&#34;</span>)
 <span style="color:#e6db74">&#39;Hello Python&#39;</span>
 </code></pre></div><p>greeting에는 <code>Hello</code>, name에는 <code>Python</code>을 지정해서 전달한다.</p>
 <p>주의해야 할 점은, 문자열에 있는 내용을 format()안에 전달하지 않으면 다음 오류를 볼 수 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;{greeting} {name}&#34;</span><span style="color:#f92672">.</span>format(greeting<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Hello&#34;</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{greeting}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{name}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(greeting<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Hello&#34;</span>)
 Traceback (most recent call last):
   File <span style="color:#e6db74">&#34;&lt;stdin&gt;&#34;</span>, line <span style="color:#ae81ff">1</span>, <span style="color:#f92672">in</span> <span style="color:#f92672">&lt;</span>module<span style="color:#f92672">&gt;</span>
 <span style="color:#a6e22e">KeyError</span>: <span style="color:#e6db74">&#39;name&#39;</span>
@@ -91,42 +91,42 @@ Traceback (most recent call last):
 <ul>
 <li>정수를 n개의 자리로 표현 (0 포함)</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;{:03d}&#34;</span><span style="color:#f92672">.</span>format(<span style="color:#ae81ff">1</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:03d}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(<span style="color:#ae81ff">1</span>)
 <span style="color:#e6db74">&#39;001&#39;</span>
 </code></pre></div><ul>
 <li>정수를 n개의 자리로 표현 (0 제외)</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;{:3d}&#34;</span><span style="color:#f92672">.</span>format(<span style="color:#ae81ff">1</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:3d}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(<span style="color:#ae81ff">1</span>)
 <span style="color:#e6db74">&#39;  1&#39;</span>
 </code></pre></div><ul>
 <li>소수 n개의 자리까지 표현하기</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;{:.2f}&#34;</span><span style="color:#f92672">.</span>format(<span style="color:#ae81ff">1.333</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:.2f}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(<span style="color:#ae81ff">1.333</span>)
 <span style="color:#e6db74">&#39;1.33&#39;</span>
 </code></pre></div><ul>
 <li>문자열을 특정 길이까지 표현하기 (20자의 자리로 표현함) - 왼쪽 정렬</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;{:20}&#34;</span><span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;test&#34;</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:20}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;test&#34;</span>)
 <span style="color:#e6db74">&#39;test                &#39;</span>
 </code></pre></div><p>(참고) <code>{:20}</code>대신에 <code>{:&lt;20}</code>을 써도 똑같다.</p>
 <ul>
 <li>문자열을 특정 길이까지 표현하기 (20자의 자리로 표현함) - 오른쪽 정렬</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;{:&gt;20}&#34;</span><span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;test&#34;</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:&gt;20}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;test&#34;</span>)
 <span style="color:#e6db74">&#39;                test&#39;</span>
 </code></pre></div><ul>
 <li>datetime 객체에서 연, 월, 일만 가져오기</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">import</span> datetime
 <span style="color:#f92672">&gt;&gt;&gt;</span> now <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>now()
-<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;Y: {} M: {} D: {}&#34;</span><span style="color:#f92672">.</span>format(now<span style="color:#f92672">.</span>year, now<span style="color:#f92672">.</span>month, now<span style="color:#f92672">.</span>day)
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;Y: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> M: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> D: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(now<span style="color:#f92672">.</span>year, now<span style="color:#f92672">.</span>month, now<span style="color:#f92672">.</span>day)
 <span style="color:#e6db74">&#39;Y: 2018 M: 12 D: 1&#39;</span>
 </code></pre></div><ul>
 <li>datetime 객체에서 시, 분, 초만 가져오기</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">import</span> datetime
 <span style="color:#f92672">&gt;&gt;&gt;</span> now <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>now()
-<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;H: {} M: {} S: {}&#34;</span><span style="color:#f92672">.</span>format(now<span style="color:#f92672">.</span>hour, now<span style="color:#f92672">.</span>minute, now<span style="color:#f92672">.</span>second)
+<span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;H: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> M: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> S: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(now<span style="color:#f92672">.</span>hour, now<span style="color:#f92672">.</span>minute, now<span style="color:#f92672">.</span>second)
 <span style="color:#e6db74">&#39;H: 16 M: 23 S: 52&#39;</span>
 </code></pre></div><p>이외에도 더 많은 내용은 <a href="https://docs.python.org/3/library/string.html#format-examples">여기</a>를 참고하자.</p>
 <h3 id="참고자료">참고자료</h3>
