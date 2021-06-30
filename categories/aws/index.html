@@ -51,6 +51,22 @@ if (!doNotTrack) {
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
+			<a href="/posts/boto3-note/" rel="bookmark">
+			Boto3를 쓰면서 겪었던 일들 모음
+			</a>
+		</h3>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		Python을 이용해서 AWS의 여러 기능을 자동화 할 때 Boto3를 많이들 쓰실 것 같은데요. 이번 달에는 Boto3를 쓰면서 궁금했던 것, 또는 자주 사용할 만한 것들을 정리해 보려고 합니다.
+현재 사용 중인 AWS 계정 ID 얻기 여기서 계정 ID라고 하면, 12자리의 숫자로 구성된 계정의 ID를 의미합니다.
+import boto3 account_id = boto3.client(&#39;sts&#39;).get_caller_identity().get(&#39;Account&#39;) 출처: Stack Overflow
+에러 다루기 출처: Boto3 Documentation
+Boto3의 코드를 열어보면, 서비스에 따라 발생할 수 있는 모든 에러를 저장하고 있지 않습니다. Boto3와 AWS CLI의 기반이 되는 Botocore 프로젝트의 코드에서도 모든 종류의 예외를 다루지 않습니다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
 			<a href="/posts/aws-sam-nested-stack/" rel="bookmark">
 			AWS SAM에서 중첩된 스택 배포 시 유의해야 할 것들
 			</a>
@@ -270,6 +286,7 @@ START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1 arn:aws:lambda:
 		<a class="widget-taglist__link widget__link btn" href="/tags/reduce/" title="reduce">reduce</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/s3/" title="S3">S3</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sam/" title="SAM">SAM</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sdk/" title="SDK">SDK</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sed/" title="sed">sed</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/serverless/" title="Serverless">Serverless</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/setter/" title="setter">setter</a>

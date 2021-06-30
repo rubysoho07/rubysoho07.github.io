@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="ko-kr">
 <head>
-	<meta name="generator" content="Hugo 0.84.2" />
+	<meta name="generator" content="Hugo 0.84.3" />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,6 +48,19 @@ if (!doNotTrack) {
 			
 <main class="main list" role="main">
 	<article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
+			<a href="/posts/become-dev-book-review/" rel="bookmark">
+			책 리뷰 - &#39;인문학도, 개발자되다&#39;
+			</a>
+		</h3>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		책 소개 제 주변에는 학교를 졸업하고 만난 분들을 제외하면 개발자로 일하시는 분이 거의 없다시피 합니다. 그러다 보니 저에게 개발자의 업무 또는 어떻게 개발자가 될 수 있는지에 대해 물어보시는 분들이 가끔씩 계십니다. 하지만 저는 경력이 아직 5년이 되지 않았고, 말빨(?)이 약한 편이라 개발자라는 직업에 대해 섣불리 말씀드리기 조심스럽습니다.
+그러던 와중에 &lsquo;인문학도, 개발자되다(마르코 저, 영진닷컴)' 라는 책을 접하게 되었습니다. 이 책은 저자인 마르코님이 개발자로 전직을 하게 된 계기와 과정, 개발자로 일하기 위해서 어떤 능력이 필요한지, 그리고 앞으로 어떻게 개발 능력을 키워나가야 될 지에 대해 이야기하고 있습니다.
+	</div>
+</article><article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
 			<a href="/posts/list-over-1000-files-from-s3/" rel="bookmark">
@@ -187,21 +200,6 @@ Trailing underscore  _single_leading_underscore: 이런 경우 from M import *�
 property() 함수 먼저 property() 함수에 대해 살펴보자.
 class property(fget=None, fset=None, fdel=None, doc=None) 페이지 아래에 링크한 자료를 살펴보면, property 함수는 property 속성을 반환한다고 나와 있다. 그리고 fget 인자에는 속성 값에 대한 getter 함수, fset 인자에는 속성 값에 대한 setter 함수, fdel 인자에는 속성 값을 지우는 함수를 지정한다고 한다. 그리고 doc 인자는 속성에 대한 docstring을 넣어주면 된다.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/posts/python-datetime-test/" rel="bookmark">
-			Python Datetime으로 서로 다른 시간대 다루기
-			</a>
-		</h3>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		여러 국가에 걸쳐 시간과 관련된 데이터를 얻을 때 시간대가 가장 이슈가 될 것이다. 그리고 AWS와 같이 UTC를 기준으로 하는 서비스가 있기 때문에, 우리나라의 시간대를 기준으로 프로그램을 만들 때 고민이 되는 부분이 있다.
-시간대를 다루기 위해 pytz와 같은 라이브러리가 있지만, 이번에는 파이썬이 기본적으로 제공하는 datetime 모듈만 이용해서 시간대를 다루어 보고자 한다.
-현재 시간 구하기 / UTC 기준 시간 구하기 현재 시간을 구하기 위해서는 datetime.datetime.now()를 이용한다.
-&gt;&gt;&gt; import datetime &gt;&gt;&gt; datetime.datetime.now() datetime.datetime(2018, 5, 17, 21, 43, 13, 554579) 한편, UTC 기준의 현재 시간을 구하기 위해서는 datetime.
-	</div>
 </article>
 </main>
 
@@ -295,6 +293,7 @@ class property(fget=None, fset=None, fdel=None, doc=None) 페이지 아래에 �
 		<a class="widget-taglist__link widget__link btn" href="/tags/reduce/" title="reduce">reduce</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/s3/" title="S3">S3</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sam/" title="SAM">SAM</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sdk/" title="SDK">SDK</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sed/" title="sed">sed</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/serverless/" title="Serverless">Serverless</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/setter/" title="setter">setter</a>

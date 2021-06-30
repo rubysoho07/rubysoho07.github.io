@@ -6,7 +6,20 @@
     <description>Recent content on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 01 May 2021 12:55:57 +0900</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Jun 2021 22:34:04 +0900</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Boto3를 쓰면서 겪었던 일들 모음</title>
+      <link>/posts/boto3-note/</link>
+      <pubDate>Mon, 28 Jun 2021 22:34:04 +0900</pubDate>
+      
+      <guid>/posts/boto3-note/</guid>
+      <description>Python을 이용해서 AWS의 여러 기능을 자동화 할 때 Boto3를 많이들 쓰실 것 같은데요. 이번 달에는 Boto3를 쓰면서 궁금했던 것, 또는 자주 사용할 만한 것들을 정리해 보려고 합니다.
+현재 사용 중인 AWS 계정 ID 얻기 여기서 계정 ID라고 하면, 12자리의 숫자로 구성된 계정의 ID를 의미합니다.
+import boto3 account_id = boto3.client(&amp;#39;sts&amp;#39;).get_caller_identity().get(&amp;#39;Account&amp;#39;) 출처: Stack Overflow
+에러 다루기 출처: Boto3 Documentation
+Boto3의 코드를 열어보면, 서비스에 따라 발생할 수 있는 모든 에러를 저장하고 있지 않습니다. Boto3와 AWS CLI의 기반이 되는 Botocore 프로젝트의 코드에서도 모든 종류의 예외를 다루지 않습니다.</description>
+    </item>
+    
     <item>
       <title>Open Badges 소개</title>
       <link>/posts/open-badges-introduction/</link>

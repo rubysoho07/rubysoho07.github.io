@@ -6,7 +6,43 @@
     <description>Recent content in Tags on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 01 May 2021 12:55:57 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Jun 2021 22:34:04 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS</title>
+      <link>/tags/aws/</link>
+      <pubDate>Mon, 28 Jun 2021 22:34:04 +0900</pubDate>
+      
+      <guid>/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Boto3</title>
+      <link>/tags/boto3/</link>
+      <pubDate>Mon, 28 Jun 2021 22:34:04 +0900</pubDate>
+      
+      <guid>/tags/boto3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>/tags/python/</link>
+      <pubDate>Mon, 28 Jun 2021 22:34:04 +0900</pubDate>
+      
+      <guid>/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SDK</title>
+      <link>/tags/sdk/</link>
+      <pubDate>Mon, 28 Jun 2021 22:34:04 +0900</pubDate>
+      
+      <guid>/tags/sdk/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Open Badges</title>
       <link>/tags/open-badges/</link>
@@ -116,15 +152,6 @@
     </item>
     
     <item>
-      <title>Python</title>
-      <link>/tags/python/</link>
-      <pubDate>Sat, 28 Nov 2020 13:13:35 +0900</pubDate>
-      
-      <guid>/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>reduce</title>
       <link>/tags/reduce/</link>
       <pubDate>Sat, 28 Nov 2020 13:13:35 +0900</pubDate>
@@ -166,15 +193,6 @@
       <pubDate>Mon, 19 Oct 2020 20:44:49 +0900</pubDate>
       
       <guid>/tags/simcity/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>AWS</title>
-      <link>/tags/aws/</link>
-      <pubDate>Mon, 29 Jun 2020 20:58:17 +0900</pubDate>
-      
-      <guid>/tags/aws/</guid>
       <description></description>
     </item>
     
@@ -391,15 +409,6 @@
       <pubDate>Thu, 29 Nov 2018 23:36:00 +0900</pubDate>
       
       <guid>/tags/%EC%B1%85/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Boto3</title>
-      <link>/tags/boto3/</link>
-      <pubDate>Thu, 29 Nov 2018 00:38:00 +0900</pubDate>
-      
-      <guid>/tags/boto3/</guid>
       <description></description>
     </item>
     

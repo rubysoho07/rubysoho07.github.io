@@ -2,13 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/categories/</loc>
-    <lastmod>2021-05-01T12:55:57+09:00</lastmod>
+    <loc>/tags/aws/</loc>
+    <lastmod>2021-06-28T22:34:04+09:00</lastmod>
   </url><url>
-    <loc>/categories/everything/</loc>
-    <lastmod>2021-05-01T12:55:57+09:00</lastmod>
+    <loc>/categories/aws/</loc>
+    <lastmod>2021-06-28T22:34:04+09:00</lastmod>
+  </url><url>
+    <loc>/tags/boto3/</loc>
+    <lastmod>2021-06-28T22:34:04+09:00</lastmod>
+  </url><url>
+    <loc>/posts/boto3-note/</loc>
+    <lastmod>2021-06-28T22:34:04+09:00</lastmod>
+  </url><url>
+    <loc>/categories/</loc>
+    <lastmod>2021-06-28T22:34:04+09:00</lastmod>
   </url><url>
     <loc>/</loc>
+    <lastmod>2021-06-28T22:34:04+09:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2021-06-28T22:34:04+09:00</lastmod>
+  </url><url>
+    <loc>/tags/python/</loc>
+    <lastmod>2021-06-28T22:34:04+09:00</lastmod>
+  </url><url>
+    <loc>/tags/sdk/</loc>
+    <lastmod>2021-06-28T22:34:04+09:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2021-06-28T22:34:04+09:00</lastmod>
+  </url><url>
+    <loc>/categories/everything/</loc>
     <lastmod>2021-05-01T12:55:57+09:00</lastmod>
   </url><url>
     <loc>/tags/open-badges/</loc>
@@ -17,13 +41,7 @@
     <loc>/posts/open-badges-introduction/</loc>
     <lastmod>2021-05-01T12:55:57+09:00</lastmod>
   </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2021-05-01T12:55:57+09:00</lastmod>
-  </url><url>
     <loc>/tags/standard/</loc>
-    <lastmod>2021-05-01T12:55:57+09:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2021-05-01T12:55:57+09:00</lastmod>
   </url><url>
     <loc>/tags/airflow/</loc>
@@ -77,9 +95,6 @@
     <loc>/tags/map/</loc>
     <lastmod>2020-11-28T13:13:35+09:00</lastmod>
   </url><url>
-    <loc>/tags/python/</loc>
-    <lastmod>2020-11-28T13:13:35+09:00</lastmod>
-  </url><url>
     <loc>/posts/python-map-reduce-filter/</loc>
     <lastmod>2020-11-28T13:13:35+09:00</lastmod>
   </url><url>
@@ -103,12 +118,6 @@
   </url><url>
     <loc>/posts/porting-simcity-backup-to-golang/</loc>
     <lastmod>2020-10-19T20:44:49+09:00</lastmod>
-  </url><url>
-    <loc>/tags/aws/</loc>
-    <lastmod>2020-06-29T20:58:17+09:00</lastmod>
-  </url><url>
-    <loc>/categories/aws/</loc>
-    <lastmod>2020-06-29T20:58:17+09:00</lastmod>
   </url><url>
     <loc>/posts/aws-sam-nested-stack/</loc>
     <lastmod>2020-06-29T20:58:17+09:00</lastmod>
@@ -220,9 +229,6 @@
   </url><url>
     <loc>/posts/become-dev-book-review/</loc>
     <lastmod>2018-11-29T23:36:00+09:00</lastmod>
-  </url><url>
-    <loc>/tags/boto3/</loc>
-    <lastmod>2018-11-29T00:38:00+09:00</lastmod>
   </url><url>
     <loc>/tags/paginator/</loc>
     <lastmod>2018-11-29T00:38:00+09:00</lastmod>
