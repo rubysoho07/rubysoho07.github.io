@@ -61,7 +61,7 @@ if (!doNotTrack) {
 <p>Locust의 공식 문서에서는 tasks 속성을 지정하기 위해 다음과 같은 방법을 소개하고 있습니다.</p>
 <h3 id="user-클래스-안에-task-지정하기">User 클래스 안에 Task 지정하기</h3>
 <p>가장 기본적인 방법입니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> locust <span style="color:#f92672">import</span> User, task, constant
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> locust <span style="color:#f92672">import</span> User, task, constant
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyUser</span>(User):
     wait_time <span style="color:#f92672">=</span> constant(<span style="color:#ae81ff">1</span>)
@@ -77,7 +77,7 @@ if (!doNotTrack) {
 </ul>
 <p>가 있다면, <code>@task(2)</code>로 지정한 작업을 두 배 더 실행할 것입니다.</p>
 <h3 id="tasks-속성이-list라면">tasks 속성이 list라면?</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> locust <span style="color:#f92672">import</span> User, constant
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> locust <span style="color:#f92672">import</span> User, constant
 
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">my_task</span>(user):
     <span style="color:#66d9ef">pass</span>
@@ -104,7 +104,7 @@ if (!doNotTrack) {
 </li>
 </ul>
 <p>test_start, test_stop 이벤트에 리스너를 지정하는 예제는 다음과 같습니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> locust <span style="color:#f92672">import</span> events
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> locust <span style="color:#f92672">import</span> events
 
 <span style="color:#a6e22e">@events</span><span style="color:#f92672">.</span>test_start<span style="color:#f92672">.</span>add_listener
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_test_start</span>(environment, <span style="color:#f92672">**</span>kwargs):
@@ -121,7 +121,7 @@ if (!doNotTrack) {
 </li>
 </ul>
 <p>init 이벤트에 리스너를 지정하는 예제는 다음과 같습니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> locust <span style="color:#f92672">import</span> events
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> locust <span style="color:#f92672">import</span> events
 <span style="color:#f92672">from</span> locust.runners <span style="color:#f92672">import</span> MasterRunner
 
 <span style="color:#a6e22e">@events</span><span style="color:#f92672">.</span>init<span style="color:#f92672">.</span>add_listener

@@ -80,7 +80,7 @@ if (!doNotTrack) {
 <blockquote>
 <p><a href="https://aws.amazon.com/premiumsupport/knowledge-center/lambda-layer-simulated-docker/">다음 링크</a>를 참고하여 런타임에 맞는 Docker 이미지(예: <code>public.ecr.aws/sam/build-python3.6</code>)를 사용하여 레이어를 구성할 수도 있다. (3.6 대신 다른 버전으로 바꿀 수 있음)</p>
 </blockquote>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir layer_pandas
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir layer_pandas
 cd layer_pandas
 mkdir python
 docker run --rm -it -v $PWD/python:/layer amazonlinux:1 bash
@@ -96,11 +96,11 @@ exit                                    <span style="color:#75715e"># 컨테이�
 zip -r layer_pandas.zip .
 <span style="color:#75715e"># ls -l 명령으로 확인해 보면, 53MB 정도의 용량을 차지하고 있음을 볼 수 있다. </span>
 </code></pre></div><p>이제 AWS CLI로 Layer를 생성해 보자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">aws lambda publish-layer-version --layer-name layer-pandas --compatible-runtimes <span style="color:#e6db74">&#34;python3.6&#34;</span> --zip-file fileb://$PWD/layer_pandas.zip
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">aws lambda publish-layer-version --layer-name layer-pandas --compatible-runtimes <span style="color:#e6db74">&#34;python3.6&#34;</span> --zip-file fileb://$PWD/layer_pandas.zip
 </code></pre></div><p>하지만 다음과 같은 오류가 발생할 것이다. 참고로 69,905,067 바이트면 69.9 MB이고, Layer 자체의 용량은 54 MB 정도이지만 다른 방법을 찾아봐야 한다.</p>
 <pre><code>An error occurred (RequestEntityTooLargeException) when calling the PublishLayerVersion operation: Request must be smaller than 69905067 bytes for the PublishLayerVersion operation
 </code></pre><p>그래서 S3에 Layer를 업로드 후 이 파일을 바탕으로 Layer를 만들어 보자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># S3에 버킷 만들고 파일 업로드 하기</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># S3에 버킷 만들고 파일 업로드 하기</span>
 aws s3 mb s3://<span style="color:#f92672">(</span>S3 버킷 이름<span style="color:#f92672">)</span>
 aws s3 cp layer_pandas.zip s3://<span style="color:#f92672">(</span>S3 버킷 이름<span style="color:#f92672">)</span>
 <span style="color:#75715e"># 그러면 (S3 버킷 이름)/layer_pandas.zip으로 올라가게 된다. </span>
@@ -136,7 +136,7 @@ aws lambda publish-layer-version --layer-name layer-pandas --compatible-runtimes
 
 <p>마지막으로 Pandas를 제대로 사용할 수 있는지 테스트 해 보자.</p>
 <p>Lambda 함수의 코드를 다음과 같이 입력해 보자. 아래 코드를 그대로 복사해도 된다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> json
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> json
 
 <span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
 
