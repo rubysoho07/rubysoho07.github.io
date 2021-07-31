@@ -50,6 +50,18 @@ if (!doNotTrack) {
 	<article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
+			<a href="/posts/aws-sam-nested-stack/" rel="bookmark">
+			AWS SAM에서 중첩된 스택 배포 시 유의해야 할 것들
+			</a>
+		</h3>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		팀에서 AWS SAM을 적극적으로 사용하고 있는데, SAM을 쓰면서 느낀 점들을 예전에 글로 남긴 적이 있었다. 그런데 SAM은 CloudFormation 스택으로 리소스를 생성하다 보니, CloudFormation의 제약 사항을 그대로 가지고 있다. 예를 들어 하나의 CloudFormation 템플릿에서 선언할 수 있는 리소스 수는 200개를 넘지 않아야 한다는 것이 대표적일 것이다. 이러한 문제를 겪으면서, 많은 리소스로 구성되어 있는 애플리케이션을 여러 스택으로 나누는 작업을 해야 했다. 이 글에서는 하나의 서버리스 애플리케이션을 여러 스택으로 나누는 문제를 해결하면서 겪었던 일들을 기록해 보려고 한다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
 			<a href="/posts/pandas-on-aws-lambda/" rel="bookmark">
 			AWS Lambda에 Pandas 올리기
 			</a>
@@ -177,20 +189,6 @@ EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어�
 그래서, how to get the number of connections from web server라는 키워드로 구글 검색을 해 보았다.
  여기 나오는 문서들 중에서 가장 많이 언급되는 유틸리티가 netstat인데, 여기서 연결 개수를 어떻게 체크해 볼 수 있는지 알아보자.
 	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/posts/python-string-interpolation/" rel="bookmark">
-			파이썬 문자열 다루기 - str.format()
-			</a>
-		</h3>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		문자열을 다루다 보면 .format()을 사용하는데, .format()으로 어떻게 문자열 중간을 채워볼 지에 대해 알아보겠다. 이 글은 필요할 때 매번 찾아보다가 귀찮아서 정리해 본 것이다.
-들어가기 전에&hellip; 혹시 C를 배워본 적이 있는지? C에는 printf()라는 함수가 있다. 변수의 내용을 표시하기 위해 아래 코드와 같이 %d, %f등의 문자열을 사용한 적이 있을 것이다.
-int a = 0; printf(&#39;%d&#39;, a); 파이썬 또한 이런 방법을 지원한다. 하지만 튜플이나 딕셔너리와 같은 자료형은 제대로 표시되지 않는 문제가 있다고 한다. 자세한 내용은 링크를 참조하자.
-	</div>
 </article>
 </main>
 
@@ -245,6 +243,7 @@ int a = 0; printf(&#39;%d&#39;, a); 파이썬 또한 이런 방법을 지원한�
 		<a class="widget-taglist__link widget__link btn" href="/tags/2018%EB%85%84/" title="2018년">2018년</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/2019%EB%85%84/" title="2019년">2019년</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/2020%EB%85%84/" title="2020년">2020년</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/acm/" title="ACM">ACM</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/airflow/" title="Airflow">Airflow</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/arcade-fire/" title="Arcade Fire">Arcade Fire</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws/" title="AWS">AWS</a>
@@ -253,8 +252,10 @@ int a = 0; printf(&#39;%d&#39;, a); 파이썬 또한 이런 방법을 지원한�
 		<a class="widget-taglist__link widget__link btn" href="/tags/big-data/" title="Big Data">Big Data</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/boto3/" title="Boto3">Boto3</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/cloudformation/" title="CloudFormation">CloudFormation</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/container/" title="Container">Container</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/datetime/" title="datetime">datetime</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ec2/" title="EC2">EC2</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/eks/" title="EKS">EKS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/filter/" title="filter">filter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/font/" title="font">font</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/format/" title="format">format</a>
@@ -273,6 +274,7 @@ int a = 0; printf(&#39;%d&#39;, a); 파이썬 또한 이런 방법을 지원한�
 		<a class="widget-taglist__link widget__link btn" href="/tags/mongodb/" title="MongoDB">MongoDB</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/mysql/" title="MySQL">MySQL</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/netstat/" title="netstat">netstat</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/nlb/" title="NLB">NLB</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/oh-my-zsh/" title="oh-my-zsh">oh-my-zsh</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/open-badges/" title="Open Badges">Open Badges</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/paginator/" title="Paginator">Paginator</a>
@@ -289,6 +291,7 @@ int a = 0; printf(&#39;%d&#39;, a); 파이썬 또한 이런 방법을 지원한�
 		<a class="widget-taglist__link widget__link btn" href="/tags/serverless/" title="Serverless">Serverless</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/setter/" title="setter">setter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/simcity/" title="SimCity">SimCity</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ssl/" title="SSL">SSL</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/standard/" title="Standard">Standard</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/step-functions/" title="Step Functions">Step Functions</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/underscore/" title="underscore">underscore</a>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ko-kr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>EKS 내 NGINX Ingress에서 NLB와 ACM 연동 방법 살펴보기 - GoniGoni!</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	
+	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-131546844-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/" title="GoniGoni!" rel="home">
+				<div class="logo__title">GoniGoni!</div>
+				<div class="logo__tagline">개발 블로그이지만 개발 말고 다른 이야기도 합니다.</div>
+			</a>
+		</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">EKS 내 NGINX Ingress에서 NLB와 ACM 연동 방법 살펴보기</h1>
+			
+		</header><div class="content post__content clearfix">
+			<p>최근 팀 내에서 외부 서비스와 연동하는 서비스가 증가하면서, 고정된 IP 주소를 요청하는 경우가 많아졌습니다.</p>
+<p>한편, 대외 서비스가 늘어나다 보니 관리하는 서버의 수가 증가하였습니다. 그렇지만 생각보다 트래픽이 많지 않아 리소스가 낭비되는 경우가 많은데요.</p>
+<p>이러한 상황을 겪으면서 서버의 수를 줄이고, 서비스마다 고정된 IP 주소를 제공할 방법을 찾아보게 되었습니다.</p>
+<p>그러다가 Kubernetes와 Kubernetes의 Ingress를 적절히 활용하여 이러한 요건을 충족하는 방법을 찾아보았습니다.</p>
+<p>이번 글은 그 과정에서 겪었던 이슈를 정리하기 위해 작성하였습니다.</p>
+<h1 id="eks와-nginx-ingress-controller-사용">EKS와 NGINX Ingress Controller 사용</h1>
+<p>저희 팀의 웹 서비스들은 Elastic Beanstalk를 주로 이용하고 있습니다. 그렇지만 사용량이 생각했던 것보다는 많지 않아서 컨테이너를 기반으로 한 서비스로 변경해 보려고 합니다.</p>
+<p>AWS에서 컨테이너 오케스트레이션을 제공하는 서비스로는 ECS와 EKS가 있습니다. 저는 ECS를 사용해 본 적은 있지만, 장기적인 관점으로는 Kubernetes에 대한 경험이 필요하다고 생각하였습니다.</p>
+<p>그래서 이번에는 Kubernetes, 그리고 AWS에서 제공하는 Kubernetes Service인 EKS를 사용해 보려고 합니다.</p>
+<p>Kubernetes는 <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">Ingress</a>라는 객체를 지원합니다. Ingress는 클러스터 내 HTTP/HTTPS로 접속하는 Service에 대해 외부 연결을 관리하는 객체라고 정의합니다.</p>
+<p>물론 <a href="https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types">서비스 타입을 LoadBalancer로 설정</a>해도 되긴 하지만, 클러스터 외부에서 접속할 수 있는 URL을 제공하고, SSL/TLS 접속을 제공하고, URL 규칙을 기준으로 라우팅을 제공할 수 있기 때문에 Ingress를 선택했습니다.</p>
+<p>중요한 점으로, Ingress를 생성할 때는 Ingress와 Ingress Controller를 모두 생성해야 합니다.</p>
+<p>Ingress Controller로는 여러 종류가 있지만, 저희 팀에서는 nginx를 웹 서버로 사용하고 있기 때문에 <a href="https://kubernetes.github.io/ingress-nginx/">NGINX Ingress Controller</a>를 사용하었습니다.</p>
+<h2 id="ingress-object">Ingress Object</h2>
+<p>저는 다음과 같이 Ingress Object를 생성했습니다. <code>(my-domain)</code> 부분은 사용하는 도메인으로 적절히 변경합니다. (전체 내용은 <a href="https://github.com/rubysoho07/eks-nlb-test/blob/main/k8s/cluster_config.yaml">링크</a>를 참고해 주세요)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">networking.k8s.io/v1</span>
+<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Ingress</span>
+<span style="color:#f92672">metadata</span>:
+  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ingress-backend</span>
+  <span style="color:#f92672">annotations</span>:
+    <span style="color:#f92672">kubernetes.io/ingress.class</span>: <span style="color:#e6db74">&#34;nginx&#34;</span>
+<span style="color:#f92672">spec</span>:
+  <span style="color:#f92672">rules</span>:
+  - <span style="color:#f92672">host</span>: <span style="color:#ae81ff">(my-domain)</span>
+    <span style="color:#f92672">http</span>:
+      <span style="color:#f92672">paths</span>:
+        - <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/</span>
+          <span style="color:#f92672">pathType</span>: <span style="color:#ae81ff">Prefix</span>
+          <span style="color:#f92672">backend</span>:
+            <span style="color:#f92672">service</span>:
+              <span style="color:#f92672">name</span>: <span style="color:#ae81ff">backend-service</span>
+              <span style="color:#f92672">port</span>: 
+                <span style="color:#f92672">number</span>: <span style="color:#ae81ff">80</span>
+</code></pre></div><h2 id="ingress-controller">Ingress Controller</h2>
+<p>NGINX Ingress Controller를 설치하는 방법으로는 <a href="https://kubernetes.github.io/ingress-nginx/deploy/">Installation Guide</a> 문서를 참고하였습니다.</p>
+<p>기본적으로 AWS에 Ingress Controller를 배포하면 Network Load Balancer가 생성되는데요.</p>
+<p>저는 NLB 뿐만 아니라 HTTPS(TLS) 통신이 필요하기 때문에 <code>TLS Termination In AWS Load Balancer (ELB)</code> 항목을 참고했습니다.</p>
+<p>다만, 고정 IP를 제공하기 위해 NLB(Network Load Balancer)를 사용하려는 경우, 약간의 수정이 필요합니다.</p>
+<p>전체 과정을 정리하면 다음과 같습니다.</p>
+<ul>
+<li><a href="https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.48.1/deploy/static/provider/aws/deploy-tls-termination.yaml">링크</a>로부터 <code>deploy-tls-termination.yaml</code> 파일을 받습니다.</li>
+<li><code>proxy-real-ip-cidr</code>을 EKS 클러스터가 있는 VPC CIDR로 바꿉니다. (예: xxx.xxx.xxx.xxx/xx)</li>
+<li><code>service.beta.kubernetes.io/aws-load-balancer-ssl-cert</code>: ACM 인증서의 ARN을 입력합니다.</li>
+<li><code>service.beta.kubernetes.io/aws-load-balancer-type</code>: <code>elb</code>로 입력되어 있는데, 수정하지 않으면 Classic Load Balancer가 생성됩니다. NLB를 사용하려면 <code>nlb</code>로 변경합니다.</li>
+<li><code>use-forwarded-headers</code>: 해당 값은 <code>false</code>로 변경해 줍니다. <code>true</code>로 지정하여도 동작은 하지만, NLB를 사용한다면 굳이 필요 없는 설정입니다. (<a href="https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#use-forwarded-headers">참조</a>)</li>
+</ul>
+<p>참고로, NLB에 SSL Termination을 사용하려면 Kubernetes 1.15 버전 이상을 사용해야 합니다. (<a href="https://aws.amazon.com/ko/premiumsupport/knowledge-center/terminate-https-traffic-eks-acm/">출처</a>)</p>
+<h1 id="nlb-연동-시-하나의-node만-healthy인-이유는">NLB 연동 시 하나의 Node만 Healthy인 이유는?</h1>
+<p>NLB를 올리고 Target Group 설정을 확인해 보면, Target Group의 Health Status가 하나만 Healthy로 표시되는 경우가 있습니다.</p>
+<p>GitHub에 올라온 <a href="https://github.com/kubernetes/ingress-nginx/issues/5592">이슈</a>를 참고하면 비슷한 사례를 확인할 수 있는데요.</p>
+<p>이 현상이 발생한 원인은 Ingress Controller가 <code>externalTrafficPolicy: Local</code>로 설정된 것 때문이라고 합니다. 그래서 Ingress Controller가 동작 중인 노드만 <code>Healthy</code>로 표시된다고 하네요.</p>
+<p>해당 이슈의 댓글을 보면 아시겠지만, 이러한 설정은 개발자가 의도한 것이라고 합니다.</p>
+<p>이러한 이슈를 해결할 수 있는 여러 방법이 있는데요.</p>
+<ul>
+<li><code>externalTrafficPolicy</code> 옵션을 <code>Cluster</code>로 설정: <code>Local</code>로 설정하면 Client IP주소가 Pod까지 전달되지만, 트래픽이 균등하게 분배되지 않을 수도 있다고 합니다. (<a href="https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip">참조</a>)</li>
+<li>DaemonSet을 사용하거나, PodAntiAffinity를 사용: DaemonSet으로 모든 노드에 Controller가 설치되도록 하거나, PodAntiAffinity 설정으로 하나의 노드에 여러 Pod을 배치하지 않도록 하는 방법</li>
+</ul>
+<p>일단 저는 첫번째 방법을 사용해서 테스트 해 보니, 다음과 같이 정상적으로 동작하는 것을 확인할 수 있었습니다.</p>
+<figure><img src="/img/eks-nlb-acm-test-1.png"/>
+</figure>
+
+<p>(참고로 기존에 <code>Local</code>로 설정되어 있던 것을 <code>Cluster</code>로 변경하면 잘 안 되서, 아예 처음부터 <code>Cluster</code>로 변경 후 배포하니 정상적으로 동작했던 경험이 있습니다)</p>
+<h1 id="마무리">마무리</h1>
+<p>우선 제 입장에서 가장 필요했던 요건을 충족할 수 있는 시스템을 구축할 수 있을 것 같아서 다행이었습니다.</p>
+<ul>
+<li>고정된 IP 주소를 제공하면 좋겠다</li>
+<li>갖고 있던 ACM 인증서를 그대로 사용할 수 있으면 좋겠다</li>
+</ul>
+<p>다만, 새로운 버전의 배포나 애플리케이션 모니터링 측면에서 어떤 것들이 더 필요할 지는 고민해 봐야 할 문제인 것 같네요. 이 부분은 좀 더 확인해 보고 적절한 방법을 찾아야 하겠습니다.</p>
+<p>전체 테스트 코드는 <a href="https://github.com/rubysoho07/eks-nlb-test">GitHub 저장소</a>에서 확인하실 수 있습니다.</p>
+<p>테스트 코드는 개인적인 관심으로 생성한 것이며, 회사 업무와는 무관하게 생성한 것임을 알려드립니다.</p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/aws/" rel="tag">AWS</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/eks/" rel="tag">EKS</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/container/" rel="tag">Container</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/nlb/" rel="tag">NLB</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/ssl/" rel="tag">SSL</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/acm/" rel="tag">ACM</a></li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gonigoni-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 Yungon Park.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>
