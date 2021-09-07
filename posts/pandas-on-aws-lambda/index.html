@@ -70,7 +70,7 @@ if (!doNotTrack) {
 <p>그래서, Layer를 압축 파일로 만들 때는 <code>python</code> 디렉터리 내에 필요한 라이브러리가 들어가도록 구성하면 된다. 동일한 라이브러리를 Lambda에서 지원하는 파이썬 버전에 따라 넣고 싶다면, <code>python/lib/python(버전)/site-packages</code>에 들어가도록 만들자.</p>
 <p><strong>예제: Lambda Layer 압축 파일의 구조</strong></p>
 <p>아래 내용은 Pillow 라이브러리를 Lambda Layer로 구성하는 경우이다. 다른 언어에 대한 내용은 참고 문서의 두번째 항목을 참고하면 된다.</p>
-<pre><code>pillow.zip
+<pre tabindex="0"><code>pillow.zip
 │ python/PIL
 └ python/Pillow-5.3.0.dist-info
 </code></pre><p>이러한 설명을 바탕으로 Pandas를 Lambda Layer에 넣으면 되는데, Pandas는 C 코드를 포함하고 있기 때문에 OS나 CPU 종류에 따라 필요한 라이브러리를 빌드해서 첨부해야 한다.</p>
@@ -98,7 +98,7 @@ zip -r layer_pandas.zip .
 </code></pre></div><p>이제 AWS CLI로 Layer를 생성해 보자.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">aws lambda publish-layer-version --layer-name layer-pandas --compatible-runtimes <span style="color:#e6db74">&#34;python3.6&#34;</span> --zip-file fileb://$PWD/layer_pandas.zip
 </code></pre></div><p>하지만 다음과 같은 오류가 발생할 것이다. 참고로 69,905,067 바이트면 69.9 MB이고, Layer 자체의 용량은 54 MB 정도이지만 다른 방법을 찾아봐야 한다.</p>
-<pre><code>An error occurred (RequestEntityTooLargeException) when calling the PublishLayerVersion operation: Request must be smaller than 69905067 bytes for the PublishLayerVersion operation
+<pre tabindex="0"><code>An error occurred (RequestEntityTooLargeException) when calling the PublishLayerVersion operation: Request must be smaller than 69905067 bytes for the PublishLayerVersion operation
 </code></pre><p>그래서 S3에 Layer를 업로드 후 이 파일을 바탕으로 Layer를 만들어 보자.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># S3에 버킷 만들고 파일 업로드 하기</span>
 aws s3 mb s3://<span style="color:#f92672">(</span>S3 버킷 이름<span style="color:#f92672">)</span>
@@ -154,7 +154,7 @@ aws lambda publish-layer-version --layer-name layer-pandas --compatible-runtimes
     }
 </code></pre></div><p>함수를 저장하고, 테스트 이벤트 구성으로 테스트용 이벤트를 만든 뒤 <strong>테스트</strong> 버튼을 눌러서 테스트 해 보자. 약간의 시간이 걸릴 수도 있지만 호출에 성공하고 다음과 같은 로그를 볼 수 있을 것이다.</p>
 <p>이 예제에서는 Pandas의 Series 타입의 데이터를 만들었기 때문에 0 10, 1 20, 2 30&hellip; 과 같이 출력된다.</p>
-<pre><code>START RequestId: 5dddcd14-8325-4771-ae70-69cb3f20c514 Version: $LATEST
+<pre tabindex="0"><code>START RequestId: 5dddcd14-8325-4771-ae70-69cb3f20c514 Version: $LATEST
 0    10
 1    20
 2    30

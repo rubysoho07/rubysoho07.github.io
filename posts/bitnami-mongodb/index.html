@@ -123,14 +123,14 @@ if (!doNotTrack) {
 
 <h3 id="데이터-삽입조회-테스트">데이터 삽입/조회 테스트</h3>
 <p>이제 만든 콜렉션을 더블클릭하면 아무것도 없을 것이다. 이 때, 다음 명령을 위의 입력 창에 입력하고 Ctrl+Enter를 누른다.</p>
-<pre><code>db.getCollection('test').insert({&quot;name&quot;: &quot;value&quot;});
+<pre tabindex="0"><code>db.getCollection('test').insert({&quot;name&quot;: &quot;value&quot;});
 </code></pre><p>그러면 아래 창에 다음과 같은 메시지를 볼 수 있다.</p>
-<pre><code>Inserted 1 record(s) in 21ms
+<pre tabindex="0"><code>Inserted 1 record(s) in 21ms
 </code></pre><figure><img src="/img/bitnami-mongodb-14.png"/>
 </figure>
 
 <p>이제 조회를 해 보자. 위의 입력창에서 다음과 같이 입력한 뒤 Ctrl+Enter를 누르면, 방금 삽입한 레코드를 조회할 수 있다.</p>
-<pre><code>db.getCollection('test').find();
+<pre tabindex="0"><code>db.getCollection('test').find();
 </code></pre><figure><img src="/img/bitnami-mongodb-15.png"/>
 </figure>
 

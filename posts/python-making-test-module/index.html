@@ -59,14 +59,14 @@ if (!doNotTrack) {
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_a</span>(self):
         self<span style="color:#f92672">.</span>assertEqual(<span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>, <span style="color:#66d9ef">False</span>)
 </code></pre></div><p>그리고 쉘에서 <code>python -m unittest</code>를 입력하면, 아무 테스트도 실행하지 않는다.</p>
-<pre><code>$ python -m unittest
+<pre tabindex="0"><code>$ python -m unittest
 
 ----------------------------------------------------------------------
 Ran 0 tests in 0.000s
 
 OK
 </code></pre><p>왜 그럴까? <code>unittest</code> 라이브러리는 기본적으로 실행하는 top-level 디렉터리에서 <code>test</code>로 시작하는 파일을 찾아서 테스트를 수행한다. <a href="https://docs.python.org/3/library/unittest.html#test-discovery">(참고)</a> 일단 파일 이름을 test로 시작하도록 바꾼 뒤 아래와 같이 테스트해 보자.</p>
-<pre><code>$ mv aaa.py test.py
+<pre tabindex="0"><code>$ mv aaa.py test.py
 $ python -m unittest
 .
 ----------------------------------------------------------------------

@@ -6,7 +6,43 @@
     <description>Recent content in Tags on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 31 Jul 2021 20:08:14 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Aug 2021 15:51:33 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CloudFormation</title>
+      <link>/tags/cloudformation/</link>
+      <pubDate>Sat, 28 Aug 2021 15:51:33 +0900</pubDate>
+      
+      <guid>/tags/cloudformation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IaC</title>
+      <link>/tags/iac/</link>
+      <pubDate>Sat, 28 Aug 2021 15:51:33 +0900</pubDate>
+      
+      <guid>/tags/iac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SAM</title>
+      <link>/tags/sam/</link>
+      <pubDate>Sat, 28 Aug 2021 15:51:33 +0900</pubDate>
+      
+      <guid>/tags/sam/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Serverless</title>
+      <link>/tags/serverless/</link>
+      <pubDate>Sat, 28 Aug 2021 15:51:33 +0900</pubDate>
+      
+      <guid>/tags/serverless/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>ACM</title>
       <link>/tags/acm/</link>
@@ -242,38 +278,11 @@
     </item>
     
     <item>
-      <title>CloudFormation</title>
-      <link>/tags/cloudformation/</link>
-      <pubDate>Mon, 29 Jun 2020 20:58:17 +0900</pubDate>
-      
-      <guid>/tags/cloudformation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Lambda</title>
       <link>/tags/lambda/</link>
       <pubDate>Mon, 29 Jun 2020 20:58:17 +0900</pubDate>
       
       <guid>/tags/lambda/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>SAM</title>
-      <link>/tags/sam/</link>
-      <pubDate>Mon, 29 Jun 2020 20:58:17 +0900</pubDate>
-      
-      <guid>/tags/sam/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Serverless</title>
-      <link>/tags/serverless/</link>
-      <pubDate>Mon, 29 Jun 2020 20:58:17 +0900</pubDate>
-      
-      <guid>/tags/serverless/</guid>
       <description></description>
     </item>
     

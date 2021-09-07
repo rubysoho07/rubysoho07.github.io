@@ -81,7 +81,7 @@ print(c<span style="color:#f92672">.</span>get_uri())
 <p>아니면 Airflow 웹서버에서 Connection Type을 AWS로 설정하고, 각각의 항목을 채워줍니다. 이렇게 하면 Airflow UI에서도 Connection 정보를 볼 수 있습니다.</p>
 <p>S3이나 AWS Connection 설정은 <a href="https://airflow.apache.org/docs/apache-airflow-providers-amazon/stable/connections/aws.html">다음 문서</a>를 참고해 주세요.</p>
 <p>그리고 <code>airflow.cfg</code> 파일 중 다음 내용을 수정합니다. <code>connection_id_name</code>은 앞에서 설정한 Connection 이름으로, <code>your-bucket-name</code> 부분은 로그를 저장할 버킷 이름으로 바꾸어 줍니다.</p>
-<pre><code>[logging]
+<pre tabindex="0"><code>[logging]
 remote_logging = True
 remote_log_conn_id = connection_id_name
 remote_base_log_folder = s3://your-bucket-name

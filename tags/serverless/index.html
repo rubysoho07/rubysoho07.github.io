@@ -51,6 +51,22 @@ if (!doNotTrack) {
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
+			<a href="/posts/cloudformation-sam-tmi/" rel="bookmark">
+			CloudFormation과 SAM을 쓰면서 겪었던 일들 모음
+			</a>
+		</h3>
+		
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		최근 인프라 구성을 CloudFormation을 이용해서 조정해 보았습니다. 그 과정에서 여러 Lambda 함수를 쓸 때는 SAM으로, 그 외의 경우는 CloudFormation을 사용했는데요.
+이번 작업으로 여러 CloudFormation 스택에 흩어져 있던 리소스를 하나로 모으고, 템플릿의 관리 방식도 좀 더 관리하게 편하도록 설정할 수 있게 되었습니다.
+저희 팀이 여러 IaC(Infrastructure as Code) 툴 중에 왜 SAM과 CloudFormation을 사용하는 이유는 이 문서를 참고해 주세요.
+이번 글은 CloudFormation과 SAM을 쓰면서 겪었던 일들을 정리해 보려고 합니다.
+SAM에서 API Gateway 정의를 SAM Template에 넣기 SAM에서 제공하는 AWS::Serverless::Api 리소스는 AWS Gateway의 REST API를 생성해 주는 기능입니다.
+	</div>
+</article><article class="list__item post">
+	<header class="list__header">
+		<h3 class="list__title post__title ">
 			<a href="/posts/aws-sam-nested-stack/" rel="bookmark">
 			AWS SAM에서 중첩된 스택 배포 시 유의해야 할 것들
 			</a>
@@ -147,6 +163,7 @@ AWS Lambda(Lambda Layer)의 제한 AWS Lambda에는 Lambda Layer라고 해서 �
 		<a class="widget-taglist__link widget__link btn" href="/tags/go/" title="Go">Go</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/golang/" title="Golang">Golang</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/hadoop/" title="Hadoop">Hadoop</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/iac/" title="IaC">IaC</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/idles/" title="Idles">Idles</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/kafka/" title="Kafka">Kafka</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/lambda/" title="Lambda">Lambda</a>

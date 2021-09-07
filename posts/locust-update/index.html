@@ -89,7 +89,7 @@ if (!doNotTrack) {
 <h3 id="tasks-속성이-dict라면">tasks 속성이 dict라면?</h3>
 <p>tasks 속성을 dict 타입으로 지정할 수도 있는데요. 이 때는 callable을 key로, int 타입의 숫자를 value로 구성해야 한다고 합니다.</p>
 <p>이 때 각각의 callable에 지정한 value가 실행 비율이라고 보시면 되겠습니다. 예제는 아래와 같습니다.</p>
-<pre><code>{my_task: 3, another_task: 1}
+<pre tabindex="0"><code>{my_task: 3, another_task: 1}
 </code></pre><p>그러면 my_tasks는 another_task에 비해 3배 더 실행됩니다.</p>
 <h2 id="테스트-시작종료-시-필요한-작업들">테스트 시작/종료 시 필요한 작업들</h2>
 <p>GitHub에 올라온 <a href="https://github.com/locustio/locust/issues/1284">이슈</a>를 보면, Locust 클래스에서 <code>setup()</code>, <code>teardown()</code> hook을 삭제했다고 합니다.</p>

@@ -136,7 +136,7 @@ Topic: test-topic       PartitionCount: <span style="color:#ae81ff">6</span>    
         Topic: test-topic       Partition: <span style="color:#ae81ff">4</span>    Leader: <span style="color:#ae81ff">2</span>       Replicas: <span style="color:#ae81ff">2</span>     Isr: <span style="color:#ae81ff">2</span>
         Topic: test-topic       Partition: <span style="color:#ae81ff">5</span>    Leader: <span style="color:#ae81ff">0</span>       Replicas: <span style="color:#ae81ff">0</span>     Isr: <span style="color:#ae81ff">0</span>
 </code></pre></div><p>파티션을 6개, 30개까지 늘려 봐도 결과는 똑같았습니다. 혹시 몰라 Nginx Ingress 컨트롤러 쪽 로그를 확인해 보니, 다음과 같은 로그가 있었습니다.</p>
-<pre><code>198.18.0.1 - - [27/Jan/2021:14:04:35 +0000] &quot;POST /upload HTTP/1.1&quot; 499 0 &quot;-&quot; &quot;python-requests/2.25.1&quot; 227 16.391 [default-kafka-producer-service-80] [] 198.18.1.103:5000 0 16.389 - 0ce472a8362f96fd9500d1dc310428cd
+<pre tabindex="0"><code>198.18.0.1 - - [27/Jan/2021:14:04:35 +0000] &quot;POST /upload HTTP/1.1&quot; 499 0 &quot;-&quot; &quot;python-requests/2.25.1&quot; 227 16.391 [default-kafka-producer-service-80] [] 198.18.1.103:5000 0 16.389 - 0ce472a8362f96fd9500d1dc310428cd
 </code></pre><p>중간을 보시면 16.391이라는 숫자가 있고, 좀 더 오른쪽으로 이동하면 16.389라는 숫자가 있습니다.</p>
 <p>이 숫자들이 의미하는 것을 <a href="https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/log-format/">ingress-nginx의 문서</a>에서 찾아보니, 다음과 같이 설명하고 있네요.</p>
 <ul>
@@ -172,7 +172,7 @@ Topic: test-topic       PartitionCount: <span style="color:#ae81ff">6</span>    
 <p>이 시점에도 네이버 클라우드의 크레딧이 남아서 네이버 클라우드의 <a href="https://www.ncloud.com/product/analytics/elasticSearchService">Elasticsearch Service</a>를 이용했는데요.</p>
 <p>AWS의 Elasticsearch Service와 비교하면, Public Subnet에 클러스터를 구성해도 Public Endpoint가 생성되지 않기 때문에 외부 네트워크에서 접속할 수 있는 환경을 수동으로 구성해 주어야 합니다. 저는 <a href="https://docs.ncloud.com/ko/ess/elasticsearch_console.html">네이버 클라우드의 문서</a>를 참고해서, 클러스터 앞에 Load Balancer를 구성했습니다.</p>
 <p>한편, Fluentd로 로그를 수집할 때, 다음과 같은 에러 메시지가 계속 찍히는 경우가 있습니다.</p>
-<pre><code>Systemd::JournalError: No such file or directory retrying in 1s
+<pre tabindex="0"><code>Systemd::JournalError: No such file or directory retrying in 1s
 </code></pre><p>참고로 <a href="https://www.freedesktop.org/wiki/Software/systemd/">systemd</a>는 리눅스에서 시스템과 서비스를 관리하는 프로그램인데요. 보통 systemd는 PID가 1인데, 컨테이너 안에서는 최초에 실행하는 프로세스가 PID 1번을 받는 경우가 있나 봅니다. 제 생각에는 이 때문에 위의 로그가 찍히는 것 같은데요. 이 경우 <code>FLUENTD_SYSTEMD_CONF</code> 환경 변수를 <code>disabled</code>로 설정하면 로그가 찍히지 않습니다.</p>
 <h3 id="rbac-설정">RBAC 설정</h3>
 <p>Fluentd가 Pod 로그를 가져와서 실행하려면, DaemonSet으로 실행하는 Fluentd는 클러스터 내부의 Pod 정보를 가져올 수 있는 권한이 있어야 합니다. 그렇기 때문에 RBAC(Role-Based Access Control)을 이용했는데요. 다음과 같이 구성하였습니다.</p>

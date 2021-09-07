@@ -59,12 +59,12 @@ if (!doNotTrack) {
     <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Success&#34;</span>
 </code></pre></div><p>그리고 CloudWatch에 기록된 로그를 보자.</p>
 <p>dev인 경우</p>
-<pre><code>START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1
+<pre tabindex="0"><code>START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1
 arn:aws:lambda:ap-northeast-2:256724228018:function:test:dev
 END RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a
 REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a  Duration: 1.56 ms       Billed Duration: 100 ms         Memory Size: 128 MB     Max Memory Used: 22 MB
 </code></pre><p>release인 경우</p>
-<pre><code>START RequestId: d6b91b43-5fb3-11e8-88fd-494e3ecde1f0 Version: 1
+<pre tabindex="0"><code>START RequestId: d6b91b43-5fb3-11e8-88fd-494e3ecde1f0 Version: 1
 arn:aws:lambda:ap-northeast-2:256724228018:function:test:release
 END RequestId: d6b91b43-5fb3-11e8-88fd-494e3ecde1f0
 REPORT RequestId: d6b91b43-5fb3-11e8-88fd-494e3ecde1f0  Duration: 0.32 ms       Billed Duration: 100 ms         Memory Size: 128 MB     Max Memory Used: 22 MB

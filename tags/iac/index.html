@@ -4,14 +4,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>회고 - GoniGoni!</title>
+	<title>IaC - GoniGoni!</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
 	
 	
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
-	<link rel="alternate" type="application/rss+xml" href="/tags/%ED%9A%8C%EA%B3%A0/index.xml" title="GoniGoni!">
+	<link rel="alternate" type="application/rss+xml" href="/tags/iac/index.xml" title="GoniGoni!">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
 	<link rel="stylesheet" href="/css/style.css">
 	
@@ -47,47 +47,22 @@ if (!doNotTrack) {
 			
 <main class="main list" role="main">
 	<header class="main__header">
-		<h1 class="main__title">회고</h1>
+		<h1 class="main__title">IaC</h1>
 	</header><article class="list__item post">
 	<header class="list__header">
 		<h3 class="list__title post__title ">
-			<a href="/posts/retrospect-2020/" rel="bookmark">
-			2020년 회고
+			<a href="/posts/cloudformation-sam-tmi/" rel="bookmark">
+			CloudFormation과 SAM을 쓰면서 겪었던 일들 모음
 			</a>
 		</h3>
 		
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		2020년을 되돌아보면, 코로나로 일상 생활에 변화가 많았습니다. 제 생활에 가장 큰 변화라면, 퀸 내한공연 이후로 밴드들 공연을 현장에서 못 봤던 것, 축구 경기 직관을 제대로 못 했던 것, 오프라인 컨퍼런스나 국외 출장들이 모두 취소된 것을 들 수 있겠네요. 이외에도 여러가지 일들이 있었는데, 한 번 뒤돌아 보는 시간을 가져보려고 합니다.
-다른 사람들 앞에 서는 일 오프라인 컨퍼런스나 모임들이 많이 취소되었습니다. 그래서 온라인 모임이나 컨퍼런스에서 발표했던 적이 있었는데요. 아직 공개되지 않은 것들을 제외하고 말씀드리면, 두 번 발표를 진행했습니다.
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/posts/retrospect-2019/" rel="bookmark">
-			Retrospect 2019
-			</a>
-		</h3>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		2020년이 된 지 4일이 되었지만, 지난 1년 간에 있었던 일들을 정리해 보려 합니다.
-발표 AWS Summit Seoul 2019 커뮤니티 세션에서 저희 부서의 데이터 저장 기반 구축 사례를 소개했습니다. 다음 영상에서 확인하실 수 있습니다. (슬라이드는 여기를 눌러주세요)
-  PyCon Korea 외의 다른 행사에서 발표하는 건 처음이었는데요. 정말 많은 분들이 오셔서 긴장했는데, 어떻게든 잘 넘어갔던 것 같아요. 발표한 내용은 재작년(2018) 말 기준으로 구성했던 내용이고, 현재 저희 팀의 AWS 인프라는 많은 부분이 바뀐 상태입니다.
-	</div>
-</article><article class="list__item post">
-	<header class="list__header">
-		<h3 class="list__title post__title ">
-			<a href="/posts/retrospect-2018/" rel="bookmark">
-			2018년 회고
-			</a>
-		</h3>
-		
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		개인적으로는 변화가 많은 한 해였습니다. 업무의 분야가 바뀌었고, 새로운 환경에 적응해야 했으며, 주로 쓰는 프로그래밍 언어도 바뀌었습니다. 2018년에 일어났던 일들 중 주요한 몇 가지에 대해 다루어 보려고 합니다.
-서비스를 만드는 경험 서비스를 만드는 기업으로 이직하겠다는 생각은 계속 했지만, 이를 행동으로 옮긴 건 작년이 처음이었습니다. 그 과정에서 제가 느낀 점은 두 가지로 요약할 수 있을 것 같아요.
-1. 협업 이야기 저는 서비스를 기반부터 개발하는 경험이 부족했습니다. 교육 분야에서 비슷한 서비스를 개발한 사례가 많지 않아, 특히 데이터를 다루는 서비스를 어떻게 개발하는지에 대해 많이 찾아봤었습니다.
+		최근 인프라 구성을 CloudFormation을 이용해서 조정해 보았습니다. 그 과정에서 여러 Lambda 함수를 쓸 때는 SAM으로, 그 외의 경우는 CloudFormation을 사용했는데요.
+이번 작업으로 여러 CloudFormation 스택에 흩어져 있던 리소스를 하나로 모으고, 템플릿의 관리 방식도 좀 더 관리하게 편하도록 설정할 수 있게 되었습니다.
+저희 팀이 여러 IaC(Infrastructure as Code) 툴 중에 왜 SAM과 CloudFormation을 사용하는 이유는 이 문서를 참고해 주세요.
+이번 글은 CloudFormation과 SAM을 쓰면서 겪었던 일들을 정리해 보려고 합니다.
+SAM에서 API Gateway 정의를 SAM Template에 넣기 SAM에서 제공하는 AWS::Serverless::Api 리소스는 AWS Gateway의 REST API를 생성해 주는 기능입니다.
 	</div>
 </article>
 </main>

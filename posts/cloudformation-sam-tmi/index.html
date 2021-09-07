@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="no-js" lang="ko-kr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>CloudFormation과 SAM을 쓰면서 겪었던 일들 모음 - GoniGoni!</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	
+	
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-131546844-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/" title="GoniGoni!" rel="home">
+				<div class="logo__title">GoniGoni!</div>
+				<div class="logo__tagline">개발 블로그이지만 개발 말고 다른 이야기도 합니다.</div>
+			</a>
+		</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">CloudFormation과 SAM을 쓰면서 겪었던 일들 모음</h1>
+			
+		</header><div class="content post__content clearfix">
+			<p>최근 인프라 구성을 CloudFormation을 이용해서 조정해 보았습니다. 그 과정에서 여러 Lambda 함수를 쓸 때는 SAM으로, 그 외의 경우는 CloudFormation을 사용했는데요.</p>
+<p>이번 작업으로 여러 CloudFormation 스택에 흩어져 있던 리소스를 하나로 모으고, 템플릿의 관리 방식도 좀 더 관리하게 편하도록 설정할 수 있게 되었습니다.</p>
+<p>저희 팀이 여러 IaC(Infrastructure as Code) 툴 중에 왜 SAM과 CloudFormation을 사용하는 이유는 <a href="/posts/retrospect-aws-sam/">이 문서</a>를 참고해 주세요.</p>
+<p>이번 글은 CloudFormation과 SAM을 쓰면서 겪었던 일들을 정리해 보려고 합니다.</p>
+<h2 id="sam에서-api-gateway-정의를-sam-template에-넣기">SAM에서 API Gateway 정의를 SAM Template에 넣기</h2>
+<p>SAM에서 제공하는 <code>AWS::Serverless::Api</code> 리소스는 AWS Gateway의 REST API를 생성해 주는 기능입니다. API Gateway에는 <a href="https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-import-api.html">OpenAPI 규격으로 작성된 API 스펙을 가지고 올 수 있는 기능</a>이 있는데요. SAM에서도 마찬가지로 해당 기능을 지원합니다.</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-body">CloudFormation의 API Gateway REST API 중 Body 부분</a></li>
+<li><a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-api.html#sam-api-definitionbody">Serverless Application Model의 AWS::Serverless::Api 중 DefinitionBody 부분</a></li>
+</ul>
+<p>즉, 다음과 같이 규격을 정의할 수 있습니다.</p>
+<ul>
+<li>SAM의 AWS::Serverless::Api 리소스의 DefinitionBody / CloudFormation의 경우 AWS::ApiGateway::RestApi 리소스의 Body 속성: JSON이나 YAML 형식으로 API 정의를 생성</li>
+<li>SAM의 AWS::Serverless::Api 리소스의 DefinitionUri / CloudFormation의 경우 AWS::ApiGateway::RestApi 리소스의 BodyS3Location 속성: S3에 올린 OpenAPI 정의 파일로 API 정의를 생성 (JSON 또는 YAML 포맷)</li>
+</ul>
+<p>기본적인 OpenAPI의 구조는 <a href="https://swagger.io/docs/specification/basic-structure/">OpenAPI Basic Structure</a> 문서를 참고해 보시면 될 것 같습니다. 만약 Lambda 함수를 연결하여야 하는 경우라면, <a href="https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-as-lambda-proxy-export-swagger-with-extensions.html">이 예제</a>를 참고해 보시면 좋을 것 같네요.</p>
+<h2 id="sam에서-api-gateway-연동-시-openapi-definition에-awsregion-값을-얻어올-수-없는-이슈">SAM에서 API Gateway 연동 시 OpenAPI Definition에 <code>${AWS::Region}</code> 값을 얻어올 수 없는 이슈</h2>
+<p>참고자료: <a href="https://stackoverflow.com/questions/53582820/unable-to-parse-api-definition-because-of-a-malformed-integration-at-path-pric">Stack Overflow</a></p>
+<p>예를 들어, 다음과 같이 API 정의를 넣었다고 가정해 보겠습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">x-amazon-apigateway-integration</span>:
+  <span style="color:#f92672">httpMethod</span>: <span style="color:#ae81ff">post</span>
+  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">aws</span>
+  <span style="color:#f92672">uri</span>:
+    !<span style="color:#ae81ff">Sub &#34;arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${MyFunction.Arn}/invocations&#34;</span>
+  <span style="color:#f92672">responses</span>:
+    <span style="color:#f92672">default</span>:
+      <span style="color:#f92672">statusCode</span>: <span style="color:#e6db74">&#39;200&#39;</span>
+</code></pre></div><p>위와 같은 API 정의를 넣고 배포하려고 하면, <code>Unable to parse API definition because of a malformed integration at path /...</code>와 같은 에러가 발생하는데요.</p>
+<p>원인은 API Gateway의 제약 사항 때문이라고 합니다. (SAM의 <a href="https://github.com/aws/serverless-application-model/issues/79">GitHub 이슈</a> 참조)</p>
+<p>그래서 함수 이름만(위 예제의 <code>${MyFunction.Arn}</code>으로 표시한 부분) <code>!Sub</code>로 대체하는 것으로 하고, 리전 정보는 하드코딩 하여 우회했습니다.</p>
+<h2 id="sam에서-lambda-layer-arn을-파라미터-스토어에서-가져오려고-할-때-에러-발생-이슈">SAM에서 Lambda Layer ARN을 파라미터 스토어에서 가져오려고 할 때 에러 발생 이슈</h2>
+<p>Lambda Layer를 이용하면 공통 코드나 라이브러리를 쉽게 관리할 수 있는데요. Lambda Layer의 ARN을 Parameter Store에 저장해 두고, 이 값을 참조하려고 하면 에러가 발생합니다. (<a href="https://github.com/aws/aws-sam-cli/issues/1069">GitHub 이슈</a> 참조)</p>
+<p>다음 방법으로 우회할 수 있습니다.</p>
+<ol>
+<li>파라미터 값을 쉘의 변수로 저장: <code>LAYER_ARN=$(aws ssm get-parameter --name '/path/to/layer/arn' --query 'Parameter.Value' --output text)</code></li>
+<li>1에서 얻어온 파라미터 값을 SAM Template의 파라미터로 지정하여 빌드: <code>sam build --parameter-overrides LambdaArnParam=${LAYER_ARN}</code></li>
+<li>1에서 얻어온 파라미터 값을 SAM Template의 파라미터로 지정하여 배포: <code>sam deploy --parameter-overrides LambdaArnParam=${LAYER_ARN}</code></li>
+</ol>
+<p>SAM Template에 파라미터를 지정하는 방법은 CloudFormation Template의 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html">Parameters</a> 섹션 내용을 참고하세요.</p>
+<h2 id="sam-cli로-파이썬-런타임을-사용하는-함수를-빌드할-때-error-pythonpipbuilderresolvedependencies-오류-발생하는-경우">SAM CLI로 파이썬 런타임을 사용하는 함수를 빌드할 때, <code>“Error: PythonPipBuilder:ResolveDependencies”</code> 오류 발생하는 경우</h2>
+<p>제가 사용하는 Python 런타임 버전은 3.8인데, Python 3.7 버전을 사용하는 Lambda 함수를 빌드해야 할 때가 있습니다. 그러다 보면 라이브러리 버전이 안 맞아서 위와 같은 에러가 발생할 때가 있는데요.</p>
+<p>이 때는 <code>sam build</code> 명령을 사용할 때 <code>--use-container</code> 옵션을 추가하여 빌드합니다. 다만 Docker를 설치한 뒤, 실행하고 있어야 정상적으로 동작합니다.</p>
+<h2 id="sam으로-이벤트-스케줄을-정할-때-if-condition-true-false-조건이-동작하지-않는-문제">SAM으로 이벤트 스케줄을 정할 때 <code>!If [Condition, true, false]</code> 조건이 동작하지 않는 문제</h2>
+<p>SAM에는 다음과 같이 특정 시간이나 일정한 주기로 Lambda 함수를 수행할 수 있도록 설정하는 기능이 있습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Resources</span>:
+  <span style="color:#f92672">MyLambdaFunction</span>:
+    <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">AWS::Serverless::Function</span>
+    <span style="color:#f92672">Properties</span>:
+      <span style="color:#75715e"># 중간 생략</span>
+      <span style="color:#f92672">Events</span>:
+        <span style="color:#f92672">MyScheduleEvent</span>:
+          <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">Schedule</span>
+          <span style="color:#f92672">Properties</span>:
+            <span style="color:#f92672">Schedule</span>: <span style="color:#ae81ff">rate(5 minutes)</span>
+            <span style="color:#f92672">Name</span>: <span style="color:#ae81ff">my-schedule</span>
+            <span style="color:#f92672">Description</span>: <span style="color:#ae81ff">Example schedule</span>
+            <span style="color:#f92672">Enabled</span>: <span style="color:#66d9ef">True</span>
+</code></pre></div><p>그런데, <code>Schedule</code> 부분에 <code>!If [Condition, True, False]</code>와 같은 방식으로 조건을 주면 배포가 되지 않는 이슈가 있습니다. (GitHub 이슈 참조 - <a href="https://github.com/aws/serverless-application-model/issues/1360">#1360</a>, <a href="https://github.com/aws/serverless-application-model/issues/1329">#1329</a>)</p>
+<p>이러한 경우, 수동으로 CloudFormation의 <code>AWS::Events::Rule</code> 리소스를 생성하고, Lambda 함수를 타겟으로 지정하는 방법으로 우회할 수 있습니다. (<a href="https://github.com/aws/serverless-application-model/issues/1329#issuecomment-768659579">#1329 이슈의 댓글</a> 참조)</p>
+<p>이에 덧붙여, EventBridge(CloudWatch Events)가 Lambda 함수를 실행할 수 있도록 <code>AWS::Lambda::Permission</code> 리소스를 추가로 생성해 주어야 합니다. (<a href="https://github.com/aws/serverless-application-model/issues/1329#issuecomment-851545027">#1329 이슈의 댓글</a> 참조)</p>
+<h2 id="cloudformation의-conditions">CloudFormation의 Conditions</h2>
+<p>CloudFormation Template를 구성하는 요소 중 하나인 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/conditions-section-structure.html">Conditions 섹션</a>은 다음과 같은 경우에 이용할 수 있습니다.</p>
+<ul>
+<li>개발/운영 스택 중 특정 스테이지의 스택에만 리소스를 생성하고 싶을 때</li>
+<li>조건에 따라 값을 다르게 구성하고 싶을 때</li>
+</ul>
+<p>기본적인 구성은 다음과 같습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Conditions</span>:
+  <span style="color:#f92672">Logical ID</span>:
+    <span style="color:#ae81ff">Intrinsic function</span>
+</code></pre></div><p>그리고 예제를 한 번 보시죠.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">AWSTemplateFormatVersion</span>: <span style="color:#e6db74">2010-09-09</span>
+<span style="color:#f92672">Parameters</span>:
+  <span style="color:#f92672">EnvType</span>:
+    <span style="color:#f92672">Description</span>: <span style="color:#ae81ff">Environment type.</span>
+    <span style="color:#f92672">Default</span>: <span style="color:#ae81ff">test</span>
+    <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">String</span>
+    <span style="color:#f92672">AllowedValues</span>:
+      - <span style="color:#ae81ff">prod</span>
+      - <span style="color:#ae81ff">test</span>
+    <span style="color:#f92672">ConstraintDescription</span>: <span style="color:#ae81ff">must specify prod or test.</span>
+<span style="color:#f92672">Conditions</span>:
+  <span style="color:#f92672">CreateProdResources</span>: !<span style="color:#ae81ff">Equals </span>
+    - !<span style="color:#ae81ff">Ref EnvType</span>
+    - <span style="color:#ae81ff">prod</span>
+</code></pre></div><p>위 템플릿으로 스택을 만들 때 <code>EnvType</code>이라는 파라미터가 <code>prod</code>면, <code>CreateProdResources</code> Condition이 true가 됩니다.</p>
+<p>이런 조건을 어떻게 사용할 지는 다음 예제를 소개해 드리겠습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Resources</span>:
+  <span style="color:#f92672">EC2Instance</span>:
+    <span style="color:#f92672">Type</span>: <span style="color:#e6db74">&#39;AWS::EC2::Instance&#39;</span>
+    <span style="color:#f92672">Properties</span>:
+      <span style="color:#f92672">ImageId</span>: <span style="color:#ae81ff">ami-0ff8a91507f77f867</span>
+  <span style="color:#f92672">MountPoint</span>:
+    <span style="color:#f92672">Type</span>: <span style="color:#e6db74">&#39;AWS::EC2::VolumeAttachment&#39;</span>
+    <span style="color:#f92672">Condition</span>: <span style="color:#ae81ff">CreateProdResources</span>
+    <span style="color:#f92672">Properties</span>:
+      <span style="color:#f92672">InstanceId</span>: !<span style="color:#ae81ff">Ref EC2Instance</span>
+      <span style="color:#f92672">VolumeId</span>: !<span style="color:#ae81ff">Ref NewVolume</span>
+      <span style="color:#f92672">Device</span>: <span style="color:#ae81ff">/dev/sdh</span>
+  <span style="color:#f92672">NewVolume</span>:
+    <span style="color:#f92672">Type</span>: <span style="color:#e6db74">&#39;AWS::EC2::Volume&#39;</span>
+    <span style="color:#f92672">Condition</span>: <span style="color:#ae81ff">CreateProdResources</span>
+    <span style="color:#f92672">Properties</span>:
+      <span style="color:#f92672">Size</span>: <span style="color:#ae81ff">100</span>
+      <span style="color:#f92672">AvailabilityZone</span>: !<span style="color:#ae81ff">GetAtt </span>
+        - <span style="color:#ae81ff">EC2Instance</span>
+        - <span style="color:#ae81ff">AvailabilityZone</span>
+</code></pre></div><p>위 예제의 경우, 각 리소스에 <code>Condition</code> 속성이 있습니다. 만약 <code>CreateProdResources</code> 속성이 true면 MountPoint와 NewVolume 리소스가 함께 생성될 것입니다.</p>
+<p>그리고 조건에 따라 다른 값을 넣도록 하려면, CloudFormation이 제공하는 내장 함수를 이용할 수 있습니다. <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-conditions.html">Condition Functions</a> 문서를 한 번 참고해 보세요.</p>
+<p>예를 들어 아래 예시와 같이, 개발/운영 인프라에 따라 버킷 이름을 바꾸는 방법이 있겠습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Resources</span>:
+  <span style="color:#f92672">MyBucket</span>:
+    <span style="color:#f92672">Type</span>: <span style="color:#e6db74">&#39;AWS::S3::Bucket&#39;</span>
+    <span style="color:#f92672">BucketName</span>: !<span style="color:#ae81ff">If [CreateProdResources, &#39;my-dev-bucket&#39;, &#39;my-ops-bucket&#39;]</span>
+</code></pre></div><h2 id="cloudformation의-fnif-함수의-결과를-array로-할당하려면">CloudFormation의 <code>Fn::If</code> 함수의 결과를 Array로 할당하려면?</h2>
+<p>YAML로 작성하는 경우, 다음과 같이 작성하면 Array로 들어갑니다. (<a href="https://stackoverflow.com/questions/56970457/how-to-use-fnif-with-array-values-in-cloud-formation-templates">참고자료</a>)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Value</span>:
+  <span style="color:#f92672">Fn::If</span>:
+    - <span style="color:#ae81ff">MyCondition</span>
+      - - <span style="color:#ae81ff">Value1</span>
+        - <span style="color:#ae81ff">Value2</span>
+      - - <span style="color:#ae81ff">Value3</span>
+        - <span style="color:#ae81ff">Value4</span>
+</code></pre></div><h2 id="delete_failed-상태로-멈춰-있는-cloudformation-스택을-삭제하려면"><code>DELETE_FAILED</code> 상태로 멈춰 있는 CloudFormation 스택을 삭제하려면?</h2>
+<p>여러 이유로 스택 삭제에 실패할 때가 있습니다. <a href="https://aws.amazon.com/ko/premiumsupport/knowledge-center/cloudformation-stack-delete-failed/">이 문서</a>를 참고하세요.</p>
+<h2 id="cloudformation-스택-간-리소스-이동하기">CloudFormation 스택 간 리소스 이동하기</h2>
+<p>CloudFormation은 템플릿에 정의한 리소스들을 스택이라는 이름으로 관리합니다. 만약 스택을 병합하고 싶거나 다른 스택으로 리소스를 이동하려면 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/refactor-stacks.html">다음 문서</a>를 참고해 보세요.</p>
+<p>그 전에, AWS의 모든 리소스를 이동할 수 있는 건 아니라는 점을 명심하셔야 합니다. 그래서 여러 스택을 하나로 합치는 데 실패하기도 했습니다. Template 간 이동을 지원하는 리소스는 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.html">이 문서</a>를 참고하세요.</p>
+<p>기본적인 순서는 다음과 같습니다.</p>
+<ol>
+<li>원본 스택에서 기존 리소스가 삭제되지 않도록 각 리소스에 <code>DeletionPolicy: Retain</code> 옵션 추가</li>
+<li>원본 스택 업데이트: <code>aws cloudformation update-stack --stack-name &lt;STACK_NAME&gt; --template-body file://&lt;TEMPLATE_PATH&gt; --capabilities &lt;CAPABILITY_OPTIONS&gt;</code>
+<ul>
+<li><code>aws cloudformation deploy</code> 명령을 사용하는 경우, 리소스의 <code>DeletionPolicy</code> 옵션이 적용되지 않습니다. 그래서 위와 같이 <code>aws cloudformation update-stack</code> 명령을 사용합니다.</li>
+<li><code>--capabilities</code> 옵션은 필요 시 사용하면 됩니다.</li>
+</ul>
+</li>
+<li>리소스를 이동할 스택에 리소스 추가: <code>DeletionPolicy</code>를 포함하여 붙여 넣습니다.</li>
+<li>원본 스택에서 리소스 삭제 후 재배포: <code>aws cloudformation deploy --template-file &lt;TEMPLATE_PATH&gt; --stack-name &lt;STACK_NAME&gt;</code></li>
+<li>리소스를 이동할 스택에 새로운 리소스 Import: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/refactor-stacks.html">다음 문서</a> 참조</li>
+</ol>
+<h2 id="cloudformation-템플릿을-점검할-때-template-format-error-unsupported-structure-에러가-발생하는-경우">CloudFormation 템플릿을 점검할 때 <code>Template format error: unsupported structure</code> 에러가 발생하는 경우</h2>
+<p><code>aws cloudformation validate-template</code> 명령을 수행할 때, 위와 같은 에러가 발생할 수 있습니다.</p>
+<p>다음 <a href="https://stackoverflow.com/questions/41992569/template-format-error-unsupported-structure-seen-in-aws-cloudformation">Stack Overflow</a> 질문을 참고하면, <code>--template-body</code> 속성에는 File URI(<code>file://...</code>) 값이 들어가야 함을 알 수 있습니다.</p>
+<p>이외에도 템플릿 검증이나 형식 오류가 발생한 경우 <a href="https://aws.amazon.com/ko/premiumsupport/knowledge-center/cloudformation-template-validation/">AWS의 문서</a>를 참고하세요.</p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item"><a class="tags__link btn" href="/tags/cloudformation/" rel="tag">CloudFormation</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/sam/" rel="tag">SAM</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/serverless/" rel="tag">Serverless</a></li>
+		<li class="tags__item"><a class="tags__link btn" href="/tags/iac/" rel="tag">IaC</a></li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gonigoni-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 Yungon Park.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>
