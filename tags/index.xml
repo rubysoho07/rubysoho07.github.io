@@ -6,7 +6,34 @@
     <description>Recent content in Tags on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 28 Aug 2021 15:51:33 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Sep 2021 14:38:05 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS</title>
+      <link>/tags/aws/</link>
+      <pubDate>Thu, 30 Sep 2021 14:38:05 +0900</pubDate>
+      
+      <guid>/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Session Manager</title>
+      <link>/tags/session-manager/</link>
+      <pubDate>Thu, 30 Sep 2021 14:38:05 +0900</pubDate>
+      
+      <guid>/tags/session-manager/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Systems Manager</title>
+      <link>/tags/systems-manager/</link>
+      <pubDate>Thu, 30 Sep 2021 14:38:05 +0900</pubDate>
+      
+      <guid>/tags/systems-manager/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>CloudFormation</title>
       <link>/tags/cloudformation/</link>
@@ -49,15 +76,6 @@
       <pubDate>Sat, 31 Jul 2021 20:08:14 +0900</pubDate>
       
       <guid>/tags/acm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>AWS</title>
-      <link>/tags/aws/</link>
-      <pubDate>Sat, 31 Jul 2021 20:08:14 +0900</pubDate>
-      
-      <guid>/tags/aws/</guid>
       <description></description>
     </item>
     
