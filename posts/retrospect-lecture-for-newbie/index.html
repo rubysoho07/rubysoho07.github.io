@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="ko-kr">
+<html class="no-js" lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,13 +7,14 @@
 	<title>신입 사원 교육 후기: 이상과 현실 - GoniGoni!</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
-	
-	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
 	<link rel="stylesheet" href="/css/style.css">
 	
+
 	<link rel="shortcut icon" href="/favicon.ico">
 		
 <script type="application/javascript">
@@ -31,13 +32,16 @@ if (!doNotTrack) {
 <body class="body">
 	<div class="container container--outer">
 		<header class="header">
-	<div class="container">
-		<div class="logo">
-			<a class="logo__link" href="/" title="GoniGoni!" rel="home">
-				<div class="logo__title">GoniGoni!</div>
-				<div class="logo__tagline">개발 블로그이지만 개발 말고 다른 이야기도 합니다.</div>
-			</a>
-		</div>
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="GoniGoni!" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">GoniGoni!</div>
+					<div class="logo__tagline">개발 블로그이지만 개발 말고 다른 이야기도 합니다.</div>
+				</div>
+		</a>
+	</div>
 		<div class="divider"></div>
 	</div>
 </header>
@@ -48,8 +52,13 @@ if (!doNotTrack) {
 	<article class="post">
 		<header class="post__header">
 			<h1 class="post__title">신입 사원 교육 후기: 이상과 현실</h1>
-			
-		</header><div class="content post__content clearfix">
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-01-01T20:43:58&#43;09:00">2020-01-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
 			<p>연말에 회고를 쓰신 분들을 많이 보게 됩니다. 저는 여러 일들이 있어 이제서야 한숨 돌렸는데요. 작년 회고는 두 개의 글로 나누어 작성하려고 합니다. 먼저 최근에 진행했었던 신입사원 교육 후기(가르치는 사람의 입장에서)를 먼저 공유해 드립니다. 나머지 이야기는 이번 주말에 작성하려고 합니다.</p>
 <h2 id="어떻게-해서-신입-사원을-뽑게-되었는가">어떻게 해서 신입 사원을 뽑게 되었는가?</h2>
 <p>저희 팀의 인프라 담당자는 저를 포함하여 두 명뿐이었습니다. 시간이 지나면서 저희가 갖고 있는 데이터를 기반으로 하는 서비스가 조금씩 늘어났고, 그러면서 업무가 늘어나는 상황이었습니다. 이에 처음에는 경력자를 뽑으려고 했으나, 어려웠던 상황이었는데요. 우연히 외부 교육을 갔다가 AWS 및 인프라 관련 교육을 받고 있는 분의 이력서를 받게 되었고, 채용을 진행하게 되었습니다.</p>
@@ -130,8 +139,12 @@ if (!doNotTrack) {
 <div class="post__tags tags clearfix">
 	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
 	<ul class="tags__list">
-		<li class="tags__item"><a class="tags__link btn" href="/tags/%EC%8B%A0%EC%9E%85-%EC%82%AC%EC%9B%90/" rel="tag">신입 사원</a></li>
-		<li class="tags__item"><a class="tags__link btn" href="/tags/%EA%B5%90%EC%9C%A1/" rel="tag">교육</a></li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/%EC%8B%A0%EC%9E%85-%EC%82%AC%EC%9B%90/" rel="tag">신입 사원</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/%EA%B5%90%EC%9C%A1/" rel="tag">교육</a>
+		</li>
 	</ul>
 </div>
 		</footer>

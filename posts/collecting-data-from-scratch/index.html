@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="ko-kr">
+<html class="no-js" lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,13 +7,14 @@
 	<title>데이터 수집 단계를 처음부터 구현해 보기 - GoniGoni!</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
-	
-	
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
 	<link rel="stylesheet" href="/css/style.css">
 	
+
 	<link rel="shortcut icon" href="/favicon.ico">
 		
 <script type="application/javascript">
@@ -31,13 +32,16 @@ if (!doNotTrack) {
 <body class="body">
 	<div class="container container--outer">
 		<header class="header">
-	<div class="container">
-		<div class="logo">
-			<a class="logo__link" href="/" title="GoniGoni!" rel="home">
-				<div class="logo__title">GoniGoni!</div>
-				<div class="logo__tagline">개발 블로그이지만 개발 말고 다른 이야기도 합니다.</div>
-			</a>
-		</div>
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="GoniGoni!" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">GoniGoni!</div>
+					<div class="logo__tagline">개발 블로그이지만 개발 말고 다른 이야기도 합니다.</div>
+				</div>
+		</a>
+	</div>
 		<div class="divider"></div>
 	</div>
 </header>
@@ -48,8 +52,13 @@ if (!doNotTrack) {
 	<article class="post">
 		<header class="post__header">
 			<h1 class="post__title">데이터 수집 단계를 처음부터 구현해 보기</h1>
-			
-		</header><div class="content post__content clearfix">
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-01-24T19:36:57&#43;09:00">2021-01-24</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/data-engineering/" rel="category">Data Engineering</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
 			<p>2021년에는 매월 최소한 글 한 편은 블로그에 올려야겠다고 생각했습니다. 그 달에 공부했던 것, 새로 알게 된 것들을 주로 정리해서 올릴 예정입니다.</p>
 <p>이번 달은 <strong>&lsquo;데이터 수집 단계를 처음부터 구현해 보기&rsquo;</strong> 라는 주제로 테스트 해 본 것들을 정리해 보겠습니다.</p>
 <h2 id="왜-이-일을-하게-되었나">왜 이 일을 하게 되었나?</h2>
@@ -195,9 +204,15 @@ Topic: test-topic       PartitionCount: <span style="color:#ae81ff">6</span>    
 <div class="post__tags tags clearfix">
 	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
 	<ul class="tags__list">
-		<li class="tags__item"><a class="tags__link btn" href="/tags/kafka/" rel="tag">Kafka</a></li>
-		<li class="tags__item"><a class="tags__link btn" href="/tags/zookeeper/" rel="tag">ZooKeeper</a></li>
-		<li class="tags__item"><a class="tags__link btn" href="/tags/big-data/" rel="tag">Big Data</a></li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/kafka/" rel="tag">Kafka</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/zookeeper/" rel="tag">ZooKeeper</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/big-data/" rel="tag">Big Data</a>
+		</li>
 	</ul>
 </div>
 		</footer>
