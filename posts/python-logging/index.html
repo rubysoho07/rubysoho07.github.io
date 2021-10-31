@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Python에서 logging으로 로그 만들기 - GoniGoni!</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-131546844-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="GoniGoni!" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">GoniGoni!</div>
+					<div class="logo__tagline">개발 블로그이지만 개발 말고 다른 이야기도 합니다.</div>
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Python에서 logging으로 로그 만들기</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-10-31T10:58:31&#43;09:00">2021-10-31</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p>프로그램이 잘 동작하는 지 확인하고 싶다면, <code>print()</code>를 쓸 때가 많습니다. 하지만 프로그램이 복잡하게 바뀌면서 <code>print()</code>만으로는 감당하기 어려운 상황이 발생합니다.</p>
+<p>그럴 때 어떻게 로그를 만들고 관리할 지를 고민하게 되는데요. 이번 글에서는 Python에서 <code>logging</code> 모듈을 활용해서 어떻게 로그를 관리할 수 있는지 살펴보려고 합니다.</p>
+<h1 id="기본적인-로깅-만들기">기본적인 로깅 만들기</h1>
+<p><code>logging</code> 모듈을 이용해서 로그를 만드는 방법은 다음과 같습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> logging
+
+logging<span style="color:#f92672">.</span>critical(<span style="color:#e6db74">&#39;Critical log&#39;</span>)
+logging<span style="color:#f92672">.</span>error(<span style="color:#e6db74">&#39;Error log&#39;</span>)
+logging<span style="color:#f92672">.</span>warning(<span style="color:#e6db74">&#39;Warning log&#39;</span>)
+logging<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#39;Info log&#39;</span>)
+logging<span style="color:#f92672">.</span>debug(<span style="color:#e6db74">&#39;Debug log&#39;</span>)
+</code></pre></div><p>스크립트를 실행해 보면 다음과 같이 표시됩니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">CRITICAL:root:Critical log
+ERROR:root:Error log
+WARNING:root:Warning log
+</code></pre></div><p>CRITICAL, ERROR, WARNING은 뭔지 알 것 같습니다. 그런데 갑자기 <code>root</code>는 왜 나오는 걸까요? 그리고 제가 출력하려고 한 INFO, DEBUG 로그는 왜 안 나오는 걸까요?</p>
+<p>우선 루트 로거(Logger)에 대해 한 번 생각해 보겠습니다. 로거는 <a href="https://docs.python.org/ko/3/howto/logging.html">응용 프로그램 코드가 직접 사용하는 인터페이스를 노출한다</a>고 되어 있긴 한데요.</p>
+<p>루트 로거는 모든 로거의 상위 로거입니다. 로거 객체는 <code>logging.getLogger()</code>로 얻어올 수 있는데, 여러번 가져오더라도 동일한 객체를 참조합니다.</p>
+<p>또한 기본적으로 로거에 로그된 이벤트는 모듈에 지정한 로거에서 상위 계층의 로거 객체에 전달됩니다. 즉, 여러 모듈에서 로그가 발생하더라도 최종적으로 로그를 처리하는 건 루트 로거인 것이죠. (자세한 내용은 <a href="https://docs.python.org/ko/3/howto/logging.html#logging-flow">문서</a> 참조)</p>
+<p>어떤 의미인지 설명하기 애매해서, 예제를 가지고 설명해 볼게요.</p>
+<p>아래와 같이 mymodule.py 파일을 만듭니다. Formatter와 Handler에 대해서는 뒤에서 설명할 예정입니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> logging
+
+logger <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>getLogger(__name__)
+formatter <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>Formatter(<span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%(name)s</span><span style="color:#e6db74"> - </span><span style="color:#e6db74">%(message)s</span><span style="color:#e6db74">&#39;</span>)
+handler <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>StreamHandler()
+handler<span style="color:#f92672">.</span>setFormatter(formatter)
+logger<span style="color:#f92672">.</span>addHandler(handler)
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">my_function</span>():
+    logger<span style="color:#f92672">.</span>warning(<span style="color:#e6db74">&#39;My Module Message&#39;</span>)
+</code></pre></div><p>아래와 같이 logging_test.py 파일을 만듭니다. mymodule 모듈의 my_function 함수를 import 하여 사용하는 부분에 유의해 주세요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> logging
+
+<span style="color:#f92672">from</span> mymodule <span style="color:#f92672">import</span> my_function
+
+logger <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>getLogger(__name__)
+formatter <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>Formatter(<span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%(name)s</span><span style="color:#e6db74"> - </span><span style="color:#e6db74">%(message)s</span><span style="color:#e6db74">&#39;</span>)
+handler <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>StreamHandler()
+handler<span style="color:#f92672">.</span>setFormatter(formatter)
+logger<span style="color:#f92672">.</span>addHandler(handler)
+
+logger<span style="color:#f92672">.</span>warning(<span style="color:#e6db74">&#39;Warning log&#39;</span>)
+
+my_function()
+</code></pre></div><p>logging_test.py 파일을 실행해 보면 다음과 같은 메시지가 출력되는 것을 보실 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">__main__ - Warning log
+mymodule - My Module Message
+</code></pre></div><p>mymodule에서 생성한 로그는 mymodule의 로거에서 처리되고, 메인(logging_test.py) 프로그램의 로거로 전달되는 것으로 보이네요.</p>
+<p>이를 이용하면 여러 모듈에서 발생한 로그를 모아서 추적할 수 있을 것 같습니다.</p>
+<h1 id="로그-레벨">로그 레벨</h1>
+<p>위의 예제에서 <code>logger.info()</code>로 호출한 메시지와 <code>logger.debug()</code>로 호출한 메시지가 출력되지 않는 것을 확인할 수 있었습니다.</p>
+<p>이는 로그 레벨, 또는 심각도(Severity)라고 하는 개념과 관련이 있는데요. 아래와 같이 각각의 수준과, 이에 대응하는 숫자로 구성됩니다.</p>
+<table>
+<thead>
+<tr>
+<th>수준</th>
+<th>숫자 값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CRITICAL</td>
+<td>50</td>
+</tr>
+<tr>
+<td>ERROR</td>
+<td>40</td>
+</tr>
+<tr>
+<td>WARNING</td>
+<td>30</td>
+</tr>
+<tr>
+<td>INFO</td>
+<td>20</td>
+</tr>
+<tr>
+<td>DEBUG</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>기본 수준은 <code>WARNING</code>이며, 이보다 숫자 값이 높은 로그만 출력하게 됩니다.</p>
+<p>그런데 로그 수준을 다르게 설정하려면 어떻게 해야 할까요?</p>
+<p>첫번째 방법은 logging 모듈 자체에서 설정하는 방법입니다. (<code>logging.basicConfig</code> 부분에 주목해 주세요)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> logging
+
+logging<span style="color:#f92672">.</span>basicConfig(level<span style="color:#f92672">=</span>logging<span style="color:#f92672">.</span>DEBUG)
+
+logging<span style="color:#f92672">.</span>critical(<span style="color:#e6db74">&#39;Critical log&#39;</span>)
+logging<span style="color:#f92672">.</span>error(<span style="color:#e6db74">&#39;Error log&#39;</span>)
+logging<span style="color:#f92672">.</span>warning(<span style="color:#e6db74">&#39;Warning log&#39;</span>)
+logging<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#39;Info log&#39;</span>)
+logging<span style="color:#f92672">.</span>debug(<span style="color:#e6db74">&#39;Debug log&#39;</span>)
+</code></pre></div><p>이렇게 하면 모든 로그가 출력됩니다.</p>
+<pre tabindex="0"><code>CRITICAL:root:Critical log
+ERROR:root:Error log
+WARNING:root:Warning log
+INFO:root:Info log
+DEBUG:root:Debug log
+</code></pre><p>그러면 로거마다 레벨을 다르게 지정하고 싶으면 어떻게 해야 할까요? 이 때는 로거와 핸들러에서 처리할 로그 레벨을 지정해 주어야 합니다.</p>
+<p>핸들러(Handler) 객체는 로거가 받은 로그를 여러 목적지로 보내주는 역할을 하는데요.</p>
+<p>로거 객체에만 DEBUG로 로그 레벨을 설정하더라도 적용되지 않는데, 핸들러 객체를 만들어서 핸들러에도 로그 레벨을 적용해 주면 적용되는 것을 볼 수 있습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> logging
+
+<span style="color:#75715e"># Logger 객체의 로그 레벨을 정해 줍니다.</span>
+logger <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>getLogger(__name__)
+logger<span style="color:#f92672">.</span>setLevel(logging<span style="color:#f92672">.</span>DEBUG)
+
+<span style="color:#75715e"># Handler 객체를 만들고, 로그 레벨을 정해 줍니다. StreamHandler에 아무 옵션이 없다면 stderr로 로그를 내보냅니다.</span>
+handler <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>StreamHandler()
+handler<span style="color:#f92672">.</span>setLevel(logging<span style="color:#f92672">.</span>DEBUG)
+
+<span style="color:#75715e"># Handler 객체를 Logger 객체에 붙여 줍니다.</span>
+logger<span style="color:#f92672">.</span>addHandler(handler)
+
+logger<span style="color:#f92672">.</span>critical(<span style="color:#e6db74">&#39;Critical log&#39;</span>)
+logger<span style="color:#f92672">.</span>error(<span style="color:#e6db74">&#39;Error log&#39;</span>)
+logger<span style="color:#f92672">.</span>warning(<span style="color:#e6db74">&#39;Warning log&#39;</span>)
+logger<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#39;Info log&#39;</span>)
+logger<span style="color:#f92672">.</span>debug(<span style="color:#e6db74">&#39;Debug log&#39;</span>)
+
+<span style="color:#75715e"># 출력되는 결과는 다음과 같습니다.</span>
+<span style="color:#75715e"># ------------------------</span>
+<span style="color:#75715e"># Critical log</span>
+<span style="color:#75715e"># Error log</span>
+<span style="color:#75715e"># Warning log</span>
+<span style="color:#75715e"># Info log</span>
+<span style="color:#75715e"># Debug log</span>
+</code></pre></div><h1 id="로그-메시지-양식-설정하기">로그 메시지 양식 설정하기</h1>
+<p>루트 로거의 기본 로그 양식은 <code>&lt;로그 레벨&gt;:&lt;로거 이름&gt;:&lt;메시지&gt;</code> 입니다. 만약 로거를 지정한 경우라면 메시지만 출력됩니다.</p>
+<p>만약 로그 문자열의 포맷을 바꾸고 싶다면, 포매터(Formatter) 객체를 이용합니다.</p>
+<p>포매터에서 포맷을 지정할 때 쓸 수 있는 속성은 <a href="https://docs.python.org/ko/3/library/logging.html#logrecord-attributes">LogRecord 어트리뷰트</a> 문서를 참고하세요.</p>
+<p>자주 사용할 만한 것들을 정리해 보면 다음과 같습니다.</p>
+<ul>
+<li><code>%(asctime)s</code>: 사람이 읽을 수 있는 로그 레코드가 생성된 시간. YYYY-MM-DD hh:mm:ss,xxx 형식입니다. (xxx는 밀리초 단위)</li>
+<li><code>%(levelname)s</code>: 로그 레벨 이름 (DEBUG, INFO, WARNING, ERROR, CRITICAL)</li>
+<li><code>%(message)s</code>: 로그 메시지</li>
+<li><code>%(name)s</code>: 로거 이름</li>
+<li><code>%(filename)s</code>: 소스 파일의 전체 경로명 중, 파일 이름 부분</li>
+<li><code>%(funcName)s</code>: 로깅 호출을 포함하는 함수의 이름</li>
+</ul>
+<p>예를 들어서, 로거 이름, 로그 레벨 이름, 로그 레코드 생성 시간, 메시지 순으로 출력하려면 어떻게 해야 할까요?</p>
+<p>아래 예제를 통해 확인해 보시죠.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> logging
+
+logger <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>getLogger(__name__)
+
+<span style="color:#75715e"># Handler 객체를 설정합니다. 기본값은 위에서 말씀드렸듯이, stderr로 로그를 보냅니다.</span>
+handler <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>StreamHandler()
+<span style="color:#75715e"># Formatter 객체를 설정합니다. (위의 내용을 참고하여 필요한 요소를 넣었습니다)</span>
+formatter <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>Formatter(<span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%(name)s</span><span style="color:#e6db74"> - </span><span style="color:#e6db74">%(levelname)s</span><span style="color:#e6db74"> - </span><span style="color:#e6db74">%(asctime)s</span><span style="color:#e6db74"> - </span><span style="color:#e6db74">%(message)s</span><span style="color:#e6db74">&#39;</span>)
+
+<span style="color:#75715e"># Formatter를 Handler에 설정합니다.</span>
+handler<span style="color:#f92672">.</span>setFormatter(formatter)
+<span style="color:#75715e"># Handler를 Logger에 추가합니다.</span>
+logger<span style="color:#f92672">.</span>addHandler(handler)
+
+logger<span style="color:#f92672">.</span>critical(<span style="color:#e6db74">&#39;Critical log&#39;</span>)
+logger<span style="color:#f92672">.</span>error(<span style="color:#e6db74">&#39;Error log&#39;</span>)
+logger<span style="color:#f92672">.</span>warning(<span style="color:#e6db74">&#39;Warning log&#39;</span>)
+</code></pre></div><p>실행 결과는 다음과 같습니다. 스크립트를 만든 상태에서 실행했더니 로거 이름은 <code>__main__</code>으로 설정되네요.</p>
+<pre tabindex="0"><code>__main__ - CRITICAL - 2021-10-31 15:57:30,550 - Critical log
+__main__ - ERROR - 2021-10-31 15:57:30,550 - Error log
+__main__ - WARNING - 2021-10-31 15:57:30,550 - Warning log
+</code></pre><p>로그를 JSON 포맷의 문자열로 만들 때 포매터 객체를 적절히 만들어 주면 유용할 것 같습니다. 예를 들면 다음과 같은 방식으로 이용할 수 있겠죠?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> logging
+
+logger <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>getLogger(__name__)
+<span style="color:#75715e"># JSON 문자열로 로그를 구성해 봅니다.</span>
+formatter <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>Formatter(<span style="color:#e6db74">&#39;{&#34;Name&#34;: &#34;</span><span style="color:#e6db74">%(name)s</span><span style="color:#e6db74">&#34;, &#34;Message&#34;: &#34;</span><span style="color:#e6db74">%(message)s</span><span style="color:#e6db74">&#34;}&#39;</span>)
+handler <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>StreamHandler()
+handler<span style="color:#f92672">.</span>setFormatter(formatter)
+logger<span style="color:#f92672">.</span>addHandler(handler)
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">my_function</span>():
+    logger<span style="color:#f92672">.</span>warning(<span style="color:#e6db74">&#39;My Module Message&#39;</span>)
+
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+    my_function()
+</code></pre></div><h2 id="로그-메시지에-추가-정보를-같이-넣기">로그 메시지에 추가 정보를 같이 넣기</h2>
+<p>로그 메시지에 추가 정보를 같이 넣을 수도 있습니다. 우선 추가 정보를 딕셔너리 형태로 구성해 봅시다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">d <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;src_ip&#34;</span>: <span style="color:#e6db74">&#34;192.168.0.1&#34;</span>, <span style="color:#e6db74">&#34;user&#34;</span>: <span style="color:#e6db74">&#34;test&#34;</span>}
+</code></pre></div><p>그리고 포매터 객체를 다음과 같이 설정합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> logging
+
+logger <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>getLogger(__name__)
+<span style="color:#75715e"># 아래 줄에 src_ip, user 부분이 들어가 있는 점에 주목해 주세요.</span>
+formatter <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>Formatter(<span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%(levelname)s</span><span style="color:#e6db74"> - </span><span style="color:#e6db74">%(message)s</span><span style="color:#e6db74"> - </span><span style="color:#e6db74">%(src_ip)s</span><span style="color:#e6db74"> - </span><span style="color:#e6db74">%(user)s</span><span style="color:#e6db74">&#39;</span>)
+handler <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>StreamHandler()
+handler<span style="color:#f92672">.</span>setFormatter(formatter)
+logger<span style="color:#f92672">.</span>addHandler(handler)
+</code></pre></div><p>로그를 찍을 때, <code>extra</code>에 앞에서 만든 딕셔너리로 지정해 줍니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">d <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;src_ip&#34;</span>: <span style="color:#e6db74">&#34;192.168.0.1&#34;</span>, <span style="color:#e6db74">&#34;user&#34;</span>: <span style="color:#e6db74">&#34;test&#34;</span>}
+logger<span style="color:#f92672">.</span>warning(<span style="color:#e6db74">&#39;Warning log&#39;</span>, extra<span style="color:#f92672">=</span>d)
+</code></pre></div><p>그러면 다음과 같이 출력됩니다. 아래와 같이 <code>src_ip</code>, <code>user</code>에 해당하는 값을 볼 수 있습니다.</p>
+<pre tabindex="0"><code>WARNING - Warning log - 192.168.0.1 - test
+</code></pre><p>만약 <code>src_ip</code>나 <code>user</code>가 딕셔너리에 없는 경우, 예외가 발생하면서 로그가 출력되지 않습니다. 그래서 딕셔너리에 원하는 키가 없을 때 어떻게 처리할 것인지 고민해 보셔야 합니다.</p>
+<h1 id="로그-저장-위치-설정하기">로그 저장 위치 설정하기</h1>
+<p>핸들러를 사용하면 로그 저장 위치를 설정할 수 있습니다.</p>
+<p>앞에서 살펴본 내용 중 StreamHandler를 이용하면 sys.stdout이나 sys.stderr, 또는 파일과 비슷한 객체로 로그 출력을 보낼 수 있습니다.</p>
+<p><a href="https://docs.python.org/ko/3/library/logging.handlers.html#module-logging.handlers">logging.handlers</a> 문서를 살펴 보면 여러 종류의 핸들러 객체가 있음을 알 수 있습니다.</p>
+<p>몇 가지를 살펴보면 다음과 같습니다.</p>
+<ul>
+<li><a href="https://docs.python.org/ko/3/library/logging.handlers.html#streamhandler">StreamHandler</a>: stdout/stderr, 기타 파일류 객체로 로그를 내보냅니다. (기본값은 sys.stderr 입니다)</li>
+<li><a href="https://docs.python.org/ko/3/library/logging.handlers.html#filehandler">FileHandler</a>: 로그 출력을 디스크 내 파일로 보냅니다. 파일명과 인코딩, 파일 쓰기 모드를 지정할 수 있습니다.</li>
+<li><a href="https://docs.python.org/ko/3/library/logging.handlers.html#sockethandler">SocketHandler</a>: 로그 출력을 네트워크 소켓으로 보냅니다. 호스트와 포트를 지정할 수 있습니다. (기본적으로 TCP 소켓을 만듭니다)</li>
+<li><a href="https://docs.python.org/ko/3/library/logging.handlers.html#sysloghandler">SysLogHandler</a>: syslog로 로그 메시지를 보냅니다.</li>
+</ul>
+<h2 id="로그-파일을-주기적으로-바꾸기">로그 파일을 주기적으로 바꾸기</h2>
+<p>로그를 파일에 저장하는 경우, 로그 파일이 과도하게 커지는 상황을 방지하기 위해 파일의 최대 크기와 백업본 수를 지정할 수 있습니다.</p>
+<p>이를 위해서 로그 핸들러 중 <a href="https://docs.python.org/ko/3/library/logging.handlers.html#rotatingfilehandler">RotatingFileHandler</a>를 사용할 수 있습니다.</p>
+<p>기본적인 사용 방법은 FileHandler와 같으나, 두 가지 옵션이 더 있습니다.</p>
+<ul>
+<li><code>maxBytes</code>: 로그 파일의 최대 길이. 기본값은 0</li>
+<li><code>backupCounts</code>: 최대 로그 파일 수. 기본값은 0</li>
+</ul>
+<p>위의 두 옵션을 지정하지 않으면 로그 파일이 교체되지 않습니다.</p>
+<p>이외에도 주기적으로 로그 파일을 교체할 수 있는 <a href="https://docs.python.org/ko/3/library/logging.handlers.html#timedrotatingfilehandler">TimedRotatingFileHandler</a>도 있으니, 필요할 때 사용하면 좋을 것 같네요.</p>
+<h1 id="참고자료">참고자료</h1>
+<ul>
+<li><a href="https://docs.python.org/ko/3/library/logging.html">logging 모듈 문서</a></li>
+<li><a href="https://docs.python.org/ko/3/howto/logging-cookbook.html">로깅 요리책</a></li>
+<li><a href="https://docs.python.org/ko/3/howto/logging.html">로깅 HOWTO</a></li>
+</ul>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/python/" rel="tag">Python</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/logging/" rel="tag">logging</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/warning/" rel="tag">warning</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gonigoni-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2021 Yungon Park.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

@@ -55,6 +55,24 @@ if (!doNotTrack) {
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/retrospect-2020/" rel="bookmark">
+			2020년 회고
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-12-31T15:40:13&#43;09:00">2020-12-31</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		2020년을 되돌아보면, 코로나로 일상 생활에 변화가 많았습니다. 제 생활에 가장 큰 변화라면, 퀸 내한공연 이후로 밴드들 공연을 현장에서 못 봤던 것, 축구 경기 직관을 제대로 못 했던 것, 오프라인 컨퍼런스나 국외 출장들이 모두 취소된 것을 들 수 있겠네요. 이외에도 여러가지 일들이 있었는데, 한 번 뒤돌아 보는 시간을 가져보려고 합니다.
+다른 사람들 앞에 서는 일 오프라인 컨퍼런스나 모임들이 많이 취소되었습니다. 그래서 온라인 모임이나 컨퍼런스에서 발표했던 적이 있었는데요. 아직 공개되지 않은 것들을 제외하고 말씀드리면, 두 번 발표를 진행했습니다.
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/python-map-reduce-filter/" rel="bookmark">
 			Python의 map() filter() reduce() 사용 방법 정리
 			</a>
@@ -221,28 +239,6 @@ Idles - Danny Nedelko   원래 뮤직비디오도 좋지만, 개인적으로는 
 		들어가며 최근에 &lsquo;하둡과 스파크를 활용한 실용 데이터 과학&rsquo;이라는 책을 읽고 따라해 보고 있다. 이 책에서는 실습을 위해 호튼웍스(Hortonworks)의 Sandbox 이미지를 사용해 보기를 권장하고 있다. 그런데 설치 방법을 찾다 보니, 권장 사양이 높은 것 같다는 생각이 들었다. 이 이미지를 VirtualBox에서 사용할 때, 메모리 용량이 8GB로 설정되어 있었다. 그런데 지금 내가 쓰고 있는 노트북의 메모리 용량이 8GB라 좀 어려울 것 같았다. 그래서 AWS에 이 이미지를 올려보게 되었다.
 (주의: 이 글에서 설명하는 내용은 AWS의 Free Tier 범위를 넘어가므로 사용한 만큼 요금이 부과됩니다.
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/bitnami-mongodb/" rel="bookmark">
-			EC2에 Bitnami MongoDB 이미지 올리기
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2019-02-16T22:30:00&#43;09:00">2019-02-16</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		최근에 AWS에서 MongoDB와 호환되는 DocumentDB를 출시했지만, 아직 서울 리전에서는 사용할 수 없다.
-(2019년 5월에 서울 리전에 출시되었습니다. 링크한 글을 확인해 주세요~)
-그렇지만 필요에 따라 MongoDB를 쓸 일이 있을 것이다. AWS에서 Bitnami의 이미지를 활용해서 EC2에 MongoDB를 올려보고, 시험 삼아 데이터를 넣어보자.
-EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어간다. 아래 스크린샷과 같은 화면이 나오면, &lsquo;인스턴스 시작&rsquo;을 누른다.
- 그리고 검색어에서 MongoDB를 입력하고, 왼쪽에서 AWS Marketplace를 누른다.
- 스크롤을 아래로 내리다 보면, &lsquo;MongoDB Certified by Bitnami&rsquo;가 있다.
-	</div>
 </article>
 </main>
 
@@ -317,6 +313,7 @@ EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어�
 		<a class="widget-taglist__link widget__link btn" href="/tags/lambda/" title="Lambda">Lambda</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/locust/" title="Locust">Locust</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/logging/" title="logging">logging</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/map/" title="map">map</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/mongodb/" title="MongoDB">MongoDB</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/mysql/" title="MySQL">MySQL</a>
@@ -346,6 +343,7 @@ EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어�
 		<a class="widget-taglist__link widget__link btn" href="/tags/underscore/" title="underscore">underscore</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/visual-studio-code/" title="Visual Studio Code">Visual Studio Code</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/vscode/" title="VSCode">VSCode</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/warning/" title="warning">warning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zookeeper/" title="ZooKeeper">ZooKeeper</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zsh/" title="zsh">zsh</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B5%90%EC%9C%A1/" title="교육">교육</a>

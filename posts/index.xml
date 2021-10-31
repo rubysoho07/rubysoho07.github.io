@@ -6,7 +6,19 @@
     <description>Recent content in Posts on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 30 Sep 2021 14:38:05 +0900</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 31 Oct 2021 10:58:31 +0900</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python에서 logging으로 로그 만들기</title>
+      <link>/posts/python-logging/</link>
+      <pubDate>Sun, 31 Oct 2021 10:58:31 +0900</pubDate>
+      
+      <guid>/posts/python-logging/</guid>
+      <description>프로그램이 잘 동작하는 지 확인하고 싶다면, print()를 쓸 때가 많습니다. 하지만 프로그램이 복잡하게 바뀌면서 print()만으로는 감당하기 어려운 상황이 발생합니다.
+그럴 때 어떻게 로그를 만들고 관리할 지를 고민하게 되는데요. 이번 글에서는 Python에서 logging 모듈을 활용해서 어떻게 로그를 관리할 수 있는지 살펴보려고 합니다.
+기본적인 로깅 만들기 logging 모듈을 이용해서 로그를 만드는 방법은 다음과 같습니다.
+import logging logging.critical(&amp;#39;Critical log&amp;#39;) logging.error(&amp;#39;Error log&amp;#39;) logging.warning(&amp;#39;Warning log&amp;#39;) logging.info(&amp;#39;Info log&amp;#39;) logging.debug(&amp;#39;Debug log&amp;#39;) 스크립트를 실행해 보면 다음과 같이 표시됩니다.</description>
+    </item>
+    
     <item>
       <title>AWS Session Manager &amp; Run Command로 외부에서 쉘 스크립트 실행하기</title>
       <link>/posts/aws-session-manager-run-command/</link>
