@@ -56,6 +56,25 @@ if (!doNotTrack) {
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/terraform-vs-pulumi/" rel="bookmark">
+			Terraform vs Pulumi
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-11-20T10:30:24&#43;09:00">2021-11-20</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/devops/" rel="category">DevOps</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		클라우드 환경 내 인프라 구성이 복잡할수록 IaC(Infrastructure as Code) 툴을 고민하게 되는데요. 물론 AWS의 CloudFormation과 같이 클라우드 벤더가 제공하는 서비스가 있지만, 앞으로는 특정 벤더에 종속되는 것을 피하고 싶다는 생각이 들었습니다.
+그러다가 알아본 툴 중에 Terraform과 Pulumi가 있는데요. Terraform은 저도 개인적으로 사용해 본 적이 있었고, Pulumi는 익숙한 개발 언어(Python, TypeScript, Golang, &hellip;)로 인프라 구성을 구축할 수 있다고 해서 관심을 갖게 되었습니다.
+이번 글에서는 AWS에서 EC2, S3 Bucket, IAM Policy, Role 정도를 만드는 정도로 테스트해 보겠습니다.
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/cloudformation-sam-tmi/" rel="bookmark">
 			CloudFormation과 SAM을 쓰면서 겪었던 일들 모음
 			</a>
@@ -97,6 +116,8 @@ SAM에서 API Gateway 정의를 SAM Template에 넣기 SAM에서 제공하는 AW
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/data-engineering/">Data Engineering</a></li>
 			<li class="widget__item">
+				<a class="widget__link" href="/categories/devops/">DevOps</a></li>
+			<li class="widget__item">
 				<a class="widget__link" href="/categories/everything/">Everything</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/git/">Git</a></li>
@@ -126,6 +147,7 @@ SAM에서 API Gateway 정의를 SAM Template에 넣기 SAM에서 제공하는 AW
 		<a class="widget-taglist__link widget__link btn" href="/tags/cloudformation/" title="CloudFormation">CloudFormation</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/container/" title="Container">Container</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/datetime/" title="datetime">datetime</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/devops/" title="DevOps">DevOps</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ec2/" title="EC2">EC2</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/eks/" title="EKS">EKS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/filter/" title="filter">filter</a>
@@ -155,6 +177,7 @@ SAM에서 API Gateway 정의를 SAM Template에 넣기 SAM에서 제공하는 AW
 		<a class="widget-taglist__link widget__link btn" href="/tags/pandas/" title="Pandas">Pandas</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pep-8/" title="pep-8">pep-8</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/property/" title="property">property</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pulumi/" title="Pulumi">Pulumi</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/rds/" title="RDS">RDS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/reduce/" title="reduce">reduce</a>
@@ -170,6 +193,7 @@ SAM에서 API Gateway 정의를 SAM Template에 넣기 SAM에서 제공하는 AW
 		<a class="widget-taglist__link widget__link btn" href="/tags/standard/" title="Standard">Standard</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/step-functions/" title="Step Functions">Step Functions</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/systems-manager/" title="Systems Manager">Systems Manager</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/terraform/" title="Terraform">Terraform</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/underscore/" title="underscore">underscore</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/visual-studio-code/" title="Visual Studio Code">Visual Studio Code</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/vscode/" title="VSCode">VSCode</a>

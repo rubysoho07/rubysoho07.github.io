@@ -6,7 +6,18 @@
     <description>Recent content in Posts on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 31 Oct 2021 10:58:31 +0900</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Nov 2021 10:30:24 +0900</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Terraform vs Pulumi</title>
+      <link>/posts/terraform-vs-pulumi/</link>
+      <pubDate>Sat, 20 Nov 2021 10:30:24 +0900</pubDate>
+      
+      <guid>/posts/terraform-vs-pulumi/</guid>
+      <description>클라우드 환경 내 인프라 구성이 복잡할수록 IaC(Infrastructure as Code) 툴을 고민하게 되는데요. 물론 AWS의 CloudFormation과 같이 클라우드 벤더가 제공하는 서비스가 있지만, 앞으로는 특정 벤더에 종속되는 것을 피하고 싶다는 생각이 들었습니다.
+그러다가 알아본 툴 중에 Terraform과 Pulumi가 있는데요. Terraform은 저도 개인적으로 사용해 본 적이 있었고, Pulumi는 익숙한 개발 언어(Python, TypeScript, Golang, &amp;hellip;)로 인프라 구성을 구축할 수 있다고 해서 관심을 갖게 되었습니다.
+이번 글에서는 AWS에서 EC2, S3 Bucket, IAM Policy, Role 정도를 만드는 정도로 테스트해 보겠습니다.</description>
+    </item>
+    
     <item>
       <title>Python에서 logging으로 로그 만들기</title>
       <link>/posts/python-logging/</link>

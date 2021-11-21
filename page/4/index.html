@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.88.1" />
+	<meta name="generator" content="Hugo 0.89.4" />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -52,6 +52,27 @@ if (!doNotTrack) {
 			
 <main class="main list" role="main">
 	<article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/posts/git-error-at/" rel="bookmark">
+			Git 원격 저장소에서 사용자 이름에 &#39;@&#39;이 들어가면 동작하지 않는 경우
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2018-10-02T23:46:00&#43;09:00">2018-10-02</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/git/" rel="category">Git</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		부서에서 사용하는 CodeCommit에 Push를 하려고 하는데, 아래와 같은 오류 때문에 Push를 할 수 없었다.
+fatal: UriFormatException encountered. queryUrl 보통 이런 문제가 발생하면 오류 메시지를 먼저 찾아 보는 편인데, 이상하게 검색이 잘 안 됐었다. (컨디션이 안 좋아서 그랬던가&hellip;-_-) 그러다가 다음과 같은 내용을 발견했다.
+https://github.com/Microsoft/Git-Credential-Manager-for-Windows/issues/587
+내용을 요약하면 다음과 같다.
+ Git 원격 저장소의 사용자 이름이 이메일 주소인 경우 이러한 오류가 발생한다. RFC3986에 따르면, URI에 이미 할당되어 있는 문자는 :/?#[]@!$&amp;'()*+,;=이다. @의 경우, %40으로 바꾸면(escaping) 문제를 해결할 수 있다.
+	</div>
+</article><article class="list__item post">
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
@@ -231,32 +252,13 @@ import datetime now = datetime.
 텍스트 바꾸기 기본적으로 sed를 이용해서 텍스트를 바꾸는 방법은 다음과 같다.
 $ sed -i 's/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g' &lt;파일 이름&gt; 여기서 -i, s/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/, g가 의미하는 내용은 다음과 같다.
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/my-trial-for-moving/" rel="bookmark">
-			이직 시도 후기 - 2017년 하반기
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2017-12-10T16:02:00&#43;09:00">2017-12-10</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		이 포스트는 개인적으로 이직을 준비하는 과정에서 느낀 점들을 정리한 글입니다. 차후 발생 가능한 문제를 막기 위해, 채용 프로세스나 면접 질문을 언급하는 과정에서 특정한 기업을 지칭하지 않습니다. 구직/구인 과정에서 참고로 봐 주시면 좋겠습니다.
- 배경 프로필에도 적어 놓았지만, 저는 아직 인턴 신분으로 일하고 있습니다. 저희 기관 특성 상 정규직 T/O가 나오기 어렵기 때문에, 이직을 결심하고 여러 군데에 서류를 제출하기 시작했습니다.
-일단 지금까지의 프로필을 요약하면 다음과 같습니다.
- 복수전공으로 컴퓨터학부를 전공 (본 전공은 사범대에서 사회교육) 첫 직장은 임베디드 쪽 경력으로 시작 (리눅스 기반, C 언어 주로 사용) 현재는 공공기관 인턴으로 근무 (부서에서는 개발자 역할을 하고 있습니다) Python, Django 기반의 Toy project 개발 경험 PyCon Korea 2017 발표자로 참석  그리고 주로 제가 지원한 곳은 스타트업이 많았습니다.
-	</div>
 </article>
 </main>
 
 <div class="pagination">
 	<a class="pagination__item pagination__item--prev btn" href="/page/3/">«</a>
-	<span class="pagination__item pagination__item--current">4/4</span>
+	<span class="pagination__item pagination__item--current">4/5</span>
+	<a class="pagination__item pagination__item--next btn" href="/page/5/">»</a>
 </div>
 
 			</div>
@@ -277,6 +279,8 @@ $ sed -i 's/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g' &lt;파일 이름&gt;
 				<a class="widget__link" href="/categories/aws/">AWS</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/data-engineering/">Data Engineering</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/devops/">DevOps</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/everything/">Everything</a></li>
 			<li class="widget__item">
@@ -307,6 +311,7 @@ $ sed -i 's/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g' &lt;파일 이름&gt;
 		<a class="widget-taglist__link widget__link btn" href="/tags/cloudformation/" title="CloudFormation">CloudFormation</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/container/" title="Container">Container</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/datetime/" title="datetime">datetime</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/devops/" title="DevOps">DevOps</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ec2/" title="EC2">EC2</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/eks/" title="EKS">EKS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/filter/" title="filter">filter</a>
@@ -336,6 +341,7 @@ $ sed -i 's/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g' &lt;파일 이름&gt;
 		<a class="widget-taglist__link widget__link btn" href="/tags/pandas/" title="Pandas">Pandas</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pep-8/" title="pep-8">pep-8</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/property/" title="property">property</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pulumi/" title="Pulumi">Pulumi</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/rds/" title="RDS">RDS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/reduce/" title="reduce">reduce</a>
@@ -351,6 +357,7 @@ $ sed -i 's/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g' &lt;파일 이름&gt;
 		<a class="widget-taglist__link widget__link btn" href="/tags/standard/" title="Standard">Standard</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/step-functions/" title="Step Functions">Step Functions</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/systems-manager/" title="Systems Manager">Systems Manager</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/terraform/" title="Terraform">Terraform</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/underscore/" title="underscore">underscore</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/visual-studio-code/" title="Visual Studio Code">Visual Studio Code</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/vscode/" title="VSCode">VSCode</a>
