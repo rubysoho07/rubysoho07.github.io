@@ -56,6 +56,25 @@ if (!doNotTrack) {
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/retrospect-2021/" rel="bookmark">
+			2021년 회고 - 이직 후기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-12-31T21:00:00&#43;09:00">2021-12-31</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		원래는 2 편의 글로 2021년을 마무리하려고 했습니다. 다른 글에서는 제가 올 해 겪었던 일들을 써 보려고 했었어요.
+예를 들어 작년 10월에 촬영했었던 This is My Architecture 영상이 공개되었다거나, 매월 블로그에 글 하나씩 쓰는 것을 목표로 했는데 목표를 달성했다거나, 낮에는 개발하고 밤에는 복면 쓰고 락 밴드를 하는 사람들을 소재로 소설을 쓰려고 했는데 반 정도만 쓰고 말았다거나, 장롱면허여서 운전 연수를 받았다거나, &hellip; 아무튼 여러 일들이 있었습니다.
+그러다가 &lsquo;시시콜콜한 이야기를 하는 게 무슨 의미가 있나?
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/terraform-vs-pulumi/" rel="bookmark">
 			Terraform vs Pulumi
 			</a>
@@ -235,24 +254,6 @@ S3 버킷에 원격으로 로그를 올리도록 설정하기 지난 글에서 �
 이 글은 위에 링크한 슬라이드 중 11~19 페이지의 내용을 대체합니다. 지금부터 한 번 살펴보겠습니다.
 Locust -&gt; User 클래스 이름 변경 한 명의 사용자를 표현하는 Locust 클래스가 &lsquo;User&rsquo;로 이름을 바꾸었습니다. HTTP를 이용하는 클라이언트는 HttpLocust에서 HttpUser로 클래스 이름을 바꾸었습니다.
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/data-workflow-from-scratch/" rel="bookmark">
-			데이터 분석 워크플로우를 처음부터 만들어 보기
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-03-01T17:00:00&#43;09:00">2021-03-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/data-engineering/" rel="category">Data Engineering</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		지난 달에는 데이터 수집을 위한 환경 구성을 처음부터 만들어 보았습니다. 어느 정도 초기 환경을 구축했다고 판단해서, 이번에는 데이터 분석을 위한 워크플로우를 처음부터 만들어 보는 과정을 기록해 보려고 합니다.
-이번에는 Apache Airflow를 이용해서 데이터 분석 작업을 위한 환경을 구축해 보았습니다. 여러 곳에서 Airflow를 사용하는 사례를 듣다 보니, Airflow를 한번 써 봐야겠다고 생각했습니다. 최근에는 AWS에서도 Managed Workflows for Apache Airflow라는 관리형 서비스를 제공하고 있고, GCP에서는 Cloud Composer라는 이름으로 관리형 서비스를 제공하고 있습니다.
-	</div>
 </article>
 </main>
 
@@ -301,6 +302,7 @@ Locust -&gt; User 클래스 이름 변경 한 명의 사용자를 표현하는 L
 		<a class="widget-taglist__link widget__link btn" href="/tags/2018%EB%85%84/" title="2018년">2018년</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/2019%EB%85%84/" title="2019년">2019년</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/2020%EB%85%84/" title="2020년">2020년</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/2021%EB%85%84/" title="2021년">2021년</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/acm/" title="ACM">ACM</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/airflow/" title="Airflow">Airflow</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/arcade-fire/" title="Arcade Fire">Arcade Fire</a>

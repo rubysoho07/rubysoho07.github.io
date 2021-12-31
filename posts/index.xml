@@ -6,7 +6,18 @@
     <description>Recent content in Posts on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 20 Nov 2021 10:30:24 +0900</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 Dec 2021 21:00:00 +0900</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2021년 회고 - 이직 후기</title>
+      <link>/posts/retrospect-2021/</link>
+      <pubDate>Fri, 31 Dec 2021 21:00:00 +0900</pubDate>
+      
+      <guid>/posts/retrospect-2021/</guid>
+      <description>원래는 2 편의 글로 2021년을 마무리하려고 했습니다. 다른 글에서는 제가 올 해 겪었던 일들을 써 보려고 했었어요.
+예를 들어 작년 10월에 촬영했었던 This is My Architecture 영상이 공개되었다거나, 매월 블로그에 글 하나씩 쓰는 것을 목표로 했는데 목표를 달성했다거나, 낮에는 개발하고 밤에는 복면 쓰고 락 밴드를 하는 사람들을 소재로 소설을 쓰려고 했는데 반 정도만 쓰고 말았다거나, 장롱면허여서 운전 연수를 받았다거나, &amp;hellip; 아무튼 여러 일들이 있었습니다.
+그러다가 &amp;lsquo;시시콜콜한 이야기를 하는 게 무슨 의미가 있나?</description>
+    </item>
+    
     <item>
       <title>Terraform vs Pulumi</title>
       <link>/posts/terraform-vs-pulumi/</link>

@@ -6,7 +6,34 @@
     <description>Recent content in Tags on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 20 Nov 2021 10:30:24 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 Dec 2021 21:00:00 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2021년</title>
+      <link>/tags/2021%EB%85%84/</link>
+      <pubDate>Fri, 31 Dec 2021 21:00:00 +0900</pubDate>
+      
+      <guid>/tags/2021%EB%85%84/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>이직</title>
+      <link>/tags/%EC%9D%B4%EC%A7%81/</link>
+      <pubDate>Fri, 31 Dec 2021 21:00:00 +0900</pubDate>
+      
+      <guid>/tags/%EC%9D%B4%EC%A7%81/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>회고</title>
+      <link>/tags/%ED%9A%8C%EA%B3%A0/</link>
+      <pubDate>Fri, 31 Dec 2021 21:00:00 +0900</pubDate>
+      
+      <guid>/tags/%ED%9A%8C%EA%B3%A0/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>DevOps</title>
       <link>/tags/devops/</link>
@@ -265,15 +292,6 @@
       <pubDate>Thu, 31 Dec 2020 15:40:13 +0900</pubDate>
       
       <guid>/tags/2020%EB%85%84/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>회고</title>
-      <link>/tags/%ED%9A%8C%EA%B3%A0/</link>
-      <pubDate>Thu, 31 Dec 2020 15:40:13 +0900</pubDate>
-      
-      <guid>/tags/%ED%9A%8C%EA%B3%A0/</guid>
       <description></description>
     </item>
     
@@ -724,15 +742,6 @@
       <pubDate>Sat, 21 Apr 2018 21:09:00 +0900</pubDate>
       
       <guid>/tags/sed/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>이직</title>
-      <link>/tags/%EC%9D%B4%EC%A7%81/</link>
-      <pubDate>Sun, 10 Dec 2017 16:02:00 +0900</pubDate>
-      
-      <guid>/tags/%EC%9D%B4%EC%A7%81/</guid>
       <description></description>
     </item>
     
