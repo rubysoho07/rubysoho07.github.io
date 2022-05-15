@@ -74,25 +74,25 @@ if (!doNotTrack) {
 <p>Ingress Controller로는 여러 종류가 있지만, 저희 팀에서는 nginx를 웹 서버로 사용하고 있기 때문에 <a href="https://kubernetes.github.io/ingress-nginx/">NGINX Ingress Controller</a>를 사용하었습니다.</p>
 <h2 id="ingress-object">Ingress Object</h2>
 <p>저는 다음과 같이 Ingress Object를 생성했습니다. <code>(my-domain)</code> 부분은 사용하는 도메인으로 적절히 변경합니다. (전체 내용은 <a href="https://github.com/rubysoho07/eks-nlb-test/blob/main/k8s/cluster_config.yaml">링크</a>를 참고해 주세요)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">networking.k8s.io/v1</span>
-<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Ingress</span>
-<span style="color:#f92672">metadata</span>:
-  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ingress-backend</span>
-  <span style="color:#f92672">annotations</span>:
-    <span style="color:#f92672">kubernetes.io/ingress.class</span>: <span style="color:#e6db74">&#34;nginx&#34;</span>
-<span style="color:#f92672">spec</span>:
-  <span style="color:#f92672">rules</span>:
-  - <span style="color:#f92672">host</span>: <span style="color:#ae81ff">(my-domain)</span>
-    <span style="color:#f92672">http</span>:
-      <span style="color:#f92672">paths</span>:
-        - <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/</span>
-          <span style="color:#f92672">pathType</span>: <span style="color:#ae81ff">Prefix</span>
-          <span style="color:#f92672">backend</span>:
-            <span style="color:#f92672">service</span>:
-              <span style="color:#f92672">name</span>: <span style="color:#ae81ff">backend-service</span>
-              <span style="color:#f92672">port</span>: 
-                <span style="color:#f92672">number</span>: <span style="color:#ae81ff">80</span>
-</code></pre></div><h2 id="ingress-controller">Ingress Controller</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">networking.k8s.io/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Ingress</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">ingress-backend</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">annotations</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">kubernetes.io/ingress.class</span>: <span style="color:#e6db74">&#34;nginx&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">rules</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">host</span>: <span style="color:#ae81ff">(my-domain)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">http</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">paths</span>:
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">pathType</span>: <span style="color:#ae81ff">Prefix</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">backend</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">service</span>:
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">name</span>: <span style="color:#ae81ff">backend-service</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">port</span>: 
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">number</span>: <span style="color:#ae81ff">80</span>
+</span></span></code></pre></div><h2 id="ingress-controller">Ingress Controller</h2>
 <p>NGINX Ingress Controller를 설치하는 방법으로는 <a href="https://kubernetes.github.io/ingress-nginx/deploy/">Installation Guide</a> 문서를 참고하였습니다.</p>
 <p>기본적으로 AWS에 Ingress Controller를 배포하면 Network Load Balancer가 생성되는데요.</p>
 <p>저는 NLB 뿐만 아니라 HTTPS(TLS) 통신이 필요하기 때문에 <code>TLS Termination In AWS Load Balancer (ELB)</code> 항목을 참고했습니다.</p>
@@ -166,7 +166,7 @@ if (!doNotTrack) {
 <section class="comments">
 	<div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -194,7 +194,7 @@ if (!doNotTrack) {
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2021 Yungon Park.
+			&copy; 2022 Yungon Park.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.91.2" />
+	<meta name="generator" content="Hugo 0.98.0" />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -52,6 +52,24 @@ if (!doNotTrack) {
 			
 <main class="main list" role="main">
 	<article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/posts/aws-sap-c01/" rel="bookmark">
+			AWS Certified Solutions Architect - Professional 시험 후기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-05-11T23:14:04&#43;09:00">2022-05-11</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		계기 저는 2년 전에 AWS의 Certified Solutions Architect - Associate 자격증을 취득한 적이 있습니다. 언젠가는 다음 단계의 자격증을 취득할 생각이 있긴 했습니다. (다음 자격증 시험에 응시할 때 50% 할인 쿠폰이 크긴 하더라구요)
+그러다가 작년 하반기에 이직을 하였고, 최근 몇 개월 동안 현재 시스템을 분석하고 개선하는 작업들을 진행했습니다. 저희 팀은 지금의 시스템을 운영하고, 다음 버전의 시스템을 구축하여야 하는 과제가 있는데요. 그 과정에서 시스템을 구축하고 운영하는 데 좀 더 많은 지식이 필요하겠다는 생각이 들었습니다.
+	</div>
+</article><article class="list__item post">
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
@@ -107,7 +125,7 @@ if (!doNotTrack) {
 		프로그램이 잘 동작하는 지 확인하고 싶다면, print()를 쓸 때가 많습니다. 하지만 프로그램이 복잡하게 바뀌면서 print()만으로는 감당하기 어려운 상황이 발생합니다.
 그럴 때 어떻게 로그를 만들고 관리할 지를 고민하게 되는데요. 이번 글에서는 Python에서 logging 모듈을 활용해서 어떻게 로그를 관리할 수 있는지 살펴보려고 합니다.
 기본적인 로깅 만들기 logging 모듈을 이용해서 로그를 만드는 방법은 다음과 같습니다.
-import logging logging.critical(&#39;Critical log&#39;) logging.error(&#39;Error log&#39;) logging.warning(&#39;Warning log&#39;) logging.info(&#39;Info log&#39;) logging.debug(&#39;Debug log&#39;) 스크립트를 실행해 보면 다음과 같이 표시됩니다.
+import logging  logging.critical(&#39;Critical log&#39;) logging.error(&#39;Error log&#39;) logging.warning(&#39;Warning log&#39;) logging.info(&#39;Info log&#39;) logging.debug(&#39;Debug log&#39;) 스크립트를 실행해 보면 다음과 같이 표시됩니다.
 	</div>
 </article><article class="list__item post">
 	
@@ -189,9 +207,9 @@ EKS와 NGINX Ingress Controller 사용 저희 팀의 웹 서비스들은 Elastic
 	<div class="content list__excerpt post__content clearfix">
 		Python을 이용해서 AWS의 여러 기능을 자동화 할 때 Boto3를 많이들 쓰실 것 같은데요. 이번 달에는 Boto3를 쓰면서 궁금했던 것, 또는 자주 사용할 만한 것들을 정리해 보려고 합니다.
 현재 사용 중인 AWS 계정 ID 얻기 여기서 계정 ID라고 하면, 12자리의 숫자로 구성된 계정의 ID를 의미합니다.
-import boto3 account_id = boto3.client(&#39;sts&#39;).get_caller_identity().get(&#39;Account&#39;) 출처: Stack Overflow
+import boto3  account_id = boto3.client(&#39;sts&#39;).get_caller_identity().get(&#39;Account&#39;) 출처: Stack Overflow
 에러 다루기 출처: Boto3 Documentation
-Boto3의 코드를 열어보면, 서비스에 따라 발생할 수 있는 모든 에러를 저장하고 있지 않습니다. Boto3와 AWS CLI의 기반이 되는 Botocore 프로젝트의 코드에서도 모든 종류의 예외를 다루지 않습니다.
+Boto3의 코드를 열어보면, 서비스에 따라 발생할 수 있는 모든 에러를 저장하고 있지 않습니다.
 	</div>
 </article><article class="list__item post">
 	
@@ -232,26 +250,6 @@ Boto3의 코드를 열어보면, 서비스에 따라 발생할 수 있는 모든
  S3 버킷에 원격으로 로그 올리도록 설정하기 Airflow 2.x 버전에서 KubernetesExecutor를 사용하는 데, DAG이나 Task를 수동으로 실행할 때 에러가 발생하는 이유는? DAG에서 DB 이용하기: DB와 관련된 Operator 이용하기, Hooks 이용하기 S3에서 파일을 가져와서 분석하기: S3Hook  테스트 한 환경은 Airflow 2.0.1, 2.0.2 버전입니다.
 전체 내용은 GitHub 저장소에서 확인하실 수 있습니다.
 S3 버킷에 원격으로 로그를 올리도록 설정하기 지난 글에서 시스템 구성으로 KubernetesExecutor를 이용한다고 말씀드렸습니다.
-	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/locust-update/" rel="bookmark">
-			Locust 1.0 이후 달라진 점들 요약
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-03-30T21:53:01&#43;09:00">2021-03-30</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		작년 이맘때에 AWSKRUG에서 ECS+Locust로 부하 테스트 진행하기라는 주제로 발표를 한 적이 있었습니다.
-그러다가 5월에 Locust 1.0 버전이 나왔는데요. 최신 버전의 Locust로 부하 테스트를 진행하다 보니 바뀐 부분이 많아서, 새 버전으로 테스트를 수행하기 위해 필요한 내용 위주로 다시 정리해 보려고 합니다.
-이 글은 위에 링크한 슬라이드 중 11~19 페이지의 내용을 대체합니다. 지금부터 한 번 살펴보겠습니다.
-Locust -&gt; User 클래스 이름 변경 한 명의 사용자를 표현하는 Locust 클래스가 &lsquo;User&rsquo;로 이름을 바꾸었습니다. HTTP를 이용하는 클라이언트는 HttpLocust에서 HttpUser로 클래스 이름을 바꾸었습니다.
 	</div>
 </article>
 </main>
@@ -341,6 +339,7 @@ Locust -&gt; User 클래스 이름 변경 한 명의 사용자를 표현하는 L
 		<a class="widget-taglist__link widget__link btn" href="/tags/paginator/" title="Paginator">Paginator</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pandas/" title="Pandas">Pandas</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pep-8/" title="pep-8">pep-8</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/professional/" title="Professional">Professional</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/property/" title="property">property</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pulumi/" title="Pulumi">Pulumi</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python</a>
@@ -354,6 +353,7 @@ Locust -&gt; User 클래스 이름 변경 한 명의 사용자를 표현하는 L
 		<a class="widget-taglist__link widget__link btn" href="/tags/session-manager/" title="Session Manager">Session Manager</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/setter/" title="setter">setter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/simcity/" title="SimCity">SimCity</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/solutions-architect/" title="Solutions Architect">Solutions Architect</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ssl/" title="SSL">SSL</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/standard/" title="Standard">Standard</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/step-functions/" title="Step Functions">Step Functions</a>
@@ -376,6 +376,7 @@ Locust -&gt; User 클래스 이름 변경 한 명의 사용자를 표현하는 L
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%8B%A0%EC%9E%85-%EC%82%AC%EC%9B%90/" title="신입 사원">신입 사원</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9D%8C%EC%95%85/" title="음악">음악</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9D%B4%EC%A7%81/" title="이직">이직</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9E%90%EA%B2%A9%EC%A6%9D/" title="자격증">자격증</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%B1%85/" title="책">책</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%85%8C%EC%8A%A4%ED%8A%B8/" title="테스트">테스트</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%9A%8C%EA%B3%A0/" title="회고">회고</a>
@@ -418,7 +419,7 @@ Locust -&gt; User 클래스 이름 변경 한 명의 사용자를 표현하는 L
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2021 Yungon Park.
+			&copy; 2022 Yungon Park.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>

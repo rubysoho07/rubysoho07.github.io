@@ -56,6 +56,25 @@ if (!doNotTrack) {
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/list-over-1000-files-from-s3/" rel="bookmark">
+			S3 버킷의 객체가 1,000개를 넘을 때 객체 목록 조회하기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2018-11-29T00:38:00&#43;09:00">2018-11-29</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		S3 버킷에는 여러 파일들을 저장할 수 있다. 그런데, 버킷에 저장된 파일의 목록을 보고 싶은 경우가 있을 것이다. 하지만, AWS의 Python SDK인 Boto3에서 list_objects()나 list_objects_v2() 함수를 이용하면 최대 1,000개까지의 object만 가져올 수 있다. [참고] (근본적으로는 AWS의 API가 최대 1,000개까지의 object만 가져오도록 구현되어 있다. - [참고])
+이런 문제를 해결하기 위해, 다음과 같이 Paginator를 이용해 보자.
+Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로 S3를 담당할 클라이언트를 생성한 뒤, get_paginator()로 Paginator를 가져온다. 여기서는 하나의 버킷에서 object들을 가져오기 위해 list_objects_v2를 이용한다.
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/step-function-with-python/" rel="bookmark">
 			Python으로 Step Functions 활동 만들기
 			</a>
@@ -111,7 +130,7 @@ if (!doNotTrack) {
 	<div class="content list__excerpt post__content clearfix">
 		test라는 함수가 있고, dev, release라는 별칭(alias)이 존재한다고 하자. 그리고 모든 별칭은 동일한 버전을 가리킨다고 하자.
 이 경우 context 객체의 invoked_function_arn은 어떻게 달라지는지 보자. 테스트를 위해, 다음과 같이 파이썬으로 함수를 작성하였다.
-import json def lambda_handler(event, context): print(context.invoked_function_arn) return &#34;Success&#34; 그리고 CloudWatch에 기록된 로그를 보자.
+import json  def lambda_handler(event, context):  print(context.invoked_function_arn)  return &#34;Success&#34; 그리고 CloudWatch에 기록된 로그를 보자.
 dev인 경우
 START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1 arn:aws:lambda:ap-northeast-2:256724228018:function:test:dev END RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Duration: 1.56 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 22 MB release인 경우
 	</div>
@@ -204,6 +223,7 @@ START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1 arn:aws:lambda:
 		<a class="widget-taglist__link widget__link btn" href="/tags/paginator/" title="Paginator">Paginator</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pandas/" title="Pandas">Pandas</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pep-8/" title="pep-8">pep-8</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/professional/" title="Professional">Professional</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/property/" title="property">property</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pulumi/" title="Pulumi">Pulumi</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python</a>
@@ -217,6 +237,7 @@ START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1 arn:aws:lambda:
 		<a class="widget-taglist__link widget__link btn" href="/tags/session-manager/" title="Session Manager">Session Manager</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/setter/" title="setter">setter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/simcity/" title="SimCity">SimCity</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/solutions-architect/" title="Solutions Architect">Solutions Architect</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ssl/" title="SSL">SSL</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/standard/" title="Standard">Standard</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/step-functions/" title="Step Functions">Step Functions</a>
@@ -239,6 +260,7 @@ START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1 arn:aws:lambda:
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%8B%A0%EC%9E%85-%EC%82%AC%EC%9B%90/" title="신입 사원">신입 사원</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9D%8C%EC%95%85/" title="음악">음악</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9D%B4%EC%A7%81/" title="이직">이직</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9E%90%EA%B2%A9%EC%A6%9D/" title="자격증">자격증</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%B1%85/" title="책">책</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%85%8C%EC%8A%A4%ED%8A%B8/" title="테스트">테스트</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%9A%8C%EA%B3%A0/" title="회고">회고</a>
@@ -281,7 +303,7 @@ START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1 arn:aws:lambda:
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2021 Yungon Park.
+			&copy; 2022 Yungon Park.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>

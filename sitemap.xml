@@ -2,25 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/tags/aws/</loc>
+    <lastmod>2022-05-11T23:14:04+09:00</lastmod>
+  </url><url>
+    <loc>/categories/aws/</loc>
+    <lastmod>2022-05-11T23:14:04+09:00</lastmod>
+  </url><url>
+    <loc>/posts/aws-sap-c01/</loc>
+    <lastmod>2022-05-11T23:14:04+09:00</lastmod>
+  </url><url>
+    <loc>/categories/</loc>
+    <lastmod>2022-05-11T23:14:04+09:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2022-05-11T23:14:04+09:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2022-05-11T23:14:04+09:00</lastmod>
+  </url><url>
+    <loc>/tags/professional/</loc>
+    <lastmod>2022-05-11T23:14:04+09:00</lastmod>
+  </url><url>
+    <loc>/tags/solutions-architect/</loc>
+    <lastmod>2022-05-11T23:14:04+09:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-05-11T23:14:04+09:00</lastmod>
+  </url><url>
+    <loc>/tags/%EC%9E%90%EA%B2%A9%EC%A6%9D/</loc>
+    <lastmod>2022-05-11T23:14:04+09:00</lastmod>
+  </url><url>
     <loc>/tags/2021%EB%85%84/</loc>
     <lastmod>2021-12-31T21:00:00+09:00</lastmod>
   </url><url>
     <loc>/posts/retrospect-2021/</loc>
     <lastmod>2021-12-31T21:00:00+09:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
-    <lastmod>2021-12-31T21:00:00+09:00</lastmod>
-  </url><url>
     <loc>/categories/everything/</loc>
-    <lastmod>2021-12-31T21:00:00+09:00</lastmod>
-  </url><url>
-    <loc>/</loc>
-    <lastmod>2021-12-31T21:00:00+09:00</lastmod>
-  </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2021-12-31T21:00:00+09:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2021-12-31T21:00:00+09:00</lastmod>
   </url><url>
     <loc>/tags/%EC%9D%B4%EC%A7%81/</loc>
@@ -61,12 +79,6 @@
   </url><url>
     <loc>/tags/warning/</loc>
     <lastmod>2021-10-31T10:58:31+09:00</lastmod>
-  </url><url>
-    <loc>/tags/aws/</loc>
-    <lastmod>2021-09-30T14:38:05+09:00</lastmod>
-  </url><url>
-    <loc>/categories/aws/</loc>
-    <lastmod>2021-09-30T14:38:05+09:00</lastmod>
   </url><url>
     <loc>/posts/aws-session-manager-run-command/</loc>
     <lastmod>2021-09-30T14:38:05+09:00</lastmod>

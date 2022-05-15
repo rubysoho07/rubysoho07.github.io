@@ -6,7 +6,16 @@
     <description>Recent content in Categories on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Fri, 31 Dec 2021 21:00:00 +0900</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 May 2022 23:14:04 +0900</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS</title>
+      <link>/categories/aws/</link>
+      <pubDate>Wed, 11 May 2022 23:14:04 +0900</pubDate>
+      
+      <guid>/categories/aws/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Everything</title>
       <link>/categories/everything/</link>
@@ -31,15 +40,6 @@
       <pubDate>Sun, 31 Oct 2021 10:58:31 +0900</pubDate>
       
       <guid>/categories/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>AWS</title>
-      <link>/categories/aws/</link>
-      <pubDate>Thu, 30 Sep 2021 14:38:05 +0900</pubDate>
-      
-      <guid>/categories/aws/</guid>
       <description></description>
     </item>
     

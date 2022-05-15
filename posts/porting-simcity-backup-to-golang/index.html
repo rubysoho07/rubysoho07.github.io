@@ -67,163 +67,163 @@ if (!doNotTrack) {
 <h1 id="프로그램-실행-시-매개변수-처리하기">프로그램 실행 시 매개변수 처리하기</h1>
 <h2 id="python">Python</h2>
 <p>Python에서는 <a href="https://docs.python.org/ko/3/library/argparse.html">argparse</a>라는 모듈이 있습니다. 다음과 같이 처리했었습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> argparse
-
-<span style="color:#75715e"># Main routine.</span>
-<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
-    parser <span style="color:#f92672">=</span> argparse<span style="color:#f92672">.</span>ArgumentParser()
-    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#34;-v&#34;</span>, <span style="color:#e6db74">&#34;--version&#34;</span>,
-                        help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Show version of SC4Backup.&#34;</span>,
-                        action<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;store_true&#34;</span>)
-    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#34;-y&#34;</span>, <span style="color:#e6db74">&#34;--yes&#34;</span>,
-                        help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Backup all user data without asking you.&#34;</span>,
-                        action<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;store_true&#34;</span>)
-
-    args <span style="color:#f92672">=</span> parser<span style="color:#f92672">.</span>parse_args()
-
-    <span style="color:#66d9ef">if</span> args<span style="color:#f92672">.</span>version:
-        print_version()
-
-    <span style="color:#75715e"># 중간 생략</span>
-
-    <span style="color:#66d9ef">if</span> args<span style="color:#f92672">.</span>yes:
-        backup_plugin()
-        backup_album()
-        backup_region()
-    <span style="color:#66d9ef">else</span>:
-        <span style="color:#75715e"># 중간 생략</span>
-</code></pre></div><h2 id="go">Go</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> argparse
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Main routine.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    parser <span style="color:#f92672">=</span> argparse<span style="color:#f92672">.</span>ArgumentParser()
+</span></span><span style="display:flex;"><span>    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#34;-v&#34;</span>, <span style="color:#e6db74">&#34;--version&#34;</span>,
+</span></span><span style="display:flex;"><span>                        help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Show version of SC4Backup.&#34;</span>,
+</span></span><span style="display:flex;"><span>                        action<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;store_true&#34;</span>)
+</span></span><span style="display:flex;"><span>    parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#34;-y&#34;</span>, <span style="color:#e6db74">&#34;--yes&#34;</span>,
+</span></span><span style="display:flex;"><span>                        help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Backup all user data without asking you.&#34;</span>,
+</span></span><span style="display:flex;"><span>                        action<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;store_true&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    args <span style="color:#f92672">=</span> parser<span style="color:#f92672">.</span>parse_args()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> args<span style="color:#f92672">.</span>version:
+</span></span><span style="display:flex;"><span>        print_version()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 중간 생략</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> args<span style="color:#f92672">.</span>yes:
+</span></span><span style="display:flex;"><span>        backup_plugin()
+</span></span><span style="display:flex;"><span>        backup_album()
+</span></span><span style="display:flex;"><span>        backup_region()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 중간 생략</span>
+</span></span></code></pre></div><h2 id="go">Go</h2>
 <p>Go에는 <a href="https://golang.org/pkg/flag/">flag</a>라는 모듈이 있습니다. 이 모듈을 이용해서 처리했습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;===============SimCity 4 Backup=================&#34;</span>)
-
-	<span style="color:#a6e22e">printVersion</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">flag</span>.<span style="color:#a6e22e">Bool</span>(<span style="color:#e6db74">&#34;version&#34;</span>, <span style="color:#66d9ef">false</span>, <span style="color:#e6db74">&#34;Show version of SC4Backup.&#34;</span>)
-    <span style="color:#a6e22e">setAllYes</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">flag</span>.<span style="color:#a6e22e">Bool</span>(<span style="color:#e6db74">&#34;yes&#34;</span>, <span style="color:#66d9ef">false</span>, <span style="color:#e6db74">&#34;Backup all user data without asking you.&#34;</span>)
-    
-    <span style="color:#a6e22e">flag</span>.<span style="color:#a6e22e">Parse</span>()
-
-	<span style="color:#66d9ef">if</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">printVersion</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span> {
-		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;SimCity 4 Backup Version v2.0.0&#34;</span>)
-		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Release Date: 2018-12-31&#34;</span>)
-		<span style="color:#66d9ef">return</span>
-    }
-    
-    <span style="color:#75715e">// 이후 내용 생략
-</span></code></pre></div><h1 id="파일-목록-가져오기--압축-파일-생성하기">파일 목록 가져오기 &amp; 압축 파일 생성하기</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;===============SimCity 4 Backup=================&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">printVersion</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">flag</span>.<span style="color:#a6e22e">Bool</span>(<span style="color:#e6db74">&#34;version&#34;</span>, <span style="color:#66d9ef">false</span>, <span style="color:#e6db74">&#34;Show version of SC4Backup.&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setAllYes</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">flag</span>.<span style="color:#a6e22e">Bool</span>(<span style="color:#e6db74">&#34;yes&#34;</span>, <span style="color:#66d9ef">false</span>, <span style="color:#e6db74">&#34;Backup all user data without asking you.&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">flag</span>.<span style="color:#a6e22e">Parse</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">printVersion</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;SimCity 4 Backup Version v2.0.0&#34;</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Release Date: 2018-12-31&#34;</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 이후 내용 생략
+</span></span></span></code></pre></div><h1 id="파일-목록-가져오기--압축-파일-생성하기">파일 목록 가져오기 &amp; 압축 파일 생성하기</h1>
 <p>이 프로그램에서는 파일들을 모아 압축하는 경우만 있습니다. 그래서 압축 파일을 생성하는 부분 위주로 작성해 보았습니다.</p>
 <h2 id="python-1">Python</h2>
 <p>Python에서는 <a href="https://docs.python.org/ko/3/library/os.html">os</a> 모듈의 walk 함수를 사용하여 특정 경로에 있는 파일 목록을 생성했습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">backup_region</span>():
-    <span style="color:#e6db74">&#34;&#34;&#34; Backup region files. &#34;&#34;&#34;</span>
-    <span style="color:#66d9ef">global</span> region_file_name
-    <span style="color:#66d9ef">global</span> backup_path
-
-    regions_list <span style="color:#f92672">=</span> []
-
-    <span style="color:#75715e"># Check today&#39;s region backup exists.</span>
-    <span style="color:#66d9ef">if</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>exists(backup_path<span style="color:#f92672">+</span>region_file_name) <span style="color:#f92672">is</span> <span style="color:#66d9ef">True</span>:
-        print(<span style="color:#e6db74">&#34;Already backuped today&#39;s regions data.&#34;</span>)
-        <span style="color:#66d9ef">return</span>
-
-    <span style="color:#75715e"># Go to regions_path.</span>
-    os<span style="color:#f92672">.</span>chdir(regions_path)
-
-    <span style="color:#75715e"># Make files of regions directory list.</span>
-    <span style="color:#66d9ef">for</span> root, _, names <span style="color:#f92672">in</span> os<span style="color:#f92672">.</span>walk(<span style="color:#e6db74">&#34;.&#34;</span>):
-        <span style="color:#66d9ef">for</span> name <span style="color:#f92672">in</span> names:
-            regions_list<span style="color:#f92672">.</span>append(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(root, name))
-
-    print(<span style="color:#e6db74">&#34;Make regions file list ... Done. &#34;</span>, len(regions_list), <span style="color:#e6db74">&#34; files.&#34;</span>)
-    sys<span style="color:#f92672">.</span>stdout<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;Making backup : &#34;</span>)
-
-    <span style="color:#75715e"># Make zip file.</span>
-    make_backup_file(region_file_name, regions_list)
-    os<span style="color:#f92672">.</span>rename(region_file_name, backup_path<span style="color:#f92672">+</span>region_file_name)
-
-    print(<span style="color:#e6db74">&#34;Making regions backup ... Done.&#34;</span>)
-</code></pre></div><p><code>os.walk</code> 함수는 root, dirnames, filenames를 튜플로 반환합니다. root는 디렉터리 이름, dirnames는 하위 디렉터리 이름, 그리고 filenames는 디렉터리가 아닌 파일의 이름 리스트입니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">backup_region</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34; Backup region files. &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">global</span> region_file_name
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">global</span> backup_path
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    regions_list <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Check today&#39;s region backup exists.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>exists(backup_path<span style="color:#f92672">+</span>region_file_name) <span style="color:#f92672">is</span> <span style="color:#66d9ef">True</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;Already backuped today&#39;s regions data.&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Go to regions_path.</span>
+</span></span><span style="display:flex;"><span>    os<span style="color:#f92672">.</span>chdir(regions_path)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Make files of regions directory list.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> root, _, names <span style="color:#f92672">in</span> os<span style="color:#f92672">.</span>walk(<span style="color:#e6db74">&#34;.&#34;</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> name <span style="color:#f92672">in</span> names:
+</span></span><span style="display:flex;"><span>            regions_list<span style="color:#f92672">.</span>append(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(root, name))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Make regions file list ... Done. &#34;</span>, len(regions_list), <span style="color:#e6db74">&#34; files.&#34;</span>)
+</span></span><span style="display:flex;"><span>    sys<span style="color:#f92672">.</span>stdout<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;Making backup : &#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Make zip file.</span>
+</span></span><span style="display:flex;"><span>    make_backup_file(region_file_name, regions_list)
+</span></span><span style="display:flex;"><span>    os<span style="color:#f92672">.</span>rename(region_file_name, backup_path<span style="color:#f92672">+</span>region_file_name)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Making regions backup ... Done.&#34;</span>)
+</span></span></code></pre></div><p><code>os.walk</code> 함수는 root, dirnames, filenames를 튜플로 반환합니다. root는 디렉터리 이름, dirnames는 하위 디렉터리 이름, 그리고 filenames는 디렉터리가 아닌 파일의 이름 리스트입니다.</p>
 <p>하위 디렉터리 이름은 딱히 필요 없어서 <code>_</code>로 대체했습니다.</p>
 <p>파일의 전체 경로를 얻기 위해 <code>os.path.join(root, name)</code>을 호출하는 것을 볼 수 있습니다.</p>
 <p>그리고 <a href="https://docs.python.org/ko/3/library/zipfile.html">zipfile</a> 모듈을 사용하면 ZIP 포맷의 압축 파일을 만들거나 압축을 풀 수 있습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> zipfile 
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">make_backup_file</span>(file_name, file_list):
-    <span style="color:#e6db74">&#34;&#34;&#34; Make backup file with zipfile library. &#34;&#34;&#34;</span>
-    printed_percent <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-    backup_file <span style="color:#f92672">=</span> zipfile<span style="color:#f92672">.</span>ZipFile(file_name, <span style="color:#e6db74">&#34;w&#34;</span>, zipfile<span style="color:#f92672">.</span>ZIP_DEFLATED)
-
-    <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> file_list:
-        backup_file<span style="color:#f92672">.</span>write(item)
-        <span style="color:#75715e"># 중간 생략</span>
-
-    sys<span style="color:#f92672">.</span>stdout<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#39; </span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74"> [Done]</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>)
-    backup_file<span style="color:#f92672">.</span>close()
-</code></pre></div><h2 id="go-1">Go</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> zipfile 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">make_backup_file</span>(file_name, file_list):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34; Make backup file with zipfile library. &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    printed_percent <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    backup_file <span style="color:#f92672">=</span> zipfile<span style="color:#f92672">.</span>ZipFile(file_name, <span style="color:#e6db74">&#34;w&#34;</span>, zipfile<span style="color:#f92672">.</span>ZIP_DEFLATED)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> file_list:
+</span></span><span style="display:flex;"><span>        backup_file<span style="color:#f92672">.</span>write(item)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 중간 생략</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    sys<span style="color:#f92672">.</span>stdout<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#39; </span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74"> [Done]</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span>    backup_file<span style="color:#f92672">.</span>close()
+</span></span></code></pre></div><h2 id="go-1">Go</h2>
 <p>Go에서 압축 파일을 만들기 위해 <a href="https://golang.org/pkg/archive/zip/">archive/zip</a> 모듈을 이용했습니다.</p>
 <p>그리고 파일 목록을 따로 가져오지 않고, <a href="https://golang.org/pkg/path/filepath/">path/filepath</a> 모듈의 Walk 함수를 이용해서 파일을 읽고 압축 파일에 쓰는 방식으로 처리했습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">makeArchiveFile</span>(<span style="color:#a6e22e">source</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">target</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">error</span> {
-	<span style="color:#a6e22e">zipfile</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Create</span>(<span style="color:#a6e22e">target</span>)
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-	}
-	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">zipfile</span>.<span style="color:#a6e22e">Close</span>()
-
-	<span style="color:#a6e22e">archive</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">zip</span>.<span style="color:#a6e22e">NewWriter</span>(<span style="color:#a6e22e">zipfile</span>)
-	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">archive</span>.<span style="color:#a6e22e">Close</span>()
-
-	<span style="color:#a6e22e">info</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Stat</span>(<span style="color:#a6e22e">source</span>)
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
-	}
-
-	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">baseDir</span> <span style="color:#66d9ef">string</span>
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">info</span>.<span style="color:#a6e22e">IsDir</span>() {
-		<span style="color:#a6e22e">baseDir</span> = <span style="color:#a6e22e">filepath</span>.<span style="color:#a6e22e">Base</span>(<span style="color:#a6e22e">source</span>)
-	}
-
-	<span style="color:#a6e22e">filepath</span>.<span style="color:#a6e22e">Walk</span>(<span style="color:#a6e22e">source</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">path</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">info</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">FileInfo</span>, <span style="color:#a6e22e">err</span> <span style="color:#66d9ef">error</span>) <span style="color:#66d9ef">error</span> {
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Error on walking SimCity 4 Plugins Directory (%v)\n&#34;</span>, <span style="color:#a6e22e">err</span>)
-			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-		}
-
-		<span style="color:#a6e22e">header</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">zip</span>.<span style="color:#a6e22e">FileInfoHeader</span>(<span style="color:#a6e22e">info</span>)
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-		}
-
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">baseDir</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span> {
-			<span style="color:#a6e22e">header</span>.<span style="color:#a6e22e">Name</span> = <span style="color:#a6e22e">filepath</span>.<span style="color:#a6e22e">Join</span>(<span style="color:#a6e22e">baseDir</span>, <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">TrimPrefix</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">source</span>))
-		}
-
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">info</span>.<span style="color:#a6e22e">IsDir</span>() {
-			<span style="color:#a6e22e">header</span>.<span style="color:#a6e22e">Name</span> <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;/&#34;</span>
-		} <span style="color:#66d9ef">else</span> {
-			<span style="color:#a6e22e">header</span>.<span style="color:#a6e22e">Method</span> = <span style="color:#a6e22e">zip</span>.<span style="color:#a6e22e">Deflate</span>
-		}
-
-		<span style="color:#a6e22e">writer</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">archive</span>.<span style="color:#a6e22e">CreateHeader</span>(<span style="color:#a6e22e">header</span>)
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-		}
-
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">info</span>.<span style="color:#a6e22e">IsDir</span>() {
-			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
-		}
-
-		<span style="color:#a6e22e">file</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Open</span>(<span style="color:#a6e22e">path</span>)
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-		}
-		<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">Close</span>()
-
-		<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">io</span>.<span style="color:#a6e22e">Copy</span>(<span style="color:#a6e22e">writer</span>, <span style="color:#a6e22e">file</span>)
-		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
-	})
-
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
-}
-</code></pre></div><p><code>filepath.Walk</code> 함수는 탐색을 시작할 경로와, 이 경로에서 발견한 파일을 처리하는 함수를 인자로 받습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">makeArchiveFile</span>(<span style="color:#a6e22e">source</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">target</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">error</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">zipfile</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Create</span>(<span style="color:#a6e22e">target</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">zipfile</span>.<span style="color:#a6e22e">Close</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">archive</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">zip</span>.<span style="color:#a6e22e">NewWriter</span>(<span style="color:#a6e22e">zipfile</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">archive</span>.<span style="color:#a6e22e">Close</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">info</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Stat</span>(<span style="color:#a6e22e">source</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">baseDir</span> <span style="color:#66d9ef">string</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">info</span>.<span style="color:#a6e22e">IsDir</span>() {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">baseDir</span> = <span style="color:#a6e22e">filepath</span>.<span style="color:#a6e22e">Base</span>(<span style="color:#a6e22e">source</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">filepath</span>.<span style="color:#a6e22e">Walk</span>(<span style="color:#a6e22e">source</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">path</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">info</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">FileInfo</span>, <span style="color:#a6e22e">err</span> <span style="color:#66d9ef">error</span>) <span style="color:#66d9ef">error</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Error on walking SimCity 4 Plugins Directory (%v)\n&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">header</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">zip</span>.<span style="color:#a6e22e">FileInfoHeader</span>(<span style="color:#a6e22e">info</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">baseDir</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">header</span>.<span style="color:#a6e22e">Name</span> = <span style="color:#a6e22e">filepath</span>.<span style="color:#a6e22e">Join</span>(<span style="color:#a6e22e">baseDir</span>, <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">TrimPrefix</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">source</span>))
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">info</span>.<span style="color:#a6e22e">IsDir</span>() {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">header</span>.<span style="color:#a6e22e">Name</span> <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;/&#34;</span>
+</span></span><span style="display:flex;"><span>		} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">header</span>.<span style="color:#a6e22e">Method</span> = <span style="color:#a6e22e">zip</span>.<span style="color:#a6e22e">Deflate</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">writer</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">archive</span>.<span style="color:#a6e22e">CreateHeader</span>(<span style="color:#a6e22e">header</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">info</span>.<span style="color:#a6e22e">IsDir</span>() {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">file</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Open</span>(<span style="color:#a6e22e">path</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">Close</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">io</span>.<span style="color:#a6e22e">Copy</span>(<span style="color:#a6e22e">writer</span>, <span style="color:#a6e22e">file</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">err</span>
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><code>filepath.Walk</code> 함수는 탐색을 시작할 경로와, 이 경로에서 발견한 파일을 처리하는 함수를 인자로 받습니다.</p>
 <p>여기서는 익명 함수로 처리했는데, WalkFunc 타입입니다. 이 함수는 경로를 문자열(string)으로 받고, 파일 정보(os.FileInfo 형), error형을 인자로 받습니다. 이 함수는 error type을 반환합니다.</p>
 <p>디렉터리면 파일 헤더에만 추가하고, 일반 파일은 경우 파일을 열어서 <code>io.Copy</code> 함수를 호출합니다.</p>
 <h1 id="느낀-점들">느낀 점들</h1>
@@ -266,7 +266,7 @@ if (!doNotTrack) {
 <section class="comments">
 	<div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -294,7 +294,7 @@ if (!doNotTrack) {
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2021 Yungon Park.
+			&copy; 2022 Yungon Park.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>

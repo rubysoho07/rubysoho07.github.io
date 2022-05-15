@@ -48,7 +48,7 @@ AWS Lambda(Lambda Layer)의 제한 AWS Lambda에는 Lambda Layer라고 해서 �
       <guid>/posts/check-lambda-version/</guid>
       <description>test라는 함수가 있고, dev, release라는 별칭(alias)이 존재한다고 하자. 그리고 모든 별칭은 동일한 버전을 가리킨다고 하자.
 이 경우 context 객체의 invoked_function_arn은 어떻게 달라지는지 보자. 테스트를 위해, 다음과 같이 파이썬으로 함수를 작성하였다.
-import json def lambda_handler(event, context): print(context.invoked_function_arn) return &amp;#34;Success&amp;#34; 그리고 CloudWatch에 기록된 로그를 보자.
+import json  def lambda_handler(event, context):  print(context.invoked_function_arn)  return &amp;#34;Success&amp;#34; 그리고 CloudWatch에 기록된 로그를 보자.
 dev인 경우
 START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1 arn:aws:lambda:ap-northeast-2:256724228018:function:test:dev END RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Duration: 1.56 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 22 MB release인 경우</description>
     </item>

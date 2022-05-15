@@ -6,7 +6,17 @@
     <description>Recent content in AWS on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 30 Sep 2021 14:38:05 +0900</lastBuildDate><atom:link href="/categories/aws/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 May 2022 23:14:04 +0900</lastBuildDate><atom:link href="/categories/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS Certified Solutions Architect - Professional 시험 후기</title>
+      <link>/posts/aws-sap-c01/</link>
+      <pubDate>Wed, 11 May 2022 23:14:04 +0900</pubDate>
+      
+      <guid>/posts/aws-sap-c01/</guid>
+      <description>계기 저는 2년 전에 AWS의 Certified Solutions Architect - Associate 자격증을 취득한 적이 있습니다. 언젠가는 다음 단계의 자격증을 취득할 생각이 있긴 했습니다. (다음 자격증 시험에 응시할 때 50% 할인 쿠폰이 크긴 하더라구요)
+그러다가 작년 하반기에 이직을 하였고, 최근 몇 개월 동안 현재 시스템을 분석하고 개선하는 작업들을 진행했습니다. 저희 팀은 지금의 시스템을 운영하고, 다음 버전의 시스템을 구축하여야 하는 과제가 있는데요. 그 과정에서 시스템을 구축하고 운영하는 데 좀 더 많은 지식이 필요하겠다는 생각이 들었습니다.</description>
+    </item>
+    
     <item>
       <title>AWS Session Manager &amp; Run Command로 외부에서 쉘 스크립트 실행하기</title>
       <link>/posts/aws-session-manager-run-command/</link>
@@ -54,9 +64,9 @@ EKS와 NGINX Ingress Controller 사용 저희 팀의 웹 서비스들은 Elastic
       <guid>/posts/boto3-note/</guid>
       <description>Python을 이용해서 AWS의 여러 기능을 자동화 할 때 Boto3를 많이들 쓰실 것 같은데요. 이번 달에는 Boto3를 쓰면서 궁금했던 것, 또는 자주 사용할 만한 것들을 정리해 보려고 합니다.
 현재 사용 중인 AWS 계정 ID 얻기 여기서 계정 ID라고 하면, 12자리의 숫자로 구성된 계정의 ID를 의미합니다.
-import boto3 account_id = boto3.client(&amp;#39;sts&amp;#39;).get_caller_identity().get(&amp;#39;Account&amp;#39;) 출처: Stack Overflow
+import boto3  account_id = boto3.client(&amp;#39;sts&amp;#39;).get_caller_identity().get(&amp;#39;Account&amp;#39;) 출처: Stack Overflow
 에러 다루기 출처: Boto3 Documentation
-Boto3의 코드를 열어보면, 서비스에 따라 발생할 수 있는 모든 에러를 저장하고 있지 않습니다. Boto3와 AWS CLI의 기반이 되는 Botocore 프로젝트의 코드에서도 모든 종류의 예외를 다루지 않습니다.</description>
+Boto3의 코드를 열어보면, 서비스에 따라 발생할 수 있는 모든 에러를 저장하고 있지 않습니다.</description>
     </item>
     
     <item>
@@ -161,7 +171,7 @@ Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로
       <guid>/posts/check-lambda-version/</guid>
       <description>test라는 함수가 있고, dev, release라는 별칭(alias)이 존재한다고 하자. 그리고 모든 별칭은 동일한 버전을 가리킨다고 하자.
 이 경우 context 객체의 invoked_function_arn은 어떻게 달라지는지 보자. 테스트를 위해, 다음과 같이 파이썬으로 함수를 작성하였다.
-import json def lambda_handler(event, context): print(context.invoked_function_arn) return &amp;#34;Success&amp;#34; 그리고 CloudWatch에 기록된 로그를 보자.
+import json  def lambda_handler(event, context):  print(context.invoked_function_arn)  return &amp;#34;Success&amp;#34; 그리고 CloudWatch에 기록된 로그를 보자.
 dev인 경우
 START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1 arn:aws:lambda:ap-northeast-2:256724228018:function:test:dev END RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Duration: 1.56 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 22 MB release인 경우</description>
     </item>

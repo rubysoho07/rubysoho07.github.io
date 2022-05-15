@@ -56,6 +56,28 @@ if (!doNotTrack) {
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/vscode-oh-my-zsh/" rel="bookmark">
+			VSCode와 oh-my-zsh를 사용할 때 터미널 글꼴이 깨진다면
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2018-10-04T21:34:00&#43;09:00">2018-10-04</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/linux/" rel="category">Linux</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		최근에 oh-my-zsh를 써 보기 시작했다. (써보면 편하다고는 하는데, 아직까지는 체감을 못하고 있긴 하다.)
+그런데 Visual Studio Code에서 터미널을 쓸 때, 아래처럼 글꼴이 깨지는 현상이 있었다. (현재 테마는 &ldquo;agnoster&quot;이다.)
+ 이 문제에 대해 찾아보니, 다음과 같은 이슈를 발견할 수 있었다.
+https://github.com/Microsoft/vscode/issues/7116
+여기서 제시하는 해결책은 다음과 같다.
+ &ldquo;SourceCodePro+Powerline+Awesome Regular&rdquo; 글꼴을 받아 설치한다. 링크 Visual Studio Code 설정에서 terminal.integrated.fontFamily 항목에 'SourceCodePro+Powerline+Awesome Regular'를 넣는다. (작은 따옴표를 포함해야 한다!)  그러면 아래와 같이 터미널의 글꼴이 깨지지 않게 된다.
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/logging-rds/" rel="bookmark">
 			RDS MySQL에서 일반/느린 쿼리 로그 찍기
 			</a>
@@ -113,7 +135,7 @@ https://github.com/Microsoft/Git-Credential-Manager-for-Windows/issues/587
 	<div class="content list__excerpt post__content clearfix">
 		test라는 함수가 있고, dev, release라는 별칭(alias)이 존재한다고 하자. 그리고 모든 별칭은 동일한 버전을 가리킨다고 하자.
 이 경우 context 객체의 invoked_function_arn은 어떻게 달라지는지 보자. 테스트를 위해, 다음과 같이 파이썬으로 함수를 작성하였다.
-import json def lambda_handler(event, context): print(context.invoked_function_arn) return &#34;Success&#34; 그리고 CloudWatch에 기록된 로그를 보자.
+import json  def lambda_handler(event, context):  print(context.invoked_function_arn)  return &#34;Success&#34; 그리고 CloudWatch에 기록된 로그를 보자.
 dev인 경우
 START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1 arn:aws:lambda:ap-northeast-2:256724228018:function:test:dev END RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Duration: 1.56 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 22 MB release인 경우
 	</div>
@@ -155,7 +177,7 @@ Ubuntu에서는? 잘 동작한다. 심지어 Windows 10에 깔린 Ubuntu를 이�
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		파이썬에는 PEP-8이라는 Python Code Style Guide가 있다. 모든 내용을 한 번에 정리하기 어려워서 그냥 코딩하다가 궁금한 것 위주로 정리해 보려고 한다.
- 이번 글에서는 &lsquo;_'(Underscore)가 붙는 변수나 메서드에 관련한 내용을 정리하려고 한다.
+ 이번 글에서는 &lsquo;_&rsquo;(Underscore)가 붙는 변수나 메서드에 관련한 내용을 정리하려고 한다.
 Trailing underscore  _single_leading_underscore: 이런 경우 from M import *에서는 _로 시작하는 object를 import 하지 않는다. single_trailing_underscore_: 파이썬 언어 내에서 사용되는 키워드와의 충돌을 피하기 위해 작성한다. BeautifulSoup에서 HTML의 class를 기준으로 무언가를 찾을 때 class_와 같이 속성을 지정해 줄 때가 있다.
 	</div>
 </article><article class="list__item post">
@@ -234,28 +256,8 @@ sum(iterable[, start]) iterable 객체를 받아서 각 요소들의 합을 구�
 	<div class="content list__excerpt post__content clearfix">
 		이번 글에서는 파이썬에서 테스트 코드를 만들면서 겪었던 시행착오에 대해 소개하고자 한다. 여기서는 파이썬에 내장된 unittest를 이용한다.
 테스트를 수행하는 기준은? 간단한 코드를 만들어 보자. 파일 이름은 aaa.py로 저장한다.
-import unittest class TestExample(unittest.TestCase): def test_a(self): self.assertEqual(1 == 2, False) 그리고 쉘에서 python -m unittest를 입력하면, 아무 테스트도 실행하지 않는다.
+import unittest  class TestExample(unittest.TestCase):  def test_a(self):  self.assertEqual(1 == 2, False) 그리고 쉘에서 python -m unittest를 입력하면, 아무 테스트도 실행하지 않는다.
 $ python -m unittest ---------------------------------------------------------------------- Ran 0 tests in 0.000s OK 왜 그럴까? unittest 라이브러리는 기본적으로 실행하는 top-level 디렉터리에서 test로 시작하는 파일을 찾아서 테스트를 수행한다.
-	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/python-datetime-string-formatting/" rel="bookmark">
-			Python 날짜/시간을 문자열로 만들기 위한 규칙 정리
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2018-05-14T23:24:00&#43;09:00">2018-05-14</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		파이썬을 쓰다 보면 문자열을 다루는 경우가 많은데, 문자열을 특정한 양식에 맞추어야 하는 경우가 종종 있었다. 이 경우 PyFormat과 같은 사이트를 참조한다. 하지만 날짜나 시간을 formatting 할 때는 상세한 규칙이 정리되어 있지 않아서 이 참에 정리를 해 보려고 한다.
-문자열을 넣거나 숫자를 다루는 경우, PyFormat에 자세한 내용이 있어서 생략한다.
-이 글에서는 현재 시간을 datetime 객체로 받고, 이를 가지고 날짜와 시간을 문자열로 formatting 해 볼 것이다. (아래 코드 참조)
-import datetime now = datetime.
 	</div>
 </article>
 </main>
@@ -347,6 +349,7 @@ import datetime now = datetime.
 		<a class="widget-taglist__link widget__link btn" href="/tags/paginator/" title="Paginator">Paginator</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pandas/" title="Pandas">Pandas</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pep-8/" title="pep-8">pep-8</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/professional/" title="Professional">Professional</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/property/" title="property">property</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pulumi/" title="Pulumi">Pulumi</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python</a>
@@ -360,6 +363,7 @@ import datetime now = datetime.
 		<a class="widget-taglist__link widget__link btn" href="/tags/session-manager/" title="Session Manager">Session Manager</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/setter/" title="setter">setter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/simcity/" title="SimCity">SimCity</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/solutions-architect/" title="Solutions Architect">Solutions Architect</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ssl/" title="SSL">SSL</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/standard/" title="Standard">Standard</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/step-functions/" title="Step Functions">Step Functions</a>
@@ -382,6 +386,7 @@ import datetime now = datetime.
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%8B%A0%EC%9E%85-%EC%82%AC%EC%9B%90/" title="신입 사원">신입 사원</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9D%8C%EC%95%85/" title="음악">음악</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9D%B4%EC%A7%81/" title="이직">이직</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9E%90%EA%B2%A9%EC%A6%9D/" title="자격증">자격증</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%B1%85/" title="책">책</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%85%8C%EC%8A%A4%ED%8A%B8/" title="테스트">테스트</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%9A%8C%EA%B3%A0/" title="회고">회고</a>
@@ -424,7 +429,7 @@ import datetime now = datetime.
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2021 Yungon Park.
+			&copy; 2022 Yungon Park.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>

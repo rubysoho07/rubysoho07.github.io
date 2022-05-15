@@ -78,15 +78,15 @@ if (!doNotTrack) {
 <h2 id="sam에서-api-gateway-연동-시-openapi-definition에-awsregion-값을-얻어올-수-없는-이슈">SAM에서 API Gateway 연동 시 OpenAPI Definition에 <code>${AWS::Region}</code> 값을 얻어올 수 없는 이슈</h2>
 <p>참고자료: <a href="https://stackoverflow.com/questions/53582820/unable-to-parse-api-definition-because-of-a-malformed-integration-at-path-pric">Stack Overflow</a></p>
 <p>예를 들어, 다음과 같이 API 정의를 넣었다고 가정해 보겠습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">x-amazon-apigateway-integration</span>:
-  <span style="color:#f92672">httpMethod</span>: <span style="color:#ae81ff">post</span>
-  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">aws</span>
-  <span style="color:#f92672">uri</span>:
-    !<span style="color:#ae81ff">Sub &#34;arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${MyFunction.Arn}/invocations&#34;</span>
-  <span style="color:#f92672">responses</span>:
-    <span style="color:#f92672">default</span>:
-      <span style="color:#f92672">statusCode</span>: <span style="color:#e6db74">&#39;200&#39;</span>
-</code></pre></div><p>위와 같은 API 정의를 넣고 배포하려고 하면, <code>Unable to parse API definition because of a malformed integration at path /...</code>와 같은 에러가 발생하는데요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">x-amazon-apigateway-integration</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">httpMethod</span>: <span style="color:#ae81ff">post</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">aws</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">uri</span>:
+</span></span><span style="display:flex;"><span>    !<span style="color:#ae81ff">Sub &#34;arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${MyFunction.Arn}/invocations&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">responses</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">default</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">statusCode</span>: <span style="color:#e6db74">&#39;200&#39;</span>
+</span></span></code></pre></div><p>위와 같은 API 정의를 넣고 배포하려고 하면, <code>Unable to parse API definition because of a malformed integration at path /...</code>와 같은 에러가 발생하는데요.</p>
 <p>원인은 API Gateway의 제약 사항 때문이라고 합니다. (SAM의 <a href="https://github.com/aws/serverless-application-model/issues/79">GitHub 이슈</a> 참조)</p>
 <p>그래서 함수 이름만(위 예제의 <code>${MyFunction.Arn}</code>으로 표시한 부분) <code>!Sub</code>로 대체하는 것으로 하고, 리전 정보는 하드코딩 하여 우회했습니다.</p>
 <h2 id="sam에서-lambda-layer-arn을-파라미터-스토어에서-가져오려고-할-때-에러-발생-이슈">SAM에서 Lambda Layer ARN을 파라미터 스토어에서 가져오려고 할 때 에러 발생 이슈</h2>
@@ -103,20 +103,20 @@ if (!doNotTrack) {
 <p>이 때는 <code>sam build</code> 명령을 사용할 때 <code>--use-container</code> 옵션을 추가하여 빌드합니다. 다만 Docker를 설치한 뒤, 실행하고 있어야 정상적으로 동작합니다.</p>
 <h2 id="sam으로-이벤트-스케줄을-정할-때-if-condition-true-false-조건이-동작하지-않는-문제">SAM으로 이벤트 스케줄을 정할 때 <code>!If [Condition, true, false]</code> 조건이 동작하지 않는 문제</h2>
 <p>SAM에는 다음과 같이 특정 시간이나 일정한 주기로 Lambda 함수를 수행할 수 있도록 설정하는 기능이 있습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Resources</span>:
-  <span style="color:#f92672">MyLambdaFunction</span>:
-    <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">AWS::Serverless::Function</span>
-    <span style="color:#f92672">Properties</span>:
-      <span style="color:#75715e"># 중간 생략</span>
-      <span style="color:#f92672">Events</span>:
-        <span style="color:#f92672">MyScheduleEvent</span>:
-          <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">Schedule</span>
-          <span style="color:#f92672">Properties</span>:
-            <span style="color:#f92672">Schedule</span>: <span style="color:#ae81ff">rate(5 minutes)</span>
-            <span style="color:#f92672">Name</span>: <span style="color:#ae81ff">my-schedule</span>
-            <span style="color:#f92672">Description</span>: <span style="color:#ae81ff">Example schedule</span>
-            <span style="color:#f92672">Enabled</span>: <span style="color:#66d9ef">True</span>
-</code></pre></div><p>그런데, <code>Schedule</code> 부분에 <code>!If [Condition, True, False]</code>와 같은 방식으로 조건을 주면 배포가 되지 않는 이슈가 있습니다. (GitHub 이슈 참조 - <a href="https://github.com/aws/serverless-application-model/issues/1360">#1360</a>, <a href="https://github.com/aws/serverless-application-model/issues/1329">#1329</a>)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Resources</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">MyLambdaFunction</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">AWS::Serverless::Function</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Properties</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># 중간 생략</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Events</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">MyScheduleEvent</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">Schedule</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">Properties</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">Schedule</span>: <span style="color:#ae81ff">rate(5 minutes)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">Name</span>: <span style="color:#ae81ff">my-schedule</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">Description</span>: <span style="color:#ae81ff">Example schedule</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">Enabled</span>: <span style="color:#66d9ef">True</span>
+</span></span></code></pre></div><p>그런데, <code>Schedule</code> 부분에 <code>!If [Condition, True, False]</code>와 같은 방식으로 조건을 주면 배포가 되지 않는 이슈가 있습니다. (GitHub 이슈 참조 - <a href="https://github.com/aws/serverless-application-model/issues/1360">#1360</a>, <a href="https://github.com/aws/serverless-application-model/issues/1329">#1329</a>)</p>
 <p>이러한 경우, 수동으로 CloudFormation의 <code>AWS::Events::Rule</code> 리소스를 생성하고, Lambda 함수를 타겟으로 지정하는 방법으로 우회할 수 있습니다. (<a href="https://github.com/aws/serverless-application-model/issues/1329#issuecomment-768659579">#1329 이슈의 댓글</a> 참조)</p>
 <p>이에 덧붙여, EventBridge(CloudWatch Events)가 Lambda 함수를 실행할 수 있도록 <code>AWS::Lambda::Permission</code> 리소스를 추가로 생성해 주어야 합니다. (<a href="https://github.com/aws/serverless-application-model/issues/1329#issuecomment-851545027">#1329 이슈의 댓글</a> 참조)</p>
 <h2 id="cloudformation의-conditions">CloudFormation의 Conditions</h2>
@@ -126,63 +126,63 @@ if (!doNotTrack) {
 <li>조건에 따라 값을 다르게 구성하고 싶을 때</li>
 </ul>
 <p>기본적인 구성은 다음과 같습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Conditions</span>:
-  <span style="color:#f92672">Logical ID</span>:
-    <span style="color:#ae81ff">Intrinsic function</span>
-</code></pre></div><p>그리고 예제를 한 번 보시죠.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">AWSTemplateFormatVersion</span>: <span style="color:#e6db74">2010-09-09</span>
-<span style="color:#f92672">Parameters</span>:
-  <span style="color:#f92672">EnvType</span>:
-    <span style="color:#f92672">Description</span>: <span style="color:#ae81ff">Environment type.</span>
-    <span style="color:#f92672">Default</span>: <span style="color:#ae81ff">test</span>
-    <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">String</span>
-    <span style="color:#f92672">AllowedValues</span>:
-      - <span style="color:#ae81ff">prod</span>
-      - <span style="color:#ae81ff">test</span>
-    <span style="color:#f92672">ConstraintDescription</span>: <span style="color:#ae81ff">must specify prod or test.</span>
-<span style="color:#f92672">Conditions</span>:
-  <span style="color:#f92672">CreateProdResources</span>: !<span style="color:#ae81ff">Equals </span>
-    - !<span style="color:#ae81ff">Ref EnvType</span>
-    - <span style="color:#ae81ff">prod</span>
-</code></pre></div><p>위 템플릿으로 스택을 만들 때 <code>EnvType</code>이라는 파라미터가 <code>prod</code>면, <code>CreateProdResources</code> Condition이 true가 됩니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Conditions</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Logical ID</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">Intrinsic function</span>
+</span></span></code></pre></div><p>그리고 예제를 한 번 보시죠.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">AWSTemplateFormatVersion</span>: <span style="color:#e6db74">2010-09-09</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Parameters</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">EnvType</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Description</span>: <span style="color:#ae81ff">Environment type.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Default</span>: <span style="color:#ae81ff">test</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">String</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">AllowedValues</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">prod</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">test</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ConstraintDescription</span>: <span style="color:#ae81ff">must specify prod or test.</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Conditions</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CreateProdResources</span>: !<span style="color:#ae81ff">Equals </span>
+</span></span><span style="display:flex;"><span>    - !<span style="color:#ae81ff">Ref EnvType</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">prod</span>
+</span></span></code></pre></div><p>위 템플릿으로 스택을 만들 때 <code>EnvType</code>이라는 파라미터가 <code>prod</code>면, <code>CreateProdResources</code> Condition이 true가 됩니다.</p>
 <p>이런 조건을 어떻게 사용할 지는 다음 예제를 소개해 드리겠습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Resources</span>:
-  <span style="color:#f92672">EC2Instance</span>:
-    <span style="color:#f92672">Type</span>: <span style="color:#e6db74">&#39;AWS::EC2::Instance&#39;</span>
-    <span style="color:#f92672">Properties</span>:
-      <span style="color:#f92672">ImageId</span>: <span style="color:#ae81ff">ami-0ff8a91507f77f867</span>
-  <span style="color:#f92672">MountPoint</span>:
-    <span style="color:#f92672">Type</span>: <span style="color:#e6db74">&#39;AWS::EC2::VolumeAttachment&#39;</span>
-    <span style="color:#f92672">Condition</span>: <span style="color:#ae81ff">CreateProdResources</span>
-    <span style="color:#f92672">Properties</span>:
-      <span style="color:#f92672">InstanceId</span>: !<span style="color:#ae81ff">Ref EC2Instance</span>
-      <span style="color:#f92672">VolumeId</span>: !<span style="color:#ae81ff">Ref NewVolume</span>
-      <span style="color:#f92672">Device</span>: <span style="color:#ae81ff">/dev/sdh</span>
-  <span style="color:#f92672">NewVolume</span>:
-    <span style="color:#f92672">Type</span>: <span style="color:#e6db74">&#39;AWS::EC2::Volume&#39;</span>
-    <span style="color:#f92672">Condition</span>: <span style="color:#ae81ff">CreateProdResources</span>
-    <span style="color:#f92672">Properties</span>:
-      <span style="color:#f92672">Size</span>: <span style="color:#ae81ff">100</span>
-      <span style="color:#f92672">AvailabilityZone</span>: !<span style="color:#ae81ff">GetAtt </span>
-        - <span style="color:#ae81ff">EC2Instance</span>
-        - <span style="color:#ae81ff">AvailabilityZone</span>
-</code></pre></div><p>위 예제의 경우, 각 리소스에 <code>Condition</code> 속성이 있습니다. 만약 <code>CreateProdResources</code> 속성이 true면 MountPoint와 NewVolume 리소스가 함께 생성될 것입니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Resources</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">EC2Instance</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Type</span>: <span style="color:#e6db74">&#39;AWS::EC2::Instance&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Properties</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">ImageId</span>: <span style="color:#ae81ff">ami-0ff8a91507f77f867</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">MountPoint</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Type</span>: <span style="color:#e6db74">&#39;AWS::EC2::VolumeAttachment&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Condition</span>: <span style="color:#ae81ff">CreateProdResources</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Properties</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">InstanceId</span>: !<span style="color:#ae81ff">Ref EC2Instance</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">VolumeId</span>: !<span style="color:#ae81ff">Ref NewVolume</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Device</span>: <span style="color:#ae81ff">/dev/sdh</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">NewVolume</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Type</span>: <span style="color:#e6db74">&#39;AWS::EC2::Volume&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Condition</span>: <span style="color:#ae81ff">CreateProdResources</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Properties</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Size</span>: <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">AvailabilityZone</span>: !<span style="color:#ae81ff">GetAtt </span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">EC2Instance</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">AvailabilityZone</span>
+</span></span></code></pre></div><p>위 예제의 경우, 각 리소스에 <code>Condition</code> 속성이 있습니다. 만약 <code>CreateProdResources</code> 속성이 true면 MountPoint와 NewVolume 리소스가 함께 생성될 것입니다.</p>
 <p>그리고 조건에 따라 다른 값을 넣도록 하려면, CloudFormation이 제공하는 내장 함수를 이용할 수 있습니다. <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-conditions.html">Condition Functions</a> 문서를 한 번 참고해 보세요.</p>
 <p>예를 들어 아래 예시와 같이, 개발/운영 인프라에 따라 버킷 이름을 바꾸는 방법이 있겠습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Resources</span>:
-  <span style="color:#f92672">MyBucket</span>:
-    <span style="color:#f92672">Type</span>: <span style="color:#e6db74">&#39;AWS::S3::Bucket&#39;</span>
-    <span style="color:#f92672">BucketName</span>: !<span style="color:#ae81ff">If [CreateProdResources, &#39;my-dev-bucket&#39;, &#39;my-ops-bucket&#39;]</span>
-</code></pre></div><h2 id="cloudformation의-fnif-함수의-결과를-array로-할당하려면">CloudFormation의 <code>Fn::If</code> 함수의 결과를 Array로 할당하려면?</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Resources</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">MyBucket</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Type</span>: <span style="color:#e6db74">&#39;AWS::S3::Bucket&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">BucketName</span>: !<span style="color:#ae81ff">If [CreateProdResources, &#39;my-dev-bucket&#39;, &#39;my-ops-bucket&#39;]</span>
+</span></span></code></pre></div><h2 id="cloudformation의-fnif-함수의-결과를-array로-할당하려면">CloudFormation의 <code>Fn::If</code> 함수의 결과를 Array로 할당하려면?</h2>
 <p>YAML로 작성하는 경우, 다음과 같이 작성하면 Array로 들어갑니다. (<a href="https://stackoverflow.com/questions/56970457/how-to-use-fnif-with-array-values-in-cloud-formation-templates">참고자료</a>)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">Value</span>:
-  <span style="color:#f92672">Fn::If</span>:
-    - <span style="color:#ae81ff">MyCondition</span>
-      - - <span style="color:#ae81ff">Value1</span>
-        - <span style="color:#ae81ff">Value2</span>
-      - - <span style="color:#ae81ff">Value3</span>
-        - <span style="color:#ae81ff">Value4</span>
-</code></pre></div><h2 id="delete_failed-상태로-멈춰-있는-cloudformation-스택을-삭제하려면"><code>DELETE_FAILED</code> 상태로 멈춰 있는 CloudFormation 스택을 삭제하려면?</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Value</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Fn::If</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">MyCondition</span>
+</span></span><span style="display:flex;"><span>      - - <span style="color:#ae81ff">Value1</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">Value2</span>
+</span></span><span style="display:flex;"><span>      - - <span style="color:#ae81ff">Value3</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#ae81ff">Value4</span>
+</span></span></code></pre></div><h2 id="delete_failed-상태로-멈춰-있는-cloudformation-스택을-삭제하려면"><code>DELETE_FAILED</code> 상태로 멈춰 있는 CloudFormation 스택을 삭제하려면?</h2>
 <p>여러 이유로 스택 삭제에 실패할 때가 있습니다. <a href="https://aws.amazon.com/ko/premiumsupport/knowledge-center/cloudformation-stack-delete-failed/">이 문서</a>를 참고하세요.</p>
 <h2 id="cloudformation-스택-간-리소스-이동하기">CloudFormation 스택 간 리소스 이동하기</h2>
 <p>CloudFormation은 템플릿에 정의한 리소스들을 스택이라는 이름으로 관리합니다. 만약 스택을 병합하고 싶거나 다른 스택으로 리소스를 이동하려면 <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/refactor-stacks.html">다음 문서</a>를 참고해 보세요.</p>
@@ -234,7 +234,7 @@ if (!doNotTrack) {
 <section class="comments">
 	<div id="disqus_thread"></div>
 <script type="application/javascript">
-    var disqus_config = function () {
+    window.disqus_config = function () {
     
     
     
@@ -262,7 +262,7 @@ if (!doNotTrack) {
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2021 Yungon Park.
+			&copy; 2022 Yungon Park.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>
