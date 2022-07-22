@@ -6,13 +6,31 @@
     <description>Recent content in Tags on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 11 May 2022 23:14:04 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Jul 2022 21:45:26 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWS</title>
       <link>/tags/aws/</link>
-      <pubDate>Wed, 11 May 2022 23:14:04 +0900</pubDate>
+      <pubDate>Sun, 17 Jul 2022 21:45:26 +0900</pubDate>
       
       <guid>/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EKS</title>
+      <link>/tags/eks/</link>
+      <pubDate>Sun, 17 Jul 2022 21:45:26 +0900</pubDate>
+      
+      <guid>/tags/eks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>/tags/kubernetes/</link>
+      <pubDate>Sun, 17 Jul 2022 21:45:26 +0900</pubDate>
+      
+      <guid>/tags/kubernetes/</guid>
       <description></description>
     </item>
     
@@ -193,15 +211,6 @@
       <pubDate>Sat, 31 Jul 2021 20:08:14 +0900</pubDate>
       
       <guid>/tags/container/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>EKS</title>
-      <link>/tags/eks/</link>
-      <pubDate>Sat, 31 Jul 2021 20:08:14 +0900</pubDate>
-      
-      <guid>/tags/eks/</guid>
       <description></description>
     </item>
     

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.98.0" />
+	<meta name="generator" content="Hugo 0.101.0" />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -55,6 +55,25 @@ if (!doNotTrack) {
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/retrospect-2019/" rel="bookmark">
+			Retrospect 2019
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-01-04T15:11:05&#43;09:00">2020-01-04</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		2020년이 된 지 4일이 되었지만, 지난 1년 간에 있었던 일들을 정리해 보려 합니다.
+발표 AWS Summit Seoul 2019 커뮤니티 세션에서 저희 부서의 데이터 저장 기반 구축 사례를 소개했습니다. 다음 영상에서 확인하실 수 있습니다. (슬라이드는 여기를 눌러주세요)
+PyCon Korea 외의 다른 행사에서 발표하는 건 처음이었는데요. 정말 많은 분들이 오셔서 긴장했는데, 어떻게든 잘 넘어갔던 것 같아요. 발표한 내용은 재작년(2018) 말 기준으로 구성했던 내용이고, 현재 저희 팀의 AWS 인프라는 많은 부분이 바뀐 상태입니다. 그리고 작년 AWS Summit을 기점으로 AWSKRUG 내 소모임도 가끔씩 참석하게 되었습니다.
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/retrospect-lecture-for-newbie/" rel="bookmark">
 			신입 사원 교육 후기: 이상과 현실
 			</a>
@@ -86,7 +105,7 @@ if (!doNotTrack) {
 	<div class="content list__excerpt post__content clearfix">
 		왜 SAM을 사용하게 되었나? 시스템 내부에서 관리하는 Lambda 함수들이 늘어나면서, 이를 관리할 방법을 찾아야 했다. 기존에는 Apex를 Lambda 함수 배포에 이용했지만, 뭔가 자동화된 방법을 찾고 싶었다.
 그래서 Serverless Framework, Terraform, SAM과 같은 도구들을 검토해 봤다. 그러다가 SAM을 최종적으로 선택했는데, 이유는 다음과 같다.
-  Serverless Framework는 다양한 클라우드 벤더를 지원하지만, 다른 AWS 서비스를 연동하는 데 제약이 있지 않을까? 하는 막연한 생각이 들었다. (잘 찾아보니 내가 원하는 것들은 구현 가능할 것 같더라.
+Serverless Framework는 다양한 클라우드 벤더를 지원하지만, 다른 AWS 서비스를 연동하는 데 제약이 있지 않을까? 하는 막연한 생각이 들었다. (잘 찾아보니 내가 원하는 것들은 구현 가능할 것 같더라. 내가 잘못 생각했던 것 같다)
 	</div>
 </article><article class="list__item post">
 	
@@ -125,8 +144,8 @@ if (!doNotTrack) {
 (2019년 5월에 서울 리전에 출시되었습니다. 링크한 글을 확인해 주세요~)
 그렇지만 필요에 따라 MongoDB를 쓸 일이 있을 것이다. AWS에서 Bitnami의 이미지를 활용해서 EC2에 MongoDB를 올려보고, 시험 삼아 데이터를 넣어보자.
 EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어간다. 아래 스크린샷과 같은 화면이 나오면, &lsquo;인스턴스 시작&rsquo;을 누른다.
- 그리고 검색어에서 MongoDB를 입력하고, 왼쪽에서 AWS Marketplace를 누른다.
- 스크롤을 아래로 내리다 보면, &lsquo;MongoDB Certified by Bitnami&rsquo;가 있다.
+그리고 검색어에서 MongoDB를 입력하고, 왼쪽에서 AWS Marketplace를 누른다.
+스크롤을 아래로 내리다 보면, &lsquo;MongoDB Certified by Bitnami&rsquo;가 있다.
 	</div>
 </article><article class="list__item post">
 	
@@ -163,10 +182,10 @@ EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어�
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		회사에서 개발한 웹 서비스의 내부 테스트 버전을 배포하고, 다음과 같은 질문을 받았다.
- 박대리님, 서버에서 클라이언트가 몇 명이 접속 중인지 알 수 있는 방법이 있을까요?
- 사실 여러 사람을 대상으로 하는 웹 서비스를 개발하고 배포하는 건 처음이라, 이걸 어떻게 알 수 있는지 궁금하긴 했다.
+박대리님, 서버에서 클라이언트가 몇 명이 접속 중인지 알 수 있는 방법이 있을까요?
+사실 여러 사람을 대상으로 하는 웹 서비스를 개발하고 배포하는 건 처음이라, 이걸 어떻게 알 수 있는지 궁금하긴 했다.
 그래서, how to get the number of connections from web server라는 키워드로 구글 검색을 해 보았다.
- 여기 나오는 문서들 중에서 가장 많이 언급되는 유틸리티가 netstat인데, 여기서 연결 개수를 어떻게 체크해 볼 수 있는지 알아보자.
+여기 나오는 문서들 중에서 가장 많이 언급되는 유틸리티가 netstat인데, 여기서 연결 개수를 어떻게 체크해 볼 수 있는지 알아보자.
 	</div>
 </article><article class="list__item post">
 	
@@ -223,25 +242,6 @@ int a = 0; printf(&#39;%d&#39;, a); 파이썬 또한 이런 방법을 지원한�
 		S3 버킷에는 여러 파일들을 저장할 수 있다. 그런데, 버킷에 저장된 파일의 목록을 보고 싶은 경우가 있을 것이다. 하지만, AWS의 Python SDK인 Boto3에서 list_objects()나 list_objects_v2() 함수를 이용하면 최대 1,000개까지의 object만 가져올 수 있다. [참고] (근본적으로는 AWS의 API가 최대 1,000개까지의 object만 가져오도록 구현되어 있다. - [참고])
 이런 문제를 해결하기 위해, 다음과 같이 Paginator를 이용해 보자.
 Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로 S3를 담당할 클라이언트를 생성한 뒤, get_paginator()로 Paginator를 가져온다. 여기서는 하나의 버킷에서 object들을 가져오기 위해 list_objects_v2를 이용한다.
-	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/step-function-with-python/" rel="bookmark">
-			Python으로 Step Functions 활동 만들기
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2018-10-04T23:21:00&#43;09:00">2018-10-04</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		AWS에는 Step Functions라는 서비스가 있다. 여러 개의 활동(activity)를 조합해서 순서대로 또는 반복적으로 원하는 작업을 실행할 수 있도록 해 주는 서비스이다.
-일반적으로는 여러 개의 Lambda 함수를 연결해서 사용하는 경우가 많다. 하지만 Lambda 함수의 실행 시간이 5분을 넘어가면, 다른 방법을 고려해야 한다. 이럴 때 활동을 생성하고 이를 수행하는 코드를 작성하면, 오래 걸리는 작업도 Step Functions로 이용할 수 있다.
-활동(Activity) 만들기  Step Functions 콘솔의 왼쪽 메뉴에서 활동을 클릭한다. 화면이 바뀌면 우측의 활동 생성을 클릭하여 새로운 활동을 만든다.
 	</div>
 </article>
 </main>
@@ -318,6 +318,7 @@ Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로
 		<a class="widget-taglist__link widget__link btn" href="/tags/iac/" title="IaC">IaC</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/idles/" title="Idles">Idles</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/kafka/" title="Kafka">Kafka</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/kubernetes/" title="Kubernetes">Kubernetes</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/lambda/" title="Lambda">Lambda</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/locust/" title="Locust">Locust</a>

@@ -71,7 +71,7 @@ if (!doNotTrack) {
 fatal: UriFormatException encountered. queryUrl 보통 이런 문제가 발생하면 오류 메시지를 먼저 찾아 보는 편인데, 이상하게 검색이 잘 안 됐었다. (컨디션이 안 좋아서 그랬던가&hellip;-_-) 그러다가 다음과 같은 내용을 발견했다.
 https://github.com/Microsoft/Git-Credential-Manager-for-Windows/issues/587
 내용을 요약하면 다음과 같다.
- Git 원격 저장소의 사용자 이름이 이메일 주소인 경우 이러한 오류가 발생한다. RFC3986에 따르면, URI에 이미 할당되어 있는 문자는 :/?#[]@!$&amp;'()*+,;=이다. @의 경우, %40으로 바꾸면(escaping) 문제를 해결할 수 있다.
+Git 원격 저장소의 사용자 이름이 이메일 주소인 경우 이러한 오류가 발생한다. RFC3986에 따르면, URI에 이미 할당되어 있는 문자는 :/?#[]@!$&amp;'()*+,;=이다. @의 경우, %40으로 바꾸면(escaping) 문제를 해결할 수 있다.
 	</div>
 </article>
 </main>
@@ -144,6 +144,7 @@ https://github.com/Microsoft/Git-Credential-Manager-for-Windows/issues/587
 		<a class="widget-taglist__link widget__link btn" href="/tags/iac/" title="IaC">IaC</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/idles/" title="Idles">Idles</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/kafka/" title="Kafka">Kafka</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/kubernetes/" title="Kubernetes">Kubernetes</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/lambda/" title="Lambda">Lambda</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/locust/" title="Locust">Locust</a>

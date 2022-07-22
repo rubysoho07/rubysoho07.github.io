@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.98.0" />
+	<meta name="generator" content="Hugo 0.101.0" />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -52,6 +52,27 @@ if (!doNotTrack) {
 			
 <main class="main list" role="main">
 	<article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/posts/data-workflow-from-scratch-2/" rel="bookmark">
+			데이터 분석 워크플로우를 처음부터 만들어 보기 (2)
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-04-26T21:20:19&#43;09:00">2021-04-26</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/data-engineering/" rel="category">Data Engineering</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		2월에 올렸던 데이터 분석 워크플로우를 처음부터 만들어 보기에 이어서 작성하는 두번째 글입니다.
+그동안 시도해 봤던 것들은 다음과 같습니다.
+S3 버킷에 원격으로 로그 올리도록 설정하기 Airflow 2.x 버전에서 KubernetesExecutor를 사용하는 데, DAG이나 Task를 수동으로 실행할 때 에러가 발생하는 이유는? DAG에서 DB 이용하기: DB와 관련된 Operator 이용하기, Hooks 이용하기 S3에서 파일을 가져와서 분석하기: S3Hook 테스트 한 환경은 Airflow 2.0.1, 2.0.2 버전입니다.
+전체 내용은 GitHub 저장소에서 확인하실 수 있습니다.
+S3 버킷에 원격으로 로그를 올리도록 설정하기 지난 글에서 시스템 구성으로 KubernetesExecutor를 이용한다고 말씀드렸습니다.
+	</div>
+</article><article class="list__item post">
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
@@ -142,7 +163,7 @@ Locust -&gt; User 클래스 이름 변경 한 명의 사용자를 표현하는 L
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		가끔씩 Python의 map(), filter(), reduce()에 대해 헷갈리는 것들이 있어서 정리해 본다.
-map(function, iterable, &hellip;)  Reference: Python 문서 참조  iterable에 있는 모든 요소에 function을 적용하여 그 결과를 반환한다. function은 여러 인자를 받을 수 있어야 하고, 모든 iterable의 아이템에 동시에 적용되도록 해야 한다.
+map(function, iterable, &hellip;) Reference: Python 문서 참조 iterable에 있는 모든 요소에 function을 적용하여 그 결과를 반환한다. function은 여러 인자를 받을 수 있어야 하고, 모든 iterable의 아이템에 동시에 적용되도록 해야 한다.
 &gt;&gt;&gt; l1 = [1, 2, 3, 4] &gt;&gt;&gt; map(lambda x: x * 2, l1) &lt;map object at 0x1006d1040&gt; map()을 수행한 결과는 map object로 반환되므로, 이를 list나 tuple로 바꾸는 작업이 필요하다.
 	</div>
 </article><article class="list__item post">
@@ -202,7 +223,7 @@ map(function, iterable, &hellip;)  Reference: Python 문서 참조  iterable에 
 이 예제에서는 Pandas를 Lambda Layer로 만들고, Layer를 Lambda 함수에 연결해서 사용해 보려고 한다.
 AWS Lambda(Lambda Layer)의 제한 AWS Lambda에는 Lambda Layer라고 해서 의존성이 필요한 것들을 묶어서 별도의 계층으로 만들어 쓸 수 있도록 하고 있다.
 하지만 이런 기능도 제한이 있으니 한 번 확인해 보자.
-참고 문서  AWS Lambda 제한 AWS Lambda 계층  주요 제한 사항  하나의 함수에서 사용할 수 있는 Layer 수: 5 개 함수와 Layer를 모두 합하여 250 MB를 초과할 수 없음  Pandas Lambda Layer 만들기 Lambda Layer의 내용은 /opt 디렉터리에 들어가게 된다.
+참고 문서 AWS Lambda 제한 AWS Lambda 계층 주요 제한 사항 하나의 함수에서 사용할 수 있는 Layer 수: 5 개 함수와 Layer를 모두 합하여 250 MB를 초과할 수 없음 Pandas Lambda Layer 만들기 Lambda Layer의 내용은 /opt 디렉터리에 들어가게 된다.
 	</div>
 </article><article class="list__item post">
 	
@@ -220,26 +241,7 @@ AWS Lambda(Lambda Layer)의 제한 AWS Lambda에는 Lambda Layer라고 해서 �
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		제 인생의 즐거움 중 가장 큰 것들을 뽑으라면 축구와 락 페스티벌이라 할 수 있습니다. 근데 요즘은 코로나 때문에 락페든 축구든 직관이 불가능한 상황이죠. 그러다 보니 유튜브에서 락 페스티벌 공연 영상을 자주 봤었어요. 원래 알고 있던 노래도 있지만, 새로 알게된 노래들 중 최근에 자주 들었던 노래들을 소개해 드리려고 합니다. 한 편으로는 블로그에 GitHub Actions를 걸어놨는데, 이게 제대로 동작하는지 테스트해 보고 싶어서 쓰는 글이기도 합니다.
-Idles - Danny Nedelko   원래 뮤직비디오도 좋지만, 개인적으로는 작년 글라스톤베리에서 공연했던 영상을 더 좋아합니다.
-	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/retrospect-2019/" rel="bookmark">
-			Retrospect 2019
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-01-04T15:11:05&#43;09:00">2020-01-04</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		2020년이 된 지 4일이 되었지만, 지난 1년 간에 있었던 일들을 정리해 보려 합니다.
-발표 AWS Summit Seoul 2019 커뮤니티 세션에서 저희 부서의 데이터 저장 기반 구축 사례를 소개했습니다. 다음 영상에서 확인하실 수 있습니다. (슬라이드는 여기를 눌러주세요)
-  PyCon Korea 외의 다른 행사에서 발표하는 건 처음이었는데요. 정말 많은 분들이 오셔서 긴장했는데, 어떻게든 잘 넘어갔던 것 같아요. 발표한 내용은 재작년(2018) 말 기준으로 구성했던 내용이고, 현재 저희 팀의 AWS 인프라는 많은 부분이 바뀐 상태입니다.
+Idles - Danny Nedelko 원래 뮤직비디오도 좋지만, 개인적으로는 작년 글라스톤베리에서 공연했던 영상을 더 좋아합니다.
 	</div>
 </article>
 </main>
@@ -316,6 +318,7 @@ Idles - Danny Nedelko   원래 뮤직비디오도 좋지만, 개인적으로는 
 		<a class="widget-taglist__link widget__link btn" href="/tags/iac/" title="IaC">IaC</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/idles/" title="Idles">Idles</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/kafka/" title="Kafka">Kafka</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/kubernetes/" title="Kubernetes">Kubernetes</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/lambda/" title="Lambda">Lambda</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/locust/" title="Locust">Locust</a>

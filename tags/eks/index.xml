@@ -6,7 +6,20 @@
     <description>Recent content in EKS on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 31 Jul 2021 20:08:14 +0900</lastBuildDate><atom:link href="/tags/eks/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Jul 2022 21:45:26 +0900</lastBuildDate><atom:link href="/tags/eks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>eksctl로 생성한 EKS 클러스터의 리소스 살펴 보기</title>
+      <link>/posts/eks-resources-with-eksctl/</link>
+      <pubDate>Sun, 17 Jul 2022 21:45:26 +0900</pubDate>
+      
+      <guid>/posts/eks-resources-with-eksctl/</guid>
+      <description>AWS에서 Kubernetes를 사용하려면 여러 방법이 있겠지만, 가장 편한 방법은 EKS 서비스를 이용하는 것이죠. EKS 클러스터를 생성하는 방법은 여러 가지가 있는데요. 이번 글에서는 eksctl이라는 프로그램을 이용해서 EKS 클러스터를 생성하는 방법을 알아보고, 어떤 리소스를 생성하는지 알아보려고 합니다.
+먼저 Kubernetes 클러스터의 구조를 알아보고, EKS에서는 어떤 차이점이 있는지 알아 보겠습니다.
+Kubernetes 클러스터의 구조와 EKS Kubernetes 클러스터는 다음과 같이 구성되어 있습니다.
+출처: kubernetes.io
+노드(Node): 컨테이너 내의 애플리케이션을 실행하는 서버들의 집합으로, 파드(Pod)는 워커 노드에서 동작합니다. 앞으로 노드 또는 워커 노드라는 말이 계속 등장할텐데, 똑같은 것으로 이해해 주시면 됩니다.</description>
+    </item>
+    
     <item>
       <title>EKS 내 NGINX Ingress에서 NLB와 ACM 연동 방법 살펴보기</title>
       <link>/posts/eks-nlb-acm-test/</link>

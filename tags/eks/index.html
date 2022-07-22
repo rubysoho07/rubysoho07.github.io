@@ -56,6 +56,27 @@ if (!doNotTrack) {
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/eks-resources-with-eksctl/" rel="bookmark">
+			eksctl로 생성한 EKS 클러스터의 리소스 살펴 보기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-07-17T21:45:26&#43;09:00">2022-07-17</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/devops/" rel="category">DevOps</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		AWS에서 Kubernetes를 사용하려면 여러 방법이 있겠지만, 가장 편한 방법은 EKS 서비스를 이용하는 것이죠. EKS 클러스터를 생성하는 방법은 여러 가지가 있는데요. 이번 글에서는 eksctl이라는 프로그램을 이용해서 EKS 클러스터를 생성하는 방법을 알아보고, 어떤 리소스를 생성하는지 알아보려고 합니다.
+먼저 Kubernetes 클러스터의 구조를 알아보고, EKS에서는 어떤 차이점이 있는지 알아 보겠습니다.
+Kubernetes 클러스터의 구조와 EKS Kubernetes 클러스터는 다음과 같이 구성되어 있습니다.
+출처: kubernetes.io
+노드(Node): 컨테이너 내의 애플리케이션을 실행하는 서버들의 집합으로, 파드(Pod)는 워커 노드에서 동작합니다. 앞으로 노드 또는 워커 노드라는 말이 계속 등장할텐데, 똑같은 것으로 이해해 주시면 됩니다.
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/eks-nlb-acm-test/" rel="bookmark">
 			EKS 내 NGINX Ingress에서 NLB와 ACM 연동 방법 살펴보기
 			</a>
@@ -145,6 +166,7 @@ EKS와 NGINX Ingress Controller 사용 저희 팀의 웹 서비스들은 Elastic
 		<a class="widget-taglist__link widget__link btn" href="/tags/iac/" title="IaC">IaC</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/idles/" title="Idles">Idles</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/kafka/" title="Kafka">Kafka</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/kubernetes/" title="Kubernetes">Kubernetes</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/lambda/" title="Lambda">Lambda</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/locust/" title="Locust">Locust</a>
