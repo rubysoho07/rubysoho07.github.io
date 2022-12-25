@@ -6,7 +6,25 @@
     <description>Recent content in Tags on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 17 Jul 2022 21:45:26 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Dec 2022 00:00:00 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>리더십</title>
+      <link>/tags/%EB%A6%AC%EB%8D%94%EC%8B%AD/</link>
+      <pubDate>Sat, 24 Dec 2022 00:00:00 +0900</pubDate>
+      
+      <guid>/tags/%EB%A6%AC%EB%8D%94%EC%8B%AD/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>회고</title>
+      <link>/tags/%ED%9A%8C%EA%B3%A0/</link>
+      <pubDate>Sat, 24 Dec 2022 00:00:00 +0900</pubDate>
+      
+      <guid>/tags/%ED%9A%8C%EA%B3%A0/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>AWS</title>
       <link>/tags/aws/</link>
@@ -76,15 +94,6 @@
       <pubDate>Fri, 31 Dec 2021 21:00:00 +0900</pubDate>
       
       <guid>/tags/%EC%9D%B4%EC%A7%81/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>회고</title>
-      <link>/tags/%ED%9A%8C%EA%B3%A0/</link>
-      <pubDate>Fri, 31 Dec 2021 21:00:00 +0900</pubDate>
-      
-      <guid>/tags/%ED%9A%8C%EA%B3%A0/</guid>
       <description></description>
     </item>
     

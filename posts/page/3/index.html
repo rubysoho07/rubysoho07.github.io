@@ -56,6 +56,24 @@ if (!doNotTrack) {
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/favorite-music-nowadays/" rel="bookmark">
+			요즘 좋아하는 노래들
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-06-13T12:59:28&#43;09:00">2020-06-13</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		제 인생의 즐거움 중 가장 큰 것들을 뽑으라면 축구와 락 페스티벌이라 할 수 있습니다. 근데 요즘은 코로나 때문에 락페든 축구든 직관이 불가능한 상황이죠. 그러다 보니 유튜브에서 락 페스티벌 공연 영상을 자주 봤었어요. 원래 알고 있던 노래도 있지만, 새로 알게된 노래들 중 최근에 자주 들었던 노래들을 소개해 드리려고 합니다. 한 편으로는 블로그에 GitHub Actions를 걸어놨는데, 이게 제대로 동작하는지 테스트해 보고 싶어서 쓰는 글이기도 합니다.
+Idles - Danny Nedelko 원래 뮤직비디오도 좋지만, 개인적으로는 작년 글라스톤베리에서 공연했던 영상을 더 좋아합니다.
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/retrospect-2019/" rel="bookmark">
 			Retrospect 2019
 			</a>
@@ -225,25 +243,6 @@ int a = 0; printf(&#39;%d&#39;, a); 파이썬 또한 이런 방법을 지원한�
 		책 소개 제 주변에는 학교를 졸업하고 만난 분들을 제외하면 개발자로 일하시는 분이 거의 없다시피 합니다. 그러다 보니 저에게 개발자의 업무 또는 어떻게 개발자가 될 수 있는지에 대해 물어보시는 분들이 가끔씩 계십니다. 하지만 저는 경력이 아직 5년이 되지 않았고, 말빨(?)이 약한 편이라 개발자라는 직업에 대해 섣불리 말씀드리기 조심스럽습니다.
 그러던 와중에 &lsquo;인문학도, 개발자되다(마르코 저, 영진닷컴)&rsquo; 라는 책을 접하게 되었습니다. 이 책은 저자인 마르코님이 개발자로 전직을 하게 된 계기와 과정, 개발자로 일하기 위해서 어떤 능력이 필요한지, 그리고 앞으로 어떻게 개발 능력을 키워나가야 될 지에 대해 이야기하고 있습니다.
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/list-over-1000-files-from-s3/" rel="bookmark">
-			S3 버킷의 객체가 1,000개를 넘을 때 객체 목록 조회하기
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2018-11-29T00:38:00&#43;09:00">2018-11-29</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		S3 버킷에는 여러 파일들을 저장할 수 있다. 그런데, 버킷에 저장된 파일의 목록을 보고 싶은 경우가 있을 것이다. 하지만, AWS의 Python SDK인 Boto3에서 list_objects()나 list_objects_v2() 함수를 이용하면 최대 1,000개까지의 object만 가져올 수 있다. [참고] (근본적으로는 AWS의 API가 최대 1,000개까지의 object만 가져오도록 구현되어 있다. - [참고])
-이런 문제를 해결하기 위해, 다음과 같이 Paginator를 이용해 보자.
-Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로 S3를 담당할 클라이언트를 생성한 뒤, get_paginator()로 Paginator를 가져온다. 여기서는 하나의 버킷에서 object들을 가져오기 위해 list_objects_v2를 이용한다.
-	</div>
 </article>
 </main>
 
@@ -364,6 +363,7 @@ Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B5%90%EC%9C%A1/" title="교육">교육</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98/" title="내장 함수">내장 함수</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" title="네트워크">네트워크</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%A6%AC%EB%8D%94%EC%8B%AD/" title="리더십">리더십</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%A6%AC%EB%B7%B0/" title="리뷰">리뷰</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/" title="모니터링">모니터링</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%AC%B8%EC%9E%90%EC%97%B4/" title="문자열">문자열</a>

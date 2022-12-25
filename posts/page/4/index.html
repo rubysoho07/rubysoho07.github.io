@@ -56,6 +56,25 @@ if (!doNotTrack) {
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/list-over-1000-files-from-s3/" rel="bookmark">
+			S3 버킷의 객체가 1,000개를 넘을 때 객체 목록 조회하기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2018-11-29T00:38:00&#43;09:00">2018-11-29</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		S3 버킷에는 여러 파일들을 저장할 수 있다. 그런데, 버킷에 저장된 파일의 목록을 보고 싶은 경우가 있을 것이다. 하지만, AWS의 Python SDK인 Boto3에서 list_objects()나 list_objects_v2() 함수를 이용하면 최대 1,000개까지의 object만 가져올 수 있다. [참고] (근본적으로는 AWS의 API가 최대 1,000개까지의 object만 가져오도록 구현되어 있다. - [참고])
+이런 문제를 해결하기 위해, 다음과 같이 Paginator를 이용해 보자.
+Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로 S3를 담당할 클라이언트를 생성한 뒤, get_paginator()로 Paginator를 가져온다. 여기서는 하나의 버킷에서 object들을 가져오기 위해 list_objects_v2를 이용한다.
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/step-function-with-python/" rel="bookmark">
 			Python으로 Step Functions 활동 만들기
 			</a>
@@ -238,26 +257,6 @@ class property(fget=None, fset=None, fdel=None, doc=None) 페이지 아래에 �
 현재 시간 구하기 / UTC 기준 시간 구하기 현재 시간을 구하기 위해서는 datetime.datetime.now()를 이용한다.
 &gt;&gt;&gt; import datetime &gt;&gt;&gt; datetime.datetime.now() datetime.datetime(2018, 5, 17, 21, 43, 13, 554579) 한편, UTC 기준의 현재 시간을 구하기 위해서는 datetime.
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/python-built-in-functions/" rel="bookmark">
-			몰라서 찾아 봤던 파이썬 내장 함수 모음
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2018-05-16T23:27:00&#43;09:00">2018-05-16</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		파이썬을 쓰다가 필요한 기능이 있어서 찾아 보면, 언어 자체에서 지원하는 기능인 경우가 종종 있었다. 지금까지 파이썬을 다루면서 찾아봤던 내장 함수들을 정리해 본다.
-아래에서 계속 iterable이라는 말을 많이 쓸 것이다. iterable에는 sequence type인 list, str, tuple 뿐만 아니라 non-sequence type인 dict, file object, 그리고 Sequence semantics를 구현하기 위해 __iter__()나 __getitem__() method가 정의되어 있는 클래스의 object 등이 있다. (참고)
-sum(): 각각의 item을 합치기 참고: https://docs.python.org/3/library/functions.html#sum
-sum(iterable[, start]) iterable 객체를 받아서 각 요소들의 합을 구한다.
-	</div>
 </article>
 </main>
 
@@ -378,6 +377,7 @@ sum(iterable[, start]) iterable 객체를 받아서 각 요소들의 합을 구�
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B5%90%EC%9C%A1/" title="교육">교육</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98/" title="내장 함수">내장 함수</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" title="네트워크">네트워크</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%A6%AC%EB%8D%94%EC%8B%AD/" title="리더십">리더십</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%A6%AC%EB%B7%B0/" title="리뷰">리뷰</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/" title="모니터링">모니터링</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%AC%B8%EC%9E%90%EC%97%B4/" title="문자열">문자열</a>

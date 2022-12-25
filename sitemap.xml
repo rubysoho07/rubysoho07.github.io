@@ -2,10 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/tags/aws/</loc>
-    <lastmod>2022-07-17T21:45:26+09:00</lastmod>
+    <loc>/posts/retrospect-2022/</loc>
+    <lastmod>2022-12-24T00:00:00+09:00</lastmod>
   </url><url>
     <loc>/categories/</loc>
+    <lastmod>2022-12-24T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>/categories/everything/</loc>
+    <lastmod>2022-12-24T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2022-12-24T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2022-12-24T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-12-24T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>/tags/%EB%A6%AC%EB%8D%94%EC%8B%AD/</loc>
+    <lastmod>2022-12-24T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>/tags/%ED%9A%8C%EA%B3%A0/</loc>
+    <lastmod>2022-12-24T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>/tags/aws/</loc>
     <lastmod>2022-07-17T21:45:26+09:00</lastmod>
   </url><url>
     <loc>/categories/devops/</loc>
@@ -17,16 +38,7 @@
     <loc>/posts/eks-resources-with-eksctl/</loc>
     <lastmod>2022-07-17T21:45:26+09:00</lastmod>
   </url><url>
-    <loc>/</loc>
-    <lastmod>2022-07-17T21:45:26+09:00</lastmod>
-  </url><url>
     <loc>/tags/kubernetes/</loc>
-    <lastmod>2022-07-17T21:45:26+09:00</lastmod>
-  </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2022-07-17T21:45:26+09:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2022-07-17T21:45:26+09:00</lastmod>
   </url><url>
     <loc>/categories/aws/</loc>
@@ -50,13 +62,7 @@
     <loc>/posts/retrospect-2021/</loc>
     <lastmod>2021-12-31T21:00:00+09:00</lastmod>
   </url><url>
-    <loc>/categories/everything/</loc>
-    <lastmod>2021-12-31T21:00:00+09:00</lastmod>
-  </url><url>
     <loc>/tags/%EC%9D%B4%EC%A7%81/</loc>
-    <lastmod>2021-12-31T21:00:00+09:00</lastmod>
-  </url><url>
-    <loc>/tags/%ED%9A%8C%EA%B3%A0/</loc>
     <lastmod>2021-12-31T21:00:00+09:00</lastmod>
   </url><url>
     <loc>/tags/devops/</loc>

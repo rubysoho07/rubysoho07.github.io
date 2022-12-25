@@ -115,11 +115,11 @@ if (!doNotTrack) {
 <p>test_start, test_stop 이벤트에 리스너를 지정하는 예제는 다음과 같습니다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> locust <span style="color:#f92672">import</span> events
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@events</span><span style="color:#f92672">.</span>test_start<span style="color:#f92672">.</span>add_listener
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@events.test_start.add_listener</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_test_start</span>(environment, <span style="color:#f92672">**</span>kwargs):
 </span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;A new test is starting&#34;</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@events</span><span style="color:#f92672">.</span>test_stop<span style="color:#f92672">.</span>add_listener
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@events.test_stop.add_listener</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_test_stop</span>(environment, <span style="color:#f92672">**</span>kwargs):
 </span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;A new test is ending&#34;</span>)
 </span></span></code></pre></div><ul>
@@ -133,7 +133,7 @@ if (!doNotTrack) {
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> locust <span style="color:#f92672">import</span> events
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> locust.runners <span style="color:#f92672">import</span> MasterRunner
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@events</span><span style="color:#f92672">.</span>init<span style="color:#f92672">.</span>add_listener
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@events.init.add_listener</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_locust_init</span>(environment, <span style="color:#f92672">**</span>kwargs):
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> isinstance(environment<span style="color:#f92672">.</span>runner, MasterRunner):
 </span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;I&#39;m on master node&#34;</span>)
