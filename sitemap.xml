@@ -2,8 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/tags/beta-band/</loc>
+    <lastmod>2023-04-16T22:06:50+09:00</lastmod>
+  </url><url>
     <loc>/categories/</loc>
-    <lastmod>2023-03-19T17:21:21+09:00</lastmod>
+    <lastmod>2023-04-16T22:06:50+09:00</lastmod>
+  </url><url>
+    <loc>/categories/everything/</loc>
+    <lastmod>2023-04-16T22:06:50+09:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2023-04-16T22:06:50+09:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2023-04-16T22:06:50+09:00</lastmod>
+  </url><url>
+    <loc>/tags/spiritualized/</loc>
+    <lastmod>2023-04-16T22:06:50+09:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2023-04-16T22:06:50+09:00</lastmod>
+  </url><url>
+    <loc>/tags/%EB%9F%B0%EB%8D%98/</loc>
+    <lastmod>2023-04-16T22:06:50+09:00</lastmod>
+  </url><url>
+    <loc>/posts/london-record-stores/</loc>
+    <lastmod>2023-04-16T22:06:50+09:00</lastmod>
+  </url><url>
+    <loc>/tags/%EC%9D%8C%EB%B0%98/</loc>
+    <lastmod>2023-04-16T22:06:50+09:00</lastmod>
   </url><url>
     <loc>/tags/devops/</loc>
     <lastmod>2023-03-19T17:21:21+09:00</lastmod>
@@ -11,16 +38,7 @@
     <loc>/categories/devops/</loc>
     <lastmod>2023-03-19T17:21:21+09:00</lastmod>
   </url><url>
-    <loc>/</loc>
-    <lastmod>2023-03-19T17:21:21+09:00</lastmod>
-  </url><url>
     <loc>/tags/iac/</loc>
-    <lastmod>2023-03-19T17:21:21+09:00</lastmod>
-  </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2023-03-19T17:21:21+09:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2023-03-19T17:21:21+09:00</lastmod>
   </url><url>
     <loc>/tags/terraform/</loc>
@@ -30,9 +48,6 @@
     <lastmod>2023-03-19T17:21:21+09:00</lastmod>
   </url><url>
     <loc>/posts/retrospect-2022/</loc>
-    <lastmod>2022-12-24T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>/categories/everything/</loc>
     <lastmod>2022-12-24T00:00:00+09:00</lastmod>
   </url><url>
     <loc>/tags/%EB%A6%AC%EB%8D%94%EC%8B%AD/</loc>
@@ -237,9 +252,6 @@
     <lastmod>2020-06-13T12:59:28+09:00</lastmod>
   </url><url>
     <loc>/tags/belle-and-sebastian/</loc>
-    <lastmod>2020-06-13T12:59:28+09:00</lastmod>
-  </url><url>
-    <loc>/tags/beta-band/</loc>
     <lastmod>2020-06-13T12:59:28+09:00</lastmod>
   </url><url>
     <loc>/tags/idles/</loc>

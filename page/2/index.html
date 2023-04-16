@@ -55,6 +55,28 @@ if (!doNotTrack) {
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/eks-nlb-acm-test/" rel="bookmark">
+			EKS 내 NGINX Ingress에서 NLB와 ACM 연동 방법 살펴보기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-07-31T20:08:14&#43;09:00">2021-07-31</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		최근 팀 내에서 외부 서비스와 연동하는 서비스가 증가하면서, 고정된 IP 주소를 요청하는 경우가 많아졌습니다.
+한편, 대외 서비스가 늘어나다 보니 관리하는 서버의 수가 증가하였습니다. 그렇지만 생각보다 트래픽이 많지 않아 리소스가 낭비되는 경우가 많은데요.
+이러한 상황을 겪으면서 서버의 수를 줄이고, 서비스마다 고정된 IP 주소를 제공할 방법을 찾아보게 되었습니다.
+그러다가 Kubernetes와 Kubernetes의 Ingress를 적절히 활용하여 이러한 요건을 충족하는 방법을 찾아보았습니다.
+이번 글은 그 과정에서 겪었던 이슈를 정리하기 위해 작성하였습니다.
+EKS와 NGINX Ingress Controller 사용 저희 팀의 웹 서비스들은 Elastic Beanstalk를 주로 이용하고 있습니다.
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/boto3-note/" rel="bookmark">
 			Boto3를 쓰면서 겪었던 일들 모음
 			</a>
@@ -227,23 +249,6 @@ map(function, iterable, &hellip;) Reference: Python 문서 참조 iterable에 �
 파일 목록을 검색하고 파일을 쓰고 읽는 부분들이 많아서, 개인적으로는 해 볼 만한 내용이었다고 생각합니다.
 그러면 어떤 차이가 있는지 한 번 살펴보도록 하겠습니다.
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/aws-sam-nested-stack/" rel="bookmark">
-			AWS SAM에서 중첩된 스택 배포 시 유의해야 할 것들
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-06-29T20:58:17&#43;09:00">2020-06-29</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		팀에서 AWS SAM을 적극적으로 사용하고 있는데, SAM을 쓰면서 느낀 점들을 예전에 글로 남긴 적이 있었다. 그런데 SAM은 CloudFormation 스택으로 리소스를 생성하다 보니, CloudFormation의 제약 사항을 그대로 가지고 있다. 예를 들어 하나의 CloudFormation 템플릿에서 선언할 수 있는 리소스 수는 200개를 넘지 않아야 한다는 것이 대표적일 것이다. 이러한 문제를 겪으면서, 많은 리소스로 구성되어 있는 애플리케이션을 여러 스택으로 나누는 작업을 해야 했다. 이 글에서는 하나의 서버리스 애플리케이션을 여러 스택으로 나누는 문제를 해결하면서 겪었던 일들을 기록해 보려고 한다.
-	</div>
 </article>
 </main>
 
@@ -349,6 +354,7 @@ map(function, iterable, &hellip;) Reference: Python 문서 참조 iterable에 �
 		<a class="widget-taglist__link widget__link btn" href="/tags/setter/" title="setter">setter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/simcity/" title="SimCity">SimCity</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/solutions-architect/" title="Solutions Architect">Solutions Architect</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/spiritualized/" title="Spiritualized">Spiritualized</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ssl/" title="SSL">SSL</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/standard/" title="Standard">Standard</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/step-functions/" title="Step Functions">Step Functions</a>
@@ -363,6 +369,7 @@ map(function, iterable, &hellip;) Reference: Python 문서 참조 iterable에 �
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B5%90%EC%9C%A1/" title="교육">교육</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98/" title="내장 함수">내장 함수</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" title="네트워크">네트워크</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%9F%B0%EB%8D%98/" title="런던">런던</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%A6%AC%EB%8D%94%EC%8B%AD/" title="리더십">리더십</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%A6%AC%EB%B7%B0/" title="리뷰">리뷰</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/" title="모니터링">모니터링</a>
@@ -370,6 +377,7 @@ map(function, iterable, &hellip;) Reference: Python 문서 참조 iterable에 �
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%B6%80%ED%95%98-%ED%85%8C%EC%8A%A4%ED%8A%B8/" title="부하 테스트">부하 테스트</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%8B%9C%EA%B0%84%EB%8C%80/" title="시간대">시간대</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%8B%A0%EC%9E%85-%EC%82%AC%EC%9B%90/" title="신입 사원">신입 사원</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9D%8C%EB%B0%98/" title="음반">음반</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9D%8C%EC%95%85/" title="음악">음악</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9D%B4%EC%A7%81/" title="이직">이직</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9E%90%EA%B2%A9%EC%A6%9D/" title="자격증">자격증</a>
