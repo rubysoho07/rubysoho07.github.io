@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring Boot on GoniGoni!</title>
+    <link>/tags/spring-boot/</link>
+    <description>Recent content in Spring Boot on GoniGoni!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Sat, 27 May 2023 22:10:18 +0900</lastBuildDate><atom:link href="/tags/spring-boot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EKS에 올린 Spring Boot 애플리케이션에 IAM Role 연결하기</title>
+      <link>/posts/springboot-iam-role/</link>
+      <pubDate>Sat, 27 May 2023 22:10:18 +0900</pubDate>
+      
+      <guid>/posts/springboot-iam-role/</guid>
+      <description>최근 EKS에 Spring Boot 애플리케이션을 올렸는데, ServiceAccount에 IAM Role을 연결했음에도 AWS API를 호출하지 못하는 문제가 있었습니다. 이 문제를 해결하기 위해 테스트 한 과정을 남겨보려고 합니다.
+우선, AWS의 Java 버전 SDK는 부여된 권한을 어떻게 찾는지 알아보겠습니다. 따로 설정을 하지 않았다면, 아래와 같은 순서로 찾습니다.
+Java의 시스템 properties 환경 변수 AWS의 STS(Security Token Service)로 부터 얻은 Web Identity Token 공유된 credentials, config 파일: 별도의 설정이 없으면 default 프로필을 이용 ECS 컨테이너 credentials EC2 인스턴스에 부여된 IAM Role 그리고 EKS의 IAM Roles for Service Accounts(이후 IRSA로 표기) 기능은 STS(Security Token Service)의 AssumeRoleWithWebIdentity API 호출을 통해 권한을 얻습니다.</description>
+    </item>
+    
+  </channel>
+</rss>

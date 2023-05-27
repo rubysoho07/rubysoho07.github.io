@@ -56,6 +56,25 @@ if (!doNotTrack) {
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/springboot-iam-role/" rel="bookmark">
+			EKS에 올린 Spring Boot 애플리케이션에 IAM Role 연결하기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2023-05-27T22:10:18&#43;09:00">2023-05-27</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/devops/" rel="category">DevOps</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		최근 EKS에 Spring Boot 애플리케이션을 올렸는데, ServiceAccount에 IAM Role을 연결했음에도 AWS API를 호출하지 못하는 문제가 있었습니다. 이 문제를 해결하기 위해 테스트 한 과정을 남겨보려고 합니다.
+우선, AWS의 Java 버전 SDK는 부여된 권한을 어떻게 찾는지 알아보겠습니다. 따로 설정을 하지 않았다면, 아래와 같은 순서로 찾습니다.
+Java의 시스템 properties 환경 변수 AWS의 STS(Security Token Service)로 부터 얻은 Web Identity Token 공유된 credentials, config 파일: 별도의 설정이 없으면 default 프로필을 이용 ECS 컨테이너 credentials EC2 인스턴스에 부여된 IAM Role 그리고 EKS의 IAM Roles for Service Accounts(이후 IRSA로 표기) 기능은 STS(Security Token Service)의 AssumeRoleWithWebIdentity API 호출을 통해 권한을 얻습니다.
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/terraform-workspaces/" rel="bookmark">
 			Terraform Workspaces 기능 정리
 			</a>
@@ -180,7 +199,9 @@ Kubernetes 클러스터의 구조와 EKS Kubernetes 클러스터는 다음과 �
 		<a class="widget-taglist__link widget__link btn" href="/tags/golang/" title="Golang">Golang</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/hadoop/" title="Hadoop">Hadoop</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/iac/" title="IaC">IaC</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/iam/" title="IAM">IAM</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/idles/" title="Idles">Idles</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/java/" title="Java">Java</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/kafka/" title="Kafka">Kafka</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/kubernetes/" title="Kubernetes">Kubernetes</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/lambda/" title="Lambda">Lambda</a>
@@ -213,6 +234,7 @@ Kubernetes 클러스터의 구조와 EKS Kubernetes 클러스터는 다음과 �
 		<a class="widget-taglist__link widget__link btn" href="/tags/simcity/" title="SimCity">SimCity</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/solutions-architect/" title="Solutions Architect">Solutions Architect</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/spiritualized/" title="Spiritualized">Spiritualized</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/spring-boot/" title="Spring Boot">Spring Boot</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ssl/" title="SSL">SSL</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/standard/" title="Standard">Standard</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/step-functions/" title="Step Functions">Step Functions</a>

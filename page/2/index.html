@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.111.3">
+	<meta name="generator" content="Hugo 0.112.3">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -52,6 +52,27 @@ if (!doNotTrack) {
 			
 <main class="main list" role="main">
 	<article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/posts/cloudformation-sam-tmi/" rel="bookmark">
+			CloudFormation과 SAM을 쓰면서 겪었던 일들 모음
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-08-28T15:51:33&#43;09:00">2021-08-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		최근 인프라 구성을 CloudFormation을 이용해서 조정해 보았습니다. 그 과정에서 여러 Lambda 함수를 쓸 때는 SAM으로, 그 외의 경우는 CloudFormation을 사용했는데요.
+이번 작업으로 여러 CloudFormation 스택에 흩어져 있던 리소스를 하나로 모으고, 템플릿의 관리 방식도 좀 더 관리하게 편하도록 설정할 수 있게 되었습니다.
+저희 팀이 여러 IaC(Infrastructure as Code) 툴 중에 왜 SAM과 CloudFormation을 사용하는 이유는 이 문서를 참고해 주세요.
+이번 글은 CloudFormation과 SAM을 쓰면서 겪었던 일들을 정리해 보려고 합니다.
+SAM에서 API Gateway 정의를 SAM Template에 넣기 SAM에서 제공하는 AWS::Serverless::Api 리소스는 AWS Gateway의 REST API를 생성해 주는 기능입니다.
+	</div>
+</article><article class="list__item post">
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
@@ -228,27 +249,6 @@ Locust -&gt; User 클래스 이름 변경 한 명의 사용자를 표현하는 L
 map(function, iterable, &hellip;) Reference: Python 문서 참조 iterable에 있는 모든 요소에 function을 적용하여 그 결과를 반환한다. function은 여러 인자를 받을 수 있어야 하고, 모든 iterable의 아이템에 동시에 적용되도록 해야 한다.
 &gt;&gt;&gt; l1 = [1, 2, 3, 4] &gt;&gt;&gt; map(lambda x: x * 2, l1) &lt;map object at 0x1006d1040&gt; map()을 수행한 결과는 map object로 반환되므로, 이를 list나 tuple로 바꾸는 작업이 필요하다.
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/porting-simcity-backup-to-golang/" rel="bookmark">
-			SimCity 백업 프로그램을 Go로 포팅하기
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-10-19T20:44:49&#43;09:00">2020-10-19</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/go/" rel="category">Go</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		어릴적부터 도시를 짓는 게임을 좋아했습니다. 예전에 심시티 3000을 제 돈 주고 산 걸로 시작해서, 심시티 4를 거쳐 지금은 시티즈 스카이라인을 가끔씩 플레이합니다.
-예전에 쓰던 컴퓨터에서 심시티 4를 돌릴 때 외부에서 받은 건물이나, 제가 만든 도시, 그리고 스크린샷을 백업하는 프로그램을 파이썬으로 만든 적이 있었습니다.
-그러다가 이 프로그램을 Go로 포팅하는 일을 해 보고 싶어서 시도해 보게 되었습니다.
-파일 목록을 검색하고 파일을 쓰고 읽는 부분들이 많아서, 개인적으로는 해 볼 만한 내용이었다고 생각합니다.
-그러면 어떤 차이가 있는지 한 번 살펴보도록 하겠습니다.
-	</div>
 </article>
 </main>
 
@@ -322,7 +322,9 @@ map(function, iterable, &hellip;) Reference: Python 문서 참조 iterable에 �
 		<a class="widget-taglist__link widget__link btn" href="/tags/golang/" title="Golang">Golang</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/hadoop/" title="Hadoop">Hadoop</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/iac/" title="IaC">IaC</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/iam/" title="IAM">IAM</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/idles/" title="Idles">Idles</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/java/" title="Java">Java</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/kafka/" title="Kafka">Kafka</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/kubernetes/" title="Kubernetes">Kubernetes</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/lambda/" title="Lambda">Lambda</a>
@@ -355,6 +357,7 @@ map(function, iterable, &hellip;) Reference: Python 문서 참조 iterable에 �
 		<a class="widget-taglist__link widget__link btn" href="/tags/simcity/" title="SimCity">SimCity</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/solutions-architect/" title="Solutions Architect">Solutions Architect</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/spiritualized/" title="Spiritualized">Spiritualized</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/spring-boot/" title="Spring Boot">Spring Boot</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ssl/" title="SSL">SSL</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/standard/" title="Standard">Standard</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/step-functions/" title="Step Functions">Step Functions</a>
