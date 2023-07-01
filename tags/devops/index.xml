@@ -15,7 +15,7 @@
       <guid>/posts/terraform-workspaces/</guid>
       <description>Terraform에서 개발/운영 환경을 나누기 위해, 폴더/디렉터리를 이용할 때가 있습니다. 하지만 이런 상황도 있죠.
 개발/운영 환경 내 staging/QA 환경이 필요한 경우 테스트를 위해 임시 인프라 구성이 필요한 경우 위와 같은 상황에 대응하기 위해, Terraform에서는 Workspaces 라는 기능을 지원합니다. 이번에는 Terraform의 Workspaces 기능은 무엇인지, 어떻게 사용하면 되는지 알아보려고 합니다.
-Workspaces를 사용하려면? Terraform에서 관리하는 리소스 상태는 backend에 저장합니다. 이러한 데이터는 하나의 workspace에 속합니다. 기본적으로 이런 리소스 상태는 default workspace에 들어 있습니다. 몇몇 backend는 여러 개의 workspe를 지원하며, 하나의 설정과 연결된 여러 상태를 저장할 수 있습니다.</description>
+Workspaces를 사용하려면? Terraform에서 관리하는 리소스 상태는 backend에 저장합니다. 이러한 데이터는 하나의 workspace에 속합니다. 기본적으로 이런 리소스 상태는 default workspace에 들어 있습니다. 몇몇 backend는 여러 개의 workspace를 지원하며, 하나의 설정과 연결된 여러 상태를 저장할 수 있습니다.</description>
     </item>
     
     <item>

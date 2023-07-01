@@ -56,6 +56,28 @@ if (!doNotTrack) {
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/python-datetime-fromtimestamp/" rel="bookmark">
+			Python Datetime의 fromtimestamp() 사용 시 주의할 점
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2018-09-13T00:08:00&#43;09:00">2018-09-13</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		최근에 Timestamp가 있는 데이터를 다루다가, 신기한 버그를 발견하여 여기에 기록해 본다. 해당 문제가 수정된 것 같기는 한데, 아직 배포는 안 된 것 같다.
+Windows에서 발생하는 버그 fromtimestamp 함수의 버그 (Windows)
+해당 이슈에 대해 설명한 부분을 확인하면, 0에서 86399 사이의 값을 입력하면 OSError가 발생한다.
+Ubuntu에서는? 잘 동작한다. 심지어 Windows 10에 깔린 Ubuntu를 이용했고, 3.5.x 버전인데도 멀쩡히 잘 돌아간다.
+Ubuntu에서는 정상적으로 동작한다.
+참고자료 https://bugs.python.org/issue29097 https://docs.python.org/3/whatsnew/changelog.html 
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/python-underscores/" rel="bookmark">
 			Python underscore 관련 naming convention
 			</a>
@@ -280,6 +302,7 @@ $ sed -i &#39;s/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g&#39; &lt;파일 �
 		<a class="widget-taglist__link widget__link btn" href="/tags/git/" title="Git">Git</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/go/" title="Go">Go</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/golang/" title="Golang">Golang</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/google/" title="Google">Google</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/hadoop/" title="Hadoop">Hadoop</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/iac/" title="IaC">IaC</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/iam/" title="IAM">IAM</a>
@@ -315,6 +338,7 @@ $ sed -i &#39;s/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g&#39; &lt;파일 �
 		<a class="widget-taglist__link widget__link btn" href="/tags/session-manager/" title="Session Manager">Session Manager</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/setter/" title="setter">setter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/simcity/" title="SimCity">SimCity</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/software-engineering/" title="Software Engineering">Software Engineering</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/solutions-architect/" title="Solutions Architect">Solutions Architect</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/spiritualized/" title="Spiritualized">Spiritualized</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/spring-boot/" title="Spring Boot">Spring Boot</a>

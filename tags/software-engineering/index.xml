@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Software Engineering on GoniGoni!</title>
+    <link>/tags/software-engineering/</link>
+    <description>Recent content in Software Engineering on GoniGoni!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Tue, 20 Sep 2022 22:16:34 +0900</lastBuildDate><atom:link href="/tags/software-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>책 리뷰 - 구글 엔지니어는 이렇게 일한다</title>
+      <link>/posts/engineering-at-google/</link>
+      <pubDate>Tue, 20 Sep 2022 22:16:34 +0900</pubDate>
+      
+      <guid>/posts/engineering-at-google/</guid>
+      <description>(개인 사비로 책을 구매 후 작성하였습니다.)
+최근에 개발자 분들 뿐만 아니라 개발자가 아닌 분들도 많이 읽으시는 &amp;quot;구글 엔지니어는 이렇게 일한다(원제: Engineering at Google)&amp;quot; 를 읽고 느낀 점들을 이야기 해 보고자 합니다.
+나무위키에 따르면, 구글은 1998년에 설립되어 24년이 넘은 회사입니다. 그만큼 많은 엔지니어들이 대규모의 서비스를 구축하고 운영한 역사가 있고, 이러한 과정에서 배운 것들이 아주 많을 것입니다.
+최근 저의 경험을 돌이켜 보면, 사수가 없이 일하는 경우가 많았습니다. 그리고 지금은 제가 작은 팀을 이끌어야 하는 상황이 되었네요.</description>
+    </item>
+    
+  </channel>
+</rss>

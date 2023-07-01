@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.112.3">
+	<meta name="generator" content="Hugo 0.115.0">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -52,6 +52,25 @@ if (!doNotTrack) {
 			
 <main class="main list" role="main">
 	<article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/posts/python-map-reduce-filter/" rel="bookmark">
+			Python의 map() filter() reduce() 사용 방법 정리
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-11-28T13:13:35&#43;09:00">2020-11-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		가끔씩 Python의 map(), filter(), reduce()에 대해 헷갈리는 것들이 있어서 정리해 본다.
+map(function, iterable, &hellip;) Reference: Python 문서 참조 iterable에 있는 모든 요소에 function을 적용하여 그 결과를 반환한다. function은 여러 인자를 받을 수 있어야 하고, 모든 iterable의 아이템에 동시에 적용되도록 해야 한다.
+&gt;&gt;&gt; l1 = [1, 2, 3, 4] &gt;&gt;&gt; map(lambda x: x * 2, l1) &lt;map object at 0x1006d1040&gt; map()을 수행한 결과는 map object로 반환되므로, 이를 list나 tuple로 바꾸는 작업이 필요하다.
+	</div>
+</article><article class="list__item post">
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
@@ -224,25 +243,6 @@ EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어�
 그리고 검색어에서 MongoDB를 입력하고, 왼쪽에서 AWS Marketplace를 누른다.
 스크롤을 아래로 내리다 보면, &lsquo;MongoDB Certified by Bitnami&rsquo;가 있다.
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/retrospect-2018/" rel="bookmark">
-			2018년 회고
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2019-01-01T18:13:00&#43;09:00">2019-01-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		개인적으로는 변화가 많은 한 해였습니다. 업무의 분야가 바뀌었고, 새로운 환경에 적응해야 했으며, 주로 쓰는 프로그래밍 언어도 바뀌었습니다. 2018년에 일어났던 일들 중 주요한 몇 가지에 대해 다루어 보려고 합니다.
-서비스를 만드는 경험 서비스를 만드는 기업으로 이직하겠다는 생각은 계속 했지만, 이를 행동으로 옮긴 건 작년이 처음이었습니다. 그 과정에서 제가 느낀 점은 두 가지로 요약할 수 있을 것 같아요.
-1. 협업 이야기 저는 서비스를 기반부터 개발하는 경험이 부족했습니다. 교육 분야에서 비슷한 서비스를 개발한 사례가 많지 않아, 특히 데이터를 다루는 서비스를 어떻게 개발하는지에 대해 많이 찾아봤었습니다.
-	</div>
 </article>
 </main>
 
@@ -314,6 +314,7 @@ EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어�
 		<a class="widget-taglist__link widget__link btn" href="/tags/git/" title="Git">Git</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/go/" title="Go">Go</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/golang/" title="Golang">Golang</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/google/" title="Google">Google</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/hadoop/" title="Hadoop">Hadoop</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/iac/" title="IaC">IaC</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/iam/" title="IAM">IAM</a>
@@ -349,6 +350,7 @@ EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어�
 		<a class="widget-taglist__link widget__link btn" href="/tags/session-manager/" title="Session Manager">Session Manager</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/setter/" title="setter">setter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/simcity/" title="SimCity">SimCity</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/software-engineering/" title="Software Engineering">Software Engineering</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/solutions-architect/" title="Solutions Architect">Solutions Architect</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/spiritualized/" title="Spiritualized">Spiritualized</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/spring-boot/" title="Spring Boot">Spring Boot</a>
