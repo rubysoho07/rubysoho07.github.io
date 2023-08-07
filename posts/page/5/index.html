@@ -56,6 +56,27 @@ if (!doNotTrack) {
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/check-lambda-version/" rel="bookmark">
+			AWS Lambda에서 별칭(alias)으로 함수 버전 구분하기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2018-10-02T23:16:00&#43;09:00">2018-10-02</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		test라는 함수가 있고, dev, release라는 별칭(alias)이 존재한다고 하자. 그리고 모든 별칭은 동일한 버전을 가리킨다고 하자.
+이 경우 context 객체의 invoked_function_arn은 어떻게 달라지는지 보자. 테스트를 위해, 다음과 같이 파이썬으로 함수를 작성하였다.
+import json def lambda_handler(event, context): print(context.invoked_function_arn) return &#34;Success&#34; 그리고 CloudWatch에 기록된 로그를 보자.
+dev인 경우
+START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1 arn:aws:lambda:ap-northeast-2:256724228018:function:test:dev END RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Duration: 1.56 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 22 MB release인 경우
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/python-datetime-fromtimestamp/" rel="bookmark">
 			Python Datetime의 fromtimestamp() 사용 시 주의할 점
 			</a>
@@ -280,6 +301,7 @@ $ sed -i &#39;s/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g&#39; &lt;파일 �
 		<a class="widget-taglist__link widget__link btn" href="/tags/2019%EB%85%84/" title="2019년">2019년</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/2020%EB%85%84/" title="2020년">2020년</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/2021%EB%85%84/" title="2021년">2021년</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/2023%EB%85%84/" title="2023년">2023년</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/acm/" title="ACM">ACM</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/airflow/" title="Airflow">Airflow</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/arcade-fire/" title="Arcade Fire">Arcade Fire</a>

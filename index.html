@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.115.0">
+	<meta name="generator" content="Hugo 0.116.1">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -52,6 +52,25 @@ if (!doNotTrack) {
 			
 <main class="main list" role="main">
 	<article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/posts/move-2023/" rel="bookmark">
+			2023년 하반기 이직 후기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2023-08-06T18:00:00&#43;09:00">2023-08-06</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		2022년 펜타포트 락 페스티벌에서 찍은 &lsquo;퇴사&rsquo; 깃발. 퇴사 기념 짤로 쓰고 싶었는데 실패했네요. (이 깃발은 올해에도 등장했습니다)
+회사 상황이 어려워져서 재직 중이던 회사를 떠나게 되었습니다. 이에 의도하지 않은 이직을 하게 되었는데요. 조금 급하게 이직을 한 감이 있지만, 그 과정을 돌아보려고 합니다. 그리고 앞으로 어떻게 커리어를 이어 나갈지에 대해 고민한 내용도 이야기 해 보고자 합니다.
+요약 금번 이직 과정을 정리한 구글 시트. 회사명과 담당자(리크루터, 헤드헌터, 자체 지원)는 숨김 처리 하였습니다.
+	</div>
+</article><article class="list__item post">
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
@@ -221,26 +240,6 @@ Kubernetes 클러스터의 구조와 EKS Kubernetes 클러스터는 다음과 �
 그러다가 알아본 툴 중에 Terraform과 Pulumi가 있는데요. Terraform은 저도 개인적으로 사용해 본 적이 있었고, Pulumi는 익숙한 개발 언어(Python, TypeScript, Golang, &hellip;)로 인프라 구성을 구축할 수 있다고 해서 관심을 갖게 되었습니다.
 이번 글에서는 AWS에서 EC2, S3 Bucket, IAM Policy, Role 정도를 만드는 정도로 테스트해 보겠습니다.
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/python-logging/" rel="bookmark">
-			Python에서 logging으로 로그 만들기
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-10-31T10:58:31&#43;09:00">2021-10-31</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		프로그램이 잘 동작하는 지 확인하고 싶다면, print()를 쓸 때가 많습니다. 하지만 프로그램이 복잡하게 바뀌면서 print()만으로는 감당하기 어려운 상황이 발생합니다.
-그럴 때 어떻게 로그를 만들고 관리할 지를 고민하게 되는데요. 이번 글에서는 Python에서 logging 모듈을 활용해서 어떻게 로그를 관리할 수 있는지 살펴보려고 합니다.
-기본적인 로깅 만들기 logging 모듈을 이용해서 로그를 만드는 방법은 다음과 같습니다.
-import logging logging.critical(&#39;Critical log&#39;) logging.error(&#39;Error log&#39;) logging.warning(&#39;Warning log&#39;) logging.info(&#39;Info log&#39;) logging.debug(&#39;Debug log&#39;) 스크립트를 실행해 보면 다음과 같이 표시됩니다.
-	</div>
 </article>
 </main>
 
@@ -289,6 +288,7 @@ import logging logging.critical(&#39;Critical log&#39;) logging.error(&#39;Error
 		<a class="widget-taglist__link widget__link btn" href="/tags/2019%EB%85%84/" title="2019년">2019년</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/2020%EB%85%84/" title="2020년">2020년</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/2021%EB%85%84/" title="2021년">2021년</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/2023%EB%85%84/" title="2023년">2023년</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/acm/" title="ACM">ACM</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/airflow/" title="Airflow">Airflow</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/arcade-fire/" title="Arcade Fire">Arcade Fire</a>
