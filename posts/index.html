@@ -56,6 +56,24 @@ if (!doNotTrack) {
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/ip-location-api/" rel="bookmark">
+			IP 주소로부터 여러 가지 정보를 가져오기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2023-08-27T18:57:25&#43;09:00">2023-08-27</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/devops/" rel="category">DevOps</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		들어가며 인터넷 서비스를 운영하다 보면 DDoS 공격을 받는 경우가 종종 있습니다. 해킹 목적으로 사이트를 공격한다거나, 경쟁사를 견제하기 위한 목적으로 DDoS 공격을 하는 사례가 있습니다. 그 외에도 실수로 API 호출을 너무 많이 하는 바람에 의도치 않게 상대 서비스를 다운시키는 경우도 있겠죠. 이러한 DDoS 공격을 막기 위해, 클라우드 벤더에서 제공하는 기능이나 여러 회사에서 제공하는 솔루션 제품들을 사용할 수 있습니다.
+이번 글에서는 공격에 사용된 IP 주소 목록이 있을 때, IP 주소의 세부 정보를 얻을 수 있는 방법에 대해 이야기 해 보고자 합니다.
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/move-2023/" rel="bookmark">
 			2023년 하반기 이직 후기
 			</a>
@@ -222,30 +240,11 @@ Kubernetes 클러스터의 구조와 EKS Kubernetes 클러스터는 다음과 �
 예를 들어 작년 10월에 촬영했었던 This is My Architecture 영상이 공개되었다거나, 매월 블로그에 글 하나씩 쓰는 것을 목표로 했는데 목표를 달성했다거나, 낮에는 개발하고 밤에는 복면 쓰고 락 밴드를 하는 사람들을 소재로 소설을 쓰려고 했는데 반 정도만 쓰고 말았다거나, 장롱면허여서 운전 연수를 받았다거나, &hellip; 아무튼 여러 일들이 있었습니다.
 그러다가 &lsquo;시시콜콜한 이야기를 하는 게 무슨 의미가 있나?
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/terraform-vs-pulumi/" rel="bookmark">
-			Terraform vs Pulumi
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-11-20T10:30:24&#43;09:00">2021-11-20</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/devops/" rel="category">DevOps</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		클라우드 환경 내 인프라 구성이 복잡할수록 IaC(Infrastructure as Code) 툴을 고민하게 되는데요. 물론 AWS의 CloudFormation과 같이 클라우드 벤더가 제공하는 서비스가 있지만, 앞으로는 특정 벤더에 종속되는 것을 피하고 싶다는 생각이 들었습니다.
-그러다가 알아본 툴 중에 Terraform과 Pulumi가 있는데요. Terraform은 저도 개인적으로 사용해 본 적이 있었고, Pulumi는 익숙한 개발 언어(Python, TypeScript, Golang, &hellip;)로 인프라 구성을 구축할 수 있다고 해서 관심을 갖게 되었습니다.
-이번 글에서는 AWS에서 EC2, S3 Bucket, IAM Policy, Role 정도를 만드는 정도로 테스트해 보겠습니다.
-	</div>
 </article>
 </main>
 
 <div class="pagination">
-	<span class="pagination__item pagination__item--current">1/5</span>
+	<span class="pagination__item pagination__item--current">1/6</span>
 	<a class="pagination__item pagination__item--next btn" href="/posts/page/2/">»</a>
 </div>
 
@@ -302,6 +301,7 @@ Kubernetes 클러스터의 구조와 EKS Kubernetes 클러스터는 다음과 �
 		<a class="widget-taglist__link widget__link btn" href="/tags/cloudformation/" title="CloudFormation">CloudFormation</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/container/" title="Container">Container</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/datetime/" title="datetime">datetime</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ddos/" title="DDoS">DDoS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/devops/" title="DevOps">DevOps</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ec2/" title="EC2">EC2</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/eks/" title="EKS">EKS</a>
@@ -318,6 +318,7 @@ Kubernetes 클러스터의 구조와 EKS Kubernetes 클러스터는 다음과 �
 		<a class="widget-taglist__link widget__link btn" href="/tags/iac/" title="IaC">IaC</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/iam/" title="IAM">IAM</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/idles/" title="Idles">Idles</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ip-%EC%A3%BC%EC%86%8C/" title="IP 주소">IP 주소</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/java/" title="Java">Java</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/kafka/" title="Kafka">Kafka</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/kubernetes/" title="Kubernetes">Kubernetes</a>

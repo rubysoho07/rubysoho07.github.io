@@ -2,32 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/categories/</loc>
+    <lastmod>2023-08-27T18:57:25+09:00</lastmod>
+  </url><url>
+    <loc>/tags/ddos/</loc>
+    <lastmod>2023-08-27T18:57:25+09:00</lastmod>
+  </url><url>
+    <loc>/categories/devops/</loc>
+    <lastmod>2023-08-27T18:57:25+09:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2023-08-27T18:57:25+09:00</lastmod>
+  </url><url>
+    <loc>/tags/ip-%EC%A3%BC%EC%86%8C/</loc>
+    <lastmod>2023-08-27T18:57:25+09:00</lastmod>
+  </url><url>
+    <loc>/posts/ip-location-api/</loc>
+    <lastmod>2023-08-27T18:57:25+09:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2023-08-27T18:57:25+09:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2023-08-27T18:57:25+09:00</lastmod>
+  </url><url>
     <loc>/tags/2023%EB%85%84/</loc>
     <lastmod>2023-08-06T18:00:00+09:00</lastmod>
   </url><url>
     <loc>/posts/move-2023/</loc>
     <lastmod>2023-08-06T18:00:00+09:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
-    <lastmod>2023-08-06T18:00:00+09:00</lastmod>
-  </url><url>
     <loc>/categories/everything/</loc>
-    <lastmod>2023-08-06T18:00:00+09:00</lastmod>
-  </url><url>
-    <loc>/</loc>
-    <lastmod>2023-08-06T18:00:00+09:00</lastmod>
-  </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2023-08-06T18:00:00+09:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2023-08-06T18:00:00+09:00</lastmod>
   </url><url>
     <loc>/tags/%EC%9D%B4%EC%A7%81/</loc>
     <lastmod>2023-08-06T18:00:00+09:00</lastmod>
-  </url><url>
-    <loc>/categories/devops/</loc>
-    <lastmod>2023-05-27T22:10:18+09:00</lastmod>
   </url><url>
     <loc>/tags/eks/</loc>
     <lastmod>2023-05-27T22:10:18+09:00</lastmod>
