@@ -6,30 +6,21 @@
     <description>Recent content in Kubernetes on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 27 May 2023 22:10:18 +0900</lastBuildDate><atom:link href="/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 May 2023 22:10:18 +0900</lastBuildDate>
+    <atom:link href="/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>EKS에 올린 Spring Boot 애플리케이션에 IAM Role 연결하기</title>
       <link>/posts/springboot-iam-role/</link>
       <pubDate>Sat, 27 May 2023 22:10:18 +0900</pubDate>
-      
       <guid>/posts/springboot-iam-role/</guid>
-      <description>최근 EKS에 Spring Boot 애플리케이션을 올렸는데, ServiceAccount에 IAM Role을 연결했음에도 AWS API를 호출하지 못하는 문제가 있었습니다. 이 문제를 해결하기 위해 테스트 한 과정을 남겨보려고 합니다.
-우선, AWS의 Java 버전 SDK는 부여된 권한을 어떻게 찾는지 알아보겠습니다. 따로 설정을 하지 않았다면, 아래와 같은 순서로 찾습니다.
-Java의 시스템 properties 환경 변수 AWS의 STS(Security Token Service)로 부터 얻은 Web Identity Token 공유된 credentials, config 파일: 별도의 설정이 없으면 default 프로필을 이용 ECS 컨테이너 credentials EC2 인스턴스에 부여된 IAM Role 그리고 EKS의 IAM Roles for Service Accounts(이후 IRSA로 표기) 기능은 STS(Security Token Service)의 AssumeRoleWithWebIdentity API 호출을 통해 권한을 얻습니다.</description>
+      <description>최근 EKS에 Spring Boot 애플리케이션을 올렸는데, ServiceAccount에 IAM Role을 연결했음에도 AWS API를 호출하지 못하는 문제가 있었습니다. 이 문제를 해결하기 위해 테스트 한 과정을 남겨보려고 합니다.&#xA;우선, AWS의 Java 버전 SDK는 부여된 권한을 어떻게 찾는지 알아보겠습니다. 따로 설정을 하지 않았다면, 아래와 같은 순서로 찾습니다.&#xA;Java의 시스템 properties 환경 변수 AWS의 STS(Security Token Service)로 부터 얻은 Web Identity Token 공유된 credentials, config 파일: 별도의 설정이 없으면 default 프로필을 이용 ECS 컨테이너 credentials EC2 인스턴스에 부여된 IAM Role 그리고 EKS의 IAM Roles for Service Accounts(이후 IRSA로 표기) 기능은 STS(Security Token Service)의 AssumeRoleWithWebIdentity API 호출을 통해 권한을 얻습니다.</description>
     </item>
-    
     <item>
       <title>eksctl로 생성한 EKS 클러스터의 리소스 살펴 보기</title>
       <link>/posts/eks-resources-with-eksctl/</link>
       <pubDate>Sun, 17 Jul 2022 21:45:26 +0900</pubDate>
-      
       <guid>/posts/eks-resources-with-eksctl/</guid>
-      <description>AWS에서 Kubernetes를 사용하려면 여러 방법이 있겠지만, 가장 편한 방법은 EKS 서비스를 이용하는 것이죠. EKS 클러스터를 생성하는 방법은 여러 가지가 있는데요. 이번 글에서는 eksctl이라는 프로그램을 이용해서 EKS 클러스터를 생성하는 방법을 알아보고, 어떤 리소스를 생성하는지 알아보려고 합니다.
-먼저 Kubernetes 클러스터의 구조를 알아보고, EKS에서는 어떤 차이점이 있는지 알아 보겠습니다.
-Kubernetes 클러스터의 구조와 EKS Kubernetes 클러스터는 다음과 같이 구성되어 있습니다.
-출처: kubernetes.io
-노드(Node): 컨테이너 내의 애플리케이션을 실행하는 서버들의 집합으로, 파드(Pod)는 워커 노드에서 동작합니다. 앞으로 노드 또는 워커 노드라는 말이 계속 등장할텐데, 똑같은 것으로 이해해 주시면 됩니다.</description>
+      <description>AWS에서 Kubernetes를 사용하려면 여러 방법이 있겠지만, 가장 편한 방법은 EKS 서비스를 이용하는 것이죠. EKS 클러스터를 생성하는 방법은 여러 가지가 있는데요. 이번 글에서는 eksctl이라는 프로그램을 이용해서 EKS 클러스터를 생성하는 방법을 알아보고, 어떤 리소스를 생성하는지 알아보려고 합니다.&#xA;먼저 Kubernetes 클러스터의 구조를 알아보고, EKS에서는 어떤 차이점이 있는지 알아 보겠습니다.&#xA;Kubernetes 클러스터의 구조와 EKS Kubernetes 클러스터는 다음과 같이 구성되어 있습니다.&#xA;출처: kubernetes.io&#xA;노드(Node): 컨테이너 내의 애플리케이션을 실행하는 서버들의 집합으로, 파드(Pod)는 워커 노드에서 동작합니다. 앞으로 노드 또는 워커 노드라는 말이 계속 등장할텐데, 똑같은 것으로 이해해 주시면 됩니다.</description>
     </item>
-    
   </channel>
 </rss>

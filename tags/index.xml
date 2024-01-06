@@ -6,888 +6,707 @@
     <description>Recent content in Tags on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 27 Aug 2023 18:57:25 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Jan 2024 12:00:00 +0900</lastBuildDate>
+    <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>10 주년</title>
+      <link>/tags/10-%EC%A3%BC%EB%85%84/</link>
+      <pubDate>Sat, 06 Jan 2024 12:00:00 +0900</pubDate>
+      <guid>/tags/10-%EC%A3%BC%EB%85%84/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>2023년</title>
+      <link>/tags/2023%EB%85%84/</link>
+      <pubDate>Sat, 06 Jan 2024 12:00:00 +0900</pubDate>
+      <guid>/tags/2023%EB%85%84/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>커리어</title>
+      <link>/tags/%EC%BB%A4%EB%A6%AC%EC%96%B4/</link>
+      <pubDate>Sat, 06 Jan 2024 12:00:00 +0900</pubDate>
+      <guid>/tags/%EC%BB%A4%EB%A6%AC%EC%96%B4/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>회고</title>
+      <link>/tags/%ED%9A%8C%EA%B3%A0/</link>
+      <pubDate>Sat, 06 Jan 2024 12:00:00 +0900</pubDate>
+      <guid>/tags/%ED%9A%8C%EA%B3%A0/</guid>
+      <description></description>
+    </item>
     <item>
       <title>DDoS</title>
       <link>/tags/ddos/</link>
       <pubDate>Sun, 27 Aug 2023 18:57:25 +0900</pubDate>
-      
       <guid>/tags/ddos/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>IP 주소</title>
       <link>/tags/ip-%EC%A3%BC%EC%86%8C/</link>
       <pubDate>Sun, 27 Aug 2023 18:57:25 +0900</pubDate>
-      
       <guid>/tags/ip-%EC%A3%BC%EC%86%8C/</guid>
       <description></description>
     </item>
-    
-    <item>
-      <title>2023년</title>
-      <link>/tags/2023%EB%85%84/</link>
-      <pubDate>Sun, 06 Aug 2023 18:00:00 +0900</pubDate>
-      
-      <guid>/tags/2023%EB%85%84/</guid>
-      <description></description>
-    </item>
-    
     <item>
       <title>이직</title>
       <link>/tags/%EC%9D%B4%EC%A7%81/</link>
       <pubDate>Sun, 06 Aug 2023 18:00:00 +0900</pubDate>
-      
       <guid>/tags/%EC%9D%B4%EC%A7%81/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>EKS</title>
       <link>/tags/eks/</link>
       <pubDate>Sat, 27 May 2023 22:10:18 +0900</pubDate>
-      
       <guid>/tags/eks/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>IAM</title>
       <link>/tags/iam/</link>
       <pubDate>Sat, 27 May 2023 22:10:18 +0900</pubDate>
-      
       <guid>/tags/iam/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Java</title>
       <link>/tags/java/</link>
       <pubDate>Sat, 27 May 2023 22:10:18 +0900</pubDate>
-      
       <guid>/tags/java/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Kubernetes</title>
       <link>/tags/kubernetes/</link>
       <pubDate>Sat, 27 May 2023 22:10:18 +0900</pubDate>
-      
       <guid>/tags/kubernetes/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Spring Boot</title>
       <link>/tags/spring-boot/</link>
       <pubDate>Sat, 27 May 2023 22:10:18 +0900</pubDate>
-      
       <guid>/tags/spring-boot/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Beta Band</title>
       <link>/tags/beta-band/</link>
       <pubDate>Sun, 16 Apr 2023 22:06:50 +0900</pubDate>
-      
       <guid>/tags/beta-band/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Spiritualized</title>
       <link>/tags/spiritualized/</link>
       <pubDate>Sun, 16 Apr 2023 22:06:50 +0900</pubDate>
-      
       <guid>/tags/spiritualized/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>런던</title>
       <link>/tags/%EB%9F%B0%EB%8D%98/</link>
       <pubDate>Sun, 16 Apr 2023 22:06:50 +0900</pubDate>
-      
       <guid>/tags/%EB%9F%B0%EB%8D%98/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>음반</title>
       <link>/tags/%EC%9D%8C%EB%B0%98/</link>
       <pubDate>Sun, 16 Apr 2023 22:06:50 +0900</pubDate>
-      
       <guid>/tags/%EC%9D%8C%EB%B0%98/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>DevOps</title>
       <link>/tags/devops/</link>
       <pubDate>Sun, 19 Mar 2023 17:21:21 +0900</pubDate>
-      
       <guid>/tags/devops/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>IaC</title>
       <link>/tags/iac/</link>
       <pubDate>Sun, 19 Mar 2023 17:21:21 +0900</pubDate>
-      
       <guid>/tags/iac/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Terraform</title>
       <link>/tags/terraform/</link>
       <pubDate>Sun, 19 Mar 2023 17:21:21 +0900</pubDate>
-      
       <guid>/tags/terraform/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>리더십</title>
       <link>/tags/%EB%A6%AC%EB%8D%94%EC%8B%AD/</link>
       <pubDate>Sat, 24 Dec 2022 00:00:00 +0900</pubDate>
-      
       <guid>/tags/%EB%A6%AC%EB%8D%94%EC%8B%AD/</guid>
       <description></description>
     </item>
-    
-    <item>
-      <title>회고</title>
-      <link>/tags/%ED%9A%8C%EA%B3%A0/</link>
-      <pubDate>Sat, 24 Dec 2022 00:00:00 +0900</pubDate>
-      
-      <guid>/tags/%ED%9A%8C%EA%B3%A0/</guid>
-      <description></description>
-    </item>
-    
     <item>
       <title>Google</title>
       <link>/tags/google/</link>
       <pubDate>Tue, 20 Sep 2022 22:16:34 +0900</pubDate>
-      
       <guid>/tags/google/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Software Engineering</title>
       <link>/tags/software-engineering/</link>
       <pubDate>Tue, 20 Sep 2022 22:16:34 +0900</pubDate>
-      
       <guid>/tags/software-engineering/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>AWS</title>
       <link>/tags/aws/</link>
       <pubDate>Sun, 17 Jul 2022 21:45:26 +0900</pubDate>
-      
       <guid>/tags/aws/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Professional</title>
       <link>/tags/professional/</link>
       <pubDate>Wed, 11 May 2022 23:14:04 +0900</pubDate>
-      
       <guid>/tags/professional/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Solutions Architect</title>
       <link>/tags/solutions-architect/</link>
       <pubDate>Wed, 11 May 2022 23:14:04 +0900</pubDate>
-      
       <guid>/tags/solutions-architect/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>자격증</title>
       <link>/tags/%EC%9E%90%EA%B2%A9%EC%A6%9D/</link>
       <pubDate>Wed, 11 May 2022 23:14:04 +0900</pubDate>
-      
       <guid>/tags/%EC%9E%90%EA%B2%A9%EC%A6%9D/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>2021년</title>
       <link>/tags/2021%EB%85%84/</link>
       <pubDate>Fri, 31 Dec 2021 21:00:00 +0900</pubDate>
-      
       <guid>/tags/2021%EB%85%84/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Pulumi</title>
       <link>/tags/pulumi/</link>
       <pubDate>Sat, 20 Nov 2021 10:30:24 +0900</pubDate>
-      
       <guid>/tags/pulumi/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>logging</title>
       <link>/tags/logging/</link>
       <pubDate>Sun, 31 Oct 2021 10:58:31 +0900</pubDate>
-      
       <guid>/tags/logging/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Python</title>
       <link>/tags/python/</link>
       <pubDate>Sun, 31 Oct 2021 10:58:31 +0900</pubDate>
-      
       <guid>/tags/python/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>warning</title>
       <link>/tags/warning/</link>
       <pubDate>Sun, 31 Oct 2021 10:58:31 +0900</pubDate>
-      
       <guid>/tags/warning/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Session Manager</title>
       <link>/tags/session-manager/</link>
       <pubDate>Thu, 30 Sep 2021 14:38:05 +0900</pubDate>
-      
       <guid>/tags/session-manager/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Systems Manager</title>
       <link>/tags/systems-manager/</link>
       <pubDate>Thu, 30 Sep 2021 14:38:05 +0900</pubDate>
-      
       <guid>/tags/systems-manager/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>CloudFormation</title>
       <link>/tags/cloudformation/</link>
       <pubDate>Sat, 28 Aug 2021 15:51:33 +0900</pubDate>
-      
       <guid>/tags/cloudformation/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>SAM</title>
       <link>/tags/sam/</link>
       <pubDate>Sat, 28 Aug 2021 15:51:33 +0900</pubDate>
-      
       <guid>/tags/sam/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Serverless</title>
       <link>/tags/serverless/</link>
       <pubDate>Sat, 28 Aug 2021 15:51:33 +0900</pubDate>
-      
       <guid>/tags/serverless/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>ACM</title>
       <link>/tags/acm/</link>
       <pubDate>Sat, 31 Jul 2021 20:08:14 +0900</pubDate>
-      
       <guid>/tags/acm/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Container</title>
       <link>/tags/container/</link>
       <pubDate>Sat, 31 Jul 2021 20:08:14 +0900</pubDate>
-      
       <guid>/tags/container/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>NLB</title>
       <link>/tags/nlb/</link>
       <pubDate>Sat, 31 Jul 2021 20:08:14 +0900</pubDate>
-      
       <guid>/tags/nlb/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>SSL</title>
       <link>/tags/ssl/</link>
       <pubDate>Sat, 31 Jul 2021 20:08:14 +0900</pubDate>
-      
       <guid>/tags/ssl/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Boto3</title>
       <link>/tags/boto3/</link>
       <pubDate>Mon, 28 Jun 2021 22:34:04 +0900</pubDate>
-      
       <guid>/tags/boto3/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>SDK</title>
       <link>/tags/sdk/</link>
       <pubDate>Mon, 28 Jun 2021 22:34:04 +0900</pubDate>
-      
       <guid>/tags/sdk/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Open Badges</title>
       <link>/tags/open-badges/</link>
       <pubDate>Sat, 01 May 2021 12:55:57 +0900</pubDate>
-      
       <guid>/tags/open-badges/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Standard</title>
       <link>/tags/standard/</link>
       <pubDate>Sat, 01 May 2021 12:55:57 +0900</pubDate>
-      
       <guid>/tags/standard/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Airflow</title>
       <link>/tags/airflow/</link>
       <pubDate>Mon, 26 Apr 2021 21:20:19 +0900</pubDate>
-      
       <guid>/tags/airflow/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Big Data</title>
       <link>/tags/big-data/</link>
       <pubDate>Mon, 26 Apr 2021 21:20:19 +0900</pubDate>
-      
       <guid>/tags/big-data/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Locust</title>
       <link>/tags/locust/</link>
       <pubDate>Tue, 30 Mar 2021 21:53:01 +0900</pubDate>
-      
       <guid>/tags/locust/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>부하 테스트</title>
       <link>/tags/%EB%B6%80%ED%95%98-%ED%85%8C%EC%8A%A4%ED%8A%B8/</link>
       <pubDate>Tue, 30 Mar 2021 21:53:01 +0900</pubDate>
-      
       <guid>/tags/%EB%B6%80%ED%95%98-%ED%85%8C%EC%8A%A4%ED%8A%B8/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Kafka</title>
       <link>/tags/kafka/</link>
       <pubDate>Sun, 24 Jan 2021 19:36:57 +0900</pubDate>
-      
       <guid>/tags/kafka/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>ZooKeeper</title>
       <link>/tags/zookeeper/</link>
       <pubDate>Sun, 24 Jan 2021 19:36:57 +0900</pubDate>
-      
       <guid>/tags/zookeeper/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>2020년</title>
       <link>/tags/2020%EB%85%84/</link>
       <pubDate>Thu, 31 Dec 2020 15:40:13 +0900</pubDate>
-      
       <guid>/tags/2020%EB%85%84/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>filter</title>
       <link>/tags/filter/</link>
       <pubDate>Sat, 28 Nov 2020 13:13:35 +0900</pubDate>
-      
       <guid>/tags/filter/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>map</title>
       <link>/tags/map/</link>
       <pubDate>Sat, 28 Nov 2020 13:13:35 +0900</pubDate>
-      
       <guid>/tags/map/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>reduce</title>
       <link>/tags/reduce/</link>
       <pubDate>Sat, 28 Nov 2020 13:13:35 +0900</pubDate>
-      
       <guid>/tags/reduce/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>내장 함수</title>
       <link>/tags/%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98/</link>
       <pubDate>Sat, 28 Nov 2020 13:13:35 +0900</pubDate>
-      
       <guid>/tags/%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Go</title>
       <link>/tags/go/</link>
       <pubDate>Mon, 19 Oct 2020 20:44:49 +0900</pubDate>
-      
       <guid>/tags/go/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Golang</title>
       <link>/tags/golang/</link>
       <pubDate>Mon, 19 Oct 2020 20:44:49 +0900</pubDate>
-      
       <guid>/tags/golang/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>SimCity</title>
       <link>/tags/simcity/</link>
       <pubDate>Mon, 19 Oct 2020 20:44:49 +0900</pubDate>
-      
       <guid>/tags/simcity/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Lambda</title>
       <link>/tags/lambda/</link>
       <pubDate>Mon, 29 Jun 2020 20:58:17 +0900</pubDate>
-      
       <guid>/tags/lambda/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Pandas</title>
       <link>/tags/pandas/</link>
       <pubDate>Sat, 27 Jun 2020 21:45:40 +0900</pubDate>
-      
       <guid>/tags/pandas/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Arcade Fire</title>
       <link>/tags/arcade-fire/</link>
       <pubDate>Sat, 13 Jun 2020 12:59:28 +0900</pubDate>
-      
       <guid>/tags/arcade-fire/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Belle and Sebastian</title>
       <link>/tags/belle-and-sebastian/</link>
       <pubDate>Sat, 13 Jun 2020 12:59:28 +0900</pubDate>
-      
       <guid>/tags/belle-and-sebastian/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Idles</title>
       <link>/tags/idles/</link>
       <pubDate>Sat, 13 Jun 2020 12:59:28 +0900</pubDate>
-      
       <guid>/tags/idles/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>음악</title>
       <link>/tags/%EC%9D%8C%EC%95%85/</link>
       <pubDate>Sat, 13 Jun 2020 12:59:28 +0900</pubDate>
-      
       <guid>/tags/%EC%9D%8C%EC%95%85/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>2019년</title>
       <link>/tags/2019%EB%85%84/</link>
       <pubDate>Sat, 04 Jan 2020 15:11:05 +0900</pubDate>
-      
       <guid>/tags/2019%EB%85%84/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>교육</title>
       <link>/tags/%EA%B5%90%EC%9C%A1/</link>
       <pubDate>Wed, 01 Jan 2020 20:43:58 +0900</pubDate>
-      
       <guid>/tags/%EA%B5%90%EC%9C%A1/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>신입 사원</title>
       <link>/tags/%EC%8B%A0%EC%9E%85-%EC%82%AC%EC%9B%90/</link>
       <pubDate>Wed, 01 Jan 2020 20:43:58 +0900</pubDate>
-      
       <guid>/tags/%EC%8B%A0%EC%9E%85-%EC%82%AC%EC%9B%90/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>EC2</title>
       <link>/tags/ec2/</link>
       <pubDate>Wed, 16 Oct 2019 21:05:00 +0900</pubDate>
-      
       <guid>/tags/ec2/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Hadoop</title>
       <link>/tags/hadoop/</link>
       <pubDate>Wed, 16 Oct 2019 21:05:00 +0900</pubDate>
-      
       <guid>/tags/hadoop/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>MongoDB</title>
       <link>/tags/mongodb/</link>
       <pubDate>Sat, 16 Feb 2019 22:30:00 +0900</pubDate>
-      
       <guid>/tags/mongodb/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>2018년</title>
       <link>/tags/2018%EB%85%84/</link>
       <pubDate>Tue, 01 Jan 2019 18:13:00 +0900</pubDate>
-      
       <guid>/tags/2018%EB%85%84/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>netstat</title>
       <link>/tags/netstat/</link>
       <pubDate>Tue, 25 Dec 2018 17:15:00 +0900</pubDate>
-      
       <guid>/tags/netstat/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>네트워크</title>
       <link>/tags/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/</link>
       <pubDate>Tue, 25 Dec 2018 17:15:00 +0900</pubDate>
-      
       <guid>/tags/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>모니터링</title>
       <link>/tags/%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/</link>
       <pubDate>Tue, 25 Dec 2018 17:15:00 +0900</pubDate>
-      
       <guid>/tags/%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>format</title>
       <link>/tags/format/</link>
       <pubDate>Sat, 01 Dec 2018 20:54:00 +0900</pubDate>
-      
       <guid>/tags/format/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>문자열</title>
       <link>/tags/%EB%AC%B8%EC%9E%90%EC%97%B4/</link>
       <pubDate>Sat, 01 Dec 2018 20:54:00 +0900</pubDate>
-      
       <guid>/tags/%EB%AC%B8%EC%9E%90%EC%97%B4/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>리뷰</title>
       <link>/tags/%EB%A6%AC%EB%B7%B0/</link>
       <pubDate>Thu, 29 Nov 2018 23:36:00 +0900</pubDate>
-      
       <guid>/tags/%EB%A6%AC%EB%B7%B0/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>책</title>
       <link>/tags/%EC%B1%85/</link>
       <pubDate>Thu, 29 Nov 2018 23:36:00 +0900</pubDate>
-      
       <guid>/tags/%EC%B1%85/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Paginator</title>
       <link>/tags/paginator/</link>
       <pubDate>Thu, 29 Nov 2018 00:38:00 +0900</pubDate>
-      
       <guid>/tags/paginator/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>S3</title>
       <link>/tags/s3/</link>
       <pubDate>Thu, 29 Nov 2018 00:38:00 +0900</pubDate>
-      
       <guid>/tags/s3/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Step Functions</title>
       <link>/tags/step-functions/</link>
       <pubDate>Thu, 04 Oct 2018 23:21:00 +0900</pubDate>
-      
       <guid>/tags/step-functions/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>font</title>
       <link>/tags/font/</link>
       <pubDate>Thu, 04 Oct 2018 21:34:00 +0900</pubDate>
-      
       <guid>/tags/font/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>oh-my-zsh</title>
       <link>/tags/oh-my-zsh/</link>
       <pubDate>Thu, 04 Oct 2018 21:34:00 +0900</pubDate>
-      
       <guid>/tags/oh-my-zsh/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Visual Studio Code</title>
       <link>/tags/visual-studio-code/</link>
       <pubDate>Thu, 04 Oct 2018 21:34:00 +0900</pubDate>
-      
       <guid>/tags/visual-studio-code/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>VSCode</title>
       <link>/tags/vscode/</link>
       <pubDate>Thu, 04 Oct 2018 21:34:00 +0900</pubDate>
-      
       <guid>/tags/vscode/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>zsh</title>
       <link>/tags/zsh/</link>
       <pubDate>Thu, 04 Oct 2018 21:34:00 +0900</pubDate>
-      
       <guid>/tags/zsh/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>MySQL</title>
       <link>/tags/mysql/</link>
       <pubDate>Wed, 03 Oct 2018 14:24:00 +0900</pubDate>
-      
       <guid>/tags/mysql/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>RDS</title>
       <link>/tags/rds/</link>
       <pubDate>Wed, 03 Oct 2018 14:24:00 +0900</pubDate>
-      
       <guid>/tags/rds/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Git</title>
       <link>/tags/git/</link>
       <pubDate>Tue, 02 Oct 2018 23:46:00 +0900</pubDate>
-      
       <guid>/tags/git/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>datetime</title>
       <link>/tags/datetime/</link>
       <pubDate>Thu, 13 Sep 2018 00:08:00 +0900</pubDate>
-      
       <guid>/tags/datetime/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>fromtimestamp</title>
       <link>/tags/fromtimestamp/</link>
       <pubDate>Thu, 13 Sep 2018 00:08:00 +0900</pubDate>
-      
       <guid>/tags/fromtimestamp/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>pep-8</title>
       <link>/tags/pep-8/</link>
       <pubDate>Sat, 26 May 2018 10:32:00 +0900</pubDate>
-      
       <guid>/tags/pep-8/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>underscore</title>
       <link>/tags/underscore/</link>
       <pubDate>Sat, 26 May 2018 10:32:00 +0900</pubDate>
-      
       <guid>/tags/underscore/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>getter</title>
       <link>/tags/getter/</link>
       <pubDate>Fri, 18 May 2018 23:36:00 +0900</pubDate>
-      
       <guid>/tags/getter/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>property</title>
       <link>/tags/property/</link>
       <pubDate>Fri, 18 May 2018 23:36:00 +0900</pubDate>
-      
       <guid>/tags/property/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>setter</title>
       <link>/tags/setter/</link>
       <pubDate>Fri, 18 May 2018 23:36:00 +0900</pubDate>
-      
       <guid>/tags/setter/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>시간대</title>
       <link>/tags/%EC%8B%9C%EA%B0%84%EB%8C%80/</link>
       <pubDate>Thu, 17 May 2018 22:06:00 +0900</pubDate>
-      
       <guid>/tags/%EC%8B%9C%EA%B0%84%EB%8C%80/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>테스트</title>
       <link>/tags/%ED%85%8C%EC%8A%A4%ED%8A%B8/</link>
       <pubDate>Tue, 15 May 2018 22:35:00 +0900</pubDate>
-      
       <guid>/tags/%ED%85%8C%EC%8A%A4%ED%8A%B8/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Linux</title>
       <link>/tags/linux/</link>
       <pubDate>Sat, 21 Apr 2018 21:09:00 +0900</pubDate>
-      
       <guid>/tags/linux/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>sed</title>
       <link>/tags/sed/</link>
       <pubDate>Sat, 21 Apr 2018 21:09:00 +0900</pubDate>
-      
       <guid>/tags/sed/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

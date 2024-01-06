@@ -6,19 +6,14 @@
     <description>Recent content in SimCity on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 19 Oct 2020 20:44:49 +0900</lastBuildDate><atom:link href="/tags/simcity/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Oct 2020 20:44:49 +0900</lastBuildDate>
+    <atom:link href="/tags/simcity/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SimCity 백업 프로그램을 Go로 포팅하기</title>
       <link>/posts/porting-simcity-backup-to-golang/</link>
       <pubDate>Mon, 19 Oct 2020 20:44:49 +0900</pubDate>
-      
       <guid>/posts/porting-simcity-backup-to-golang/</guid>
-      <description>어릴적부터 도시를 짓는 게임을 좋아했습니다. 예전에 심시티 3000을 제 돈 주고 산 걸로 시작해서, 심시티 4를 거쳐 지금은 시티즈 스카이라인을 가끔씩 플레이합니다.
-예전에 쓰던 컴퓨터에서 심시티 4를 돌릴 때 외부에서 받은 건물이나, 제가 만든 도시, 그리고 스크린샷을 백업하는 프로그램을 파이썬으로 만든 적이 있었습니다.
-그러다가 이 프로그램을 Go로 포팅하는 일을 해 보고 싶어서 시도해 보게 되었습니다.
-파일 목록을 검색하고 파일을 쓰고 읽는 부분들이 많아서, 개인적으로는 해 볼 만한 내용이었다고 생각합니다.
-그러면 어떤 차이가 있는지 한 번 살펴보도록 하겠습니다.</description>
+      <description>어릴적부터 도시를 짓는 게임을 좋아했습니다. 예전에 심시티 3000을 제 돈 주고 산 걸로 시작해서, 심시티 4를 거쳐 지금은 시티즈 스카이라인을 가끔씩 플레이합니다.&#xA;예전에 쓰던 컴퓨터에서 심시티 4를 돌릴 때 외부에서 받은 건물이나, 제가 만든 도시, 그리고 스크린샷을 백업하는 프로그램을 파이썬으로 만든 적이 있었습니다.&#xA;그러다가 이 프로그램을 Go로 포팅하는 일을 해 보고 싶어서 시도해 보게 되었습니다.&#xA;파일 목록을 검색하고 파일을 쓰고 읽는 부분들이 많아서, 개인적으로는 해 볼 만한 내용이었다고 생각합니다.&#xA;그러면 어떤 차이가 있는지 한 번 살펴보도록 하겠습니다.</description>
     </item>
-    
   </channel>
 </rss>

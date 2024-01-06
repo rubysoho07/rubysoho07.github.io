@@ -6,28 +6,21 @@
     <description>Recent content in Terraform on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 19 Mar 2023 17:21:21 +0900</lastBuildDate><atom:link href="/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Mar 2023 17:21:21 +0900</lastBuildDate>
+    <atom:link href="/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Terraform Workspaces 기능 정리</title>
       <link>/posts/terraform-workspaces/</link>
       <pubDate>Sun, 19 Mar 2023 17:21:21 +0900</pubDate>
-      
       <guid>/posts/terraform-workspaces/</guid>
-      <description>Terraform에서 개발/운영 환경을 나누기 위해, 폴더/디렉터리를 이용할 때가 있습니다. 하지만 이런 상황도 있죠.
-개발/운영 환경 내 staging/QA 환경이 필요한 경우 테스트를 위해 임시 인프라 구성이 필요한 경우 위와 같은 상황에 대응하기 위해, Terraform에서는 Workspaces 라는 기능을 지원합니다. 이번에는 Terraform의 Workspaces 기능은 무엇인지, 어떻게 사용하면 되는지 알아보려고 합니다.
-Workspaces를 사용하려면? Terraform에서 관리하는 리소스 상태는 backend에 저장합니다. 이러한 데이터는 하나의 workspace에 속합니다. 기본적으로 이런 리소스 상태는 default workspace에 들어 있습니다. 몇몇 backend는 여러 개의 workspace를 지원하며, 하나의 설정과 연결된 여러 상태를 저장할 수 있습니다.</description>
+      <description>Terraform에서 개발/운영 환경을 나누기 위해, 폴더/디렉터리를 이용할 때가 있습니다. 하지만 이런 상황도 있죠.&#xA;개발/운영 환경 내 staging/QA 환경이 필요한 경우 테스트를 위해 임시 인프라 구성이 필요한 경우 위와 같은 상황에 대응하기 위해, Terraform에서는 Workspaces 라는 기능을 지원합니다. 이번에는 Terraform의 Workspaces 기능은 무엇인지, 어떻게 사용하면 되는지 알아보려고 합니다.&#xA;Workspaces를 사용하려면? Terraform에서 관리하는 리소스 상태는 backend에 저장합니다. 이러한 데이터는 하나의 workspace에 속합니다. 기본적으로 이런 리소스 상태는 default workspace에 들어 있습니다. 몇몇 backend는 여러 개의 workspace를 지원하며, 하나의 설정과 연결된 여러 상태를 저장할 수 있습니다.</description>
     </item>
-    
     <item>
       <title>Terraform vs Pulumi</title>
       <link>/posts/terraform-vs-pulumi/</link>
       <pubDate>Sat, 20 Nov 2021 10:30:24 +0900</pubDate>
-      
       <guid>/posts/terraform-vs-pulumi/</guid>
-      <description>클라우드 환경 내 인프라 구성이 복잡할수록 IaC(Infrastructure as Code) 툴을 고민하게 되는데요. 물론 AWS의 CloudFormation과 같이 클라우드 벤더가 제공하는 서비스가 있지만, 앞으로는 특정 벤더에 종속되는 것을 피하고 싶다는 생각이 들었습니다.
-그러다가 알아본 툴 중에 Terraform과 Pulumi가 있는데요. Terraform은 저도 개인적으로 사용해 본 적이 있었고, Pulumi는 익숙한 개발 언어(Python, TypeScript, Golang, &amp;hellip;)로 인프라 구성을 구축할 수 있다고 해서 관심을 갖게 되었습니다.
-이번 글에서는 AWS에서 EC2, S3 Bucket, IAM Policy, Role 정도를 만드는 정도로 테스트해 보겠습니다.</description>
+      <description>클라우드 환경 내 인프라 구성이 복잡할수록 IaC(Infrastructure as Code) 툴을 고민하게 되는데요. 물론 AWS의 CloudFormation과 같이 클라우드 벤더가 제공하는 서비스가 있지만, 앞으로는 특정 벤더에 종속되는 것을 피하고 싶다는 생각이 들었습니다.&#xA;그러다가 알아본 툴 중에 Terraform과 Pulumi가 있는데요. Terraform은 저도 개인적으로 사용해 본 적이 있었고, Pulumi는 익숙한 개발 언어(Python, TypeScript, Golang, &amp;hellip;)로 인프라 구성을 구축할 수 있다고 해서 관심을 갖게 되었습니다.&#xA;이번 글에서는 AWS에서 EC2, S3 Bucket, IAM Policy, Role 정도를 만드는 정도로 테스트해 보겠습니다.</description>
     </item>
-    
   </channel>
 </rss>

@@ -6,17 +6,14 @@
     <description>Recent content in S3 on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 29 Nov 2018 00:38:00 +0900</lastBuildDate><atom:link href="/tags/s3/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Nov 2018 00:38:00 +0900</lastBuildDate>
+    <atom:link href="/tags/s3/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>S3 버킷의 객체가 1,000개를 넘을 때 객체 목록 조회하기</title>
       <link>/posts/list-over-1000-files-from-s3/</link>
       <pubDate>Thu, 29 Nov 2018 00:38:00 +0900</pubDate>
-      
       <guid>/posts/list-over-1000-files-from-s3/</guid>
-      <description>S3 버킷에는 여러 파일들을 저장할 수 있다. 그런데, 버킷에 저장된 파일의 목록을 보고 싶은 경우가 있을 것이다. 하지만, AWS의 Python SDK인 Boto3에서 list_objects()나 list_objects_v2() 함수를 이용하면 최대 1,000개까지의 object만 가져올 수 있다. [참고] (근본적으로는 AWS의 API가 최대 1,000개까지의 object만 가져오도록 구현되어 있다. - [참고])
-이런 문제를 해결하기 위해, 다음과 같이 Paginator를 이용해 보자.
-Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로 S3를 담당할 클라이언트를 생성한 뒤, get_paginator()로 Paginator를 가져온다. 여기서는 하나의 버킷에서 object들을 가져오기 위해 list_objects_v2를 이용한다.</description>
+      <description>S3 버킷에는 여러 파일들을 저장할 수 있다. 그런데, 버킷에 저장된 파일의 목록을 보고 싶은 경우가 있을 것이다. 하지만, AWS의 Python SDK인 Boto3에서 list_objects()나 list_objects_v2() 함수를 이용하면 최대 1,000개까지의 object만 가져올 수 있다. [참고] (근본적으로는 AWS의 API가 최대 1,000개까지의 object만 가져오도록 구현되어 있다. - [참고])&#xA;이런 문제를 해결하기 위해, 다음과 같이 Paginator를 이용해 보자.&#xA;Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로 S3를 담당할 클라이언트를 생성한 뒤, get_paginator()로 Paginator를 가져온다. 여기서는 하나의 버킷에서 object들을 가져오기 위해 list_objects_v2를 이용한다.</description>
     </item>
-    
   </channel>
 </rss>

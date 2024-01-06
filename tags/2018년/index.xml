@@ -6,17 +6,14 @@
     <description>Recent content in 2018년 on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 01 Jan 2019 18:13:00 +0900</lastBuildDate><atom:link href="/tags/2018%EB%85%84/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Jan 2019 18:13:00 +0900</lastBuildDate>
+    <atom:link href="/tags/2018%EB%85%84/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2018년 회고</title>
       <link>/posts/retrospect-2018/</link>
       <pubDate>Tue, 01 Jan 2019 18:13:00 +0900</pubDate>
-      
       <guid>/posts/retrospect-2018/</guid>
-      <description>개인적으로는 변화가 많은 한 해였습니다. 업무의 분야가 바뀌었고, 새로운 환경에 적응해야 했으며, 주로 쓰는 프로그래밍 언어도 바뀌었습니다. 2018년에 일어났던 일들 중 주요한 몇 가지에 대해 다루어 보려고 합니다.
-서비스를 만드는 경험 서비스를 만드는 기업으로 이직하겠다는 생각은 계속 했지만, 이를 행동으로 옮긴 건 작년이 처음이었습니다. 그 과정에서 제가 느낀 점은 두 가지로 요약할 수 있을 것 같아요.
-1. 협업 이야기 저는 서비스를 기반부터 개발하는 경험이 부족했습니다. 교육 분야에서 비슷한 서비스를 개발한 사례가 많지 않아, 특히 데이터를 다루는 서비스를 어떻게 개발하는지에 대해 많이 찾아봤었습니다.</description>
+      <description>개인적으로는 변화가 많은 한 해였습니다. 업무의 분야가 바뀌었고, 새로운 환경에 적응해야 했으며, 주로 쓰는 프로그래밍 언어도 바뀌었습니다. 2018년에 일어났던 일들 중 주요한 몇 가지에 대해 다루어 보려고 합니다.&#xA;서비스를 만드는 경험 서비스를 만드는 기업으로 이직하겠다는 생각은 계속 했지만, 이를 행동으로 옮긴 건 작년이 처음이었습니다. 그 과정에서 제가 느낀 점은 두 가지로 요약할 수 있을 것 같아요.&#xA;1. 협업 이야기 저는 서비스를 기반부터 개발하는 경험이 부족했습니다. 교육 분야에서 비슷한 서비스를 개발한 사례가 많지 않아, 특히 데이터를 다루는 서비스를 어떻게 개발하는지에 대해 많이 찾아봤었습니다.</description>
     </item>
-    
   </channel>
 </rss>

@@ -6,44 +6,28 @@
     <description>Recent content in Linux on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 25 Dec 2018 17:15:00 +0900</lastBuildDate><atom:link href="/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Dec 2018 17:15:00 +0900</lastBuildDate>
+    <atom:link href="/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Netstat으로 리눅스 서버에서 클라이언트 접속 확인하기</title>
       <link>/posts/how-to-see-netstat/</link>
       <pubDate>Tue, 25 Dec 2018 17:15:00 +0900</pubDate>
-      
       <guid>/posts/how-to-see-netstat/</guid>
-      <description>회사에서 개발한 웹 서비스의 내부 테스트 버전을 배포하고, 다음과 같은 질문을 받았다.
-박대리님, 서버에서 클라이언트가 몇 명이 접속 중인지 알 수 있는 방법이 있을까요?
-사실 여러 사람을 대상으로 하는 웹 서비스를 개발하고 배포하는 건 처음이라, 이걸 어떻게 알 수 있는지 궁금하긴 했다.
-그래서, how to get the number of connections from web server라는 키워드로 구글 검색을 해 보았다.
-여기 나오는 문서들 중에서 가장 많이 언급되는 유틸리티가 netstat인데, 여기서 연결 개수를 어떻게 체크해 볼 수 있는지 알아보자.</description>
+      <description>회사에서 개발한 웹 서비스의 내부 테스트 버전을 배포하고, 다음과 같은 질문을 받았다.&#xA;박대리님, 서버에서 클라이언트가 몇 명이 접속 중인지 알 수 있는 방법이 있을까요?&#xA;사실 여러 사람을 대상으로 하는 웹 서비스를 개발하고 배포하는 건 처음이라, 이걸 어떻게 알 수 있는지 궁금하긴 했다.&#xA;그래서, how to get the number of connections from web server라는 키워드로 구글 검색을 해 보았다.&#xA;여기 나오는 문서들 중에서 가장 많이 언급되는 유틸리티가 netstat인데, 여기서 연결 개수를 어떻게 체크해 볼 수 있는지 알아보자.</description>
     </item>
-    
     <item>
       <title>VSCode와 oh-my-zsh를 사용할 때 터미널 글꼴이 깨진다면</title>
       <link>/posts/vscode-oh-my-zsh/</link>
       <pubDate>Thu, 04 Oct 2018 21:34:00 +0900</pubDate>
-      
       <guid>/posts/vscode-oh-my-zsh/</guid>
-      <description>최근에 oh-my-zsh를 써 보기 시작했다. (써보면 편하다고는 하는데, 아직까지는 체감을 못하고 있긴 하다.)
-그런데 Visual Studio Code에서 터미널을 쓸 때, 아래처럼 글꼴이 깨지는 현상이 있었다. (현재 테마는 &amp;ldquo;agnoster&amp;quot;이다.)
-이 문제에 대해 찾아보니, 다음과 같은 이슈를 발견할 수 있었다.
-https://github.com/Microsoft/vscode/issues/7116
-여기서 제시하는 해결책은 다음과 같다.
-&amp;ldquo;SourceCodePro+Powerline+Awesome Regular&amp;rdquo; 글꼴을 받아 설치한다. 링크 Visual Studio Code 설정에서 terminal.integrated.fontFamily 항목에 &#39;SourceCodePro+Powerline+Awesome Regular&#39;를 넣는다. (작은 따옴표를 포함해야 한다!) 그러면 아래와 같이 터미널의 글꼴이 깨지지 않게 된다.</description>
+      <description>최근에 oh-my-zsh를 써 보기 시작했다. (써보면 편하다고는 하는데, 아직까지는 체감을 못하고 있긴 하다.)&#xA;그런데 Visual Studio Code에서 터미널을 쓸 때, 아래처럼 글꼴이 깨지는 현상이 있었다. (현재 테마는 &amp;ldquo;agnoster&amp;quot;이다.)&#xA;이 문제에 대해 찾아보니, 다음과 같은 이슈를 발견할 수 있었다.&#xA;https://github.com/Microsoft/vscode/issues/7116&#xA;여기서 제시하는 해결책은 다음과 같다.&#xA;&amp;ldquo;SourceCodePro+Powerline+Awesome Regular&amp;rdquo; 글꼴을 받아 설치한다. 링크 Visual Studio Code 설정에서 terminal.integrated.fontFamily 항목에 &#39;SourceCodePro+Powerline+Awesome Regular&#39;를 넣는다. (작은 따옴표를 포함해야 한다!) 그러면 아래와 같이 터미널의 글꼴이 깨지지 않게 된다.</description>
     </item>
-    
     <item>
       <title>sed를 이용한 텍스트 파일 바꾸기</title>
       <link>/posts/use-sed-to-replace-text/</link>
       <pubDate>Sat, 21 Apr 2018 21:09:00 +0900</pubDate>
-      
       <guid>/posts/use-sed-to-replace-text/</guid>
-      <description>쉘 스크립트를 만들 때, 텍스트 파일의 내용을 바꾸는 기능이 필요할 때가 있다. 이 경우 sed를 쓰는데, sed의 사용 방법이 헷갈릴 때가 많아 이 기회에 정리를 해 보고자 한다. 이 글에서는 기본적인 사용 방법과 내가 주로 사용하는 기능만 정리하였다. sed가 지원하는 전체 기능이 궁금하다면, man page(man sed)를 확인하는 것이 최선이다.
-텍스트 바꾸기 기본적으로 sed를 이용해서 텍스트를 바꾸는 방법은 다음과 같다.
-$ sed -i &amp;#39;s/&amp;lt;원래 내용&amp;gt;/&amp;lt;바꿀 내용&amp;gt;/g&amp;#39; &amp;lt;파일 이름&amp;gt; 여기서 -i, s/&amp;lt;원래 내용&amp;gt;/&amp;lt;바꿀 내용&amp;gt;/, g가 의미하는 내용은 다음과 같다.</description>
+      <description>쉘 스크립트를 만들 때, 텍스트 파일의 내용을 바꾸는 기능이 필요할 때가 있다. 이 경우 sed를 쓰는데, sed의 사용 방법이 헷갈릴 때가 많아 이 기회에 정리를 해 보고자 한다. 이 글에서는 기본적인 사용 방법과 내가 주로 사용하는 기능만 정리하였다. sed가 지원하는 전체 기능이 궁금하다면, man page(man sed)를 확인하는 것이 최선이다.&#xA;텍스트 바꾸기 기본적으로 sed를 이용해서 텍스트를 바꾸는 방법은 다음과 같다.&#xA;$ sed -i &amp;#39;s/&amp;lt;원래 내용&amp;gt;/&amp;lt;바꿀 내용&amp;gt;/g&amp;#39; &amp;lt;파일 이름&amp;gt; 여기서 -i, s/&amp;lt;원래 내용&amp;gt;/&amp;lt;바꿀 내용&amp;gt;/, g가 의미하는 내용은 다음과 같다.</description>
     </item>
-    
   </channel>
 </rss>

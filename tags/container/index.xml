@@ -6,20 +6,14 @@
     <description>Recent content in Container on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 31 Jul 2021 20:08:14 +0900</lastBuildDate><atom:link href="/tags/container/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 31 Jul 2021 20:08:14 +0900</lastBuildDate>
+    <atom:link href="/tags/container/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>EKS 내 NGINX Ingress에서 NLB와 ACM 연동 방법 살펴보기</title>
       <link>/posts/eks-nlb-acm-test/</link>
       <pubDate>Sat, 31 Jul 2021 20:08:14 +0900</pubDate>
-      
       <guid>/posts/eks-nlb-acm-test/</guid>
-      <description>최근 팀 내에서 외부 서비스와 연동하는 서비스가 증가하면서, 고정된 IP 주소를 요청하는 경우가 많아졌습니다.
-한편, 대외 서비스가 늘어나다 보니 관리하는 서버의 수가 증가하였습니다. 그렇지만 생각보다 트래픽이 많지 않아 리소스가 낭비되는 경우가 많은데요.
-이러한 상황을 겪으면서 서버의 수를 줄이고, 서비스마다 고정된 IP 주소를 제공할 방법을 찾아보게 되었습니다.
-그러다가 Kubernetes와 Kubernetes의 Ingress를 적절히 활용하여 이러한 요건을 충족하는 방법을 찾아보았습니다.
-이번 글은 그 과정에서 겪었던 이슈를 정리하기 위해 작성하였습니다.
-EKS와 NGINX Ingress Controller 사용 저희 팀의 웹 서비스들은 Elastic Beanstalk를 주로 이용하고 있습니다.</description>
+      <description>최근 팀 내에서 외부 서비스와 연동하는 서비스가 증가하면서, 고정된 IP 주소를 요청하는 경우가 많아졌습니다.&#xA;한편, 대외 서비스가 늘어나다 보니 관리하는 서버의 수가 증가하였습니다. 그렇지만 생각보다 트래픽이 많지 않아 리소스가 낭비되는 경우가 많은데요.&#xA;이러한 상황을 겪으면서 서버의 수를 줄이고, 서비스마다 고정된 IP 주소를 제공할 방법을 찾아보게 되었습니다.&#xA;그러다가 Kubernetes와 Kubernetes의 Ingress를 적절히 활용하여 이러한 요건을 충족하는 방법을 찾아보았습니다.&#xA;이번 글은 그 과정에서 겪었던 이슈를 정리하기 위해 작성하였습니다.&#xA;EKS와 NGINX Ingress Controller 사용 저희 팀의 웹 서비스들은 Elastic Beanstalk를 주로 이용하고 있습니다.</description>
     </item>
-    
   </channel>
 </rss>

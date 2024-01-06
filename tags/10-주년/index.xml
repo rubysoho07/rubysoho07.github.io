@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>10 주년 on GoniGoni!</title>
+    <link>/tags/10-%EC%A3%BC%EB%85%84/</link>
+    <description>Recent content in 10 주년 on GoniGoni!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Sat, 06 Jan 2024 12:00:00 +0900</lastBuildDate>
+    <atom:link href="/tags/10-%EC%A3%BC%EB%85%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>커리어 10 주년 회고</title>
+      <link>/posts/retrospect-10-years-career/</link>
+      <pubDate>Sat, 06 Jan 2024 12:00:00 +0900</pubDate>
+      <guid>/posts/retrospect-10-years-career/</guid>
+      <description>대학을 졸업하고 사회에 나온 지 딱 10 년이 되었습니다. 대학 시절의 전공은 지금 하는 일과 거리가 멀지만, 복수전공 후 IT 업계로 전직한 계기를 설명하자면 글이 길어질 듯 하여 생략하겠습니다. 사실 갑자기 IT 업계에 관심이 생겨서는 아니었고, 예전부터 코드로 프로그램을 만드는 데 관심이 있기는 했습니다. (관련기사 - 직접 인터뷰 한 건 아니고, 공개된 정보를 통해 작성된 기사) 그래서 중학생 때까지는 장래희망에 프로그래머라고 계속 적었던 기억이 있습니다. 한참 돌아서 오기는 했지만, 결국 IT 업계에서 일하게 되었고 10 년 간 여러 가지 업무를 해 왔네요.</description>
+    </item>
+  </channel>
+</rss>

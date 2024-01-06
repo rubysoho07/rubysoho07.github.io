@@ -6,16 +6,14 @@
     <description>Recent content in IP 주소 on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 27 Aug 2023 18:57:25 +0900</lastBuildDate><atom:link href="/tags/ip-%EC%A3%BC%EC%86%8C/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Aug 2023 18:57:25 +0900</lastBuildDate>
+    <atom:link href="/tags/ip-%EC%A3%BC%EC%86%8C/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>IP 주소로부터 여러 가지 정보를 가져오기</title>
       <link>/posts/ip-location-api/</link>
       <pubDate>Sun, 27 Aug 2023 18:57:25 +0900</pubDate>
-      
       <guid>/posts/ip-location-api/</guid>
-      <description>들어가며 인터넷 서비스를 운영하다 보면 DDoS 공격을 받는 경우가 종종 있습니다. 해킹 목적으로 사이트를 공격한다거나, 경쟁사를 견제하기 위한 목적으로 DDoS 공격을 하는 사례가 있습니다. 그 외에도 실수로 API 호출을 너무 많이 하는 바람에 의도치 않게 상대 서비스를 다운시키는 경우도 있겠죠. 이러한 DDoS 공격을 막기 위해, 클라우드 벤더에서 제공하는 기능이나 여러 회사에서 제공하는 솔루션 제품들을 사용할 수 있습니다.
-이번 글에서는 공격에 사용된 IP 주소 목록이 있을 때, IP 주소의 세부 정보를 얻을 수 있는 방법에 대해 이야기 해 보고자 합니다.</description>
+      <description>들어가며 인터넷 서비스를 운영하다 보면 DDoS 공격을 받는 경우가 종종 있습니다. 해킹 목적으로 사이트를 공격한다거나, 경쟁사를 견제하기 위한 목적으로 DDoS 공격을 하는 사례가 있습니다. 그 외에도 실수로 API 호출을 너무 많이 하는 바람에 의도치 않게 상대 서비스를 다운시키는 경우도 있겠죠. 이러한 DDoS 공격을 막기 위해, 클라우드 벤더에서 제공하는 기능이나 여러 회사에서 제공하는 솔루션 제품들을 사용할 수 있습니다.&#xA;이번 글에서는 공격에 사용된 IP 주소 목록이 있을 때, IP 주소의 세부 정보를 얻을 수 있는 방법에 대해 이야기 해 보고자 합니다.</description>
     </item>
-    
   </channel>
 </rss>

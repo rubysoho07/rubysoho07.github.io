@@ -6,62 +6,42 @@
     <description>Recent content in DevOps on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 27 Aug 2023 18:57:25 +0900</lastBuildDate><atom:link href="/categories/devops/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Aug 2023 18:57:25 +0900</lastBuildDate>
+    <atom:link href="/categories/devops/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>IP 주소로부터 여러 가지 정보를 가져오기</title>
       <link>/posts/ip-location-api/</link>
       <pubDate>Sun, 27 Aug 2023 18:57:25 +0900</pubDate>
-      
       <guid>/posts/ip-location-api/</guid>
-      <description>들어가며 인터넷 서비스를 운영하다 보면 DDoS 공격을 받는 경우가 종종 있습니다. 해킹 목적으로 사이트를 공격한다거나, 경쟁사를 견제하기 위한 목적으로 DDoS 공격을 하는 사례가 있습니다. 그 외에도 실수로 API 호출을 너무 많이 하는 바람에 의도치 않게 상대 서비스를 다운시키는 경우도 있겠죠. 이러한 DDoS 공격을 막기 위해, 클라우드 벤더에서 제공하는 기능이나 여러 회사에서 제공하는 솔루션 제품들을 사용할 수 있습니다.
-이번 글에서는 공격에 사용된 IP 주소 목록이 있을 때, IP 주소의 세부 정보를 얻을 수 있는 방법에 대해 이야기 해 보고자 합니다.</description>
+      <description>들어가며 인터넷 서비스를 운영하다 보면 DDoS 공격을 받는 경우가 종종 있습니다. 해킹 목적으로 사이트를 공격한다거나, 경쟁사를 견제하기 위한 목적으로 DDoS 공격을 하는 사례가 있습니다. 그 외에도 실수로 API 호출을 너무 많이 하는 바람에 의도치 않게 상대 서비스를 다운시키는 경우도 있겠죠. 이러한 DDoS 공격을 막기 위해, 클라우드 벤더에서 제공하는 기능이나 여러 회사에서 제공하는 솔루션 제품들을 사용할 수 있습니다.&#xA;이번 글에서는 공격에 사용된 IP 주소 목록이 있을 때, IP 주소의 세부 정보를 얻을 수 있는 방법에 대해 이야기 해 보고자 합니다.</description>
     </item>
-    
     <item>
       <title>EKS에 올린 Spring Boot 애플리케이션에 IAM Role 연결하기</title>
       <link>/posts/springboot-iam-role/</link>
       <pubDate>Sat, 27 May 2023 22:10:18 +0900</pubDate>
-      
       <guid>/posts/springboot-iam-role/</guid>
-      <description>최근 EKS에 Spring Boot 애플리케이션을 올렸는데, ServiceAccount에 IAM Role을 연결했음에도 AWS API를 호출하지 못하는 문제가 있었습니다. 이 문제를 해결하기 위해 테스트 한 과정을 남겨보려고 합니다.
-우선, AWS의 Java 버전 SDK는 부여된 권한을 어떻게 찾는지 알아보겠습니다. 따로 설정을 하지 않았다면, 아래와 같은 순서로 찾습니다.
-Java의 시스템 properties 환경 변수 AWS의 STS(Security Token Service)로 부터 얻은 Web Identity Token 공유된 credentials, config 파일: 별도의 설정이 없으면 default 프로필을 이용 ECS 컨테이너 credentials EC2 인스턴스에 부여된 IAM Role 그리고 EKS의 IAM Roles for Service Accounts(이후 IRSA로 표기) 기능은 STS(Security Token Service)의 AssumeRoleWithWebIdentity API 호출을 통해 권한을 얻습니다.</description>
+      <description>최근 EKS에 Spring Boot 애플리케이션을 올렸는데, ServiceAccount에 IAM Role을 연결했음에도 AWS API를 호출하지 못하는 문제가 있었습니다. 이 문제를 해결하기 위해 테스트 한 과정을 남겨보려고 합니다.&#xA;우선, AWS의 Java 버전 SDK는 부여된 권한을 어떻게 찾는지 알아보겠습니다. 따로 설정을 하지 않았다면, 아래와 같은 순서로 찾습니다.&#xA;Java의 시스템 properties 환경 변수 AWS의 STS(Security Token Service)로 부터 얻은 Web Identity Token 공유된 credentials, config 파일: 별도의 설정이 없으면 default 프로필을 이용 ECS 컨테이너 credentials EC2 인스턴스에 부여된 IAM Role 그리고 EKS의 IAM Roles for Service Accounts(이후 IRSA로 표기) 기능은 STS(Security Token Service)의 AssumeRoleWithWebIdentity API 호출을 통해 권한을 얻습니다.</description>
     </item>
-    
     <item>
       <title>Terraform Workspaces 기능 정리</title>
       <link>/posts/terraform-workspaces/</link>
       <pubDate>Sun, 19 Mar 2023 17:21:21 +0900</pubDate>
-      
       <guid>/posts/terraform-workspaces/</guid>
-      <description>Terraform에서 개발/운영 환경을 나누기 위해, 폴더/디렉터리를 이용할 때가 있습니다. 하지만 이런 상황도 있죠.
-개발/운영 환경 내 staging/QA 환경이 필요한 경우 테스트를 위해 임시 인프라 구성이 필요한 경우 위와 같은 상황에 대응하기 위해, Terraform에서는 Workspaces 라는 기능을 지원합니다. 이번에는 Terraform의 Workspaces 기능은 무엇인지, 어떻게 사용하면 되는지 알아보려고 합니다.
-Workspaces를 사용하려면? Terraform에서 관리하는 리소스 상태는 backend에 저장합니다. 이러한 데이터는 하나의 workspace에 속합니다. 기본적으로 이런 리소스 상태는 default workspace에 들어 있습니다. 몇몇 backend는 여러 개의 workspace를 지원하며, 하나의 설정과 연결된 여러 상태를 저장할 수 있습니다.</description>
+      <description>Terraform에서 개발/운영 환경을 나누기 위해, 폴더/디렉터리를 이용할 때가 있습니다. 하지만 이런 상황도 있죠.&#xA;개발/운영 환경 내 staging/QA 환경이 필요한 경우 테스트를 위해 임시 인프라 구성이 필요한 경우 위와 같은 상황에 대응하기 위해, Terraform에서는 Workspaces 라는 기능을 지원합니다. 이번에는 Terraform의 Workspaces 기능은 무엇인지, 어떻게 사용하면 되는지 알아보려고 합니다.&#xA;Workspaces를 사용하려면? Terraform에서 관리하는 리소스 상태는 backend에 저장합니다. 이러한 데이터는 하나의 workspace에 속합니다. 기본적으로 이런 리소스 상태는 default workspace에 들어 있습니다. 몇몇 backend는 여러 개의 workspace를 지원하며, 하나의 설정과 연결된 여러 상태를 저장할 수 있습니다.</description>
     </item>
-    
     <item>
       <title>eksctl로 생성한 EKS 클러스터의 리소스 살펴 보기</title>
       <link>/posts/eks-resources-with-eksctl/</link>
       <pubDate>Sun, 17 Jul 2022 21:45:26 +0900</pubDate>
-      
       <guid>/posts/eks-resources-with-eksctl/</guid>
-      <description>AWS에서 Kubernetes를 사용하려면 여러 방법이 있겠지만, 가장 편한 방법은 EKS 서비스를 이용하는 것이죠. EKS 클러스터를 생성하는 방법은 여러 가지가 있는데요. 이번 글에서는 eksctl이라는 프로그램을 이용해서 EKS 클러스터를 생성하는 방법을 알아보고, 어떤 리소스를 생성하는지 알아보려고 합니다.
-먼저 Kubernetes 클러스터의 구조를 알아보고, EKS에서는 어떤 차이점이 있는지 알아 보겠습니다.
-Kubernetes 클러스터의 구조와 EKS Kubernetes 클러스터는 다음과 같이 구성되어 있습니다.
-출처: kubernetes.io
-노드(Node): 컨테이너 내의 애플리케이션을 실행하는 서버들의 집합으로, 파드(Pod)는 워커 노드에서 동작합니다. 앞으로 노드 또는 워커 노드라는 말이 계속 등장할텐데, 똑같은 것으로 이해해 주시면 됩니다.</description>
+      <description>AWS에서 Kubernetes를 사용하려면 여러 방법이 있겠지만, 가장 편한 방법은 EKS 서비스를 이용하는 것이죠. EKS 클러스터를 생성하는 방법은 여러 가지가 있는데요. 이번 글에서는 eksctl이라는 프로그램을 이용해서 EKS 클러스터를 생성하는 방법을 알아보고, 어떤 리소스를 생성하는지 알아보려고 합니다.&#xA;먼저 Kubernetes 클러스터의 구조를 알아보고, EKS에서는 어떤 차이점이 있는지 알아 보겠습니다.&#xA;Kubernetes 클러스터의 구조와 EKS Kubernetes 클러스터는 다음과 같이 구성되어 있습니다.&#xA;출처: kubernetes.io&#xA;노드(Node): 컨테이너 내의 애플리케이션을 실행하는 서버들의 집합으로, 파드(Pod)는 워커 노드에서 동작합니다. 앞으로 노드 또는 워커 노드라는 말이 계속 등장할텐데, 똑같은 것으로 이해해 주시면 됩니다.</description>
     </item>
-    
     <item>
       <title>Terraform vs Pulumi</title>
       <link>/posts/terraform-vs-pulumi/</link>
       <pubDate>Sat, 20 Nov 2021 10:30:24 +0900</pubDate>
-      
       <guid>/posts/terraform-vs-pulumi/</guid>
-      <description>클라우드 환경 내 인프라 구성이 복잡할수록 IaC(Infrastructure as Code) 툴을 고민하게 되는데요. 물론 AWS의 CloudFormation과 같이 클라우드 벤더가 제공하는 서비스가 있지만, 앞으로는 특정 벤더에 종속되는 것을 피하고 싶다는 생각이 들었습니다.
-그러다가 알아본 툴 중에 Terraform과 Pulumi가 있는데요. Terraform은 저도 개인적으로 사용해 본 적이 있었고, Pulumi는 익숙한 개발 언어(Python, TypeScript, Golang, &amp;hellip;)로 인프라 구성을 구축할 수 있다고 해서 관심을 갖게 되었습니다.
-이번 글에서는 AWS에서 EC2, S3 Bucket, IAM Policy, Role 정도를 만드는 정도로 테스트해 보겠습니다.</description>
+      <description>클라우드 환경 내 인프라 구성이 복잡할수록 IaC(Infrastructure as Code) 툴을 고민하게 되는데요. 물론 AWS의 CloudFormation과 같이 클라우드 벤더가 제공하는 서비스가 있지만, 앞으로는 특정 벤더에 종속되는 것을 피하고 싶다는 생각이 들었습니다.&#xA;그러다가 알아본 툴 중에 Terraform과 Pulumi가 있는데요. Terraform은 저도 개인적으로 사용해 본 적이 있었고, Pulumi는 익숙한 개발 언어(Python, TypeScript, Golang, &amp;hellip;)로 인프라 구성을 구축할 수 있다고 해서 관심을 갖게 되었습니다.&#xA;이번 글에서는 AWS에서 EC2, S3 Bucket, IAM Policy, Role 정도를 만드는 정도로 테스트해 보겠습니다.</description>
     </item>
-    
   </channel>
 </rss>

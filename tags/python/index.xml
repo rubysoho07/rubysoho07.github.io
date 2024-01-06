@@ -6,126 +6,77 @@
     <description>Recent content in Python on GoniGoni!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 31 Oct 2021 10:58:31 +0900</lastBuildDate><atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 31 Oct 2021 10:58:31 +0900</lastBuildDate>
+    <atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python에서 logging으로 로그 만들기</title>
       <link>/posts/python-logging/</link>
       <pubDate>Sun, 31 Oct 2021 10:58:31 +0900</pubDate>
-      
       <guid>/posts/python-logging/</guid>
-      <description>프로그램이 잘 동작하는 지 확인하고 싶다면, print()를 쓸 때가 많습니다. 하지만 프로그램이 복잡하게 바뀌면서 print()만으로는 감당하기 어려운 상황이 발생합니다.
-그럴 때 어떻게 로그를 만들고 관리할 지를 고민하게 되는데요. 이번 글에서는 Python에서 logging 모듈을 활용해서 어떻게 로그를 관리할 수 있는지 살펴보려고 합니다.
-기본적인 로깅 만들기 logging 모듈을 이용해서 로그를 만드는 방법은 다음과 같습니다.
-import logging logging.critical(&amp;#39;Critical log&amp;#39;) logging.error(&amp;#39;Error log&amp;#39;) logging.warning(&amp;#39;Warning log&amp;#39;) logging.info(&amp;#39;Info log&amp;#39;) logging.debug(&amp;#39;Debug log&amp;#39;) 스크립트를 실행해 보면 다음과 같이 표시됩니다.</description>
+      <description>프로그램이 잘 동작하는 지 확인하고 싶다면, print()를 쓸 때가 많습니다. 하지만 프로그램이 복잡하게 바뀌면서 print()만으로는 감당하기 어려운 상황이 발생합니다.&#xA;그럴 때 어떻게 로그를 만들고 관리할 지를 고민하게 되는데요. 이번 글에서는 Python에서 logging 모듈을 활용해서 어떻게 로그를 관리할 수 있는지 살펴보려고 합니다.&#xA;기본적인 로깅 만들기 logging 모듈을 이용해서 로그를 만드는 방법은 다음과 같습니다.&#xA;import logging logging.critical(&amp;#39;Critical log&amp;#39;) logging.error(&amp;#39;Error log&amp;#39;) logging.warning(&amp;#39;Warning log&amp;#39;) logging.info(&amp;#39;Info log&amp;#39;) logging.debug(&amp;#39;Debug log&amp;#39;) 스크립트를 실행해 보면 다음과 같이 표시됩니다.</description>
     </item>
-    
     <item>
       <title>Boto3를 쓰면서 겪었던 일들 모음</title>
       <link>/posts/boto3-note/</link>
       <pubDate>Mon, 28 Jun 2021 22:34:04 +0900</pubDate>
-      
       <guid>/posts/boto3-note/</guid>
-      <description>Python을 이용해서 AWS의 여러 기능을 자동화 할 때 Boto3를 많이들 쓰실 것 같은데요. 이번 달에는 Boto3를 쓰면서 궁금했던 것, 또는 자주 사용할 만한 것들을 정리해 보려고 합니다.
-현재 사용 중인 AWS 계정 ID 얻기 여기서 계정 ID라고 하면, 12자리의 숫자로 구성된 계정의 ID를 의미합니다.
-import boto3 account_id = boto3.client(&amp;#39;sts&amp;#39;).get_caller_identity().get(&amp;#39;Account&amp;#39;) 출처: Stack Overflow
-에러 다루기 출처: Boto3 Documentation
-Boto3의 코드를 열어보면, 서비스에 따라 발생할 수 있는 모든 에러를 저장하고 있지 않습니다. Boto3와 AWS CLI의 기반이 되는 Botocore 프로젝트의 코드에서도 모든 종류의 예외를 다루지 않습니다.</description>
+      <description>Python을 이용해서 AWS의 여러 기능을 자동화 할 때 Boto3를 많이들 쓰실 것 같은데요. 이번 달에는 Boto3를 쓰면서 궁금했던 것, 또는 자주 사용할 만한 것들을 정리해 보려고 합니다.&#xA;현재 사용 중인 AWS 계정 ID 얻기 여기서 계정 ID라고 하면, 12자리의 숫자로 구성된 계정의 ID를 의미합니다.&#xA;import boto3 account_id = boto3.client(&amp;#39;sts&amp;#39;).get_caller_identity().get(&amp;#39;Account&amp;#39;) 출처: Stack Overflow&#xA;에러 다루기 출처: Boto3 Documentation&#xA;Boto3의 코드를 열어보면, 서비스에 따라 발생할 수 있는 모든 에러를 저장하고 있지 않습니다. Boto3와 AWS CLI의 기반이 되는 Botocore 프로젝트의 코드에서도 모든 종류의 예외를 다루지 않습니다.</description>
     </item>
-    
     <item>
       <title>Python의 map() filter() reduce() 사용 방법 정리</title>
       <link>/posts/python-map-reduce-filter/</link>
       <pubDate>Sat, 28 Nov 2020 13:13:35 +0900</pubDate>
-      
       <guid>/posts/python-map-reduce-filter/</guid>
-      <description>가끔씩 Python의 map(), filter(), reduce()에 대해 헷갈리는 것들이 있어서 정리해 본다.
-map(function, iterable, &amp;hellip;) Reference: Python 문서 참조 iterable에 있는 모든 요소에 function을 적용하여 그 결과를 반환한다. function은 여러 인자를 받을 수 있어야 하고, 모든 iterable의 아이템에 동시에 적용되도록 해야 한다.
-&amp;gt;&amp;gt;&amp;gt; l1 = [1, 2, 3, 4] &amp;gt;&amp;gt;&amp;gt; map(lambda x: x * 2, l1) &amp;lt;map object at 0x1006d1040&amp;gt; map()을 수행한 결과는 map object로 반환되므로, 이를 list나 tuple로 바꾸는 작업이 필요하다.</description>
+      <description>가끔씩 Python의 map(), filter(), reduce()에 대해 헷갈리는 것들이 있어서 정리해 본다.&#xA;map(function, iterable, &amp;hellip;) Reference: Python 문서 참조 iterable에 있는 모든 요소에 function을 적용하여 그 결과를 반환한다. function은 여러 인자를 받을 수 있어야 하고, 모든 iterable의 아이템에 동시에 적용되도록 해야 한다.&#xA;&amp;gt;&amp;gt;&amp;gt; l1 = [1, 2, 3, 4] &amp;gt;&amp;gt;&amp;gt; map(lambda x: x * 2, l1) &amp;lt;map object at 0x1006d1040&amp;gt; map()을 수행한 결과는 map object로 반환되므로, 이를 list나 tuple로 바꾸는 작업이 필요하다.</description>
     </item>
-    
     <item>
       <title>Python Datetime의 fromtimestamp() 사용 시 주의할 점</title>
       <link>/posts/python-datetime-fromtimestamp/</link>
       <pubDate>Thu, 13 Sep 2018 00:08:00 +0900</pubDate>
-      
       <guid>/posts/python-datetime-fromtimestamp/</guid>
-      <description>최근에 Timestamp가 있는 데이터를 다루다가, 신기한 버그를 발견하여 여기에 기록해 본다. 해당 문제가 수정된 것 같기는 한데, 아직 배포는 안 된 것 같다.
-Windows에서 발생하는 버그 fromtimestamp 함수의 버그 (Windows)
-해당 이슈에 대해 설명한 부분을 확인하면, 0에서 86399 사이의 값을 입력하면 OSError가 발생한다.
-Ubuntu에서는? 잘 동작한다. 심지어 Windows 10에 깔린 Ubuntu를 이용했고, 3.5.x 버전인데도 멀쩡히 잘 돌아간다.
-Ubuntu에서는 정상적으로 동작한다.
-참고자료 https://bugs.python.org/issue29097 https://docs.python.org/3/whatsnew/changelog.html </description>
+      <description>최근에 Timestamp가 있는 데이터를 다루다가, 신기한 버그를 발견하여 여기에 기록해 본다. 해당 문제가 수정된 것 같기는 한데, 아직 배포는 안 된 것 같다.&#xA;Windows에서 발생하는 버그 fromtimestamp 함수의 버그 (Windows)&#xA;해당 이슈에 대해 설명한 부분을 확인하면, 0에서 86399 사이의 값을 입력하면 OSError가 발생한다.&#xA;Ubuntu에서는? 잘 동작한다. 심지어 Windows 10에 깔린 Ubuntu를 이용했고, 3.5.x 버전인데도 멀쩡히 잘 돌아간다.&#xA;Ubuntu에서는 정상적으로 동작한다.&#xA;참고자료 https://bugs.python.org/issue29097 https://docs.python.org/3/whatsnew/changelog.html </description>
     </item>
-    
     <item>
       <title>Python underscore 관련 naming convention</title>
       <link>/posts/python-underscores/</link>
       <pubDate>Sat, 26 May 2018 10:32:00 +0900</pubDate>
-      
       <guid>/posts/python-underscores/</guid>
-      <description>파이썬에는 PEP-8이라는 Python Code Style Guide가 있다. 모든 내용을 한 번에 정리하기 어려워서 그냥 코딩하다가 궁금한 것 위주로 정리해 보려고 한다.
-이번 글에서는 &amp;lsquo;_&amp;rsquo;(Underscore)가 붙는 변수나 메서드에 관련한 내용을 정리하려고 한다.
-Trailing underscore _single_leading_underscore: 이런 경우 from M import *에서는 _로 시작하는 object를 import 하지 않는다. single_trailing_underscore_: 파이썬 언어 내에서 사용되는 키워드와의 충돌을 피하기 위해 작성한다. BeautifulSoup에서 HTML의 class를 기준으로 무언가를 찾을 때 class_와 같이 속성을 지정해 줄 때가 있다.</description>
+      <description>파이썬에는 PEP-8이라는 Python Code Style Guide가 있다. 모든 내용을 한 번에 정리하기 어려워서 그냥 코딩하다가 궁금한 것 위주로 정리해 보려고 한다.&#xA;이번 글에서는 &amp;lsquo;_&amp;rsquo;(Underscore)가 붙는 변수나 메서드에 관련한 내용을 정리하려고 한다.&#xA;Trailing underscore _single_leading_underscore: 이런 경우 from M import *에서는 _로 시작하는 object를 import 하지 않는다. single_trailing_underscore_: 파이썬 언어 내에서 사용되는 키워드와의 충돌을 피하기 위해 작성한다. BeautifulSoup에서 HTML의 class를 기준으로 무언가를 찾을 때 class_와 같이 속성을 지정해 줄 때가 있다.</description>
     </item>
-    
     <item>
       <title>Python `@property` 데코레이터와 getter/setter</title>
       <link>/posts/python-property-decorator/</link>
       <pubDate>Fri, 18 May 2018 23:36:00 +0900</pubDate>
-      
       <guid>/posts/python-property-decorator/</guid>
-      <description>예전에 어떤 소스를 보다가 클래스 내부에 @property 데코레이터가 붙어 있는 경우를 본 적이 있다. 어떤 경우에 사용하는지 궁금해서 한 번 정리해 보려 한다.
-property() 함수 먼저 property() 함수에 대해 살펴보자.
-class property(fget=None, fset=None, fdel=None, doc=None) 페이지 아래에 링크한 자료를 살펴보면, property 함수는 property 속성을 반환한다고 나와 있다. 그리고 fget 인자에는 속성 값에 대한 getter 함수, fset 인자에는 속성 값에 대한 setter 함수, fdel 인자에는 속성 값을 지우는 함수를 지정한다고 한다. 그리고 doc 인자는 속성에 대한 docstring을 넣어주면 된다.</description>
+      <description>예전에 어떤 소스를 보다가 클래스 내부에 @property 데코레이터가 붙어 있는 경우를 본 적이 있다. 어떤 경우에 사용하는지 궁금해서 한 번 정리해 보려 한다.&#xA;property() 함수 먼저 property() 함수에 대해 살펴보자.&#xA;class property(fget=None, fset=None, fdel=None, doc=None) 페이지 아래에 링크한 자료를 살펴보면, property 함수는 property 속성을 반환한다고 나와 있다. 그리고 fget 인자에는 속성 값에 대한 getter 함수, fset 인자에는 속성 값에 대한 setter 함수, fdel 인자에는 속성 값을 지우는 함수를 지정한다고 한다. 그리고 doc 인자는 속성에 대한 docstring을 넣어주면 된다.</description>
     </item>
-    
     <item>
       <title>Python Datetime으로 서로 다른 시간대 다루기</title>
       <link>/posts/python-datetime-test/</link>
       <pubDate>Thu, 17 May 2018 22:06:00 +0900</pubDate>
-      
       <guid>/posts/python-datetime-test/</guid>
-      <description>여러 국가에 걸쳐 시간과 관련된 데이터를 얻을 때 시간대가 가장 이슈가 될 것이다. 그리고 AWS와 같이 UTC를 기준으로 하는 서비스가 있기 때문에, 우리나라의 시간대를 기준으로 프로그램을 만들 때 고민이 되는 부분이 있다.
-시간대를 다루기 위해 pytz와 같은 라이브러리가 있지만, 이번에는 파이썬이 기본적으로 제공하는 datetime 모듈만 이용해서 시간대를 다루어 보고자 한다.
-현재 시간 구하기 / UTC 기준 시간 구하기 현재 시간을 구하기 위해서는 datetime.datetime.now()를 이용한다.
-&amp;gt;&amp;gt;&amp;gt; import datetime &amp;gt;&amp;gt;&amp;gt; datetime.datetime.now() datetime.datetime(2018, 5, 17, 21, 43, 13, 554579) 한편, UTC 기준의 현재 시간을 구하기 위해서는 datetime.</description>
+      <description>여러 국가에 걸쳐 시간과 관련된 데이터를 얻을 때 시간대가 가장 이슈가 될 것이다. 그리고 AWS와 같이 UTC를 기준으로 하는 서비스가 있기 때문에, 우리나라의 시간대를 기준으로 프로그램을 만들 때 고민이 되는 부분이 있다.&#xA;시간대를 다루기 위해 pytz와 같은 라이브러리가 있지만, 이번에는 파이썬이 기본적으로 제공하는 datetime 모듈만 이용해서 시간대를 다루어 보고자 한다.&#xA;현재 시간 구하기 / UTC 기준 시간 구하기 현재 시간을 구하기 위해서는 datetime.datetime.now()를 이용한다.&#xA;&amp;gt;&amp;gt;&amp;gt; import datetime &amp;gt;&amp;gt;&amp;gt; datetime.datetime.now() datetime.datetime(2018, 5, 17, 21, 43, 13, 554579) 한편, UTC 기준의 현재 시간을 구하기 위해서는 datetime.</description>
     </item>
-    
     <item>
       <title>몰라서 찾아 봤던 파이썬 내장 함수 모음</title>
       <link>/posts/python-built-in-functions/</link>
       <pubDate>Wed, 16 May 2018 23:27:00 +0900</pubDate>
-      
       <guid>/posts/python-built-in-functions/</guid>
-      <description>파이썬을 쓰다가 필요한 기능이 있어서 찾아 보면, 언어 자체에서 지원하는 기능인 경우가 종종 있었다. 지금까지 파이썬을 다루면서 찾아봤던 내장 함수들을 정리해 본다.
-아래에서 계속 iterable이라는 말을 많이 쓸 것이다. iterable에는 sequence type인 list, str, tuple 뿐만 아니라 non-sequence type인 dict, file object, 그리고 Sequence semantics를 구현하기 위해 __iter__()나 __getitem__() method가 정의되어 있는 클래스의 object 등이 있다. (참고)
-sum(): 각각의 item을 합치기 참고: https://docs.python.org/3/library/functions.html#sum
-sum(iterable[, start]) iterable 객체를 받아서 각 요소들의 합을 구한다.</description>
+      <description>파이썬을 쓰다가 필요한 기능이 있어서 찾아 보면, 언어 자체에서 지원하는 기능인 경우가 종종 있었다. 지금까지 파이썬을 다루면서 찾아봤던 내장 함수들을 정리해 본다.&#xA;아래에서 계속 iterable이라는 말을 많이 쓸 것이다. iterable에는 sequence type인 list, str, tuple 뿐만 아니라 non-sequence type인 dict, file object, 그리고 Sequence semantics를 구현하기 위해 __iter__()나 __getitem__() method가 정의되어 있는 클래스의 object 등이 있다. (참고)&#xA;sum(): 각각의 item을 합치기 참고: https://docs.python.org/3/library/functions.html#sum&#xA;sum(iterable[, start]) iterable 객체를 받아서 각 요소들의 합을 구한다.</description>
     </item>
-    
     <item>
       <title>파이썬에서 테스트 코드를 만들면서 겪은 일들</title>
       <link>/posts/python-making-test-module/</link>
       <pubDate>Tue, 15 May 2018 22:35:00 +0900</pubDate>
-      
       <guid>/posts/python-making-test-module/</guid>
-      <description>이번 글에서는 파이썬에서 테스트 코드를 만들면서 겪었던 시행착오에 대해 소개하고자 한다. 여기서는 파이썬에 내장된 unittest를 이용한다.
-테스트를 수행하는 기준은? 간단한 코드를 만들어 보자. 파일 이름은 aaa.py로 저장한다.
-import unittest class TestExample(unittest.TestCase): def test_a(self): self.assertEqual(1 == 2, False) 그리고 쉘에서 python -m unittest를 입력하면, 아무 테스트도 실행하지 않는다.
-$ python -m unittest ---------------------------------------------------------------------- Ran 0 tests in 0.000s OK 왜 그럴까? unittest 라이브러리는 기본적으로 실행하는 top-level 디렉터리에서 test로 시작하는 파일을 찾아서 테스트를 수행한다.</description>
+      <description>이번 글에서는 파이썬에서 테스트 코드를 만들면서 겪었던 시행착오에 대해 소개하고자 한다. 여기서는 파이썬에 내장된 unittest를 이용한다.&#xA;테스트를 수행하는 기준은? 간단한 코드를 만들어 보자. 파일 이름은 aaa.py로 저장한다.&#xA;import unittest class TestExample(unittest.TestCase): def test_a(self): self.assertEqual(1 == 2, False) 그리고 쉘에서 python -m unittest를 입력하면, 아무 테스트도 실행하지 않는다.&#xA;$ python -m unittest ---------------------------------------------------------------------- Ran 0 tests in 0.000s OK 왜 그럴까? unittest 라이브러리는 기본적으로 실행하는 top-level 디렉터리에서 test로 시작하는 파일을 찾아서 테스트를 수행한다.</description>
     </item>
-    
     <item>
       <title>Python 날짜/시간을 문자열로 만들기 위한 규칙 정리</title>
       <link>/posts/python-datetime-string-formatting/</link>
       <pubDate>Mon, 14 May 2018 23:24:00 +0900</pubDate>
-      
       <guid>/posts/python-datetime-string-formatting/</guid>
-      <description>파이썬을 쓰다 보면 문자열을 다루는 경우가 많은데, 문자열을 특정한 양식에 맞추어야 하는 경우가 종종 있었다. 이 경우 PyFormat과 같은 사이트를 참조한다. 하지만 날짜나 시간을 formatting 할 때는 상세한 규칙이 정리되어 있지 않아서 이 참에 정리를 해 보려고 한다.
-문자열을 넣거나 숫자를 다루는 경우, PyFormat에 자세한 내용이 있어서 생략한다.
-이 글에서는 현재 시간을 datetime 객체로 받고, 이를 가지고 날짜와 시간을 문자열로 formatting 해 볼 것이다. (아래 코드 참조)
-import datetime now = datetime.</description>
+      <description>파이썬을 쓰다 보면 문자열을 다루는 경우가 많은데, 문자열을 특정한 양식에 맞추어야 하는 경우가 종종 있었다. 이 경우 PyFormat과 같은 사이트를 참조한다. 하지만 날짜나 시간을 formatting 할 때는 상세한 규칙이 정리되어 있지 않아서 이 참에 정리를 해 보려고 한다.&#xA;문자열을 넣거나 숫자를 다루는 경우, PyFormat에 자세한 내용이 있어서 생략한다.&#xA;이 글에서는 현재 시간을 datetime 객체로 받고, 이를 가지고 날짜와 시간을 문자열로 formatting 해 볼 것이다. (아래 코드 참조)&#xA;import datetime now = datetime.</description>
     </item>
-    
   </channel>
 </rss>
