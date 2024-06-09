@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>AWS - GoniGoni!</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
@@ -18,16 +17,25 @@
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-JN7PQ7YC6Q', { 'anonymize_ip': false });
-}
-</script>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-JN7PQ7YC6Q');
+        }
+      </script>
+    
+  
+
 
 </head>
 <body class="body">
@@ -56,13 +64,30 @@ if (!doNotTrack) {
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/create-api-with-amazon-q/" rel="bookmark">
+			Amazon Q로 간단한 API 만들어 보기 (with Go)
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2024-06-09T12:40:00&#43;09:00">2024-06-09</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		배경 인프라를 관리하다 보면, 수동으로 하는 일을 자동화 할 수 있는 방법을 고민할 것입니다. 그래서 인프라 구성을 코드로 관리하기도 하고, 간단한 스크립트나 프로그램을 만들기도 합니다. 그 중에서도 &ldquo;스크립트로 제공하는 것들을 API로 만들어 보면 어떨까?&rdquo; 라는 생각을 했는데요. DevOps나 SRE 분야에서 사용하는 도구들이 Go(Golang)으로 만든 경우가 많아서 Go를 선택하였습니다. 찾아 보니 Go를 이용한 웹 프레임워크로는 Gin과 같은 것들이 있더라구요. 이를 활용해서 간단한 API를 만들어 보려고 합니다. (에디터로는 Visual Studio Code를 이용합니다)
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/aws-sap-c01/" rel="bookmark">
 			AWS Certified Solutions Architect - Professional 시험 후기
 			</a>
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-05-11T23:14:04&#43;09:00">2022-05-11</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2022-05-11T23:14:04&#43;09:00">2022-05-11</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
 	</span>
 </div></div>
 	</header>
@@ -80,7 +105,7 @@ if (!doNotTrack) {
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-09-30T14:38:05&#43;09:00">2021-09-30</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2021-09-30T14:38:05&#43;09:00">2021-09-30</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
 	</span>
 </div></div>
 	</header>
@@ -100,7 +125,7 @@ Session Manager로 웹 브라우저에서 쉘 실행하기 Session Manager로 �
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-08-28T15:51:33&#43;09:00">2021-08-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2021-08-28T15:51:33&#43;09:00">2021-08-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
 	</span>
 </div></div>
 	</header>
@@ -121,7 +146,7 @@ SAM에서 API Gateway 정의를 SAM Template에 넣기 SAM에서 제공하는 AW
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-07-31T20:08:14&#43;09:00">2021-07-31</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2021-07-31T20:08:14&#43;09:00">2021-07-31</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
 	</span>
 </div></div>
 	</header>
@@ -143,7 +168,7 @@ EKS와 NGINX Ingress Controller 사용 저희 팀의 웹 서비스들은 Elastic
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-06-28T22:34:04&#43;09:00">2021-06-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2021-06-28T22:34:04&#43;09:00">2021-06-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
 	</span>
 </div></div>
 	</header>
@@ -164,7 +189,7 @@ Boto3의 코드를 열어보면, 서비스에 따라 발생할 수 있는 모든
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-06-29T20:58:17&#43;09:00">2020-06-29</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2020-06-29T20:58:17&#43;09:00">2020-06-29</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
 	</span>
 </div></div>
 	</header>
@@ -181,7 +206,7 @@ Boto3의 코드를 열어보면, 서비스에 따라 발생할 수 있는 모든
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-06-27T21:45:40&#43;09:00">2020-06-27</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2020-06-27T21:45:40&#43;09:00">2020-06-27</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
 	</span>
 </div></div>
 	</header>
@@ -202,7 +227,7 @@ AWS Lambda(Lambda Layer)의 제한 AWS Lambda에는 Lambda Layer라고 해서 �
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2019-10-22T21:02:00&#43;09:00">2019-10-22</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2019-10-22T21:02:00&#43;09:00">2019-10-22</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
 	</span>
 </div></div>
 	</header>
@@ -221,35 +246,13 @@ Serverless Framework는 다양한 클라우드 벤더를 지원하지만, 다른
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2019-10-16T21:05:00&#43;09:00">2019-10-16</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2019-10-16T21:05:00&#43;09:00">2019-10-16</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
 	</span>
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		들어가며 최근에 &lsquo;하둡과 스파크를 활용한 실용 데이터 과학&rsquo;이라는 책을 읽고 따라해 보고 있다. 이 책에서는 실습을 위해 호튼웍스(Hortonworks)의 Sandbox 이미지를 사용해 보기를 권장하고 있다. 그런데 설치 방법을 찾다 보니, 권장 사양이 높은 것 같다는 생각이 들었다. 이 이미지를 VirtualBox에서 사용할 때, 메모리 용량이 8GB로 설정되어 있었다. 그런데 지금 내가 쓰고 있는 노트북의 메모리 용량이 8GB라 좀 어려울 것 같았다. 그래서 AWS에 이 이미지를 올려보게 되었다.
 (주의: 이 글에서 설명하는 내용은 AWS의 Free Tier 범위를 넘어가므로 사용한 만큼 요금이 부과됩니다.
-	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/bitnami-mongodb/" rel="bookmark">
-			EC2에 Bitnami MongoDB 이미지 올리기
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2019-02-16T22:30:00&#43;09:00">2019-02-16</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		최근에 AWS에서 MongoDB와 호환되는 DocumentDB를 출시했지만, 아직 서울 리전에서는 사용할 수 없다.
-(2019년 5월에 서울 리전에 출시되었습니다. 링크한 글을 확인해 주세요~)
-그렇지만 필요에 따라 MongoDB를 쓸 일이 있을 것이다. AWS에서 Bitnami의 이미지를 활용해서 EC2에 MongoDB를 올려보고, 시험 삼아 데이터를 넣어보자.
-EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어간다. 아래 스크린샷과 같은 화면이 나오면, &lsquo;인스턴스 시작&rsquo;을 누른다.
-그리고 검색어에서 MongoDB를 입력하고, 왼쪽에서 AWS Marketplace를 누른다.
-스크롤을 아래로 내리다 보면, &lsquo;MongoDB Certified by Bitnami&rsquo;가 있다.
 	</div>
 </article>
 </main>
@@ -263,11 +266,9 @@ EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어�
 			
 <aside class="sidebar sidebar--left"><div class="widget-search widget">
 	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
-		<label>
-			<input class="widget-search__field" type="search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
-		</label>
+		<input class="widget-search__field" type="search" placeholder="Search…" value="" name="q" aria-label="Search…">
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="/">
 	</form>
 </div>
 <div class="widget-categories widget">
@@ -303,7 +304,9 @@ EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어�
 		<a class="widget-taglist__link widget__link btn" href="/tags/2021%EB%85%84/" title="2021년">2021년</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/2023%EB%85%84/" title="2023년">2023년</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/acm/" title="ACM">ACM</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ai/" title="AI">AI</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/airflow/" title="Airflow">Airflow</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/amazon-q/" title="Amazon Q">Amazon Q</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/arcade-fire/" title="Arcade Fire">Arcade Fire</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws/" title="AWS">AWS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/belle-and-sebastian/" title="Belle and Sebastian">Belle and Sebastian</a>
@@ -312,16 +315,16 @@ EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어�
 		<a class="widget-taglist__link widget__link btn" href="/tags/boto3/" title="Boto3">Boto3</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/cloudformation/" title="CloudFormation">CloudFormation</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/container/" title="Container">Container</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/datetime/" title="datetime">datetime</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/datetime/" title="Datetime">Datetime</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ddos/" title="DDoS">DDoS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/devops/" title="DevOps">DevOps</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ec2/" title="EC2">EC2</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/eks/" title="EKS">EKS</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/filter/" title="filter">filter</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/font/" title="font">font</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/format/" title="format">format</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/fromtimestamp/" title="fromtimestamp">fromtimestamp</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/getter/" title="getter">getter</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/filter/" title="Filter">Filter</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/font/" title="Font">Font</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/format/" title="Format">Format</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/fromtimestamp/" title="Fromtimestamp">Fromtimestamp</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/getter/" title="Getter">Getter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/git/" title="Git">Git</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/go/" title="Go">Go</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/golang/" title="Golang">Golang</a>
@@ -337,30 +340,30 @@ EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어�
 		<a class="widget-taglist__link widget__link btn" href="/tags/lambda/" title="Lambda">Lambda</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/locust/" title="Locust">Locust</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/logging/" title="logging">logging</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/map/" title="map">map</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/logging/" title="Logging">Logging</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/map/" title="Map">Map</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/mongodb/" title="MongoDB">MongoDB</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/mysql/" title="MySQL">MySQL</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/netstat/" title="netstat">netstat</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/netstat/" title="Netstat">Netstat</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/nlb/" title="NLB">NLB</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/oh-my-zsh/" title="oh-my-zsh">oh-my-zsh</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/oh-my-zsh/" title="Oh-My-Zsh">Oh-My-Zsh</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/open-badges/" title="Open Badges">Open Badges</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/paginator/" title="Paginator">Paginator</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pandas/" title="Pandas">Pandas</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/pep-8/" title="pep-8">pep-8</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pep-8/" title="Pep-8">Pep-8</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/professional/" title="Professional">Professional</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/property/" title="property">property</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/property/" title="Property">Property</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pulumi/" title="Pulumi">Pulumi</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/rds/" title="RDS">RDS</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/reduce/" title="reduce">reduce</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/reduce/" title="Reduce">Reduce</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/s3/" title="S3">S3</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sam/" title="SAM">SAM</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sdk/" title="SDK">SDK</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/sed/" title="sed">sed</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sed/" title="Sed">Sed</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/serverless/" title="Serverless">Serverless</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/session-manager/" title="Session Manager">Session Manager</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/setter/" title="setter">setter</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/setter/" title="Setter">Setter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/simcity/" title="SimCity">SimCity</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/software-engineering/" title="Software Engineering">Software Engineering</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/solutions-architect/" title="Solutions Architect">Solutions Architect</a>
@@ -371,12 +374,12 @@ EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어�
 		<a class="widget-taglist__link widget__link btn" href="/tags/step-functions/" title="Step Functions">Step Functions</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/systems-manager/" title="Systems Manager">Systems Manager</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/terraform/" title="Terraform">Terraform</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/underscore/" title="underscore">underscore</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/underscore/" title="Underscore">Underscore</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/visual-studio-code/" title="Visual Studio Code">Visual Studio Code</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/vscode/" title="VSCode">VSCode</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/warning/" title="warning">warning</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/warning/" title="Warning">Warning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zookeeper/" title="ZooKeeper">ZooKeeper</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/zsh/" title="zsh">zsh</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/zsh/" title="Zsh">Zsh</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B5%90%EC%9C%A1/" title="교육">교육</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98/" title="내장 함수">내장 함수</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" title="네트워크">네트워크</a>
@@ -421,7 +424,7 @@ EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어�
 		</div>
 		<div class="widget-social__item widget__item">
 			<a class="widget-social__link widget__link btn" title="Email" href="mailto:hahafree12@gmail.com">
-				<svg class="widget-social__link-icon icon icon-mail" width="24" height="24" viewBox="0 0 416 288"><path d="m0 16v256 16h16 384 16v-16-256-16h-16-384-16zm347 16-139 92.5-139-92.5zm-148 125.5 9 5.5 9-5.5 167-111.5v210h-352v-210z"/></svg>
+				<svg class="widget-social__link-icon icon icon-mail" width="24" height="24" viewBox="0 0 24 24"><path d="M0 3h24v18H0zm2 16h20V7l-10 6L2 7zM22 5H2l10 6z"/></svg>
 				<span>hahafree12@gmail.com</span>
 			</a>
 		</div>

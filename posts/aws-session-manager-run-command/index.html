@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>AWS Session Manager &amp; Run Command로 외부에서 쉘 스크립트 실행하기 - GoniGoni!</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
@@ -17,16 +16,25 @@
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-JN7PQ7YC6Q', { 'anonymize_ip': false });
-}
-</script>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-JN7PQ7YC6Q');
+        }
+      </script>
+    
+  
+
 
 </head>
 <body class="body">
@@ -54,7 +62,7 @@ if (!doNotTrack) {
 			<h1 class="post__title">AWS Session Manager &amp; Run Command로 외부에서 쉘 스크립트 실행하기</h1>
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-09-30T14:38:05&#43;09:00">2021-09-30</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2021-09-30T14:38:05&#43;09:00">2021-09-30</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
 	</span>
 </div></div>
 		</header>
@@ -87,16 +95,16 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>     --key-name &lt;your-key-pair-name&gt; <span style="color:#ae81ff">\ </span>
 </span></span><span style="display:flex;"><span>     --image-id ami-08c64544f5cfcddd0
 </span></span></code></pre></div><p>조금 기다리면 EC2 인스턴스가 생성되어 있을 겁니다. 그리고 Systems Manager 콘솔로 이동합니다. 왼쪽 아래를 보면 Session Manager라는 메뉴가 있는데요. 이 메뉴를 클릭합니다.</p>
-<figure><img src="/img/aws-session-manager-run-command-1.png"/>
+<figure><img src="/img/aws-session-manager-run-command-1.png">
 </figure>
 
 <p>Session Manager 메뉴를 클릭하면 우측에 Start Session 버튼이 있습니다. (위의 스크린샷 참조) 이 버튼을 클릭합니다.</p>
 <p>방금 생성한 인스턴스를 선택하고, 아래의 Start Session 버튼을 클릭합니다.</p>
-<figure><img src="/img/aws-session-manager-run-command-2.png"/>
+<figure><img src="/img/aws-session-manager-run-command-2.png">
 </figure>
 
 <p>그러면 아래 스크린샷과 같이 쉘 화면이 실행된 것을 볼 수 있습니다. 종료하려면 우측 상단의 <strong>Terminate</strong> 버튼을 클릭하거나, <code>exit</code> 명령을 치면 됩니다.</p>
-<figure><img src="/img/aws-session-manager-run-command-3.png"/>
+<figure><img src="/img/aws-session-manager-run-command-3.png">
 </figure>
 
 <p>참고로, Session Manager를 사용한 경우 실행 중인 사용자는 <code>ssm-user</code>, 로케일 설정은 <code>C.UTF-8</code>으로 되어 있는 것을 확인할 수 있습니다. (위의 스크린샷 참조)</p>
@@ -166,7 +174,7 @@ LC_ALL=
 		<footer class="post__footer">
 			
 <div class="post__tags tags clearfix">
-	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
 	<ul class="tags__list">
 		<li class="tags__item">
 			<a class="tags__link btn" href="/tags/aws/" rel="tag">AWS</a>

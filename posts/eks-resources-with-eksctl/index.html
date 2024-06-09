@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>eksctl로 생성한 EKS 클러스터의 리소스 살펴 보기 - GoniGoni!</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
@@ -17,16 +16,25 @@
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-JN7PQ7YC6Q', { 'anonymize_ip': false });
-}
-</script>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-JN7PQ7YC6Q');
+        }
+      </script>
+    
+  
+
 
 </head>
 <body class="body">
@@ -54,7 +62,7 @@ if (!doNotTrack) {
 			<h1 class="post__title">eksctl로 생성한 EKS 클러스터의 리소스 살펴 보기</h1>
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-07-17T21:45:26&#43;09:00">2022-07-17</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/devops/" rel="category">DevOps</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2022-07-17T21:45:26&#43;09:00">2022-07-17</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/devops/" rel="category">DevOps</a>
 	</span>
 </div></div>
 		</header>
@@ -64,9 +72,9 @@ if (!doNotTrack) {
 <h1 id="kubernetes-클러스터의-구조와-eks">Kubernetes 클러스터의 구조와 EKS</h1>
 <p>Kubernetes 클러스터는 다음과 같이 구성되어 있습니다.</p>
 <figure><img src="https://d33wubrfki0l68.cloudfront.net/2475489eaf20163ec0f54ddc1d92aa8d4c87c96b/e7c81/images/docs/components-of-kubernetes.svg"
-         alt="출처: kubernetes.io"/><figcaption>
-            <p>출처: <a href="https://kubernetes.io/ko/docs/concepts/overview/components/">kubernetes.io</a></p>
-        </figcaption>
+    alt="출처: kubernetes.io"><figcaption>
+      <p>출처: <a href="https://kubernetes.io/ko/docs/concepts/overview/components/">kubernetes.io</a></p>
+    </figcaption>
 </figure>
 
 <ul>
@@ -151,9 +159,9 @@ if (!doNotTrack) {
 <p>eksctl은 EKS 클러스터를 만들 때, <code>eksctl-&lt;your-cluster-name&gt;-cluster</code> 라는 이름의 CloudFormation 스택을 생성합니다. 이 스택은 다음과 같은 리소스로 구성되어 있습니다. (가린 부분은 클러스터 이름입니다)</p>
 <p>아래 설명은 Logical ID 기준입니다.</p>
 <figure><img src="/img/eks-resources-with-eksctl-1.png"
-         alt="EKS 클러스터 CloudFormation 스택"/><figcaption>
-            <p>EKS 클러스터 CloudFormation 스택</p>
-        </figcaption>
+    alt="EKS 클러스터 CloudFormation 스택"><figcaption>
+      <p>EKS 클러스터 CloudFormation 스택</p>
+    </figcaption>
 </figure>
 
 <ul>
@@ -183,9 +191,9 @@ if (!doNotTrack) {
 <p>EKS 클러스터 CloudFormation 스택을 생성한 후에는 관리형 노드 그룹을 CloudFormation 스택으로 생성합니다. <code>eksctl-(클러스터 이름)-nodegroup-ng-(임의의 숫자/알파벳)</code>이라는 이름을 보실 수 있을 것입니다. 이 스택은 다음과 같은 리소스로 구성되어 있습니다. (가린 부분은 클러스터 이름 및 노드 그룹의 임의의 숫자/알파벳 입니다)</p>
 <p>아래 설명은 Logical ID 기준입니다.</p>
 <figure><img src="/img/eks-resources-with-eksctl-2.png"
-         alt="EKS 클러스터 노드 그룹의 CloudFormation 스택"/><figcaption>
-            <p>EKS 클러스터 노드 그룹의 CloudFormation 스택</p>
-        </figcaption>
+    alt="EKS 클러스터 노드 그룹의 CloudFormation 스택"><figcaption>
+      <p>EKS 클러스터 노드 그룹의 CloudFormation 스택</p>
+    </figcaption>
 </figure>
 
 <ul>
@@ -262,9 +270,9 @@ if (!doNotTrack) {
 <p>관리자는 Fargate Profile을 사용해서 어떤 파드를 Fargate에서 실행할 지 선언할 수 있습니다. Profile의 selector에 네임스페이스를 정의하고, 키-값으로 레이블 필드를 정의하면 됩니다. 레이블을 정의하지 않으면 선택한 네임스페이스의 모든 파드를 Fargate로 실행합니다. 자세한 내용은 <a href="https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/fargate-profile.html">AWS의 문서</a>를 참고해 주세요.</p>
 <p>그러면 어떤 리소스들이 생성되었는지 한 번 살펴볼까요? (검정색으로 가린 부분은 클러스터 이름입니다)</p>
 <figure><img src="/img/eks-resources-with-eksctl-3.png"
-         alt="Fargate를 사용하는 EKS 클러스터 CloudFormation 스택"/><figcaption>
-            <p>Fargate를 사용하는 EKS 클러스터 CloudFormation 스택</p>
-        </figcaption>
+    alt="Fargate를 사용하는 EKS 클러스터 CloudFormation 스택"><figcaption>
+      <p>Fargate를 사용하는 EKS 클러스터 CloudFormation 스택</p>
+    </figcaption>
 </figure>
 
 <p>다른 리소스는 모두 동일한데, <strong>FargatePodExecutionRole</strong>이라는 IAM Role을 볼 수 있습니다. 이 역할에는 <strong>AmazonEKSFargatePodExecutionRolePolicy</strong> 라는 AWS에서 관리하는 정책이 적용되어 있고, 이는 Fargate에서 EKS 파드를 실행할 때 필요한 서비스에 대한 권한을 받습니다. 실제로 살펴보면 ECR에 대한 권한이 부여되어 있습니다.</p>
@@ -297,7 +305,7 @@ if (!doNotTrack) {
 </ul>
 <h1 id="마무리">마무리</h1>
 <p>지금까지 eksctl로 EKS 클러스터를 생성할 때, 어떤 리소스들을 만드는 지 확인해 보았습니다. EC2 노드를 사용하는 것을 기준으로 요약 해 보면, 아래 그림과 같은 구조입니다.</p>
-<figure><img src="/img/eks-resources-with-eksctl-4.png"/>
+<figure><img src="/img/eks-resources-with-eksctl-4.png">
 </figure>
 
 <p>개인적으로는 ClusterSharedNodeSecurityGroup이 굳이 필요한가&hellip;? 라는 생각이 들었습니다. 이 보안 그룹이 필요한 이유가 궁금해서 찾아보긴 했는데, 명쾌하게 설명되어 있는 글을 찾기가 어렵더라구요.</p>
@@ -320,7 +328,7 @@ if (!doNotTrack) {
 		<footer class="post__footer">
 			
 <div class="post__tags tags clearfix">
-	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
 	<ul class="tags__list">
 		<li class="tags__item">
 			<a class="tags__link btn" href="/tags/aws/" rel="tag">AWS</a>

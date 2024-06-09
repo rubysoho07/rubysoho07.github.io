@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>property on GoniGoni!</title>
+    <title>Property on GoniGoni!</title>
     <link>/tags/property/</link>
-    <description>Recent content in property on GoniGoni!</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Property on GoniGoni!</description>
+    <generator>Hugo</generator>
     <language>ko-kr</language>
     <lastBuildDate>Fri, 18 May 2018 23:36:00 +0900</lastBuildDate>
     <atom:link href="/tags/property/index.xml" rel="self" type="application/rss+xml" />

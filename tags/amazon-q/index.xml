@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Amazon Q on GoniGoni!</title>
+    <link>/tags/amazon-q/</link>
+    <description>Recent content in Amazon Q on GoniGoni!</description>
+    <generator>Hugo</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Sun, 09 Jun 2024 12:40:00 +0900</lastBuildDate>
+    <atom:link href="/tags/amazon-q/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amazon Q로 간단한 API 만들어 보기 (with Go)</title>
+      <link>/posts/create-api-with-amazon-q/</link>
+      <pubDate>Sun, 09 Jun 2024 12:40:00 +0900</pubDate>
+      <guid>/posts/create-api-with-amazon-q/</guid>
+      <description>배경 인프라를 관리하다 보면, 수동으로 하는 일을 자동화 할 수 있는 방법을 고민할 것입니다. 그래서 인프라 구성을 코드로 관리하기도 하고, 간단한 스크립트나 프로그램을 만들기도 합니다. 그 중에서도 &amp;ldquo;스크립트로 제공하는 것들을 API로 만들어 보면 어떨까?&amp;rdquo; 라는 생각을 했는데요. DevOps나 SRE 분야에서 사용하는 도구들이 Go(Golang)으로 만든 경우가 많아서 Go를 선택하였습니다. 찾아 보니 Go를 이용한 웹 프레임워크로는 Gin과 같은 것들이 있더라구요. 이를 활용해서 간단한 API를 만들어 보려고 합니다. (에디터로는 Visual Studio Code를 이용합니다)</description>
+    </item>
+  </channel>
+</rss>

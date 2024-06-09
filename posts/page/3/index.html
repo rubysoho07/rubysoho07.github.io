@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Posts - GoniGoni!</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
@@ -18,16 +17,25 @@
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-JN7PQ7YC6Q', { 'anonymize_ip': false });
-}
-</script>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-JN7PQ7YC6Q');
+        }
+      </script>
+    
+  
+
 
 </head>
 <body class="body">
@@ -56,13 +64,33 @@ if (!doNotTrack) {
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/locust-update/" rel="bookmark">
+			Locust 1.0 이후 달라진 점들 요약
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2021-03-30T21:53:01&#43;09:00">2021-03-30</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		작년 이맘때에 AWSKRUG에서 ECS+Locust로 부하 테스트 진행하기라는 주제로 발표를 한 적이 있었습니다.
+그러다가 5월에 Locust 1.0 버전이 나왔는데요. 최신 버전의 Locust로 부하 테스트를 진행하다 보니 바뀐 부분이 많아서, 새 버전으로 테스트를 수행하기 위해 필요한 내용 위주로 다시 정리해 보려고 합니다.
+이 글은 위에 링크한 슬라이드 중 11~19 페이지의 내용을 대체합니다. 지금부터 한 번 살펴보겠습니다.
+Locust -&gt; User 클래스 이름 변경 한 명의 사용자를 표현하는 Locust 클래스가 &lsquo;User&rsquo;로 이름을 바꾸었습니다. HTTP를 이용하는 클라이언트는 HttpLocust에서 HttpUser로 클래스 이름을 바꾸었습니다.
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/data-workflow-from-scratch/" rel="bookmark">
 			데이터 분석 워크플로우를 처음부터 만들어 보기
 			</a>
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-03-01T17:00:00&#43;09:00">2021-03-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/data-engineering/" rel="category">Data Engineering</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2021-03-01T17:00:00&#43;09:00">2021-03-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/data-engineering/" rel="category">Data Engineering</a>
 	</span>
 </div></div>
 	</header>
@@ -80,7 +108,7 @@ if (!doNotTrack) {
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-01-24T19:36:57&#43;09:00">2021-01-24</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/data-engineering/" rel="category">Data Engineering</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2021-01-24T19:36:57&#43;09:00">2021-01-24</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/data-engineering/" rel="category">Data Engineering</a>
 	</span>
 </div></div>
 	</header>
@@ -99,7 +127,7 @@ if (!doNotTrack) {
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-12-31T15:40:13&#43;09:00">2020-12-31</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2020-12-31T15:40:13&#43;09:00">2020-12-31</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
 	</span>
 </div></div>
 	</header>
@@ -117,7 +145,7 @@ if (!doNotTrack) {
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-11-28T13:13:35&#43;09:00">2020-11-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2020-11-28T13:13:35&#43;09:00">2020-11-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
 	</span>
 </div></div>
 	</header>
@@ -136,7 +164,7 @@ map(function, iterable, &hellip;) Reference: Python 문서 참조 iterable에 �
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-10-19T20:44:49&#43;09:00">2020-10-19</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/go/" rel="category">Go</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2020-10-19T20:44:49&#43;09:00">2020-10-19</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/go/" rel="category">Go</a>
 	</span>
 </div></div>
 	</header>
@@ -157,7 +185,7 @@ map(function, iterable, &hellip;) Reference: Python 문서 참조 iterable에 �
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-06-29T20:58:17&#43;09:00">2020-06-29</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2020-06-29T20:58:17&#43;09:00">2020-06-29</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
 	</span>
 </div></div>
 	</header>
@@ -174,7 +202,7 @@ map(function, iterable, &hellip;) Reference: Python 문서 참조 iterable에 �
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-06-27T21:45:40&#43;09:00">2020-06-27</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2020-06-27T21:45:40&#43;09:00">2020-06-27</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
 	</span>
 </div></div>
 	</header>
@@ -195,7 +223,7 @@ AWS Lambda(Lambda Layer)의 제한 AWS Lambda에는 Lambda Layer라고 해서 �
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-06-13T12:59:28&#43;09:00">2020-06-13</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2020-06-13T12:59:28&#43;09:00">2020-06-13</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
 	</span>
 </div></div>
 	</header>
@@ -213,7 +241,7 @@ Idles - Danny Nedelko 원래 뮤직비디오도 좋지만, 개인적으로는 �
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-01-04T15:11:05&#43;09:00">2020-01-04</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2020-01-04T15:11:05&#43;09:00">2020-01-04</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
 	</span>
 </div></div>
 	</header>
@@ -221,24 +249,6 @@ Idles - Danny Nedelko 원래 뮤직비디오도 좋지만, 개인적으로는 �
 		2020년이 된 지 4일이 되었지만, 지난 1년 간에 있었던 일들을 정리해 보려 합니다.
 발표 AWS Summit Seoul 2019 커뮤니티 세션에서 저희 부서의 데이터 저장 기반 구축 사례를 소개했습니다. 다음 영상에서 확인하실 수 있습니다. (슬라이드는 여기를 눌러주세요)
 PyCon Korea 외의 다른 행사에서 발표하는 건 처음이었는데요. 정말 많은 분들이 오셔서 긴장했는데, 어떻게든 잘 넘어갔던 것 같아요. 발표한 내용은 재작년(2018) 말 기준으로 구성했던 내용이고, 현재 저희 팀의 AWS 인프라는 많은 부분이 바뀐 상태입니다. 그리고 작년 AWS Summit을 기점으로 AWSKRUG 내 소모임도 가끔씩 참석하게 되었습니다.
-	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/retrospect-lecture-for-newbie/" rel="bookmark">
-			신입 사원 교육 후기: 이상과 현실
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-01-01T20:43:58&#43;09:00">2020-01-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		연말에 회고를 쓰신 분들을 많이 보게 됩니다. 저는 여러 일들이 있어 이제서야 한숨 돌렸는데요. 작년 회고는 두 개의 글로 나누어 작성하려고 합니다. 먼저 최근에 진행했었던 신입사원 교육 후기(가르치는 사람의 입장에서)를 먼저 공유해 드립니다. 나머지 이야기는 이번 주말에 작성하려고 합니다.
-어떻게 해서 신입 사원을 뽑게 되었는가? 저희 팀의 인프라 담당자는 저를 포함하여 두 명뿐이었습니다. 시간이 지나면서 저희가 갖고 있는 데이터를 기반으로 하는 서비스가 조금씩 늘어났고, 그러면서 업무가 늘어나는 상황이었습니다. 이에 처음에는 경력자를 뽑으려고 했으나, 어려웠던 상황이었는데요.
 	</div>
 </article>
 </main>
@@ -253,11 +263,9 @@ PyCon Korea 외의 다른 행사에서 발표하는 건 처음이었는데요. �
 			
 <aside class="sidebar sidebar--left"><div class="widget-search widget">
 	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
-		<label>
-			<input class="widget-search__field" type="search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
-		</label>
+		<input class="widget-search__field" type="search" placeholder="Search…" value="" name="q" aria-label="Search…">
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="/">
 	</form>
 </div>
 <div class="widget-categories widget">
@@ -293,7 +301,9 @@ PyCon Korea 외의 다른 행사에서 발표하는 건 처음이었는데요. �
 		<a class="widget-taglist__link widget__link btn" href="/tags/2021%EB%85%84/" title="2021년">2021년</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/2023%EB%85%84/" title="2023년">2023년</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/acm/" title="ACM">ACM</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ai/" title="AI">AI</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/airflow/" title="Airflow">Airflow</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/amazon-q/" title="Amazon Q">Amazon Q</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/arcade-fire/" title="Arcade Fire">Arcade Fire</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws/" title="AWS">AWS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/belle-and-sebastian/" title="Belle and Sebastian">Belle and Sebastian</a>
@@ -302,16 +312,16 @@ PyCon Korea 외의 다른 행사에서 발표하는 건 처음이었는데요. �
 		<a class="widget-taglist__link widget__link btn" href="/tags/boto3/" title="Boto3">Boto3</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/cloudformation/" title="CloudFormation">CloudFormation</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/container/" title="Container">Container</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/datetime/" title="datetime">datetime</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/datetime/" title="Datetime">Datetime</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ddos/" title="DDoS">DDoS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/devops/" title="DevOps">DevOps</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ec2/" title="EC2">EC2</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/eks/" title="EKS">EKS</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/filter/" title="filter">filter</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/font/" title="font">font</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/format/" title="format">format</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/fromtimestamp/" title="fromtimestamp">fromtimestamp</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/getter/" title="getter">getter</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/filter/" title="Filter">Filter</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/font/" title="Font">Font</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/format/" title="Format">Format</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/fromtimestamp/" title="Fromtimestamp">Fromtimestamp</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/getter/" title="Getter">Getter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/git/" title="Git">Git</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/go/" title="Go">Go</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/golang/" title="Golang">Golang</a>
@@ -327,30 +337,30 @@ PyCon Korea 외의 다른 행사에서 발표하는 건 처음이었는데요. �
 		<a class="widget-taglist__link widget__link btn" href="/tags/lambda/" title="Lambda">Lambda</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/locust/" title="Locust">Locust</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/logging/" title="logging">logging</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/map/" title="map">map</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/logging/" title="Logging">Logging</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/map/" title="Map">Map</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/mongodb/" title="MongoDB">MongoDB</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/mysql/" title="MySQL">MySQL</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/netstat/" title="netstat">netstat</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/netstat/" title="Netstat">Netstat</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/nlb/" title="NLB">NLB</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/oh-my-zsh/" title="oh-my-zsh">oh-my-zsh</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/oh-my-zsh/" title="Oh-My-Zsh">Oh-My-Zsh</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/open-badges/" title="Open Badges">Open Badges</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/paginator/" title="Paginator">Paginator</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pandas/" title="Pandas">Pandas</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/pep-8/" title="pep-8">pep-8</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pep-8/" title="Pep-8">Pep-8</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/professional/" title="Professional">Professional</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/property/" title="property">property</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/property/" title="Property">Property</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pulumi/" title="Pulumi">Pulumi</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/rds/" title="RDS">RDS</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/reduce/" title="reduce">reduce</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/reduce/" title="Reduce">Reduce</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/s3/" title="S3">S3</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sam/" title="SAM">SAM</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sdk/" title="SDK">SDK</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/sed/" title="sed">sed</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sed/" title="Sed">Sed</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/serverless/" title="Serverless">Serverless</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/session-manager/" title="Session Manager">Session Manager</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/setter/" title="setter">setter</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/setter/" title="Setter">Setter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/simcity/" title="SimCity">SimCity</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/software-engineering/" title="Software Engineering">Software Engineering</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/solutions-architect/" title="Solutions Architect">Solutions Architect</a>
@@ -361,12 +371,12 @@ PyCon Korea 외의 다른 행사에서 발표하는 건 처음이었는데요. �
 		<a class="widget-taglist__link widget__link btn" href="/tags/step-functions/" title="Step Functions">Step Functions</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/systems-manager/" title="Systems Manager">Systems Manager</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/terraform/" title="Terraform">Terraform</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/underscore/" title="underscore">underscore</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/underscore/" title="Underscore">Underscore</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/visual-studio-code/" title="Visual Studio Code">Visual Studio Code</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/vscode/" title="VSCode">VSCode</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/warning/" title="warning">warning</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/warning/" title="Warning">Warning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zookeeper/" title="ZooKeeper">ZooKeeper</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/zsh/" title="zsh">zsh</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/zsh/" title="Zsh">Zsh</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B5%90%EC%9C%A1/" title="교육">교육</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98/" title="내장 함수">내장 함수</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" title="네트워크">네트워크</a>
@@ -411,7 +421,7 @@ PyCon Korea 외의 다른 행사에서 발표하는 건 처음이었는데요. �
 		</div>
 		<div class="widget-social__item widget__item">
 			<a class="widget-social__link widget__link btn" title="Email" href="mailto:hahafree12@gmail.com">
-				<svg class="widget-social__link-icon icon icon-mail" width="24" height="24" viewBox="0 0 416 288"><path d="m0 16v256 16h16 384 16v-16-256-16h-16-384-16zm347 16-139 92.5-139-92.5zm-148 125.5 9 5.5 9-5.5 167-111.5v210h-352v-210z"/></svg>
+				<svg class="widget-social__link-icon icon icon-mail" width="24" height="24" viewBox="0 0 24 24"><path d="M0 3h24v18H0zm2 16h20V7l-10 6L2 7zM22 5H2l10 6z"/></svg>
 				<span>hahafree12@gmail.com</span>
 			</a>
 		</div>

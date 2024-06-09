@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>zsh on GoniGoni!</title>
+    <title>Zsh on GoniGoni!</title>
     <link>/tags/zsh/</link>
-    <description>Recent content in zsh on GoniGoni!</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Zsh on GoniGoni!</description>
+    <generator>Hugo</generator>
     <language>ko-kr</language>
     <lastBuildDate>Thu, 04 Oct 2018 21:34:00 +0900</lastBuildDate>
     <atom:link href="/tags/zsh/index.xml" rel="self" type="application/rss+xml" />

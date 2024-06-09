@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>datetime on GoniGoni!</title>
+    <title>Datetime on GoniGoni!</title>
     <link>/tags/datetime/</link>
-    <description>Recent content in datetime on GoniGoni!</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Datetime on GoniGoni!</description>
+    <generator>Hugo</generator>
     <language>ko-kr</language>
     <lastBuildDate>Thu, 13 Sep 2018 00:08:00 +0900</lastBuildDate>
     <atom:link href="/tags/datetime/index.xml" rel="self" type="application/rss+xml" />

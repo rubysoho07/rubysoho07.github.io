@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Open Badges 소개 - GoniGoni!</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="">
@@ -17,16 +16,25 @@
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-JN7PQ7YC6Q', { 'anonymize_ip': false });
-}
-</script>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-JN7PQ7YC6Q');
+        }
+      </script>
+    
+  
+
 
 </head>
 <body class="body">
@@ -54,7 +62,7 @@ if (!doNotTrack) {
 			<h1 class="post__title">Open Badges 소개</h1>
 			<div class="post__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2021-05-01T12:55:57&#43;09:00">2021-05-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2021-05-01T12:55:57&#43;09:00">2021-05-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
 	</span>
 </div></div>
 		</header>
@@ -62,7 +70,7 @@ if (!doNotTrack) {
 			<p>저는 초등학생 때 아람단에 가입해서 이런저런 활동들을 해 봤는데요. 열심히 활동하는 편은 아니었지만, 뭔가 활동을 하면 배지를 얻을 수 있었습니다. 적극적으로 활동하는 친구들은 아람단 단복에 정말 많은 배지들을 달고 있었던 기억이 납니다.</p>
 <p>이러한 배지 시스템은 스마트 폰의 앱이나 웹 사이트에서도 볼 수 있습니다. 예를 들어 제가 운동할 때 사용하는 앱 중 하나인 Nike Training Club은 특정한 조건을 달성하면 새로운 기록을 만들 수 있는데요.</p>
 <p>아래는 Nike Training Club 앱에서 제가 달성한 기록들 중 일부입니다.</p>
-<figure><img src="/img/open-badges-introduction-1.jpeg" width="30%"/>
+<figure><img src="/img/open-badges-introduction-1.jpeg" width="30%">
 </figure>
 
 <p>그런데, 제가 달성한 기록을 전 세계의 어떤 플랫폼에서든 인증받을 수 있다면 어떨까요? 문서나 카드로 만든 자격증이 없어도, 제가 다른 플랫폼으로 저의 데이터를 옮기더라도 저의 기록을 보존할 수 있다면 좋지 않을까요?</p>
@@ -77,9 +85,9 @@ if (!doNotTrack) {
 </ul>
 <p>Open Badges의 기본 구조는 다음 그림으로 요약할 수 있습니다.</p>
 <figure><img src="https://openbadges.org/sites/default/files/assets/Open%20Badges/Build%20Page/OB_Best_Practices.svg"
-         alt="출처: openbadges.org / This image is licenced under a Creative Commons Attribution 4.0 International License."/><figcaption>
-            <p>출처: <a href="https://openbadges.org/build">openbadges.org</a> / This image is licenced under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
-        </figcaption>
+    alt="출처: openbadges.org / This image is licenced under a Creative Commons Attribution 4.0 International License."><figcaption>
+      <p>출처: <a href="https://openbadges.org/build">openbadges.org</a> / This image is licenced under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+    </figcaption>
 </figure>
 
 <p>하나의 Open Badge는 다음 요소를 갖고 있습니다.</p>
@@ -243,7 +251,7 @@ if (!doNotTrack) {
 <li>만료 일자</li>
 </ul>
 <p>그리고 상단의 Verify 버튼을 누르면, 이 배지를 검증할 수도 있습니다. 그 결과 아래 스크린샷과 같은 내용을 확인할 수 있습니다.</p>
-<figure><img src="/img/open-badges-introduction-2.png" width="30%"/>
+<figure><img src="/img/open-badges-introduction-2.png" width="30%">
 </figure>
 
 <p>이 내용의 의미는 다음과 같습니다.</p>
@@ -268,7 +276,7 @@ if (!doNotTrack) {
 		<footer class="post__footer">
 			
 <div class="post__tags tags clearfix">
-	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
 	<ul class="tags__list">
 		<li class="tags__item">
 			<a class="tags__link btn" href="/tags/open-badges/" rel="tag">Open Badges</a>

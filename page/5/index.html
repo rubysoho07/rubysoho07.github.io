@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.121.2">
+	<meta name="generator" content="Hugo 0.127.0">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>GoniGoni!</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="주로 이야기할 주제는 AWS, Python, 프로그래밍과 관련된 것들이지만, 생활하면서 느낀 이야기도 가끔씩 적어볼 예정입니다.">
@@ -19,16 +18,25 @@
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-JN7PQ7YC6Q', { 'anonymize_ip': false });
-}
-</script>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-JN7PQ7YC6Q');
+        }
+      </script>
+    
+  
+
 
 </head>
 <body class="body">
@@ -55,13 +63,35 @@ if (!doNotTrack) {
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/vscode-oh-my-zsh/" rel="bookmark">
+			VSCode와 oh-my-zsh를 사용할 때 터미널 글꼴이 깨진다면
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-10-04T21:34:00&#43;09:00">2018-10-04</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/linux/" rel="category">Linux</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		최근에 oh-my-zsh를 써 보기 시작했다. (써보면 편하다고는 하는데, 아직까지는 체감을 못하고 있긴 하다.)
+그런데 Visual Studio Code에서 터미널을 쓸 때, 아래처럼 글꼴이 깨지는 현상이 있었다. (현재 테마는 &ldquo;agnoster&quot;이다.)
+이 문제에 대해 찾아보니, 다음과 같은 이슈를 발견할 수 있었다.
+https://github.com/Microsoft/vscode/issues/7116
+여기서 제시하는 해결책은 다음과 같다.
+&ldquo;SourceCodePro+Powerline+Awesome Regular&rdquo; 글꼴을 받아 설치한다. 링크 Visual Studio Code 설정에서 terminal.integrated.fontFamily 항목에 'SourceCodePro+Powerline+Awesome Regular'를 넣는다. (작은 따옴표를 포함해야 한다!) 그러면 아래와 같이 터미널의 글꼴이 깨지지 않게 된다.
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/logging-rds/" rel="bookmark">
 			RDS MySQL에서 일반/느린 쿼리 로그 찍기
 			</a>
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2018-10-03T14:24:00&#43;09:00">2018-10-03</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-10-03T14:24:00&#43;09:00">2018-10-03</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
 	</span>
 </div></div>
 	</header>
@@ -84,7 +114,7 @@ if (!doNotTrack) {
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2018-10-02T23:46:00&#43;09:00">2018-10-02</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/git/" rel="category">Git</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-10-02T23:46:00&#43;09:00">2018-10-02</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/git/" rel="category">Git</a>
 	</span>
 </div></div>
 	</header>
@@ -105,7 +135,7 @@ Git 원격 저장소의 사용자 이름이 이메일 주소인 경우 이러한
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2018-10-02T23:16:00&#43;09:00">2018-10-02</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-10-02T23:16:00&#43;09:00">2018-10-02</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
 	</span>
 </div></div>
 	</header>
@@ -126,7 +156,7 @@ START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1 arn:aws:lambda:
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2018-09-13T00:08:00&#43;09:00">2018-09-13</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-09-13T00:08:00&#43;09:00">2018-09-13</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
 	</span>
 </div></div>
 	</header>
@@ -148,7 +178,7 @@ Ubuntu에서는 정상적으로 동작한다.
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2018-05-26T10:32:00&#43;09:00">2018-05-26</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-05-26T10:32:00&#43;09:00">2018-05-26</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
 	</span>
 </div></div>
 	</header>
@@ -167,7 +197,7 @@ Trailing underscore _single_leading_underscore: 이런 경우 from M import *에
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2018-05-18T23:36:00&#43;09:00">2018-05-18</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-05-18T23:36:00&#43;09:00">2018-05-18</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
 	</span>
 </div></div>
 	</header>
@@ -186,7 +216,7 @@ class property(fget=None, fset=None, fdel=None, doc=None) 페이지 아래에 �
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2018-05-17T22:06:00&#43;09:00">2018-05-17</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-05-17T22:06:00&#43;09:00">2018-05-17</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
 	</span>
 </div></div>
 	</header>
@@ -206,7 +236,7 @@ class property(fget=None, fset=None, fdel=None, doc=None) 페이지 아래에 �
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2018-05-16T23:27:00&#43;09:00">2018-05-16</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-05-16T23:27:00&#43;09:00">2018-05-16</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
 	</span>
 </div></div>
 	</header>
@@ -226,7 +256,7 @@ sum(iterable[, start]) iterable 객체를 받아서 각 요소들의 합을 구�
 		</h2>
 		<div class="list__meta meta">
 <div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2018-05-15T22:35:00&#43;09:00">2018-05-15</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-05-15T22:35:00&#43;09:00">2018-05-15</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
 	</span>
 </div></div>
 	</header>
@@ -235,26 +265,6 @@ sum(iterable[, start]) iterable 객체를 받아서 각 요소들의 합을 구�
 테스트를 수행하는 기준은? 간단한 코드를 만들어 보자. 파일 이름은 aaa.py로 저장한다.
 import unittest class TestExample(unittest.TestCase): def test_a(self): self.assertEqual(1 == 2, False) 그리고 쉘에서 python -m unittest를 입력하면, 아무 테스트도 실행하지 않는다.
 $ python -m unittest ---------------------------------------------------------------------- Ran 0 tests in 0.000s OK 왜 그럴까? unittest 라이브러리는 기본적으로 실행하는 top-level 디렉터리에서 test로 시작하는 파일을 찾아서 테스트를 수행한다.
-	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/python-datetime-string-formatting/" rel="bookmark">
-			Python 날짜/시간을 문자열로 만들기 위한 규칙 정리
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2018-05-14T23:24:00&#43;09:00">2018-05-14</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		파이썬을 쓰다 보면 문자열을 다루는 경우가 많은데, 문자열을 특정한 양식에 맞추어야 하는 경우가 종종 있었다. 이 경우 PyFormat과 같은 사이트를 참조한다. 하지만 날짜나 시간을 formatting 할 때는 상세한 규칙이 정리되어 있지 않아서 이 참에 정리를 해 보려고 한다.
-문자열을 넣거나 숫자를 다루는 경우, PyFormat에 자세한 내용이 있어서 생략한다.
-이 글에서는 현재 시간을 datetime 객체로 받고, 이를 가지고 날짜와 시간을 문자열로 formatting 해 볼 것이다. (아래 코드 참조)
-import datetime now = datetime.
 	</div>
 </article>
 </main>
@@ -268,11 +278,9 @@ import datetime now = datetime.
 			</div>
 			<aside class="sidebar"><div class="widget-search widget">
 	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
-		<label>
-			<input class="widget-search__field" type="search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
-		</label>
+		<input class="widget-search__field" type="search" placeholder="Search…" value="" name="q" aria-label="Search…">
 		<input class="widget-search__submit" type="submit" value="Search">
-		<input type="hidden" name="sitesearch" value="/" />
+		<input type="hidden" name="sitesearch" value="/">
 	</form>
 </div>
 <div class="widget-categories widget">
@@ -308,7 +316,9 @@ import datetime now = datetime.
 		<a class="widget-taglist__link widget__link btn" href="/tags/2021%EB%85%84/" title="2021년">2021년</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/2023%EB%85%84/" title="2023년">2023년</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/acm/" title="ACM">ACM</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/ai/" title="AI">AI</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/airflow/" title="Airflow">Airflow</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/amazon-q/" title="Amazon Q">Amazon Q</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/arcade-fire/" title="Arcade Fire">Arcade Fire</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws/" title="AWS">AWS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/belle-and-sebastian/" title="Belle and Sebastian">Belle and Sebastian</a>
@@ -317,16 +327,16 @@ import datetime now = datetime.
 		<a class="widget-taglist__link widget__link btn" href="/tags/boto3/" title="Boto3">Boto3</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/cloudformation/" title="CloudFormation">CloudFormation</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/container/" title="Container">Container</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/datetime/" title="datetime">datetime</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/datetime/" title="Datetime">Datetime</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ddos/" title="DDoS">DDoS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/devops/" title="DevOps">DevOps</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ec2/" title="EC2">EC2</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/eks/" title="EKS">EKS</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/filter/" title="filter">filter</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/font/" title="font">font</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/format/" title="format">format</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/fromtimestamp/" title="fromtimestamp">fromtimestamp</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/getter/" title="getter">getter</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/filter/" title="Filter">Filter</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/font/" title="Font">Font</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/format/" title="Format">Format</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/fromtimestamp/" title="Fromtimestamp">Fromtimestamp</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/getter/" title="Getter">Getter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/git/" title="Git">Git</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/go/" title="Go">Go</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/golang/" title="Golang">Golang</a>
@@ -342,30 +352,30 @@ import datetime now = datetime.
 		<a class="widget-taglist__link widget__link btn" href="/tags/lambda/" title="Lambda">Lambda</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/linux/" title="Linux">Linux</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/locust/" title="Locust">Locust</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/logging/" title="logging">logging</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/map/" title="map">map</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/logging/" title="Logging">Logging</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/map/" title="Map">Map</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/mongodb/" title="MongoDB">MongoDB</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/mysql/" title="MySQL">MySQL</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/netstat/" title="netstat">netstat</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/netstat/" title="Netstat">Netstat</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/nlb/" title="NLB">NLB</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/oh-my-zsh/" title="oh-my-zsh">oh-my-zsh</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/oh-my-zsh/" title="Oh-My-Zsh">Oh-My-Zsh</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/open-badges/" title="Open Badges">Open Badges</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/paginator/" title="Paginator">Paginator</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pandas/" title="Pandas">Pandas</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/pep-8/" title="pep-8">pep-8</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/pep-8/" title="Pep-8">Pep-8</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/professional/" title="Professional">Professional</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/property/" title="property">property</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/property/" title="Property">Property</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pulumi/" title="Pulumi">Pulumi</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/rds/" title="RDS">RDS</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/reduce/" title="reduce">reduce</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/reduce/" title="Reduce">Reduce</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/s3/" title="S3">S3</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sam/" title="SAM">SAM</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sdk/" title="SDK">SDK</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/sed/" title="sed">sed</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/sed/" title="Sed">Sed</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/serverless/" title="Serverless">Serverless</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/session-manager/" title="Session Manager">Session Manager</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/setter/" title="setter">setter</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/setter/" title="Setter">Setter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/simcity/" title="SimCity">SimCity</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/software-engineering/" title="Software Engineering">Software Engineering</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/solutions-architect/" title="Solutions Architect">Solutions Architect</a>
@@ -376,12 +386,12 @@ import datetime now = datetime.
 		<a class="widget-taglist__link widget__link btn" href="/tags/step-functions/" title="Step Functions">Step Functions</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/systems-manager/" title="Systems Manager">Systems Manager</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/terraform/" title="Terraform">Terraform</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/underscore/" title="underscore">underscore</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/underscore/" title="Underscore">Underscore</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/visual-studio-code/" title="Visual Studio Code">Visual Studio Code</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/vscode/" title="VSCode">VSCode</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/warning/" title="warning">warning</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/warning/" title="Warning">Warning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zookeeper/" title="ZooKeeper">ZooKeeper</a>
-		<a class="widget-taglist__link widget__link btn" href="/tags/zsh/" title="zsh">zsh</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/zsh/" title="Zsh">Zsh</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B5%90%EC%9C%A1/" title="교육">교육</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98/" title="내장 함수">내장 함수</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" title="네트워크">네트워크</a>
@@ -426,7 +436,7 @@ import datetime now = datetime.
 		</div>
 		<div class="widget-social__item widget__item">
 			<a class="widget-social__link widget__link btn" title="Email" href="mailto:hahafree12@gmail.com">
-				<svg class="widget-social__link-icon icon icon-mail" width="24" height="24" viewBox="0 0 416 288"><path d="m0 16v256 16h16 384 16v-16-256-16h-16-384-16zm347 16-139 92.5-139-92.5zm-148 125.5 9 5.5 9-5.5 167-111.5v210h-352v-210z"/></svg>
+				<svg class="widget-social__link-icon icon icon-mail" width="24" height="24" viewBox="0 0 24 24"><path d="M0 3h24v18H0zm2 16h20V7l-10 6L2 7zM22 5H2l10 6z"/></svg>
 				<span>hahafree12@gmail.com</span>
 			</a>
 		</div>
