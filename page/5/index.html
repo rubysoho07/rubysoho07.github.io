@@ -63,6 +63,25 @@
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/step-function-with-python/" rel="bookmark">
+			Python으로 Step Functions 활동 만들기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-10-04T23:21:00&#43;09:00">2018-10-04</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		AWS에는 Step Functions라는 서비스가 있다. 여러 개의 활동(activity)를 조합해서 순서대로 또는 반복적으로 원하는 작업을 실행할 수 있도록 해 주는 서비스이다.
+일반적으로는 여러 개의 Lambda 함수를 연결해서 사용하는 경우가 많다. 하지만 Lambda 함수의 실행 시간이 5분을 넘어가면, 다른 방법을 고려해야 한다. 이럴 때 활동을 생성하고 이를 수행하는 코드를 작성하면, 오래 걸리는 작업도 Step Functions로 이용할 수 있다.
+활동(Activity) 만들기 Step Functions 콘솔의 왼쪽 메뉴에서 활동을 클릭한다. 화면이 바뀌면 우측의 활동 생성을 클릭하여 새로운 활동을 만든다.
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/vscode-oh-my-zsh/" rel="bookmark">
 			VSCode와 oh-my-zsh를 사용할 때 터미널 글꼴이 깨진다면
 			</a>
@@ -246,26 +265,6 @@ class property(fget=None, fset=None, fdel=None, doc=None) 페이지 아래에 �
 sum(): 각각의 item을 합치기 참고: https://docs.python.org/3/library/functions.html#sum
 sum(iterable[, start]) iterable 객체를 받아서 각 요소들의 합을 구한다.
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/python-making-test-module/" rel="bookmark">
-			파이썬에서 테스트 코드를 만들면서 겪은 일들
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-05-15T22:35:00&#43;09:00">2018-05-15</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		이번 글에서는 파이썬에서 테스트 코드를 만들면서 겪었던 시행착오에 대해 소개하고자 한다. 여기서는 파이썬에 내장된 unittest를 이용한다.
-테스트를 수행하는 기준은? 간단한 코드를 만들어 보자. 파일 이름은 aaa.py로 저장한다.
-import unittest class TestExample(unittest.TestCase): def test_a(self): self.assertEqual(1 == 2, False) 그리고 쉘에서 python -m unittest를 입력하면, 아무 테스트도 실행하지 않는다.
-$ python -m unittest ---------------------------------------------------------------------- Ran 0 tests in 0.000s OK 왜 그럴까? unittest 라이브러리는 기본적으로 실행하는 top-level 디렉터리에서 test로 시작하는 파일을 찾아서 테스트를 수행한다.
-	</div>
 </article>
 </main>
 
@@ -362,6 +361,7 @@ $ python -m unittest -----------------------------------------------------------
 		<a class="widget-taglist__link widget__link btn" href="/tags/open-badges/" title="Open Badges">Open Badges</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/paginator/" title="Paginator">Paginator</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pandas/" title="Pandas">Pandas</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/parameter-store/" title="Parameter Store">Parameter Store</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pep-8/" title="Pep-8">Pep-8</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/professional/" title="Professional">Professional</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/property/" title="Property">Property</a>
@@ -372,6 +372,7 @@ $ python -m unittest -----------------------------------------------------------
 		<a class="widget-taglist__link widget__link btn" href="/tags/s3/" title="S3">S3</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sam/" title="SAM">SAM</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sdk/" title="SDK">SDK</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/secrets-manager/" title="Secrets Manager">Secrets Manager</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sed/" title="Sed">Sed</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/serverless/" title="Serverless">Serverless</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/session-manager/" title="Session Manager">Session Manager</a>

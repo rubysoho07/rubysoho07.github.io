@@ -6,8 +6,15 @@
     <description>Recent content on GoniGoni!</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 09 Jun 2024 12:40:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 23 Jun 2024 20:51:32 +0900</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EKS에서 ASCP로 Parameter Store/Secrets Manager 이용하기</title>
+      <link>/posts/manage-secrets-in-eks-with-ascp/</link>
+      <pubDate>Sun, 23 Jun 2024 20:51:32 +0900</pubDate>
+      <guid>/posts/manage-secrets-in-eks-with-ascp/</guid>
+      <description>배경 어떤 애플리케이션이든 민감한 정보를 관리할 필요가 있습니다. DB에 연결하기 위한 사용자 정보 및 비밀번호가 필요할 것이고, 외부 API를 호출하기 위해 API 키가 필요할 수도 있죠. 이러한 정보를 관리하는 방법에는 여러 가지가 있는데요. 이번에는 EKS 클러스터가 있다고 가정하고, AWS의 Parameter Store, Secrets Manager에 있는 값을 어떻게 Pod에 넣을 수 있을지 살펴 보겠습니다.&#xA;준비하기 AWS CLI 설치 kubectl, helm 설치 EKS 클러스터: 콘솔에서 생성하거나 eksctl과 같은 툴로 생성해 주세요. (테스트 후 비용 문제로 클러스터는 꼭 삭제해 주시기 바랍니다.</description>
+    </item>
     <item>
       <title>Amazon Q로 간단한 API 만들어 보기 (with Go)</title>
       <link>/posts/create-api-with-amazon-q/</link>
