@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Argo Workflows 이용해 보기 - GoniGoni!</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-JN7PQ7YC6Q');
+        }
+      </script>
+    
+  
+
+
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="GoniGoni!" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">GoniGoni!</div>
+					<div class="logo__tagline">개발 블로그이지만 개발 말고 다른 이야기도 합니다.</div>
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Argo Workflows 이용해 보기</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2024-07-07T19:32:34&#43;09:00">2024-07-07</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/devops/" rel="category">DevOps</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p>예전에 여러 단계가 있는 작업을 해야 할 때 AWS의 Step Functions를 이용한 적이 있었습니다. Step Functions의 경우, Lambda 함수를 연결해서 쓴 적이 많았고, 오래 걸리는 작업은 다른 방법으로 구축할 수 있습니다. (이전에 올렸던 <a href="/posts/step-function-with-python/">Python으로 Step Functions 활동 만들기</a> 문서를 참고해 주세요)</p>
+<p>한편, 다른 방법은 없나 찾아보다가 Airflow를 알게 되었습니다. 그래서 Airflow도 테스트한 적이 있었는데요. (이전에 올렸던 데이터 분석 워크플로우를 처음부터 만들어 보기 <a href="/posts/data-workflow-from-scratch/">1편</a>, <a href="/posts/data-workflow-from-scratch-2/">2편</a>을 참고해 주세요)</p>
+<p>최근 우연하게 Kubernetes에서 Workflow를 관리할 수 있는 Argo Workflow에 대해 알게 되었습니다. 그래서 이번 글에서는 Argo Workflow의 사용법을 알아보고자 합니다.</p>
+<p>저는 로컬 환경에서 Rancher Desktop을 이용해서 테스트하였습니다. (즉, 로컬 환경에서 Kubernetes를 구동시킬 수 있는 상황이면 아래 내용을 테스트 할 수 있습니다)</p>
+<h2 id="설치-방법">설치 방법</h2>
+<p>이 글을 작성하는 시점의 최신 버전인 3.5.8 버전을 이용해 보겠습니다. 터미널에서 아래 명령을 입력해 주세요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ARGO_WORKFLOWS_VERSION<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;v3.5.8&#34;</span>
+</span></span><span style="display:flex;"><span>kubectl create namespace argo
+</span></span><span style="display:flex;"><span>kubectl apply -n argo -f <span style="color:#e6db74">&#34;https://github.com/argoproj/argo-workflows/releases/download/</span><span style="color:#e6db74">${</span>ARGO_WORKFLOWS_VERSION<span style="color:#e6db74">}</span><span style="color:#e6db74">/quick-start-minimal.yaml&#34;</span>
+</span></span></code></pre></div><p>위의 명령은 테스트용 설치 과정입니다. 프로덕션 목적으로 Argo Workflows를 구축하려면 <a href="https://argo-workflows.readthedocs.io/en/latest/installation/">문서</a>를 참조해 주세요.</p>
+<h3 id="ui에서-확인하기">UI에서 확인하기</h3>
+<p>Argo Workflows는 웹에서 확인할 수 있는 환경을 제공합니다. 포트 포워딩을 하기 위해 터미널에서 아래 명령을 입력해 주세요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kubectl -n argo port-forward svc/argo-server 2746:2746
+</span></span></code></pre></div><p>웹 브라우저에서 https://localhost:2746 으로 접속하면 아래와 같은 화면을 볼 수 있습니다.</p>
+<figure><img src="/img/argo-workflows-1.png">
+</figure>
+
+<h3 id="service-account-및-rbac-설정">Service Account 및 RBAC 설정</h3>
+<p>Argo가 Kubernetes API를 이용해서 Kubernetes 리소스와 통신하기 위해, <code>ServiceAccount</code>, <code>Role</code>, <code>RoleBinding</code> 설정이 필요합니다.</p>
+<p>ServiceAccount를 지정하지 않으면, namespace 내 default ServiceAccount를 이용한다고 하는데요. 이 경우 권한이 충분하지 않아 에러가 발생할 수 있습니다. (<a href="https://argo-workflows.readthedocs.io/en/latest/service-accounts/">참고자료</a>)</p>
+<p>최소한으로 필요한 권한을 이용해서 다음과 같이 ServiceAccount와 권한을 설정해 보겠습니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ServiceAccount</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">argo-workflow-sa</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Role</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">executor</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rules</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">apiGroups</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">argoproj.io</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">resources</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">workflowtaskresults</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">verbs</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">create</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">patch</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">RoleBinding</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">executor-binding</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">roleRef</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">apiGroup</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Role</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">executor</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">subjects</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ServiceAccount</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">argo-workflow-sa</span>
+</span></span></code></pre></div><p>위 파일을 <code>rbac.yaml</code> 파일로 저장 후, 터미널에서 <code>kubectl apply -f rbac.yaml</code> 명령을 실행하면 됩니다.</p>
+<h2 id="사용-사례">사용 사례</h2>
+<p>공식 문서에서는 작업을 실행할 때 Argo CLI를 이용하는 것을 권장하는데요. 하지만 <code>kubectl</code>을 이용해서 실행할 수도 있습니다. 이 문서에서는 <code>kubectl</code>을 이용해서 리소스를 생성하고 테스트 해 보겠습니다.</p>
+<p>예전에 Step Functions를 사용했던 경험으로, 유사한 기능을 지원하는지 확인해 보려고 합니다.</p>
+<h3 id="case-1-기본-동작">Case 1: 기본 동작</h3>
+<p>기본 동작을 확인하기 위해 Walk through 문서의 hello world 예제로 시작합니다. 다만 수정할 부분이 하나 있는데요. 앞에서 만든 ServiceAccount를 지정해 줍니다. 이후에 나오는 예제에도 동일하게 설정해야 정상적으로 동작합니다. (<code>serviceAccountName</code> 속성)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">argoproj.io/v1alpha1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Workflow                  </span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">generateName</span>: <span style="color:#ae81ff">hello-world-   </span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">entrypoint</span>: <span style="color:#ae81ff">whalesay          </span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">serviceAccountName</span>: <span style="color:#ae81ff">argo-workflow-sa     </span> <span style="color:#75715e"># 이 줄을 추가해 주세요!</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">templates</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">whalesay              </span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">container</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker/whalesay</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">command</span>: [ <span style="color:#ae81ff">cowsay ]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">args</span>: [ <span style="color:#e6db74">&#34;hello world&#34;</span> ]
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">resources</span>: 
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">limits</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">memory</span>: <span style="color:#ae81ff">32Mi</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">cpu</span>: <span style="color:#ae81ff">100m</span>
+</span></span></code></pre></div><p><code>hello-world-workflow.yaml</code> 파일로 저장 후, 터미널에서 <code>kubectl create -f hello-world-workflow.yaml</code>을 입력하여 실행합니다.</p>
+<blockquote>
+<p>참고: <code>metadata.generateName</code> 속성이 있기 때문에 <code>kubectl create</code> 명령으로 생성해야 합니다. (<a href="https://stackoverflow.com/questions/59030069/create-a-custom-resource-in-kubernetes-using-generatename-field">출처</a>)</p>
+</blockquote>
+<p>Argo UI로 이동해서, 왼쪽 Argo 로고 바로 밑의 Workflows 메뉴를 클릭합니다. 목록에서 방금 실행된 작업 이름을 클릭하면, 아래와 같은 화면을 볼 수 있습니다. 체크 표시를 클릭하면 수행한 작업에 대한 정보를 볼 수 있습니다.</p>
+<figure><img src="/img/argo-workflows-2.png">
+</figure>
+
+<p>하단의 Logs를 클릭하면 실행된 작업의 출력을 확인할 수 있습니다.</p>
+<h3 id="case-2-여러-step을-수행">Case 2: 여러 Step을 수행</h3>
+<p>Walk through 문서의 <a href="https://argo-workflows.readthedocs.io/en/latest/walk-through/steps/">Steps</a> 예제로 테스트 해 봅니다.</p>
+<p>다만 성공적인 실행을 위해 <code>spec.serviceAccountName</code> 속성을 지정해서 실행합니다.</p>
+<p>실행 결과를 한 번 살펴볼까요?</p>
+<figure><img src="/img/argo-workflows-3.png">
+</figure>
+
+<p>(사용한 YAML 파일은 <a href="https://argo-workflows.readthedocs.io/en/latest/walk-through/steps/">Steps</a> 예제 문서를 참고해 주세요)</p>
+<ul>
+<li><code>spec.entrypoint: hello-hello-hello</code> 설정에 따라 <code>hello-hello-hello</code> Template의 내용을 수행합니다.
+<ul>
+<li>각각의 작업은 <code>steps</code>에 지정한 순서로 실행됩니다.</li>
+<li>각각의 작업은 <code>whalesay</code> template에 있는 작업을 수행합니다.</li>
+</ul>
+</li>
+<li>작업에서 Parameter를 지정할 때에는 <code>arguments.parameters</code> 부분에 필요한 것들을 지정해 줍니다.</li>
+<li><code>hello1</code>을 실행한 후에는 <code>hello2a</code>, <code>hello2b</code>가 병렬적으로 실행되는 것을 볼 수 있습니다.</li>
+</ul>
+<h3 id="case-3-dag">Case 3: DAG</h3>
+<p>Airflow에 익숙하시다면 DAG(Directed Acyclic Graph)에 대해 들어본 적이 있으실 것입니다. DAG는 방향이 있지만 순환하지 않는 그래프입니다. Airflow와 마찬가지로 Argo Workflows에서도 DAG를 지원합니다. Case 2의 Steps와 다르게, 각각의 작업에 의존성을 지정할 수 있는데요. <code>dependencies</code> 속성으로 지정할 수 있습니다.</p>
+<p>Walk through 문서의 <a href="https://argo-workflows.readthedocs.io/en/latest/walk-through/dag/">DAG</a> 문서로 테스트 해 보겠습니다. 이번에도 잊지 마시고 <code>spec.serviceAccountName</code>에 ServiceAccount를 지정해 주세요.</p>
+<p>예제의 내용 중 <code>spec</code> 부분을 보시죠.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">entrypoint</span>: <span style="color:#ae81ff">diamond</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">serviceAccountName</span>: <span style="color:#ae81ff">argo-workflow-sa   </span> <span style="color:#75715e"># 실행할 때 추가해 주세요.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">templates</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># DAG의 각 단계가 수행할 작업입니다. 단순히 echo로 메시지를 출력합니다. </span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">echo</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">parameters</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">message</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">image</span>: <span style="color:#ae81ff">alpine:3.7</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">command</span>: [<span style="color:#ae81ff">echo, &#34;{{inputs.parameters.message}}&#34;]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># DAG를 설정합니다.</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">diamond</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">dag</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">tasks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">A</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">template</span>: <span style="color:#ae81ff">echo</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">arguments</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">parameters</span>: [{<span style="color:#f92672">name: message, value</span>: <span style="color:#ae81ff">A}]</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">B</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">dependencies</span>: [<span style="color:#ae81ff">A]       </span> <span style="color:#75715e"># B는 A에 의존성이 있습니다.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">template</span>: <span style="color:#ae81ff">echo</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">arguments</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">parameters</span>: [{<span style="color:#f92672">name: message, value</span>: <span style="color:#ae81ff">B}]</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">C</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">dependencies</span>: [<span style="color:#ae81ff">A]       </span> <span style="color:#75715e"># C도 A에 의존성이 있습니다.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">template</span>: <span style="color:#ae81ff">echo</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">arguments</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">parameters</span>: [{<span style="color:#f92672">name: message, value</span>: <span style="color:#ae81ff">C}]</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">D</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">dependencies</span>: [<span style="color:#ae81ff">B, C]    </span> <span style="color:#75715e"># D는 B, C에 의존성이 있습니다. </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">template</span>: <span style="color:#ae81ff">echo</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">arguments</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">parameters</span>: [{<span style="color:#f92672">name: message, value</span>: <span style="color:#ae81ff">D}]</span>
+</span></span></code></pre></div><p>실제로 수행해 보면 다음과 같습니다.</p>
+<figure><img src="/img/argo-workflows-4.png">
+</figure>
+
+<ul>
+<li>A가 완료되면, B와 C를 동시에 실행합니다.</li>
+<li>B와 C가 모두 끝나면 D를 실행합니다.</li>
+</ul>
+<h3 id="case-4-이전-작업의-결과값을-다음-작업의-입력값으로-사용">Case 4: 이전 작업의 결과값을 다음 작업의 입력값으로 사용</h3>
+<p>이전 작업의 결과값을 다음 작업의 입력값으로 사용해야 할 때가 있습니다. 이럴 때는 어떻게 하는지 살펴보도록 하겠습니다.</p>
+<p>Walk through 문서의 <a href="https://argo-workflows.readthedocs.io/en/latest/walk-through/output-parameters/">Output Parameters</a> 예제를 가지고 테스트 해 보겠습니다. 이번에도 <code>spec.serviceAccountName</code> 항목을 설정해 주세요.</p>
+<p>이 예제는 <code>generate-parameter</code> → <code>consume-parameter</code> 순으로 실행합니다. 아래 YAML에서 <code>steps</code> 부분을 참고해 주세요.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">argoproj.io/v1alpha1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Workflow</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">generateName</span>: <span style="color:#ae81ff">output-parameter-</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">entrypoint</span>: <span style="color:#ae81ff">output-parameter</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">templates</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">output-parameter</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">generate-parameter</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">template</span>: <span style="color:#ae81ff">whalesay</span>
+</span></span><span style="display:flex;"><span>    - - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">consume-parameter</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">template</span>: <span style="color:#ae81ff">print-message</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">arguments</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">parameters</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">message</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;{{steps.generate-parameter.outputs.parameters.hello-param}}&#34;</span>
+</span></span></code></pre></div><p><code>generate-parameter</code> 단계의 결과는 <code>/tmp/hello_world.txt</code> 파일에 저장되고, 이를 <code>outputs.parameters</code> 항목에 <code>hello-param</code>이라는 이름으로 등록합니다. (아래 YAML 참조)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">whalesay</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker/whalesay:latest</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">command</span>: [<span style="color:#ae81ff">sh, -c]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">args</span>: [<span style="color:#e6db74">&#34;echo -n hello world &gt; /tmp/hello_world.txt&#34;</span>]  <span style="color:#75715e"># hello_world.txt 파일 생성</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">outputs</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">parameters</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">hello-param </span> <span style="color:#75715e"># output parameter의 이름</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">valueFrom</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/tmp/hello_world.txt</span> <span style="color:#75715e"># hello-world.txt의 내용으로 hello-param 값을 지정</span>
+</span></span></code></pre></div><p>두번째 단계인 <code>consume-parameter</code> 작업에서는 <code>arguments.parameters</code> 단계에 이전 단계에서 지정된 <code>hello-param</code> 값을 가져오도록 합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">entrypoint</span>: <span style="color:#ae81ff">output-parameter</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">templates</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">output-parameter</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 중간 생략</span>
+</span></span><span style="display:flex;"><span>    - - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">consume-parameter</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">template</span>: <span style="color:#ae81ff">print-message</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">arguments</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">parameters</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e"># generate-parameter 단계의 hello-param output을 print-message의 input으로 전달</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">message</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;{{steps.generate-parameter.outputs.parameters.hello-param}}&#34;</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># 중간 생략 </span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># consume-parameter가 실제로 수행하는 작업입니다.</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">print-message</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">parameters</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">message</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker/whalesay:latest</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">command</span>: [<span style="color:#ae81ff">cowsay]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">args</span>: [<span style="color:#e6db74">&#34;{{inputs.parameters.message}}&#34;</span>]
+</span></span></code></pre></div><p>최종 실행 결과는 다음과 같이 <code>hello world</code>라는 메시지입니다.</p>
+<pre tabindex="0"><code> _____________ 
+&lt; hello world &gt;
+ ------------- 
+    \
+     \
+      \     
+                    ##        .            
+              ## ## ##       ==            
+           ## ## ## ##      ===            
+       /&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;___/ ===        
+  ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~   
+       \______ o          __/            
+        \    \        __/             
+          \____\______/   
+time=&#34;2024-07-06T13:32:58 UTC&#34; level=info msg=&#34;sub-process exited&#34; argo=true error=&#34;&lt;nil&gt;&#34;
+</code></pre><p>DAG를 이용하는 경우, <code>steps</code> 대신에 <code>tasks</code>라는 이름으로 다른 작업(task)의 output 값을 참조할 수 있습니다. (예: <code>{{tasks.generate-parameter.outputs.parameters.hello-param}}</code>)</p>
+<h2 id="마무리">마무리</h2>
+<p>이렇게 Argo Workflow의 기본적인 사용 방법을 알아봤습니다. Kubernetes 기반으로 Workflow를 구성할 때, Airflow의 KubernetesExecutor를 이용할 수도 있을 텐데요. 주변 동료들이 Kubernetes manifest 작성에 익숙하지만, Python에 익숙하지 않다면 Argo Workflow도 충분히 이용해 볼 만한 것 같습니다.</p>
+<p>읽어주셔서 감사합니다.</p>
+<h2 id="참고할-만한-문서">참고할 만한 문서</h2>
+<ul>
+<li>Workflow 작성 예제: <a href="https://github.com/argoproj/argo-workflows/tree/main/examples">GitHub</a> 참조</li>
+<li>Spec 문서: <a href="https://argo-workflows.readthedocs.io/en/latest/fields/#workflowspec">링크</a> 참조</li>
+<li>Walk through 문서: <a href="https://argo-workflows.readthedocs.io/en/latest/walk-through/">링크</a> 참조</li>
+</ul>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/argo-workflow/" rel="tag">Argo Workflow</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/argo/" rel="tag">Argo</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gonigoni-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2024 Yungon Park.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

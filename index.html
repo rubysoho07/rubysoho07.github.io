@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.127.0">
+	<meta name="generator" content="Hugo 0.128.2">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>GoniGoni!</title>
@@ -60,6 +60,25 @@
 			
 <main class="main list" role="main">
 	<article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/posts/argo-workflows/" rel="bookmark">
+			Argo Workflows 이용해 보기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2024-07-07T19:32:34&#43;09:00">2024-07-07</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/devops/" rel="category">DevOps</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		예전에 여러 단계가 있는 작업을 해야 할 때 AWS의 Step Functions를 이용한 적이 있었습니다. Step Functions의 경우, Lambda 함수를 연결해서 쓴 적이 많았고, 오래 걸리는 작업은 다른 방법으로 구축할 수 있습니다. (이전에 올렸던 Python으로 Step Functions 활동 만들기 문서를 참고해 주세요)
+한편, 다른 방법은 없나 찾아보다가 Airflow를 알게 되었습니다. 그래서 Airflow도 테스트한 적이 있었는데요. (이전에 올렸던 데이터 분석 워크플로우를 처음부터 만들어 보기 1편, 2편을 참고해 주세요)
+최근 우연하게 Kubernetes에서 Workflow를 관리할 수 있는 Argo Workflow에 대해 알게 되었습니다.
+	</div>
+</article><article class="list__item post">
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
@@ -221,26 +240,6 @@ Workspaces를 사용하려면? Terraform에서 관리하는 리소스 상태는 
 	<div class="content list__excerpt post__content clearfix">
 		2022년은 우여곡절이 있었던 해였습니다. 주변의 여러 상황 때문에 팀 리더라는 직책을 맡게 되었습니다. 사실 재직 중인 회사에 입사하면서 고려했던 부분은 아니었습니다. 지난 회사에서도 팀 빌딩 경험이 있다 보니, 이번에는 피하고 싶다는 생각이 있었기 때문입니다. 그렇지만, 회사 생활이라는 것이 제 마음대로 되는 게 아니더라구요. 다행히 제가 요청한 대로 TO가 나왔고, 계획에 맞게 인원을 뽑을 수 있었습니다. 올해 회고는, 1인 팀에서 세 명으로 팀을 키운 이야기, 그리고 이를 바탕으로 1년 간 팀을 운영했던 이야기를 해 보고자 합니다.
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/engineering-at-google/" rel="bookmark">
-			책 리뷰 - 구글 엔지니어는 이렇게 일한다
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2022-09-20T22:16:34&#43;09:00">2022-09-20</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		(개인 사비로 책을 구매 후 작성하였습니다.)
-최근에 개발자 분들 뿐만 아니라 개발자가 아닌 분들도 많이 읽으시는 &quot;구글 엔지니어는 이렇게 일한다(원제: Engineering at Google)&quot; 를 읽고 느낀 점들을 이야기 해 보고자 합니다.
-나무위키에 따르면, 구글은 1998년에 설립되어 24년이 넘은 회사입니다. 그만큼 많은 엔지니어들이 대규모의 서비스를 구축하고 운영한 역사가 있고, 이러한 과정에서 배운 것들이 아주 많을 것입니다.
-최근 저의 경험을 돌이켜 보면, 사수가 없이 일하는 경우가 많았습니다. 그리고 지금은 제가 작은 팀을 이끌어야 하는 상황이 되었네요.
-	</div>
 </article>
 </main>
 
@@ -294,6 +293,8 @@ Workspaces를 사용하려면? Terraform에서 관리하는 리소스 상태는 
 		<a class="widget-taglist__link widget__link btn" href="/tags/airflow/" title="Airflow">Airflow</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/amazon-q/" title="Amazon Q">Amazon Q</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/arcade-fire/" title="Arcade Fire">Arcade Fire</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/argo/" title="Argo">Argo</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/argo-workflow/" title="Argo Workflow">Argo Workflow</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws/" title="AWS">AWS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/belle-and-sebastian/" title="Belle and Sebastian">Belle and Sebastian</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/beta-band/" title="Beta Band">Beta Band</a>

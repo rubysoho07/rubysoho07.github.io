@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Argo Workflow on GoniGoni!</title>
+    <link>/tags/argo-workflow/</link>
+    <description>Recent content in Argo Workflow on GoniGoni!</description>
+    <generator>Hugo</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Sun, 07 Jul 2024 19:32:34 +0900</lastBuildDate>
+    <atom:link href="/tags/argo-workflow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Argo Workflows 이용해 보기</title>
+      <link>/posts/argo-workflows/</link>
+      <pubDate>Sun, 07 Jul 2024 19:32:34 +0900</pubDate>
+      <guid>/posts/argo-workflows/</guid>
+      <description>예전에 여러 단계가 있는 작업을 해야 할 때 AWS의 Step Functions를 이용한 적이 있었습니다. Step Functions의 경우, Lambda 함수를 연결해서 쓴 적이 많았고, 오래 걸리는 작업은 다른 방법으로 구축할 수 있습니다. (이전에 올렸던 Python으로 Step Functions 활동 만들기 문서를 참고해 주세요)&#xA;한편, 다른 방법은 없나 찾아보다가 Airflow를 알게 되었습니다. 그래서 Airflow도 테스트한 적이 있었는데요. (이전에 올렸던 데이터 분석 워크플로우를 처음부터 만들어 보기 1편, 2편을 참고해 주세요)&#xA;최근 우연하게 Kubernetes에서 Workflow를 관리할 수 있는 Argo Workflow에 대해 알게 되었습니다.</description>
+    </item>
+  </channel>
+</rss>
