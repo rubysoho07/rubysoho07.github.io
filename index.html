@@ -58,6 +58,25 @@
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/vpc-reachability-analyzer/" rel="bookmark">
+			VPC Reachability Analyzer로 AWS 네트워크 문제 확인하기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2024-12-25T21:49:00&#43;09:00">2024-12-25</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>인프라 구성을 하다 보면, 네트워크 설정 때문에 문제를 겪는 일이 많습니다. &ldquo;Connection timeout&quot;과 같은 네트워크 관련 오류가 갑자기 발생하면, 어디서부터 원인을 찾아야 할 지 막막한데요. AWS를 사용하신다면 네트워크 문제를 겪을 때 VPC Reachability Analyzer라는 서비스를 이용하여 원인을 찾을 수 있습니다. 출발하는 지점부터 도착지까지 어떤 과정으로 트래픽이 도달하는 지 상세하게 확인할 수 있는 서비스입니다. 네트워크 문제가 발생한다면 한 번 사용해 보시기 바랍니다.</p>
+<h2 id="vpc-reachability-analyzer">VPC Reachability Analyzer</h2>
+<p><a href="https://aws.amazon.com/ko/blogs/korea/new-vpc-insights-analyzes-reachability-and-visibility-in-vpcs/">VPC Reachability Analyzer</a>는 2020년에 소개된 기능으로, 소스와 타겟 리소스를 지정하여 내가 의도한 대로 네트워크를 구성하였는지 확인할 수 있습니다. 다만 AWS에 구성한 네트워크 기준으로만 확인할 수 있기 때문에, 애플리케이션 내부에서 트래픽을 차단하는 경우는 감지하지 못합니다. 애플리케이션에서 특정 포트를 차단하는 경우가 있다면 서버 내의 설정을 확인하거나, 애플리케이션 코드를 확인해 보아야 합니다.</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/argo-workflows/" rel="bookmark">
 			Argo Workflows 이용해 보기
 			</a>
@@ -245,23 +264,6 @@
 <h2 id="workspaces를-사용하려면">Workspaces를 사용하려면?</h2>
 <p>Terraform에서 관리하는 리소스 상태는 backend에 저장합니다. 이러한 데이터는 하나의 workspace에 속합니다. 기본적으로 이런 리소스 상태는 default workspace에 들어 있습니다. 몇몇 backend는 여러 개의 workspace를 지원하며, 하나의 설정과 연결된 여러 상태를 저장할 수 있습니다.</p>
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/retrospect-2022/" rel="bookmark">
-			2022년 회고 - 팀 운영 후기
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2022-12-24T00:00:00&#43;09:00">2022-12-24</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>2022년은 우여곡절이 있었던 해였습니다. 주변의 여러 상황 때문에 팀 리더라는 직책을 맡게 되었습니다. 사실 재직 중인 회사에 입사하면서 고려했던 부분은 아니었습니다. 지난 회사에서도 팀 빌딩 경험이 있다 보니, 이번에는 피하고 싶다는 생각이 있었기 때문입니다. 그렇지만, 회사 생활이라는 것이 제 마음대로 되는 게 아니더라구요. 다행히 제가 요청한 대로 TO가 나왔고, 계획에 맞게 인원을 뽑을 수 있었습니다. 올해 회고는, 1인 팀에서 세 명으로 팀을 키운 이야기, 그리고 이를 바탕으로 1년 간 팀을 운영했던 이야기를 해 보고자 합니다.</p>
-	</div>
 </article>
 </main>
 
@@ -366,6 +368,7 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/pulumi/" title="Pulumi">Pulumi</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/rds/" title="RDS">RDS</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/reachability-analyzer/" title="Reachability Analyzer">Reachability Analyzer</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/reduce/" title="Reduce">Reduce</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/s3/" title="S3">S3</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sam/" title="SAM">SAM</a>
@@ -387,6 +390,7 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/terraform/" title="Terraform">Terraform</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/underscore/" title="Underscore">Underscore</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/visual-studio-code/" title="Visual Studio Code">Visual Studio Code</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vpc/" title="VPC">VPC</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/vscode/" title="VSCode">VSCode</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/warning/" title="Warning">Warning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zookeeper/" title="ZooKeeper">ZooKeeper</a>

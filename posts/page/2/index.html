@@ -59,6 +59,23 @@
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/retrospect-2022/" rel="bookmark">
+			2022년 회고 - 팀 운영 후기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2022-12-24T00:00:00&#43;09:00">2022-12-24</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>2022년은 우여곡절이 있었던 해였습니다. 주변의 여러 상황 때문에 팀 리더라는 직책을 맡게 되었습니다. 사실 재직 중인 회사에 입사하면서 고려했던 부분은 아니었습니다. 지난 회사에서도 팀 빌딩 경험이 있다 보니, 이번에는 피하고 싶다는 생각이 있었기 때문입니다. 그렇지만, 회사 생활이라는 것이 제 마음대로 되는 게 아니더라구요. 다행히 제가 요청한 대로 TO가 나왔고, 계획에 맞게 인원을 뽑을 수 있었습니다. 올해 회고는, 1인 팀에서 세 명으로 팀을 키운 이야기, 그리고 이를 바탕으로 1년 간 팀을 운영했던 이야기를 해 보고자 합니다.</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/engineering-at-google/" rel="bookmark">
 			책 리뷰 - 구글 엔지니어는 이렇게 일한다
 			</a>
@@ -260,32 +277,6 @@
 <h1 id="eks와-nginx-ingress-controller-사용">EKS와 NGINX Ingress Controller 사용</h1>
 <p>저희 팀의 웹 서비스들은 Elastic Beanstalk를 주로 이용하고 있습니다. 그렇지만 사용량이 생각했던 것보다는 많지 않아서 컨테이너를 기반으로 한 서비스로 변경해 보려고 합니다.</p>
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/boto3-note/" rel="bookmark">
-			Boto3를 쓰면서 겪었던 일들 모음
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2021-06-28T22:34:04&#43;09:00">2021-06-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>Python을 이용해서 AWS의 여러 기능을 자동화 할 때 Boto3를 많이들 쓰실 것 같은데요. 이번 달에는 Boto3를 쓰면서 궁금했던 것, 또는 자주 사용할 만한 것들을 정리해 보려고 합니다.</p>
-<h1 id="현재-사용-중인-aws-계정-id-얻기">현재 사용 중인 AWS 계정 ID 얻기</h1>
-<p>여기서 계정 ID라고 하면, 12자리의 숫자로 구성된 계정의 ID를 의미합니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> boto3
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>account_id <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>client(<span style="color:#e6db74">&#39;sts&#39;</span>)<span style="color:#f92672">.</span>get_caller_identity()<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;Account&#39;</span>)
-</span></span></code></pre></div><p>출처: <a href="https://stackoverflow.com/questions/33332050/getting-the-current-user-account-id-in-boto3">Stack Overflow</a></p>
-<h1 id="에러-다루기">에러 다루기</h1>
-<p>출처: <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/guide/error-handling.html">Boto3 Documentation</a></p>
-<p><a href="https://github.com/boto/boto3/blob/develop/boto3/exceptions.py">Boto3의 코드</a>를 열어보면, 서비스에 따라 발생할 수 있는 모든 에러를 저장하고 있지 않습니다. Boto3와 AWS CLI의 기반이 되는 <a href="https://github.com/boto/botocore/blob/develop/botocore/exceptions.py">Botocore 프로젝트의 코드</a>에서도 모든 종류의 예외를 다루지 않습니다.</p>
-	</div>
 </article>
 </main>
 
@@ -392,6 +383,7 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/pulumi/" title="Pulumi">Pulumi</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/rds/" title="RDS">RDS</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/reachability-analyzer/" title="Reachability Analyzer">Reachability Analyzer</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/reduce/" title="Reduce">Reduce</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/s3/" title="S3">S3</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sam/" title="SAM">SAM</a>
@@ -413,6 +405,7 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/terraform/" title="Terraform">Terraform</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/underscore/" title="Underscore">Underscore</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/visual-studio-code/" title="Visual Studio Code">Visual Studio Code</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vpc/" title="VPC">VPC</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/vscode/" title="VSCode">VSCode</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/warning/" title="Warning">Warning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zookeeper/" title="ZooKeeper">ZooKeeper</a>

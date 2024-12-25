@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>VPC Reachability Analyzer로 AWS 네트워크 문제 확인하기 - GoniGoni!</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+		
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-JN7PQ7YC6Q');
+        }
+      </script>
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/" title="GoniGoni!" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">GoniGoni!</div>
+					<div class="logo__tagline">개발 블로그이지만 개발 말고 다른 이야기도 합니다.</div>
+				</div>
+		</a>
+	</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">VPC Reachability Analyzer로 AWS 네트워크 문제 확인하기</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2024-12-25T21:49:00&#43;09:00">2024-12-25</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p>인프라 구성을 하다 보면, 네트워크 설정 때문에 문제를 겪는 일이 많습니다. &ldquo;Connection timeout&quot;과 같은 네트워크 관련 오류가 갑자기 발생하면, 어디서부터 원인을 찾아야 할 지 막막한데요. AWS를 사용하신다면 네트워크 문제를 겪을 때 VPC Reachability Analyzer라는 서비스를 이용하여 원인을 찾을 수 있습니다. 출발하는 지점부터 도착지까지 어떤 과정으로 트래픽이 도달하는 지 상세하게 확인할 수 있는 서비스입니다. 네트워크 문제가 발생한다면 한 번 사용해 보시기 바랍니다.</p>
+<h2 id="vpc-reachability-analyzer">VPC Reachability Analyzer</h2>
+<p><a href="https://aws.amazon.com/ko/blogs/korea/new-vpc-insights-analyzes-reachability-and-visibility-in-vpcs/">VPC Reachability Analyzer</a>는 2020년에 소개된 기능으로, 소스와 타겟 리소스를 지정하여 내가 의도한 대로 네트워크를 구성하였는지 확인할 수 있습니다. 다만 AWS에 구성한 네트워크 기준으로만 확인할 수 있기 때문에, 애플리케이션 내부에서 트래픽을 차단하는 경우는 감지하지 못합니다. 애플리케이션에서 특정 포트를 차단하는 경우가 있다면 서버 내의 설정을 확인하거나, 애플리케이션 코드를 확인해 보아야 합니다.</p>
+<h3 id="가능한-소스와-타겟">가능한 소스와 타겟</h3>
+<p><strong>Source</strong></p>
+<ul>
+<li>EC2 인스턴스</li>
+<li>인터넷 게이트웨이</li>
+<li>네트워크 인터페이스 (ENI)</li>
+<li>Transit Gateway</li>
+<li>Transit Gateway Attachments</li>
+<li>VPC Endpoints</li>
+<li>VPC Endpoint Services</li>
+<li>VPC Peering Connection</li>
+<li>VPN Gateways</li>
+</ul>
+<p><strong>Target</strong></p>
+<ul>
+<li>EC2 인스턴스</li>
+<li>인터넷 게이트웨이</li>
+<li>IP 주소</li>
+<li>네트워크 인터페이스 (ENI)</li>
+<li>Transit Gateway</li>
+<li>Transit Gateway Attachments</li>
+<li>VPC Endpoints</li>
+<li>VPC Endpoint Services</li>
+<li>VPC Peering Connection</li>
+<li>VPN Gateways</li>
+</ul>
+<h2 id="실제로-분석해-보기">실제로 분석해 보기</h2>
+<h3 id="테스트-서버-구성">테스트 서버 구성</h3>
+<p>간단하게 서버 두 대를 만들어 보겠습니다. Terraform이 설치되어 있고, AWS Access Key와 Secret Access Key가 설정되어 있다고 가정해 볼게요.</p>
+<script src="https://gist.github.com/rubysoho07/1915bc95eaf255409300a37da01ab32c.js"></script>
+
+<p>우선 위 코드를 복사해서 임의의 파일로 저장합니다.</p>
+<p>서버의 구성은 다음과 같습니다.</p>
+<figure><img src="/img/vpc-reachability-analyzer-1.svg">
+</figure>
+
+<ul>
+<li>Source EC2: 어디에서든 80 포트로 진입이 가능하며, 모든 나가는 트래픽을 허용합니다.</li>
+<li>Target Available EC2: 어디에서든 80 포트로 진입이 가능하며, 모든 나가는 트래픽을 허용합니다.</li>
+<li>Target Unavailable EC2: <strong><strong>트래픽이 들어올 수 있는 방법은 없지만</strong></strong>, 모든 나가는 트래픽을 허용합니다.</li>
+</ul>
+<p>그리고 Terraform으로 서버를 생성해 줍니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>terraform init
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># (출력 결과 생략)</span>
+</span></span><span style="display:flex;"><span>terraform apply -auto-approve
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># (출력 결과 생략)</span>
+</span></span></code></pre></div><p>콘솔에 들어가 보면, 아래 스크린샷과 같이 서버 3 대가 생성된 것을 확인할 수 있습니다.</p>
+<figure><img src="/img/vpc-reachability-analyzer-2.png">
+</figure>
+
+<p>생성된 각 인스턴스의 ID를 메모하는 것을 권장합니다.</p>
+<h3 id="테스트-해-보기">테스트 해 보기</h3>
+<p>콘솔에서 &lsquo;Reachability Analyzer&rsquo;를 검색해서 실행합니다.</p>
+<figure><img src="/img/vpc-reachability-analyzer-3.png">
+</figure>
+
+<p>영어 콘솔 기준으로 주황색의 &lsquo;Create and Analyze Path&rsquo; 버튼을 누릅니다.</p>
+<p>이제 하나씩 테스트 해 보겠습니다.</p>
+<h4 id="첫번째-테스트-성공하는-경우">첫번째 테스트: 성공하는 경우</h4>
+<p>우선 다음과 같이 입력합니다.</p>
+<p><strong>Path Source</strong></p>
+<ul>
+<li>Source type: Instances (EC2 인스턴스를 의미)</li>
+<li>Source: EC2 인스턴스 목록에서 <code>source</code> 표시가 있는 인스턴스를 선택</li>
+<li>&lsquo;Additional packet header configurations at source&rsquo; 항목을 펼쳐서 Destination port에 80 입력</li>
+</ul>
+<p><strong>Path Destination</strong></p>
+<ul>
+<li>Destination type: Instances (EC2 인스턴스를 의미)</li>
+<li>Destination: EC2 인스턴스 목록에서 <code>target_available</code> 표시가 있는 인스턴스를 선택</li>
+</ul>
+<p>Protocol: TCP 선택 (기본값)</p>
+<p>그리고 아래로 내려가서 Create and analyze path 버튼을 클릭합니다.</p>
+<p>화면이 바뀐 후에는 Pending 상태가 되는데, 잠깐 기다리면 아래와 같이 분석이 끝납니다.</p>
+<figure><img src="/img/vpc-reachability-analyzer-4.png">
+</figure>
+
+<p>조금 더 내려가면 Path details 항목이 나오는데, 어떤 과정을 거쳐서 목적지에 접근 가능한 지 알 수 있습니다.</p>
+<figure><img src="/img/vpc-reachability-analyzer-5.png">
+</figure>
+
+<p>과정을 정리해 보면, EC2 인스턴스에 연결된 네트워크 인터페이스(ENI) → source 인스턴스의 보안 그룹 → target_available 인스턴스의 보안 그룹 → 타겟 인스턴스에 연결된 네트워크 인터페이스를 거쳐서 타겟 인스턴스와 통신하였음을 알 수 있습니다.</p>
+<h4 id="두번째-테스트-실패하는-경우">두번째 테스트: 실패하는 경우</h4>
+<p>이번에는 실패하는 경우를 테스트 해 보도록 하겠습니다. 다시 Reachability Analyzer로 돌아가서 Create and analyze path를 클릭합니다.</p>
+<p>다음과 같이 입력합니다. 달라져야 하는 부분은 굵은 글씨로 표시했습니다.</p>
+<p><strong>Path Source</strong></p>
+<ul>
+<li>Source type: Instances (EC2 인스턴스를 의미)</li>
+<li>Source: EC2 인스턴스 목록에서 <code>source</code> 표시가 있는 인스턴스를 선택</li>
+<li>&lsquo;Additional packet header configurations at source&rsquo; 항목을 펼쳐서 Destination port에 80 입력</li>
+</ul>
+<p><strong>Path Destination</strong></p>
+<ul>
+<li>Destination type: Instances (EC2 인스턴스를 의미)</li>
+<li>Destination: <strong>EC2 인스턴스 목록에서 <code>target_unavailable</code> 표시가 있는 인스턴스를 선택</strong></li>
+</ul>
+<p>Protocol: TCP 선택 (기본값)</p>
+<p>그리고 아래로 내려가서 Create and analyze path 버튼을 클릭합니다.</p>
+<p>조금 기다리면, 아래 스크린샷과 같이 <strong>Not reachable</strong>로 표시되는 것을 볼 수 있습니다.</p>
+<figure><img src="/img/vpc-reachability-analyzer-6.png">
+</figure>
+
+<p>어느 지점에서 문제가 발생했는지 알아보고 싶으시다면 아래로 스크롤을 내려봅니다.</p>
+<figure><img src="/img/vpc-reachability-analyzer-7.png">
+</figure>
+
+<p>위의 스크린샷을 보시면 <strong>None of the ingress rules in the following security groups apply</strong> 라는 문구를 볼 수 있습니다. 이 인스턴스와 연결된 보안 그룹에는 ingress 규칙을 설정하지 않았는데요. 그렇기 때문에 접속에 실패하는 것이 당연합니다.</p>
+<h3 id="리소스-정리하기">리소스 정리하기</h3>
+<p>모든 테스트가 끝났다면 사용한 리소스를 정리합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>terraform destroy -auto-approve
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># (출력 결과 생략)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 아래와 같은 결과가 나왔는지 꼭 확인하세요!</span>
+</span></span><span style="display:flex;"><span>Destroy complete! Resources: <span style="color:#ae81ff">6</span> destroyed. 
+</span></span></code></pre></div><h2 id="마무리하며">마무리하며</h2>
+<p>Reachability Analyzer는 정말 편한 기능이지만, 아쉽게도 무료 서비스는 아닙니다. 서울 리전 기준으로 한번 분석을 수행할 때마다 $ 0.1 이 부과됩니다. 앞에서도 말씀드렸지만, 인스턴스 내부에 있는 애플리케이션이 트래픽을 차단하는 경우에는 Reachability Analyzer로 감지하기 어렵다는 단점도 있습니다. 이 부분을 고려하셔서 네트워크 문제를 해결해 보시기를 바라겠습니다.</p>
+<p>읽어주셔서 감사합니다.</p>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M4 0h8s2 0 4 2l15 15s2 2 0 4L21 31s-2 2-4 0L2 16s-2-2-2-4V3s0-3 4-3m3 10a3 3 0 0 0 0-6 3 3 0 0 0 0 6"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/vpc/" rel="tag">VPC</a>
+		</li>
+		<li class="tags__item">
+			<a class="tags__link btn" href="/tags/reachability-analyzer/" rel="tag">Reachability Analyzer</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+
+<section class="comments">
+	<div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "gonigoni-blog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2024 Yungon Park.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+</body>
+</html>

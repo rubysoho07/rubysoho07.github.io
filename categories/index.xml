@@ -6,20 +6,20 @@
     <description>Recent content in Categories on GoniGoni!</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 07 Jul 2024 19:32:34 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 25 Dec 2024 21:49:00 +0900</lastBuildDate>
     <atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS</title>
+      <link>/categories/aws/</link>
+      <pubDate>Wed, 25 Dec 2024 21:49:00 +0900</pubDate>
+      <guid>/categories/aws/</guid>
+      <description></description>
+    </item>
     <item>
       <title>DevOps</title>
       <link>/categories/devops/</link>
       <pubDate>Sun, 07 Jul 2024 19:32:34 +0900</pubDate>
       <guid>/categories/devops/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>AWS</title>
-      <link>/categories/aws/</link>
-      <pubDate>Sun, 09 Jun 2024 12:40:00 +0900</pubDate>
-      <guid>/categories/aws/</guid>
       <description></description>
     </item>
     <item>

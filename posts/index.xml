@@ -6,8 +6,15 @@
     <description>Recent content in Posts on GoniGoni!</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 07 Jul 2024 19:32:34 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 25 Dec 2024 21:49:00 +0900</lastBuildDate>
     <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VPC Reachability Analyzer로 AWS 네트워크 문제 확인하기</title>
+      <link>/posts/vpc-reachability-analyzer/</link>
+      <pubDate>Wed, 25 Dec 2024 21:49:00 +0900</pubDate>
+      <guid>/posts/vpc-reachability-analyzer/</guid>
+      <description>&lt;p&gt;인프라 구성을 하다 보면, 네트워크 설정 때문에 문제를 겪는 일이 많습니다. &amp;ldquo;Connection timeout&amp;quot;과 같은 네트워크 관련 오류가 갑자기 발생하면, 어디서부터 원인을 찾아야 할 지 막막한데요. AWS를 사용하신다면 네트워크 문제를 겪을 때 VPC Reachability Analyzer라는 서비스를 이용하여 원인을 찾을 수 있습니다. 출발하는 지점부터 도착지까지 어떤 과정으로 트래픽이 도달하는 지 상세하게 확인할 수 있는 서비스입니다. 네트워크 문제가 발생한다면 한 번 사용해 보시기 바랍니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;vpc-reachability-analyzer&#34;&gt;VPC Reachability Analyzer&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://aws.amazon.com/ko/blogs/korea/new-vpc-insights-analyzes-reachability-and-visibility-in-vpcs/&#34;&gt;VPC Reachability Analyzer&lt;/a&gt;는 2020년에 소개된 기능으로, 소스와 타겟 리소스를 지정하여 내가 의도한 대로 네트워크를 구성하였는지 확인할 수 있습니다. 다만 AWS에 구성한 네트워크 기준으로만 확인할 수 있기 때문에, 애플리케이션 내부에서 트래픽을 차단하는 경우는 감지하지 못합니다. 애플리케이션에서 특정 포트를 차단하는 경우가 있다면 서버 내의 설정을 확인하거나, 애플리케이션 코드를 확인해 보아야 합니다.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Argo Workflows 이용해 보기</title>
       <link>/posts/argo-workflows/</link>

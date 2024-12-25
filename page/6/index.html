@@ -58,6 +58,30 @@
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/python-datetime-test/" rel="bookmark">
+			Python Datetime으로 서로 다른 시간대 다루기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-05-17T22:06:00&#43;09:00">2018-05-17</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>여러 국가에 걸쳐 시간과 관련된 데이터를 얻을 때 시간대가 가장 이슈가 될 것이다. 그리고 AWS와 같이 UTC를 기준으로 하는 서비스가 있기 때문에, 우리나라의 시간대를 기준으로 프로그램을 만들 때 고민이 되는 부분이 있다.</p>
+<p>시간대를 다루기 위해 pytz와 같은 라이브러리가 있지만, 이번에는 파이썬이 기본적으로 제공하는 datetime 모듈만 이용해서 시간대를 다루어 보고자 한다.</p>
+<h3 id="현재-시간-구하기--utc-기준-시간-구하기">현재 시간 구하기 / UTC 기준 시간 구하기</h3>
+<p>현재 시간을 구하기 위해서는 <code>datetime.datetime.now()</code>를 이용한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">import</span> datetime
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> datetime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>now()
+</span></span><span style="display:flex;"><span>datetime<span style="color:#f92672">.</span>datetime(<span style="color:#ae81ff">2018</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">17</span>, <span style="color:#ae81ff">21</span>, <span style="color:#ae81ff">43</span>, <span style="color:#ae81ff">13</span>, <span style="color:#ae81ff">554579</span>)
+</span></span></code></pre></div><p>한편, UTC 기준의 현재 시간을 구하기 위해서는 <code>datetime.datetime.utcnow()</code>를 이용한다.</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/python-built-in-functions/" rel="bookmark">
 			몰라서 찾아 봤던 파이썬 내장 함수 모음
 			</a>
@@ -288,6 +312,7 @@ OK
 		<a class="widget-taglist__link widget__link btn" href="/tags/pulumi/" title="Pulumi">Pulumi</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/rds/" title="RDS">RDS</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/reachability-analyzer/" title="Reachability Analyzer">Reachability Analyzer</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/reduce/" title="Reduce">Reduce</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/s3/" title="S3">S3</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sam/" title="SAM">SAM</a>
@@ -309,6 +334,7 @@ OK
 		<a class="widget-taglist__link widget__link btn" href="/tags/terraform/" title="Terraform">Terraform</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/underscore/" title="Underscore">Underscore</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/visual-studio-code/" title="Visual Studio Code">Visual Studio Code</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vpc/" title="VPC">VPC</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/vscode/" title="VSCode">VSCode</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/warning/" title="Warning">Warning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zookeeper/" title="ZooKeeper">ZooKeeper</a>

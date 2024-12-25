@@ -59,6 +59,25 @@
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/vpc-reachability-analyzer/" rel="bookmark">
+			VPC Reachability Analyzer로 AWS 네트워크 문제 확인하기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2024-12-25T21:49:00&#43;09:00">2024-12-25</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>인프라 구성을 하다 보면, 네트워크 설정 때문에 문제를 겪는 일이 많습니다. &ldquo;Connection timeout&quot;과 같은 네트워크 관련 오류가 갑자기 발생하면, 어디서부터 원인을 찾아야 할 지 막막한데요. AWS를 사용하신다면 네트워크 문제를 겪을 때 VPC Reachability Analyzer라는 서비스를 이용하여 원인을 찾을 수 있습니다. 출발하는 지점부터 도착지까지 어떤 과정으로 트래픽이 도달하는 지 상세하게 확인할 수 있는 서비스입니다. 네트워크 문제가 발생한다면 한 번 사용해 보시기 바랍니다.</p>
+<h2 id="vpc-reachability-analyzer">VPC Reachability Analyzer</h2>
+<p><a href="https://aws.amazon.com/ko/blogs/korea/new-vpc-insights-analyzes-reachability-and-visibility-in-vpcs/">VPC Reachability Analyzer</a>는 2020년에 소개된 기능으로, 소스와 타겟 리소스를 지정하여 내가 의도한 대로 네트워크를 구성하였는지 확인할 수 있습니다. 다만 AWS에 구성한 네트워크 기준으로만 확인할 수 있기 때문에, 애플리케이션 내부에서 트래픽을 차단하는 경우는 감지하지 못합니다. 애플리케이션에서 특정 포트를 차단하는 경우가 있다면 서버 내의 설정을 확인하거나, 애플리케이션 코드를 확인해 보아야 합니다.</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/create-api-with-amazon-q/" rel="bookmark">
 			Amazon Q로 간단한 API 만들어 보기 (with Go)
 			</a>
@@ -256,25 +275,6 @@
 <li>
 <p>Serverless Framework는 다양한 클라우드 벤더를 지원하지만, 다른 AWS 서비스를 연동하는 데 제약이 있지 않을까? 하는 막연한 생각이 들었다. (잘 찾아보니 내가 원하는 것들은 구현 가능할 것 같더라. 내가 잘못 생각했던 것 같다)</p>
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/hortonworks-sandbox-on-aws/" rel="bookmark">
-			Hortonworks Sandbox를 AWS에서 사용하기
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2019-10-16T21:05:00&#43;09:00">2019-10-16</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<h2 id="들어가며">들어가며</h2>
-<p>최근에 <a href="http://www.yes24.com/Product/Goods/44307209">&lsquo;하둡과 스파크를 활용한 실용 데이터 과학&rsquo;</a>이라는 책을 읽고 따라해 보고 있다. 이 책에서는 실습을 위해 호튼웍스(Hortonworks)의 Sandbox 이미지를 사용해 보기를 권장하고 있다. 그런데 설치 방법을 찾다 보니, 권장 사양이 높은 것 같다는 생각이 들었다. 이 이미지를 VirtualBox에서 사용할 때, 메모리 용량이 8GB로 설정되어 있었다. 그런데 지금 내가 쓰고 있는 노트북의 메모리 용량이 8GB라 좀 어려울 것 같았다. 그래서 AWS에 이 이미지를 올려보게 되었다.</p>
-<p><strong>(주의: 이 글에서 설명하는 내용은 AWS의 Free Tier 범위를 넘어가므로 사용한 만큼 요금이 부과됩니다. 크레딧이 있거나 비용 지불이 가능한 경우에 사용하시기 바랍니다. 비용 발생에 대한 책임은 독자에게 있습니다.)</strong></p>
-	</div>
 </article>
 </main>
 
@@ -380,6 +380,7 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/pulumi/" title="Pulumi">Pulumi</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/python/" title="Python">Python</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/rds/" title="RDS">RDS</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/reachability-analyzer/" title="Reachability Analyzer">Reachability Analyzer</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/reduce/" title="Reduce">Reduce</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/s3/" title="S3">S3</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/sam/" title="SAM">SAM</a>
@@ -401,6 +402,7 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/terraform/" title="Terraform">Terraform</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/underscore/" title="Underscore">Underscore</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/visual-studio-code/" title="Visual Studio Code">Visual Studio Code</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/vpc/" title="VPC">VPC</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/vscode/" title="VSCode">VSCode</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/warning/" title="Warning">Warning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zookeeper/" title="ZooKeeper">ZooKeeper</a>
