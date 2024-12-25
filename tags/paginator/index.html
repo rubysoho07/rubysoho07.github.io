@@ -17,8 +17,7 @@
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
-  
-    
+		
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
       <script>
         var doNotTrack = false;
@@ -33,10 +32,6 @@
           gtag('config', 'G-JN7PQ7YC6Q');
         }
       </script>
-    
-  
-
-
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -75,9 +70,11 @@
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		S3 버킷에는 여러 파일들을 저장할 수 있다. 그런데, 버킷에 저장된 파일의 목록을 보고 싶은 경우가 있을 것이다. 하지만, AWS의 Python SDK인 Boto3에서 list_objects()나 list_objects_v2() 함수를 이용하면 최대 1,000개까지의 object만 가져올 수 있다. [참고] (근본적으로는 AWS의 API가 최대 1,000개까지의 object만 가져오도록 구현되어 있다. - [참고])
-이런 문제를 해결하기 위해, 다음과 같이 Paginator를 이용해 보자.
-Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로 S3를 담당할 클라이언트를 생성한 뒤, get_paginator()로 Paginator를 가져온다. 여기서는 하나의 버킷에서 object들을 가져오기 위해 list_objects_v2를 이용한다.
+		<p>S3 버킷에는 여러 파일들을 저장할 수 있다. 그런데, 버킷에 저장된 파일의 목록을 보고 싶은 경우가 있을 것이다. 하지만, AWS의 Python SDK인 Boto3에서 <code>list_objects()</code>나 <code>list_objects_v2()</code> 함수를 이용하면 최대 1,000개까지의 object만 가져올 수 있다. <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.list_objects_v2">[참고]</a> (근본적으로는 AWS의 API가 최대 1,000개까지의 object만 가져오도록 구현되어 있다. - <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/v2-RESTBucketGET.html">[참고]</a>)</p>
+<p>이런 문제를 해결하기 위해, 다음과 같이 Paginator를 이용해 보자.</p>
+<h3 id="paginator-이용하기">Paginator 이용하기</h3>
+<h4 id="get_paginator로-paginator-가져오기">get_paginator()로 Paginator 가져오기</h4>
+<p>기본적으로 S3를 담당할 클라이언트를 생성한 뒤, get_paginator()로 Paginator를 가져온다. 여기서는 하나의 버킷에서 object들을 가져오기 위해 <code>list_objects_v2</code>를 이용한다. (Boto3 문서에서는 <code>list_objects()</code>보다 <code>list_objects_v2()</code>를 이용하는 것을 권장하니 이를 이용하자.)</p>
 	</div>
 </article>
 </main>

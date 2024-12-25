@@ -17,8 +17,7 @@
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
-  
-    
+		
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
       <script>
         var doNotTrack = false;
@@ -33,10 +32,6 @@
           gtag('config', 'G-JN7PQ7YC6Q');
         }
       </script>
-    
-  
-
-
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -75,9 +70,9 @@
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		저는 초등학생 때 아람단에 가입해서 이런저런 활동들을 해 봤는데요. 열심히 활동하는 편은 아니었지만, 뭔가 활동을 하면 배지를 얻을 수 있었습니다. 적극적으로 활동하는 친구들은 아람단 단복에 정말 많은 배지들을 달고 있었던 기억이 납니다.
-이러한 배지 시스템은 스마트 폰의 앱이나 웹 사이트에서도 볼 수 있습니다. 예를 들어 제가 운동할 때 사용하는 앱 중 하나인 Nike Training Club은 특정한 조건을 달성하면 새로운 기록을 만들 수 있는데요.
-아래는 Nike Training Club 앱에서 제가 달성한 기록들 중 일부입니다.
+		<p>저는 초등학생 때 아람단에 가입해서 이런저런 활동들을 해 봤는데요. 열심히 활동하는 편은 아니었지만, 뭔가 활동을 하면 배지를 얻을 수 있었습니다. 적극적으로 활동하는 친구들은 아람단 단복에 정말 많은 배지들을 달고 있었던 기억이 납니다.</p>
+<p>이러한 배지 시스템은 스마트 폰의 앱이나 웹 사이트에서도 볼 수 있습니다. 예를 들어 제가 운동할 때 사용하는 앱 중 하나인 Nike Training Club은 특정한 조건을 달성하면 새로운 기록을 만들 수 있는데요.</p>
+<p>아래는 Nike Training Club 앱에서 제가 달성한 기록들 중 일부입니다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -94,11 +89,18 @@
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		2월에 올렸던 데이터 분석 워크플로우를 처음부터 만들어 보기에 이어서 작성하는 두번째 글입니다.
-그동안 시도해 봤던 것들은 다음과 같습니다.
-S3 버킷에 원격으로 로그 올리도록 설정하기 Airflow 2.x 버전에서 KubernetesExecutor를 사용하는 데, DAG이나 Task를 수동으로 실행할 때 에러가 발생하는 이유는? DAG에서 DB 이용하기: DB와 관련된 Operator 이용하기, Hooks 이용하기 S3에서 파일을 가져와서 분석하기: S3Hook 테스트 한 환경은 Airflow 2.0.1, 2.0.2 버전입니다.
-전체 내용은 GitHub 저장소에서 확인하실 수 있습니다.
-S3 버킷에 원격으로 로그를 올리도록 설정하기 지난 글에서 시스템 구성으로 KubernetesExecutor를 이용한다고 말씀드렸습니다.
+		<p>2월에 올렸던 <a href="/posts/data-workflow-from-scratch/">데이터 분석 워크플로우를 처음부터 만들어 보기</a>에 이어서 작성하는 두번째 글입니다.</p>
+<p>그동안 시도해 봤던 것들은 다음과 같습니다.</p>
+<ul>
+<li>S3 버킷에 원격으로 로그 올리도록 설정하기</li>
+<li>Airflow 2.x 버전에서 KubernetesExecutor를 사용하는 데, DAG이나 Task를 수동으로 실행할 때 에러가 발생하는 이유는?</li>
+<li>DAG에서 DB 이용하기: DB와 관련된 Operator 이용하기, Hooks 이용하기</li>
+<li>S3에서 파일을 가져와서 분석하기: S3Hook</li>
+</ul>
+<p>테스트 한 환경은 Airflow 2.0.1, 2.0.2 버전입니다.</p>
+<p>전체 내용은 <a href="https://github.com/rubysoho07/data-workflow-from-scratch">GitHub 저장소</a>에서 확인하실 수 있습니다.</p>
+<h1 id="s3-버킷에-원격으로-로그를-올리도록-설정하기">S3 버킷에 원격으로 로그를 올리도록 설정하기</h1>
+<p>지난 글에서 시스템 구성으로 KubernetesExecutor를 이용한다고 말씀드렸습니다. KubernetesExecutor를 이용하는 경우, Task가 끝나면 Worker Pod이 사라지면서 로그를 못 찾는 경우도 있기 때문에 로그를 S3 버킷에 저장해 보았습니다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -115,10 +117,11 @@ S3 버킷에 원격으로 로그를 올리도록 설정하기 지난 글에서 �
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		작년 이맘때에 AWSKRUG에서 ECS+Locust로 부하 테스트 진행하기라는 주제로 발표를 한 적이 있었습니다.
-그러다가 5월에 Locust 1.0 버전이 나왔는데요. 최신 버전의 Locust로 부하 테스트를 진행하다 보니 바뀐 부분이 많아서, 새 버전으로 테스트를 수행하기 위해 필요한 내용 위주로 다시 정리해 보려고 합니다.
-이 글은 위에 링크한 슬라이드 중 11~19 페이지의 내용을 대체합니다. 지금부터 한 번 살펴보겠습니다.
-Locust -&gt; User 클래스 이름 변경 한 명의 사용자를 표현하는 Locust 클래스가 &lsquo;User&rsquo;로 이름을 바꾸었습니다. HTTP를 이용하는 클라이언트는 HttpLocust에서 HttpUser로 클래스 이름을 바꾸었습니다.
+		<p>작년 이맘때에 AWSKRUG에서 <a href="https://www.slideshare.net/YungonPark/ecslocust-232571377">ECS+Locust로 부하 테스트 진행하기</a>라는 주제로 발표를 한 적이 있었습니다.</p>
+<p>그러다가 5월에 Locust 1.0 버전이 나왔는데요. 최신 버전의 Locust로 부하 테스트를 진행하다 보니 바뀐 부분이 많아서, 새 버전으로 테스트를 수행하기 위해 필요한 내용 위주로 다시 정리해 보려고 합니다.</p>
+<p>이 글은 위에 링크한 슬라이드 중 11~19 페이지의 내용을 대체합니다. 지금부터 한 번 살펴보겠습니다.</p>
+<h2 id="locust---user-클래스-이름-변경">Locust -&gt; User 클래스 이름 변경</h2>
+<p>한 명의 사용자를 표현하는 Locust 클래스가 &lsquo;User&rsquo;로 이름을 바꾸었습니다. HTTP를 이용하는 클라이언트는 HttpLocust에서 HttpUser로 클래스 이름을 바꾸었습니다. (GitHub <a href="https://github.com/locustio/locust/issues/1283">이슈</a> 참조)</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -135,8 +138,9 @@ Locust -&gt; User 클래스 이름 변경 한 명의 사용자를 표현하는 L
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		지난 달에는 데이터 수집을 위한 환경 구성을 처음부터 만들어 보았습니다. 어느 정도 초기 환경을 구축했다고 판단해서, 이번에는 데이터 분석을 위한 워크플로우를 처음부터 만들어 보는 과정을 기록해 보려고 합니다.
-이번에는 Apache Airflow를 이용해서 데이터 분석 작업을 위한 환경을 구축해 보았습니다. 여러 곳에서 Airflow를 사용하는 사례를 듣다 보니, Airflow를 한번 써 봐야겠다고 생각했습니다. 최근에는 AWS에서도 Managed Workflows for Apache Airflow라는 관리형 서비스를 제공하고 있고, GCP에서는 Cloud Composer라는 이름으로 관리형 서비스를 제공하고 있습니다.
+		<p>지난 달에는 데이터 수집을 위한 환경 구성을 처음부터 만들어 보았습니다. 어느 정도 초기 환경을 구축했다고 판단해서, 이번에는 데이터 분석을 위한 워크플로우를 처음부터 만들어 보는 과정을 기록해 보려고 합니다.</p>
+<p>이번에는 <a href="http://airflow.apache.org/">Apache Airflow</a>를 이용해서 데이터 분석 작업을 위한 환경을 구축해 보았습니다. 여러 곳에서 Airflow를 사용하는 사례를 듣다 보니, Airflow를 한번 써 봐야겠다고 생각했습니다. 최근에는 AWS에서도 <a href="https://aws.amazon.com/ko/managed-workflows-for-apache-airflow/">Managed Workflows for Apache Airflow</a>라는 관리형 서비스를 제공하고 있고, GCP에서는 <a href="https://cloud.google.com/composer/">Cloud Composer</a>라는 이름으로 관리형 서비스를 제공하고 있습니다.</p>
+<p>사실 전체 아키텍처 구성과 DAG 테스트를 해보고 싶었는데요. 2월이 짧다보니, 우선 기본적인 아키텍처를 이해하기 위해 노력하였습니다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -153,9 +157,10 @@ Locust -&gt; User 클래스 이름 변경 한 명의 사용자를 표현하는 L
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		2021년에는 매월 최소한 글 한 편은 블로그에 올려야겠다고 생각했습니다. 그 달에 공부했던 것, 새로 알게 된 것들을 주로 정리해서 올릴 예정입니다.
-이번 달은 &lsquo;데이터 수집 단계를 처음부터 구현해 보기&rsquo; 라는 주제로 테스트 해 본 것들을 정리해 보겠습니다.
-왜 이 일을 하게 되었나? 지금 제가 회사에서 하는 일은 학생의 학습 데이터를 수집하고 분석하는 인프라를 구축/운영하는 것입니다. 3년 간 AWS를 기반으로 여러 서비스들을 운영해 보면서, &lsquo;만약 AWS를 쓰지 않는 환경이라면, 어떻게 시스템 구축을 할 것인가?
+		<p>2021년에는 매월 최소한 글 한 편은 블로그에 올려야겠다고 생각했습니다. 그 달에 공부했던 것, 새로 알게 된 것들을 주로 정리해서 올릴 예정입니다.</p>
+<p>이번 달은 <strong>&lsquo;데이터 수집 단계를 처음부터 구현해 보기&rsquo;</strong> 라는 주제로 테스트 해 본 것들을 정리해 보겠습니다.</p>
+<h2 id="왜-이-일을-하게-되었나">왜 이 일을 하게 되었나?</h2>
+<p>지금 제가 회사에서 하는 일은 학생의 학습 데이터를 수집하고 분석하는 인프라를 구축/운영하는 것입니다. 3년 간 AWS를 기반으로 여러 서비스들을 운영해 보면서, &lsquo;만약 AWS를 쓰지 않는 환경이라면, 어떻게 시스템 구축을 할 것인가?&lsquo;를 고민하게 되었습니다. 그러면서 &lsquo;새로운 방식으로 지금까지 만들었던 것들을 다시 구축해 보면 어떨까?&rsquo; 라는 생각이 들었습니다. 그래서 데이터를 수집하고 분석하는 시스템을 처음부터 구축해 보려고 합니다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -172,8 +177,9 @@ Locust -&gt; User 클래스 이름 변경 한 명의 사용자를 표현하는 L
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		2020년을 되돌아보면, 코로나로 일상 생활에 변화가 많았습니다. 제 생활에 가장 큰 변화라면, 퀸 내한공연 이후로 밴드들 공연을 현장에서 못 봤던 것, 축구 경기 직관을 제대로 못 했던 것, 오프라인 컨퍼런스나 국외 출장들이 모두 취소된 것을 들 수 있겠네요. 이외에도 여러가지 일들이 있었는데, 한 번 뒤돌아 보는 시간을 가져보려고 합니다.
-다른 사람들 앞에 서는 일 오프라인 컨퍼런스나 모임들이 많이 취소되었습니다. 그래서 온라인 모임이나 컨퍼런스에서 발표했던 적이 있었는데요. 아직 공개되지 않은 것들을 제외하고 말씀드리면, 두 번 발표를 진행했습니다.
+		<p>2020년을 되돌아보면, 코로나로 일상 생활에 변화가 많았습니다. 제 생활에 가장 큰 변화라면, 퀸 내한공연 이후로 밴드들 공연을 현장에서 못 봤던 것, 축구 경기 직관을 제대로 못 했던 것, 오프라인 컨퍼런스나 국외 출장들이 모두 취소된 것을 들 수 있겠네요. 이외에도 여러가지 일들이 있었는데, 한 번 뒤돌아 보는 시간을 가져보려고 합니다.</p>
+<h1 id="다른-사람들-앞에-서는-일">다른 사람들 앞에 서는 일</h1>
+<p>오프라인 컨퍼런스나 모임들이 많이 취소되었습니다. 그래서 온라인 모임이나 컨퍼런스에서 발표했던 적이 있었는데요. 아직 공개되지 않은 것들을 제외하고 말씀드리면, 두 번 발표를 진행했습니다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -190,9 +196,19 @@ Locust -&gt; User 클래스 이름 변경 한 명의 사용자를 표현하는 L
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		가끔씩 Python의 map(), filter(), reduce()에 대해 헷갈리는 것들이 있어서 정리해 본다.
-map(function, iterable, &hellip;) Reference: Python 문서 참조 iterable에 있는 모든 요소에 function을 적용하여 그 결과를 반환한다. function은 여러 인자를 받을 수 있어야 하고, 모든 iterable의 아이템에 동시에 적용되도록 해야 한다.
-&gt;&gt;&gt; l1 = [1, 2, 3, 4] &gt;&gt;&gt; map(lambda x: x * 2, l1) &lt;map object at 0x1006d1040&gt; map()을 수행한 결과는 map object로 반환되므로, 이를 list나 tuple로 바꾸는 작업이 필요하다.
+		<p>가끔씩 Python의 <code>map()</code>, <code>filter()</code>, <code>reduce()</code>에 대해 헷갈리는 것들이 있어서 정리해 본다.</p>
+<h1 id="mapfunction-iterable-">map(function, iterable, &hellip;)</h1>
+<ul>
+<li>Reference: <a href="https://docs.python.org/3/library/functions.html#map">Python 문서 참조</a></li>
+</ul>
+<p><code>iterable</code>에 있는 모든 요소에 <code>function</code>을 적용하여 그 결과를 반환한다. <code>function</code>은 여러 인자를 받을 수 있어야 하고, 모든 iterable의 아이템에 동시에 적용되도록 해야 한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> l1 <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>]
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> map(<span style="color:#66d9ef">lambda</span> x: x <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>, l1)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>map object at <span style="color:#ae81ff">0x1006d1040</span><span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><p>map()을 수행한 결과는 map object로 반환되므로, 이를 list나 tuple로 바꾸는 작업이 필요하다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> list(map(<span style="color:#66d9ef">lambda</span> x: x <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>, l1))
+</span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">8</span>]
+</span></span></code></pre></div><p>함수 정의를 보면, <code>iterable</code> 뒤에 <code>...</code>이 붙는 것을 볼 수 있다. 여러 iterable을 붙이면 어떻게 될까?</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -209,11 +225,11 @@ map(function, iterable, &hellip;) Reference: Python 문서 참조 iterable에 �
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		어릴적부터 도시를 짓는 게임을 좋아했습니다. 예전에 심시티 3000을 제 돈 주고 산 걸로 시작해서, 심시티 4를 거쳐 지금은 시티즈 스카이라인을 가끔씩 플레이합니다.
-예전에 쓰던 컴퓨터에서 심시티 4를 돌릴 때 외부에서 받은 건물이나, 제가 만든 도시, 그리고 스크린샷을 백업하는 프로그램을 파이썬으로 만든 적이 있었습니다.
-그러다가 이 프로그램을 Go로 포팅하는 일을 해 보고 싶어서 시도해 보게 되었습니다.
-파일 목록을 검색하고 파일을 쓰고 읽는 부분들이 많아서, 개인적으로는 해 볼 만한 내용이었다고 생각합니다.
-그러면 어떤 차이가 있는지 한 번 살펴보도록 하겠습니다.
+		<p>어릴적부터 도시를 짓는 게임을 좋아했습니다. 예전에 심시티 3000을 제 돈 주고 산 걸로 시작해서, 심시티 4를 거쳐 지금은 시티즈 스카이라인을 가끔씩 플레이합니다.</p>
+<p>예전에 쓰던 컴퓨터에서 심시티 4를 돌릴 때 외부에서 받은 건물이나, 제가 만든 도시, 그리고 스크린샷을 백업하는 프로그램을 파이썬으로 만든 적이 있었습니다.</p>
+<p>그러다가 이 프로그램을 Go로 포팅하는 일을 해 보고 싶어서 시도해 보게 되었습니다.</p>
+<p>파일 목록을 검색하고 파일을 쓰고 읽는 부분들이 많아서, 개인적으로는 해 볼 만한 내용이었다고 생각합니다.</p>
+<p>그러면 어떤 차이가 있는지 한 번 살펴보도록 하겠습니다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -230,7 +246,7 @@ map(function, iterable, &hellip;) Reference: Python 문서 참조 iterable에 �
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		팀에서 AWS SAM을 적극적으로 사용하고 있는데, SAM을 쓰면서 느낀 점들을 예전에 글로 남긴 적이 있었다. 그런데 SAM은 CloudFormation 스택으로 리소스를 생성하다 보니, CloudFormation의 제약 사항을 그대로 가지고 있다. 예를 들어 하나의 CloudFormation 템플릿에서 선언할 수 있는 리소스 수는 200개를 넘지 않아야 한다는 것이 대표적일 것이다. 이러한 문제를 겪으면서, 많은 리소스로 구성되어 있는 애플리케이션을 여러 스택으로 나누는 작업을 해야 했다. 이 글에서는 하나의 서버리스 애플리케이션을 여러 스택으로 나누는 문제를 해결하면서 겪었던 일들을 기록해 보려고 한다.
+		<p>팀에서 AWS SAM을 적극적으로 사용하고 있는데, SAM을 쓰면서 느낀 점들을 예전에 <a href="/posts/retrospect-aws-sam/">글로 남긴 적이 있었다</a>. 그런데 SAM은 CloudFormation 스택으로 리소스를 생성하다 보니, CloudFormation의 제약 사항을 그대로 가지고 있다. 예를 들어 <a href="https://docs.aws.amazon.com/ko_kr/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">하나의 CloudFormation 템플릿에서 선언할 수 있는 리소스 수는 200개를 넘지 않아야 한다</a>는 것이 대표적일 것이다. 이러한 문제를 겪으면서, 많은 리소스로 구성되어 있는 애플리케이션을 여러 스택으로 나누는 작업을 해야 했다. 이 글에서는 하나의 서버리스 애플리케이션을 여러 스택으로 나누는 문제를 해결하면서 겪었던 일들을 기록해 보려고 한다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -247,11 +263,23 @@ map(function, iterable, &hellip;) Reference: Python 문서 참조 iterable에 �
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		팀 내에서는 Lambda 안에 파이썬 코드를 올려서 쓰고 있지만, 혹시 Pandas와 같은 라이브러리를 Lambda에 올리려면 어떻게 해야 할 지 궁금해서 정리해 본다.
-이 예제에서는 Pandas를 Lambda Layer로 만들고, Layer를 Lambda 함수에 연결해서 사용해 보려고 한다.
-AWS Lambda(Lambda Layer)의 제한 AWS Lambda에는 Lambda Layer라고 해서 의존성이 필요한 것들을 묶어서 별도의 계층으로 만들어 쓸 수 있도록 하고 있다.
-하지만 이런 기능도 제한이 있으니 한 번 확인해 보자.
-참고 문서 AWS Lambda 제한 AWS Lambda 계층 주요 제한 사항 하나의 함수에서 사용할 수 있는 Layer 수: 5 개 함수와 Layer를 모두 합하여 250 MB를 초과할 수 없음 Pandas Lambda Layer 만들기 Lambda Layer의 내용은 /opt 디렉터리에 들어가게 된다.
+		<p>팀 내에서는 Lambda 안에 파이썬 코드를 올려서 쓰고 있지만, 혹시 Pandas와 같은 라이브러리를 Lambda에 올리려면 어떻게 해야 할 지 궁금해서 정리해 본다.</p>
+<p>이 예제에서는 Pandas를 Lambda Layer로 만들고, Layer를 Lambda 함수에 연결해서 사용해 보려고 한다.</p>
+<h2 id="aws-lambdalambda-layer의-제한">AWS Lambda(Lambda Layer)의 제한</h2>
+<p>AWS Lambda에는 Lambda Layer라고 해서 의존성이 필요한 것들을 묶어서 별도의 계층으로 만들어 쓸 수 있도록 하고 있다.</p>
+<p>하지만 이런 기능도 제한이 있으니 한 번 확인해 보자.</p>
+<h3 id="참고-문서">참고 문서</h3>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/gettingstarted-limits.html">AWS Lambda 제한</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/configuration-layers.html">AWS Lambda 계층</a></li>
+</ul>
+<h3 id="주요-제한-사항">주요 제한 사항</h3>
+<ul>
+<li>하나의 함수에서 사용할 수 있는 Layer 수: 5 개</li>
+<li>함수와 Layer를 모두 합하여 250 MB를 초과할 수 없음</li>
+</ul>
+<h2 id="pandas-lambda-layer-만들기">Pandas Lambda Layer 만들기</h2>
+<p>Lambda Layer의 내용은 <code>/opt</code> 디렉터리에 들어가게 된다. 파이썬 코드의 경우 <code>/opt/python</code>이나 <code>/opt/python/lib/python(버전-예:3.8)/site-packages</code> 디렉터리에 풀릴 것이다.</p>
 	</div>
 </article>
 </main>

@@ -17,8 +17,7 @@
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
-  
-    
+		
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
       <script>
         var doNotTrack = false;
@@ -33,10 +32,6 @@
           gtag('config', 'G-JN7PQ7YC6Q');
         }
       </script>
-    
-  
-
-
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -75,10 +70,14 @@
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		여러 국가에 걸쳐 시간과 관련된 데이터를 얻을 때 시간대가 가장 이슈가 될 것이다. 그리고 AWS와 같이 UTC를 기준으로 하는 서비스가 있기 때문에, 우리나라의 시간대를 기준으로 프로그램을 만들 때 고민이 되는 부분이 있다.
-시간대를 다루기 위해 pytz와 같은 라이브러리가 있지만, 이번에는 파이썬이 기본적으로 제공하는 datetime 모듈만 이용해서 시간대를 다루어 보고자 한다.
-현재 시간 구하기 / UTC 기준 시간 구하기 현재 시간을 구하기 위해서는 datetime.datetime.now()를 이용한다.
-&gt;&gt;&gt; import datetime &gt;&gt;&gt; datetime.datetime.now() datetime.datetime(2018, 5, 17, 21, 43, 13, 554579) 한편, UTC 기준의 현재 시간을 구하기 위해서는 datetime.
+		<p>여러 국가에 걸쳐 시간과 관련된 데이터를 얻을 때 시간대가 가장 이슈가 될 것이다. 그리고 AWS와 같이 UTC를 기준으로 하는 서비스가 있기 때문에, 우리나라의 시간대를 기준으로 프로그램을 만들 때 고민이 되는 부분이 있다.</p>
+<p>시간대를 다루기 위해 pytz와 같은 라이브러리가 있지만, 이번에는 파이썬이 기본적으로 제공하는 datetime 모듈만 이용해서 시간대를 다루어 보고자 한다.</p>
+<h3 id="현재-시간-구하기--utc-기준-시간-구하기">현재 시간 구하기 / UTC 기준 시간 구하기</h3>
+<p>현재 시간을 구하기 위해서는 <code>datetime.datetime.now()</code>를 이용한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">import</span> datetime
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> datetime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>now()
+</span></span><span style="display:flex;"><span>datetime<span style="color:#f92672">.</span>datetime(<span style="color:#ae81ff">2018</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">17</span>, <span style="color:#ae81ff">21</span>, <span style="color:#ae81ff">43</span>, <span style="color:#ae81ff">13</span>, <span style="color:#ae81ff">554579</span>)
+</span></span></code></pre></div><p>한편, UTC 기준의 현재 시간을 구하기 위해서는 <code>datetime.datetime.utcnow()</code>를 이용한다.</p>
 	</div>
 </article>
 </main>

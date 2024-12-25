@@ -13,7 +13,7 @@
       <link>/posts/hortonworks-sandbox-on-aws/</link>
       <pubDate>Wed, 16 Oct 2019 21:05:00 +0900</pubDate>
       <guid>/posts/hortonworks-sandbox-on-aws/</guid>
-      <description>들어가며 최근에 &amp;lsquo;하둡과 스파크를 활용한 실용 데이터 과학&amp;rsquo;이라는 책을 읽고 따라해 보고 있다. 이 책에서는 실습을 위해 호튼웍스(Hortonworks)의 Sandbox 이미지를 사용해 보기를 권장하고 있다. 그런데 설치 방법을 찾다 보니, 권장 사양이 높은 것 같다는 생각이 들었다. 이 이미지를 VirtualBox에서 사용할 때, 메모리 용량이 8GB로 설정되어 있었다. 그런데 지금 내가 쓰고 있는 노트북의 메모리 용량이 8GB라 좀 어려울 것 같았다. 그래서 AWS에 이 이미지를 올려보게 되었다.&#xA;(주의: 이 글에서 설명하는 내용은 AWS의 Free Tier 범위를 넘어가므로 사용한 만큼 요금이 부과됩니다.</description>
+      <description>&lt;h2 id=&#34;들어가며&#34;&gt;들어가며&lt;/h2&gt;&#xA;&lt;p&gt;최근에 &lt;a href=&#34;http://www.yes24.com/Product/Goods/44307209&#34;&gt;&amp;lsquo;하둡과 스파크를 활용한 실용 데이터 과학&amp;rsquo;&lt;/a&gt;이라는 책을 읽고 따라해 보고 있다. 이 책에서는 실습을 위해 호튼웍스(Hortonworks)의 Sandbox 이미지를 사용해 보기를 권장하고 있다. 그런데 설치 방법을 찾다 보니, 권장 사양이 높은 것 같다는 생각이 들었다. 이 이미지를 VirtualBox에서 사용할 때, 메모리 용량이 8GB로 설정되어 있었다. 그런데 지금 내가 쓰고 있는 노트북의 메모리 용량이 8GB라 좀 어려울 것 같았다. 그래서 AWS에 이 이미지를 올려보게 되었다.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;(주의: 이 글에서 설명하는 내용은 AWS의 Free Tier 범위를 넘어가므로 사용한 만큼 요금이 부과됩니다. 크레딧이 있거나 비용 지불이 가능한 경우에 사용하시기 바랍니다. 비용 발생에 대한 책임은 독자에게 있습니다.)&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

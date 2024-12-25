@@ -17,8 +17,7 @@
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
-  
-    
+		
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
       <script>
         var doNotTrack = false;
@@ -33,10 +32,6 @@
           gtag('config', 'G-JN7PQ7YC6Q');
         }
       </script>
-    
-  
-
-
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -75,7 +70,8 @@
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		배경 인프라를 관리하다 보면, 수동으로 하는 일을 자동화 할 수 있는 방법을 고민할 것입니다. 그래서 인프라 구성을 코드로 관리하기도 하고, 간단한 스크립트나 프로그램을 만들기도 합니다. 그 중에서도 &ldquo;스크립트로 제공하는 것들을 API로 만들어 보면 어떨까?&rdquo; 라는 생각을 했는데요. DevOps나 SRE 분야에서 사용하는 도구들이 Go(Golang)으로 만든 경우가 많아서 Go를 선택하였습니다. 찾아 보니 Go를 이용한 웹 프레임워크로는 Gin과 같은 것들이 있더라구요. 이를 활용해서 간단한 API를 만들어 보려고 합니다. (에디터로는 Visual Studio Code를 이용합니다)
+		<h2 id="배경">배경</h2>
+<p>인프라를 관리하다 보면, 수동으로 하는 일을 자동화 할 수 있는 방법을 고민할 것입니다. 그래서 인프라 구성을 코드로 관리하기도 하고, 간단한 스크립트나 프로그램을 만들기도 합니다. 그 중에서도 &ldquo;스크립트로 제공하는 것들을 API로 만들어 보면 어떨까?&rdquo; 라는 생각을 했는데요. DevOps나 SRE 분야에서 사용하는 도구들이 Go(Golang)으로 만든 경우가 많아서 Go를 선택하였습니다. 찾아 보니 Go를 이용한 웹 프레임워크로는 Gin과 같은 것들이 있더라구요. 이를 활용해서 간단한 API를 만들어 보려고 합니다. (에디터로는 Visual Studio Code를 이용합니다)</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -92,8 +88,9 @@
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		계기 저는 2년 전에 AWS의 Certified Solutions Architect - Associate 자격증을 취득한 적이 있습니다. 언젠가는 다음 단계의 자격증을 취득할 생각이 있긴 했습니다. (다음 자격증 시험에 응시할 때 50% 할인 쿠폰이 크긴 하더라구요)
-그러다가 작년 하반기에 이직을 하였고, 최근 몇 개월 동안 현재 시스템을 분석하고 개선하는 작업들을 진행했습니다. 저희 팀은 지금의 시스템을 운영하고, 다음 버전의 시스템을 구축하여야 하는 과제가 있는데요. 그 과정에서 시스템을 구축하고 운영하는 데 좀 더 많은 지식이 필요하겠다는 생각이 들었습니다.
+		<h2 id="계기">계기</h2>
+<p>저는 2년 전에 AWS의 <a href="https://www.credly.com/earner/earned/badge/c6d39aca-7679-40ad-ab01-163b5334d75d">Certified Solutions Architect - Associate</a> 자격증을 취득한 적이 있습니다. 언젠가는 다음 단계의 자격증을 취득할 생각이 있긴 했습니다. (다음 자격증 시험에 응시할 때 50% 할인 쿠폰이 크긴 하더라구요)</p>
+<p>그러다가 작년 하반기에 이직을 하였고, 최근 몇 개월 동안 현재 시스템을 분석하고 개선하는 작업들을 진행했습니다. 저희 팀은 지금의 시스템을 운영하고, 다음 버전의 시스템을 구축하여야 하는 과제가 있는데요. 그 과정에서 시스템을 구축하고 운영하는 데 좀 더 많은 지식이 필요하겠다는 생각이 들었습니다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -110,10 +107,11 @@
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		AWS의 Systems Manager에는 Run Command와 Session Manager라는 기능이 있습니다.
-SSH를 이용하여 EC2 인스턴스에 접근할 때는 SSH 키 페어가 필요하고, SSH 접속을 위한 보안 그룹을 열어야 하는데요. 위 기능을 이용하면 이러한 과정을 생략하고 원격에서 EC2 인스턴스에 접근하여 명령을 실행할 수 있습니다.
-먼저, Session Manager로 웹 브라우저에서 쉘을 실행하는 방법부터 설명드리겠습니다.
-Session Manager로 웹 브라우저에서 쉘 실행하기 Session Manager로 웹 브라우저에서 쉘을 실행하려면, EC2 인스턴스가 Systems Manager와 관련된 작업을 실행할 수 있는 권한을 부여해야 합니다.
+		<p>AWS의 Systems Manager에는 <a href="https://aws.amazon.com/ko/blogs/aws/new-ec2-run-command-remote-instance-management-at-scale/">Run Command</a>와 <a href="https://aws.amazon.com/ko/blogs/korea/new-session-manager/">Session Manager</a>라는 기능이 있습니다.</p>
+<p>SSH를 이용하여 EC2 인스턴스에 접근할 때는 SSH 키 페어가 필요하고, SSH 접속을 위한 보안 그룹을 열어야 하는데요. 위 기능을 이용하면 이러한 과정을 생략하고 원격에서 EC2 인스턴스에 접근하여 명령을 실행할 수 있습니다.</p>
+<p>먼저, Session Manager로 웹 브라우저에서 쉘을 실행하는 방법부터 설명드리겠습니다.</p>
+<h1 id="session-manager로-웹-브라우저에서-쉘-실행하기">Session Manager로 웹 브라우저에서 쉘 실행하기</h1>
+<p>Session Manager로 웹 브라우저에서 쉘을 실행하려면, EC2 인스턴스가 Systems Manager와 관련된 작업을 실행할 수 있는 권한을 부여해야 합니다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -130,11 +128,12 @@ Session Manager로 웹 브라우저에서 쉘 실행하기 Session Manager로 �
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		최근 인프라 구성을 CloudFormation을 이용해서 조정해 보았습니다. 그 과정에서 여러 Lambda 함수를 쓸 때는 SAM으로, 그 외의 경우는 CloudFormation을 사용했는데요.
-이번 작업으로 여러 CloudFormation 스택에 흩어져 있던 리소스를 하나로 모으고, 템플릿의 관리 방식도 좀 더 관리하게 편하도록 설정할 수 있게 되었습니다.
-저희 팀이 여러 IaC(Infrastructure as Code) 툴 중에 왜 SAM과 CloudFormation을 사용하는 이유는 이 문서를 참고해 주세요.
-이번 글은 CloudFormation과 SAM을 쓰면서 겪었던 일들을 정리해 보려고 합니다.
-SAM에서 API Gateway 정의를 SAM Template에 넣기 SAM에서 제공하는 AWS::Serverless::Api 리소스는 AWS Gateway의 REST API를 생성해 주는 기능입니다.
+		<p>최근 인프라 구성을 CloudFormation을 이용해서 조정해 보았습니다. 그 과정에서 여러 Lambda 함수를 쓸 때는 SAM으로, 그 외의 경우는 CloudFormation을 사용했는데요.</p>
+<p>이번 작업으로 여러 CloudFormation 스택에 흩어져 있던 리소스를 하나로 모으고, 템플릿의 관리 방식도 좀 더 관리하게 편하도록 설정할 수 있게 되었습니다.</p>
+<p>저희 팀이 여러 IaC(Infrastructure as Code) 툴 중에 왜 SAM과 CloudFormation을 사용하는 이유는 <a href="/posts/retrospect-aws-sam/">이 문서</a>를 참고해 주세요.</p>
+<p>이번 글은 CloudFormation과 SAM을 쓰면서 겪었던 일들을 정리해 보려고 합니다.</p>
+<h2 id="sam에서-api-gateway-정의를-sam-template에-넣기">SAM에서 API Gateway 정의를 SAM Template에 넣기</h2>
+<p>SAM에서 제공하는 <code>AWS::Serverless::Api</code> 리소스는 AWS Gateway의 REST API를 생성해 주는 기능입니다. API Gateway에는 <a href="https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-import-api.html">OpenAPI 규격으로 작성된 API 스펙을 가지고 올 수 있는 기능</a>이 있는데요. SAM에서도 마찬가지로 해당 기능을 지원합니다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -151,12 +150,13 @@ SAM에서 API Gateway 정의를 SAM Template에 넣기 SAM에서 제공하는 AW
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		최근 팀 내에서 외부 서비스와 연동하는 서비스가 증가하면서, 고정된 IP 주소를 요청하는 경우가 많아졌습니다.
-한편, 대외 서비스가 늘어나다 보니 관리하는 서버의 수가 증가하였습니다. 그렇지만 생각보다 트래픽이 많지 않아 리소스가 낭비되는 경우가 많은데요.
-이러한 상황을 겪으면서 서버의 수를 줄이고, 서비스마다 고정된 IP 주소를 제공할 방법을 찾아보게 되었습니다.
-그러다가 Kubernetes와 Kubernetes의 Ingress를 적절히 활용하여 이러한 요건을 충족하는 방법을 찾아보았습니다.
-이번 글은 그 과정에서 겪었던 이슈를 정리하기 위해 작성하였습니다.
-EKS와 NGINX Ingress Controller 사용 저희 팀의 웹 서비스들은 Elastic Beanstalk를 주로 이용하고 있습니다.
+		<p>최근 팀 내에서 외부 서비스와 연동하는 서비스가 증가하면서, 고정된 IP 주소를 요청하는 경우가 많아졌습니다.</p>
+<p>한편, 대외 서비스가 늘어나다 보니 관리하는 서버의 수가 증가하였습니다. 그렇지만 생각보다 트래픽이 많지 않아 리소스가 낭비되는 경우가 많은데요.</p>
+<p>이러한 상황을 겪으면서 서버의 수를 줄이고, 서비스마다 고정된 IP 주소를 제공할 방법을 찾아보게 되었습니다.</p>
+<p>그러다가 Kubernetes와 Kubernetes의 Ingress를 적절히 활용하여 이러한 요건을 충족하는 방법을 찾아보았습니다.</p>
+<p>이번 글은 그 과정에서 겪었던 이슈를 정리하기 위해 작성하였습니다.</p>
+<h1 id="eks와-nginx-ingress-controller-사용">EKS와 NGINX Ingress Controller 사용</h1>
+<p>저희 팀의 웹 서비스들은 Elastic Beanstalk를 주로 이용하고 있습니다. 그렇지만 사용량이 생각했던 것보다는 많지 않아서 컨테이너를 기반으로 한 서비스로 변경해 보려고 합니다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -173,11 +173,16 @@ EKS와 NGINX Ingress Controller 사용 저희 팀의 웹 서비스들은 Elastic
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		Python을 이용해서 AWS의 여러 기능을 자동화 할 때 Boto3를 많이들 쓰실 것 같은데요. 이번 달에는 Boto3를 쓰면서 궁금했던 것, 또는 자주 사용할 만한 것들을 정리해 보려고 합니다.
-현재 사용 중인 AWS 계정 ID 얻기 여기서 계정 ID라고 하면, 12자리의 숫자로 구성된 계정의 ID를 의미합니다.
-import boto3 account_id = boto3.client(&#39;sts&#39;).get_caller_identity().get(&#39;Account&#39;) 출처: Stack Overflow
-에러 다루기 출처: Boto3 Documentation
-Boto3의 코드를 열어보면, 서비스에 따라 발생할 수 있는 모든 에러를 저장하고 있지 않습니다. Boto3와 AWS CLI의 기반이 되는 Botocore 프로젝트의 코드에서도 모든 종류의 예외를 다루지 않습니다.
+		<p>Python을 이용해서 AWS의 여러 기능을 자동화 할 때 Boto3를 많이들 쓰실 것 같은데요. 이번 달에는 Boto3를 쓰면서 궁금했던 것, 또는 자주 사용할 만한 것들을 정리해 보려고 합니다.</p>
+<h1 id="현재-사용-중인-aws-계정-id-얻기">현재 사용 중인 AWS 계정 ID 얻기</h1>
+<p>여기서 계정 ID라고 하면, 12자리의 숫자로 구성된 계정의 ID를 의미합니다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> boto3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>account_id <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>client(<span style="color:#e6db74">&#39;sts&#39;</span>)<span style="color:#f92672">.</span>get_caller_identity()<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;Account&#39;</span>)
+</span></span></code></pre></div><p>출처: <a href="https://stackoverflow.com/questions/33332050/getting-the-current-user-account-id-in-boto3">Stack Overflow</a></p>
+<h1 id="에러-다루기">에러 다루기</h1>
+<p>출처: <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/guide/error-handling.html">Boto3 Documentation</a></p>
+<p><a href="https://github.com/boto/boto3/blob/develop/boto3/exceptions.py">Boto3의 코드</a>를 열어보면, 서비스에 따라 발생할 수 있는 모든 에러를 저장하고 있지 않습니다. Boto3와 AWS CLI의 기반이 되는 <a href="https://github.com/boto/botocore/blob/develop/botocore/exceptions.py">Botocore 프로젝트의 코드</a>에서도 모든 종류의 예외를 다루지 않습니다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -194,7 +199,7 @@ Boto3의 코드를 열어보면, 서비스에 따라 발생할 수 있는 모든
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		팀에서 AWS SAM을 적극적으로 사용하고 있는데, SAM을 쓰면서 느낀 점들을 예전에 글로 남긴 적이 있었다. 그런데 SAM은 CloudFormation 스택으로 리소스를 생성하다 보니, CloudFormation의 제약 사항을 그대로 가지고 있다. 예를 들어 하나의 CloudFormation 템플릿에서 선언할 수 있는 리소스 수는 200개를 넘지 않아야 한다는 것이 대표적일 것이다. 이러한 문제를 겪으면서, 많은 리소스로 구성되어 있는 애플리케이션을 여러 스택으로 나누는 작업을 해야 했다. 이 글에서는 하나의 서버리스 애플리케이션을 여러 스택으로 나누는 문제를 해결하면서 겪었던 일들을 기록해 보려고 한다.
+		<p>팀에서 AWS SAM을 적극적으로 사용하고 있는데, SAM을 쓰면서 느낀 점들을 예전에 <a href="/posts/retrospect-aws-sam/">글로 남긴 적이 있었다</a>. 그런데 SAM은 CloudFormation 스택으로 리소스를 생성하다 보니, CloudFormation의 제약 사항을 그대로 가지고 있다. 예를 들어 <a href="https://docs.aws.amazon.com/ko_kr/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">하나의 CloudFormation 템플릿에서 선언할 수 있는 리소스 수는 200개를 넘지 않아야 한다</a>는 것이 대표적일 것이다. 이러한 문제를 겪으면서, 많은 리소스로 구성되어 있는 애플리케이션을 여러 스택으로 나누는 작업을 해야 했다. 이 글에서는 하나의 서버리스 애플리케이션을 여러 스택으로 나누는 문제를 해결하면서 겪었던 일들을 기록해 보려고 한다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -211,11 +216,23 @@ Boto3의 코드를 열어보면, 서비스에 따라 발생할 수 있는 모든
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		팀 내에서는 Lambda 안에 파이썬 코드를 올려서 쓰고 있지만, 혹시 Pandas와 같은 라이브러리를 Lambda에 올리려면 어떻게 해야 할 지 궁금해서 정리해 본다.
-이 예제에서는 Pandas를 Lambda Layer로 만들고, Layer를 Lambda 함수에 연결해서 사용해 보려고 한다.
-AWS Lambda(Lambda Layer)의 제한 AWS Lambda에는 Lambda Layer라고 해서 의존성이 필요한 것들을 묶어서 별도의 계층으로 만들어 쓸 수 있도록 하고 있다.
-하지만 이런 기능도 제한이 있으니 한 번 확인해 보자.
-참고 문서 AWS Lambda 제한 AWS Lambda 계층 주요 제한 사항 하나의 함수에서 사용할 수 있는 Layer 수: 5 개 함수와 Layer를 모두 합하여 250 MB를 초과할 수 없음 Pandas Lambda Layer 만들기 Lambda Layer의 내용은 /opt 디렉터리에 들어가게 된다.
+		<p>팀 내에서는 Lambda 안에 파이썬 코드를 올려서 쓰고 있지만, 혹시 Pandas와 같은 라이브러리를 Lambda에 올리려면 어떻게 해야 할 지 궁금해서 정리해 본다.</p>
+<p>이 예제에서는 Pandas를 Lambda Layer로 만들고, Layer를 Lambda 함수에 연결해서 사용해 보려고 한다.</p>
+<h2 id="aws-lambdalambda-layer의-제한">AWS Lambda(Lambda Layer)의 제한</h2>
+<p>AWS Lambda에는 Lambda Layer라고 해서 의존성이 필요한 것들을 묶어서 별도의 계층으로 만들어 쓸 수 있도록 하고 있다.</p>
+<p>하지만 이런 기능도 제한이 있으니 한 번 확인해 보자.</p>
+<h3 id="참고-문서">참고 문서</h3>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/gettingstarted-limits.html">AWS Lambda 제한</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/configuration-layers.html">AWS Lambda 계층</a></li>
+</ul>
+<h3 id="주요-제한-사항">주요 제한 사항</h3>
+<ul>
+<li>하나의 함수에서 사용할 수 있는 Layer 수: 5 개</li>
+<li>함수와 Layer를 모두 합하여 250 MB를 초과할 수 없음</li>
+</ul>
+<h2 id="pandas-lambda-layer-만들기">Pandas Lambda Layer 만들기</h2>
+<p>Lambda Layer의 내용은 <code>/opt</code> 디렉터리에 들어가게 된다. 파이썬 코드의 경우 <code>/opt/python</code>이나 <code>/opt/python/lib/python(버전-예:3.8)/site-packages</code> 디렉터리에 풀릴 것이다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -232,9 +249,12 @@ AWS Lambda(Lambda Layer)의 제한 AWS Lambda에는 Lambda Layer라고 해서 �
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		왜 SAM을 사용하게 되었나? 시스템 내부에서 관리하는 Lambda 함수들이 늘어나면서, 이를 관리할 방법을 찾아야 했다. 기존에는 Apex를 Lambda 함수 배포에 이용했지만, 뭔가 자동화된 방법을 찾고 싶었다.
-그래서 Serverless Framework, Terraform, SAM과 같은 도구들을 검토해 봤다. 그러다가 SAM을 최종적으로 선택했는데, 이유는 다음과 같다.
-Serverless Framework는 다양한 클라우드 벤더를 지원하지만, 다른 AWS 서비스를 연동하는 데 제약이 있지 않을까? 하는 막연한 생각이 들었다. (잘 찾아보니 내가 원하는 것들은 구현 가능할 것 같더라. 내가 잘못 생각했던 것 같다)
+		<h2 id="왜-sam을-사용하게-되었나">왜 SAM을 사용하게 되었나?</h2>
+<p>시스템 내부에서 관리하는 Lambda 함수들이 늘어나면서, 이를 관리할 방법을 찾아야 했다. 기존에는 <a href="https://apex.run">Apex</a>를 Lambda 함수 배포에 이용했지만, 뭔가 자동화된 방법을 찾고 싶었다.</p>
+<p>그래서 Serverless Framework, Terraform, SAM과 같은 도구들을 검토해 봤다. 그러다가 SAM을 최종적으로 선택했는데, 이유는 다음과 같다.</p>
+<ul>
+<li>
+<p>Serverless Framework는 다양한 클라우드 벤더를 지원하지만, 다른 AWS 서비스를 연동하는 데 제약이 있지 않을까? 하는 막연한 생각이 들었다. (잘 찾아보니 내가 원하는 것들은 구현 가능할 것 같더라. 내가 잘못 생각했던 것 같다)</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -251,8 +271,9 @@ Serverless Framework는 다양한 클라우드 벤더를 지원하지만, 다른
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		들어가며 최근에 &lsquo;하둡과 스파크를 활용한 실용 데이터 과학&rsquo;이라는 책을 읽고 따라해 보고 있다. 이 책에서는 실습을 위해 호튼웍스(Hortonworks)의 Sandbox 이미지를 사용해 보기를 권장하고 있다. 그런데 설치 방법을 찾다 보니, 권장 사양이 높은 것 같다는 생각이 들었다. 이 이미지를 VirtualBox에서 사용할 때, 메모리 용량이 8GB로 설정되어 있었다. 그런데 지금 내가 쓰고 있는 노트북의 메모리 용량이 8GB라 좀 어려울 것 같았다. 그래서 AWS에 이 이미지를 올려보게 되었다.
-(주의: 이 글에서 설명하는 내용은 AWS의 Free Tier 범위를 넘어가므로 사용한 만큼 요금이 부과됩니다.
+		<h2 id="들어가며">들어가며</h2>
+<p>최근에 <a href="http://www.yes24.com/Product/Goods/44307209">&lsquo;하둡과 스파크를 활용한 실용 데이터 과학&rsquo;</a>이라는 책을 읽고 따라해 보고 있다. 이 책에서는 실습을 위해 호튼웍스(Hortonworks)의 Sandbox 이미지를 사용해 보기를 권장하고 있다. 그런데 설치 방법을 찾다 보니, 권장 사양이 높은 것 같다는 생각이 들었다. 이 이미지를 VirtualBox에서 사용할 때, 메모리 용량이 8GB로 설정되어 있었다. 그런데 지금 내가 쓰고 있는 노트북의 메모리 용량이 8GB라 좀 어려울 것 같았다. 그래서 AWS에 이 이미지를 올려보게 되었다.</p>
+<p><strong>(주의: 이 글에서 설명하는 내용은 AWS의 Free Tier 범위를 넘어가므로 사용한 만큼 요금이 부과됩니다. 크레딧이 있거나 비용 지불이 가능한 경우에 사용하시기 바랍니다. 비용 발생에 대한 책임은 독자에게 있습니다.)</strong></p>
 	</div>
 </article>
 </main>

@@ -17,8 +17,7 @@
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
-  
-    
+		
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
       <script>
         var doNotTrack = false;
@@ -33,10 +32,6 @@
           gtag('config', 'G-JN7PQ7YC6Q');
         }
       </script>
-    
-  
-
-
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -75,9 +70,12 @@
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		문자열을 다루다 보면 .format()을 사용하는데, .format()으로 어떻게 문자열 중간을 채워볼 지에 대해 알아보겠다. 이 글은 필요할 때 매번 찾아보다가 귀찮아서 정리해 본 것이다.
-들어가기 전에&hellip; 혹시 C를 배워본 적이 있는지? C에는 printf()라는 함수가 있다. 변수의 내용을 표시하기 위해 아래 코드와 같이 %d, %f등의 문자열을 사용한 적이 있을 것이다.
-int a = 0; printf(&#39;%d&#39;, a); 파이썬 또한 이런 방법을 지원한다. 하지만 튜플이나 딕셔너리와 같은 자료형은 제대로 표시되지 않는 문제가 있다고 한다. 자세한 내용은 링크를 참조하자.
+		<p>문자열을 다루다 보면 <code>.format()</code>을 사용하는데, .format()으로 어떻게 문자열 중간을 채워볼 지에 대해 알아보겠다. 이 글은 필요할 때 매번 찾아보다가 귀찮아서 정리해 본 것이다.</p>
+<h3 id="들어가기-전에">들어가기 전에&hellip;</h3>
+<p>혹시 C를 배워본 적이 있는지? C에는 <code>printf()</code>라는 함수가 있다. 변수의 내용을 표시하기 위해 아래 코드와 같이 <code>%d</code>, <code>%f</code>등의 문자열을 사용한 적이 있을 것이다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">printf</span>(<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">%</span>d<span style="color:#960050;background-color:#1e0010">&#39;</span>, a);
+</span></span></code></pre></div><p>파이썬 또한 이런 방법을 지원한다. 하지만 튜플이나 딕셔너리와 같은 자료형은 제대로 표시되지 않는 문제가 있다고 한다. <a href="https://docs.python.org/3/library/stdtypes.html#old-string-formatting">자세한 내용은 링크를 참조하자.</a></p>
 	</div>
 </article>
 </main>

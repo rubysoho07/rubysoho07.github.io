@@ -17,8 +17,7 @@
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
-  
-    
+		
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
       <script>
         var doNotTrack = false;
@@ -33,10 +32,6 @@
           gtag('config', 'G-JN7PQ7YC6Q');
         }
       </script>
-    
-  
-
-
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -75,12 +70,13 @@
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		최근 팀 내에서 외부 서비스와 연동하는 서비스가 증가하면서, 고정된 IP 주소를 요청하는 경우가 많아졌습니다.
-한편, 대외 서비스가 늘어나다 보니 관리하는 서버의 수가 증가하였습니다. 그렇지만 생각보다 트래픽이 많지 않아 리소스가 낭비되는 경우가 많은데요.
-이러한 상황을 겪으면서 서버의 수를 줄이고, 서비스마다 고정된 IP 주소를 제공할 방법을 찾아보게 되었습니다.
-그러다가 Kubernetes와 Kubernetes의 Ingress를 적절히 활용하여 이러한 요건을 충족하는 방법을 찾아보았습니다.
-이번 글은 그 과정에서 겪었던 이슈를 정리하기 위해 작성하였습니다.
-EKS와 NGINX Ingress Controller 사용 저희 팀의 웹 서비스들은 Elastic Beanstalk를 주로 이용하고 있습니다.
+		<p>최근 팀 내에서 외부 서비스와 연동하는 서비스가 증가하면서, 고정된 IP 주소를 요청하는 경우가 많아졌습니다.</p>
+<p>한편, 대외 서비스가 늘어나다 보니 관리하는 서버의 수가 증가하였습니다. 그렇지만 생각보다 트래픽이 많지 않아 리소스가 낭비되는 경우가 많은데요.</p>
+<p>이러한 상황을 겪으면서 서버의 수를 줄이고, 서비스마다 고정된 IP 주소를 제공할 방법을 찾아보게 되었습니다.</p>
+<p>그러다가 Kubernetes와 Kubernetes의 Ingress를 적절히 활용하여 이러한 요건을 충족하는 방법을 찾아보았습니다.</p>
+<p>이번 글은 그 과정에서 겪었던 이슈를 정리하기 위해 작성하였습니다.</p>
+<h1 id="eks와-nginx-ingress-controller-사용">EKS와 NGINX Ingress Controller 사용</h1>
+<p>저희 팀의 웹 서비스들은 Elastic Beanstalk를 주로 이용하고 있습니다. 그렇지만 사용량이 생각했던 것보다는 많지 않아서 컨테이너를 기반으로 한 서비스로 변경해 보려고 합니다.</p>
 	</div>
 </article>
 </main>

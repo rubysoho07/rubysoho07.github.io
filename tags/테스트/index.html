@@ -17,8 +17,7 @@
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
-  
-    
+		
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
       <script>
         var doNotTrack = false;
@@ -33,10 +32,6 @@
           gtag('config', 'G-JN7PQ7YC6Q');
         }
       </script>
-    
-  
-
-
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -75,10 +70,22 @@
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		이번 글에서는 파이썬에서 테스트 코드를 만들면서 겪었던 시행착오에 대해 소개하고자 한다. 여기서는 파이썬에 내장된 unittest를 이용한다.
-테스트를 수행하는 기준은? 간단한 코드를 만들어 보자. 파일 이름은 aaa.py로 저장한다.
-import unittest class TestExample(unittest.TestCase): def test_a(self): self.assertEqual(1 == 2, False) 그리고 쉘에서 python -m unittest를 입력하면, 아무 테스트도 실행하지 않는다.
-$ python -m unittest ---------------------------------------------------------------------- Ran 0 tests in 0.000s OK 왜 그럴까? unittest 라이브러리는 기본적으로 실행하는 top-level 디렉터리에서 test로 시작하는 파일을 찾아서 테스트를 수행한다.
+		<p>이번 글에서는 파이썬에서 테스트 코드를 만들면서 겪었던 시행착오에 대해 소개하고자 한다. 여기서는 파이썬에 내장된 <code>unittest</code>를 이용한다.</p>
+<h3 id="테스트를-수행하는-기준은">테스트를 수행하는 기준은?</h3>
+<p>간단한 코드를 만들어 보자. 파일 이름은 <code>aaa.py</code>로 저장한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> unittest
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestExample</span>(unittest<span style="color:#f92672">.</span>TestCase):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_a</span>(self):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>assertEqual(<span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>, <span style="color:#66d9ef">False</span>)
+</span></span></code></pre></div><p>그리고 쉘에서 <code>python -m unittest</code>를 입력하면, 아무 테스트도 실행하지 않는다.</p>
+<pre tabindex="0"><code>$ python -m unittest
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+</code></pre><p>왜 그럴까? <code>unittest</code> 라이브러리는 기본적으로 실행하는 top-level 디렉터리에서 <code>test</code>로 시작하는 파일을 찾아서 테스트를 수행한다. <a href="https://docs.python.org/3/library/unittest.html#test-discovery">(참고)</a> 일단 파일 이름을 test로 시작하도록 바꾼 뒤 아래와 같이 테스트해 보자.</p>
 	</div>
 </article>
 </main>

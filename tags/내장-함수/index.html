@@ -17,8 +17,7 @@
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
-  
-    
+		
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
       <script>
         var doNotTrack = false;
@@ -33,10 +32,6 @@
           gtag('config', 'G-JN7PQ7YC6Q');
         }
       </script>
-    
-  
-
-
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -75,9 +70,19 @@
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		가끔씩 Python의 map(), filter(), reduce()에 대해 헷갈리는 것들이 있어서 정리해 본다.
-map(function, iterable, &hellip;) Reference: Python 문서 참조 iterable에 있는 모든 요소에 function을 적용하여 그 결과를 반환한다. function은 여러 인자를 받을 수 있어야 하고, 모든 iterable의 아이템에 동시에 적용되도록 해야 한다.
-&gt;&gt;&gt; l1 = [1, 2, 3, 4] &gt;&gt;&gt; map(lambda x: x * 2, l1) &lt;map object at 0x1006d1040&gt; map()을 수행한 결과는 map object로 반환되므로, 이를 list나 tuple로 바꾸는 작업이 필요하다.
+		<p>가끔씩 Python의 <code>map()</code>, <code>filter()</code>, <code>reduce()</code>에 대해 헷갈리는 것들이 있어서 정리해 본다.</p>
+<h1 id="mapfunction-iterable-">map(function, iterable, &hellip;)</h1>
+<ul>
+<li>Reference: <a href="https://docs.python.org/3/library/functions.html#map">Python 문서 참조</a></li>
+</ul>
+<p><code>iterable</code>에 있는 모든 요소에 <code>function</code>을 적용하여 그 결과를 반환한다. <code>function</code>은 여러 인자를 받을 수 있어야 하고, 모든 iterable의 아이템에 동시에 적용되도록 해야 한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> l1 <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>]
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> map(<span style="color:#66d9ef">lambda</span> x: x <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>, l1)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span>map object at <span style="color:#ae81ff">0x1006d1040</span><span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><p>map()을 수행한 결과는 map object로 반환되므로, 이를 list나 tuple로 바꾸는 작업이 필요하다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> list(map(<span style="color:#66d9ef">lambda</span> x: x <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>, l1))
+</span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">8</span>]
+</span></span></code></pre></div><p>함수 정의를 보면, <code>iterable</code> 뒤에 <code>...</code>이 붙는 것을 볼 수 있다. 여러 iterable을 붙이면 어떻게 될까?</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -94,10 +99,12 @@ map(function, iterable, &hellip;) Reference: Python 문서 참조 iterable에 �
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		파이썬을 쓰다가 필요한 기능이 있어서 찾아 보면, 언어 자체에서 지원하는 기능인 경우가 종종 있었다. 지금까지 파이썬을 다루면서 찾아봤던 내장 함수들을 정리해 본다.
-아래에서 계속 iterable이라는 말을 많이 쓸 것이다. iterable에는 sequence type인 list, str, tuple 뿐만 아니라 non-sequence type인 dict, file object, 그리고 Sequence semantics를 구현하기 위해 __iter__()나 __getitem__() method가 정의되어 있는 클래스의 object 등이 있다. (참고)
-sum(): 각각의 item을 합치기 참고: https://docs.python.org/3/library/functions.html#sum
-sum(iterable[, start]) iterable 객체를 받아서 각 요소들의 합을 구한다.
+		<p>파이썬을 쓰다가 필요한 기능이 있어서 찾아 보면, 언어 자체에서 지원하는 기능인 경우가 종종 있었다. 지금까지 파이썬을 다루면서 찾아봤던 내장 함수들을 정리해 본다.</p>
+<p>아래에서 계속 iterable이라는 말을 많이 쓸 것이다. iterable에는 sequence type인 list, str, tuple 뿐만 아니라 non-sequence type인 dict, file object, 그리고 Sequence semantics를 구현하기 위해 <code>__iter__()</code>나 <code>__getitem__()</code> method가 정의되어 있는 클래스의 object 등이 있다. <a href="https://docs.python.org/3/glossary.html">(참고)</a></p>
+<h3 id="sum-각각의-item을-합치기">sum(): 각각의 item을 합치기</h3>
+<p>참고: <a href="https://docs.python.org/3/library/functions.html#sum">https://docs.python.org/3/library/functions.html#sum</a></p>
+<pre tabindex="0"><code>sum(iterable[, start])
+</code></pre><p>iterable 객체를 받아서 각 요소들의 합을 구한다. start는 적어주지 않으면 0으로 정해진다. 다음과 같이 사용할 수 있다.</p>
 	</div>
 </article>
 </main>

@@ -17,8 +17,7 @@
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
-  
-    
+		
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
       <script>
         var doNotTrack = false;
@@ -33,10 +32,6 @@
           gtag('config', 'G-JN7PQ7YC6Q');
         }
       </script>
-    
-  
-
-
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -75,9 +70,11 @@
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		쉘 스크립트를 만들 때, 텍스트 파일의 내용을 바꾸는 기능이 필요할 때가 있다. 이 경우 sed를 쓰는데, sed의 사용 방법이 헷갈릴 때가 많아 이 기회에 정리를 해 보고자 한다. 이 글에서는 기본적인 사용 방법과 내가 주로 사용하는 기능만 정리하였다. sed가 지원하는 전체 기능이 궁금하다면, man page(man sed)를 확인하는 것이 최선이다.
-텍스트 바꾸기 기본적으로 sed를 이용해서 텍스트를 바꾸는 방법은 다음과 같다.
-$ sed -i &#39;s/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g&#39; &lt;파일 이름&gt; 여기서 -i, s/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/, g가 의미하는 내용은 다음과 같다.
+		<p>쉘 스크립트를 만들 때, 텍스트 파일의 내용을 바꾸는 기능이 필요할 때가 있다. 이 경우 <code>sed</code>를 쓰는데, sed의 사용 방법이 헷갈릴 때가 많아 이 기회에 정리를 해 보고자 한다. 이 글에서는 기본적인 사용 방법과 내가 주로 사용하는 기능만 정리하였다. sed가 지원하는 전체 기능이 궁금하다면, man page(<code>man sed</code>)를 확인하는 것이 최선이다.</p>
+<h3 id="텍스트-바꾸기">텍스트 바꾸기</h3>
+<p>기본적으로 sed를 이용해서 텍스트를 바꾸는 방법은 다음과 같다.</p>
+<pre tabindex="0"><code>$ sed -i &#39;s/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g&#39; &lt;파일 이름&gt;
+</code></pre><p>여기서 <code>-i</code>, <code>s/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/</code>, <code>g</code>가 의미하는 내용은 다음과 같다.</p>
 	</div>
 </article>
 </main>

@@ -17,8 +17,7 @@
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
-  
-    
+		
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
       <script>
         var doNotTrack = false;
@@ -33,10 +32,6 @@
           gtag('config', 'G-JN7PQ7YC6Q');
         }
       </script>
-    
-  
-
-
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -75,11 +70,23 @@
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		팀 내에서는 Lambda 안에 파이썬 코드를 올려서 쓰고 있지만, 혹시 Pandas와 같은 라이브러리를 Lambda에 올리려면 어떻게 해야 할 지 궁금해서 정리해 본다.
-이 예제에서는 Pandas를 Lambda Layer로 만들고, Layer를 Lambda 함수에 연결해서 사용해 보려고 한다.
-AWS Lambda(Lambda Layer)의 제한 AWS Lambda에는 Lambda Layer라고 해서 의존성이 필요한 것들을 묶어서 별도의 계층으로 만들어 쓸 수 있도록 하고 있다.
-하지만 이런 기능도 제한이 있으니 한 번 확인해 보자.
-참고 문서 AWS Lambda 제한 AWS Lambda 계층 주요 제한 사항 하나의 함수에서 사용할 수 있는 Layer 수: 5 개 함수와 Layer를 모두 합하여 250 MB를 초과할 수 없음 Pandas Lambda Layer 만들기 Lambda Layer의 내용은 /opt 디렉터리에 들어가게 된다.
+		<p>팀 내에서는 Lambda 안에 파이썬 코드를 올려서 쓰고 있지만, 혹시 Pandas와 같은 라이브러리를 Lambda에 올리려면 어떻게 해야 할 지 궁금해서 정리해 본다.</p>
+<p>이 예제에서는 Pandas를 Lambda Layer로 만들고, Layer를 Lambda 함수에 연결해서 사용해 보려고 한다.</p>
+<h2 id="aws-lambdalambda-layer의-제한">AWS Lambda(Lambda Layer)의 제한</h2>
+<p>AWS Lambda에는 Lambda Layer라고 해서 의존성이 필요한 것들을 묶어서 별도의 계층으로 만들어 쓸 수 있도록 하고 있다.</p>
+<p>하지만 이런 기능도 제한이 있으니 한 번 확인해 보자.</p>
+<h3 id="참고-문서">참고 문서</h3>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/gettingstarted-limits.html">AWS Lambda 제한</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/configuration-layers.html">AWS Lambda 계층</a></li>
+</ul>
+<h3 id="주요-제한-사항">주요 제한 사항</h3>
+<ul>
+<li>하나의 함수에서 사용할 수 있는 Layer 수: 5 개</li>
+<li>함수와 Layer를 모두 합하여 250 MB를 초과할 수 없음</li>
+</ul>
+<h2 id="pandas-lambda-layer-만들기">Pandas Lambda Layer 만들기</h2>
+<p>Lambda Layer의 내용은 <code>/opt</code> 디렉터리에 들어가게 된다. 파이썬 코드의 경우 <code>/opt/python</code>이나 <code>/opt/python/lib/python(버전-예:3.8)/site-packages</code> 디렉터리에 풀릴 것이다.</p>
 	</div>
 </article>
 </main>

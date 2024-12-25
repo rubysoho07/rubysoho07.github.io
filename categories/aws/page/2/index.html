@@ -17,8 +17,7 @@
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
-  
-    
+		
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
       <script>
         var doNotTrack = false;
@@ -33,10 +32,6 @@
           gtag('config', 'G-JN7PQ7YC6Q');
         }
       </script>
-    
-  
-
-
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -75,12 +70,19 @@
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		최근에 AWS에서 MongoDB와 호환되는 DocumentDB를 출시했지만, 아직 서울 리전에서는 사용할 수 없다.
-(2019년 5월에 서울 리전에 출시되었습니다. 링크한 글을 확인해 주세요~)
-그렇지만 필요에 따라 MongoDB를 쓸 일이 있을 것이다. AWS에서 Bitnami의 이미지를 활용해서 EC2에 MongoDB를 올려보고, 시험 삼아 데이터를 넣어보자.
-EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어간다. 아래 스크린샷과 같은 화면이 나오면, &lsquo;인스턴스 시작&rsquo;을 누른다.
-그리고 검색어에서 MongoDB를 입력하고, 왼쪽에서 AWS Marketplace를 누른다.
-스크롤을 아래로 내리다 보면, &lsquo;MongoDB Certified by Bitnami&rsquo;가 있다.
+		<p>최근에 AWS에서 MongoDB와 호환되는 <a href="https://aws.amazon.com/ko/documentdb/">DocumentDB</a>를 출시했지만, <del>아직 서울 리전에서는 사용할 수 없다.</del></p>
+<p>(2019년 5월에 서울 리전에 출시되었습니다. <a href="https://aws.amazon.com/ko/blogs/korea/amazon-documentdb-and-kinesis-analytics-seoul-region/">링크한 글을 확인해 주세요~</a>)</p>
+<p>그렇지만 필요에 따라 MongoDB를 쓸 일이 있을 것이다. AWS에서 Bitnami의 이미지를 활용해서 EC2에 MongoDB를 올려보고, 시험 삼아 데이터를 넣어보자.</p>
+<h3 id="ec2-설정">EC2 설정</h3>
+<p>EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어간다. 아래 스크린샷과 같은 화면이 나오면, &lsquo;인스턴스 시작&rsquo;을 누른다.</p>
+<figure><img src="/img/bitnami-mongodb-1.png">
+</figure>
+
+<p>그리고 검색어에서 MongoDB를 입력하고, 왼쪽에서 AWS Marketplace를 누른다.</p>
+<figure><img src="/img/bitnami-mongodb-2.png">
+</figure>
+
+<p>스크롤을 아래로 내리다 보면, &lsquo;MongoDB Certified by Bitnami&rsquo;가 있다. 오른쪽의 선택 버튼을 누른다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -97,9 +99,11 @@ EC2 설정 EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어�
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		S3 버킷에는 여러 파일들을 저장할 수 있다. 그런데, 버킷에 저장된 파일의 목록을 보고 싶은 경우가 있을 것이다. 하지만, AWS의 Python SDK인 Boto3에서 list_objects()나 list_objects_v2() 함수를 이용하면 최대 1,000개까지의 object만 가져올 수 있다. [참고] (근본적으로는 AWS의 API가 최대 1,000개까지의 object만 가져오도록 구현되어 있다. - [참고])
-이런 문제를 해결하기 위해, 다음과 같이 Paginator를 이용해 보자.
-Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로 S3를 담당할 클라이언트를 생성한 뒤, get_paginator()로 Paginator를 가져온다. 여기서는 하나의 버킷에서 object들을 가져오기 위해 list_objects_v2를 이용한다.
+		<p>S3 버킷에는 여러 파일들을 저장할 수 있다. 그런데, 버킷에 저장된 파일의 목록을 보고 싶은 경우가 있을 것이다. 하지만, AWS의 Python SDK인 Boto3에서 <code>list_objects()</code>나 <code>list_objects_v2()</code> 함수를 이용하면 최대 1,000개까지의 object만 가져올 수 있다. <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.list_objects_v2">[참고]</a> (근본적으로는 AWS의 API가 최대 1,000개까지의 object만 가져오도록 구현되어 있다. - <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/v2-RESTBucketGET.html">[참고]</a>)</p>
+<p>이런 문제를 해결하기 위해, 다음과 같이 Paginator를 이용해 보자.</p>
+<h3 id="paginator-이용하기">Paginator 이용하기</h3>
+<h4 id="get_paginator로-paginator-가져오기">get_paginator()로 Paginator 가져오기</h4>
+<p>기본적으로 S3를 담당할 클라이언트를 생성한 뒤, get_paginator()로 Paginator를 가져온다. 여기서는 하나의 버킷에서 object들을 가져오기 위해 <code>list_objects_v2</code>를 이용한다. (Boto3 문서에서는 <code>list_objects()</code>보다 <code>list_objects_v2()</code>를 이용하는 것을 권장하니 이를 이용하자.)</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -116,9 +120,33 @@ Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		AWS에는 Step Functions라는 서비스가 있다. 여러 개의 활동(activity)를 조합해서 순서대로 또는 반복적으로 원하는 작업을 실행할 수 있도록 해 주는 서비스이다.
-일반적으로는 여러 개의 Lambda 함수를 연결해서 사용하는 경우가 많다. 하지만 Lambda 함수의 실행 시간이 5분을 넘어가면, 다른 방법을 고려해야 한다. 이럴 때 활동을 생성하고 이를 수행하는 코드를 작성하면, 오래 걸리는 작업도 Step Functions로 이용할 수 있다.
-활동(Activity) 만들기 Step Functions 콘솔의 왼쪽 메뉴에서 활동을 클릭한다. 화면이 바뀌면 우측의 활동 생성을 클릭하여 새로운 활동을 만든다.
+		<p>AWS에는 <a href="https://aws.amazon.com/ko/step-functions/">Step Functions</a>라는 서비스가 있다. 여러 개의 활동(activity)를 조합해서 순서대로 또는 반복적으로 원하는 작업을 실행할 수 있도록 해 주는 서비스이다.</p>
+<p>일반적으로는 여러 개의 Lambda 함수를 연결해서 사용하는 경우가 많다. 하지만 Lambda 함수의 실행 시간이 5분을 넘어가면, 다른 방법을 고려해야 한다. 이럴 때 활동을 생성하고 이를 수행하는 코드를 작성하면, 오래 걸리는 작업도 Step Functions로 이용할 수 있다.</p>
+<h2 id="활동activity-만들기">활동(Activity) 만들기</h2>
+<ol>
+<li>Step Functions 콘솔의 왼쪽 메뉴에서 <code>활동</code>을 클릭한다.</li>
+<li>화면이 바뀌면 우측의 <code>활동 생성</code>을 클릭하여 새로운 활동을 만든다.</li>
+<li>활동 이름 입력 창에서 임의의 활동 이름을 입력한다.</li>
+<li>여기서 나오는 ARN을 메모한다. 활동 이름은 알고 있어도 되지만 몰라도 상관은 없다.</li>
+</ol>
+<h2 id="상태-머신state-machine-만들기">상태 머신(State Machine) 만들기</h2>
+<ol>
+<li>콘솔의 왼쪽 메뉴에서 <code>상태 머신</code>을 클릭한다.</li>
+<li>우측 상단의 <code>상태 머신 생성</code>을 클릭한다.</li>
+<li>상태 머신의 이름을 입력하고, 필요한 경우 IAM 역할을 생성한다. <!-- raw HTML omitted --> (<code>나를 위한 역할 생성</code>에 체크, <code>AWS Step Functions이 Lambda 함수에 대한...</code> 옵션에 체크)</li>
+<li>그리고 <code>상태 머신 정의</code> 칸에는 다음과 같이 입력한다. (여기가 앞에서 메모한 ARN이 사용되는 부분이다. ARN은 뒤에서도 이용하니 메모를 버리지 말자.)</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;StartAt&#34;</span>: <span style="color:#e6db74">&#34;TestActivity&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;States&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;TestActivity&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Type&#34;</span>: <span style="color:#e6db74">&#34;Task&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;앞에서 메모한 ARN 주소&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;End&#34;</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>간단하게 설명을 하자면,</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -135,13 +163,22 @@ Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		RDS MySQL을 이용하면, 아래와 같이 CloudWatch에 일반/감사/느린 쿼리 로그를 찍도록 설정할 수 있다.
-로그 찍기 설정(RDS 인스턴스 생성 시)
-그리고 RDS 콘솔에 들어가면 로그 파일을 볼 수 있는데, 일반 로그나 느린 쿼리 로그를 찾을 수 없었다. 그래서 CloudWatch Logs를 찾아봤지만, 역시 로그가 없었다.
-로그 파일이 없다(-_-&hellip;)
-그 이유를 찾아 보니, 파라미터 그룹에 로그 관련 설정을 하지 않은 것이 원인이었다.
-다음과 같이 설정하면 된다.
-먼저, RDS 콘솔에서 파라미터 그룹 메뉴를 클릭한다. 쓰던 파라미터 그룹이 있다면, 그 파라미터 그룹을 클릭하고, 새로 생성해야 한다면 파라미터 그룹 생성을 클릭해서 파라미터 그룹을 만든다.
+		<p>RDS MySQL을 이용하면, 아래와 같이 CloudWatch에 일반/감사/느린 쿼리 로그를 찍도록 설정할 수 있다.</p>
+<figure><img src="/img/rds-logging-1.png"
+    alt="로그 찍기 설정(RDS 인스턴스 생성 시)"><figcaption>
+      <p>로그 찍기 설정(RDS 인스턴스 생성 시)</p>
+    </figcaption>
+</figure>
+
+<p>그리고 RDS 콘솔에 들어가면 로그 파일을 볼 수 있는데, 일반 로그나 느린 쿼리 로그를 찾을 수 없었다. 그래서 CloudWatch Logs를 찾아봤지만, 역시 로그가 없었다.</p>
+<figure><img src="/img/rds-logging-2.png"
+    alt="로그 파일이 없다(-_-&hellip;)"><figcaption>
+      <p>로그 파일이 없다(-_-&hellip;)</p>
+    </figcaption>
+</figure>
+
+<p>그 이유를 찾아 보니, 파라미터 그룹에 로그 관련 설정을 하지 않은 것이 원인이었다.</p>
+<p>다음과 같이 설정하면 된다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -158,11 +195,20 @@ Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		test라는 함수가 있고, dev, release라는 별칭(alias)이 존재한다고 하자. 그리고 모든 별칭은 동일한 버전을 가리킨다고 하자.
-이 경우 context 객체의 invoked_function_arn은 어떻게 달라지는지 보자. 테스트를 위해, 다음과 같이 파이썬으로 함수를 작성하였다.
-import json def lambda_handler(event, context): print(context.invoked_function_arn) return &#34;Success&#34; 그리고 CloudWatch에 기록된 로그를 보자.
-dev인 경우
-START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1 arn:aws:lambda:ap-northeast-2:256724228018:function:test:dev END RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Duration: 1.56 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 22 MB release인 경우
+		<p>test라는 함수가 있고, dev, release라는 별칭(alias)이 존재한다고 하자. 그리고 모든 별칭은 동일한 버전을 가리킨다고 하자.</p>
+<p>이 경우 context 객체의 invoked_function_arn은 어떻게 달라지는지 보자. 테스트를 위해, 다음과 같이 파이썬으로 함수를 작성하였다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> json
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lambda_handler</span>(event, context): 
+</span></span><span style="display:flex;"><span>    print(context<span style="color:#f92672">.</span>invoked_function_arn)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Success&#34;</span>
+</span></span></code></pre></div><p>그리고 CloudWatch에 기록된 로그를 보자.</p>
+<p>dev인 경우</p>
+<pre tabindex="0"><code>START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1
+arn:aws:lambda:ap-northeast-2:256724228018:function:test:dev
+END RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a
+REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a  Duration: 1.56 ms       Billed Duration: 100 ms         Memory Size: 128 MB     Max Memory Used: 22 MB
+</code></pre><p>release인 경우</p>
 	</div>
 </article>
 </main>

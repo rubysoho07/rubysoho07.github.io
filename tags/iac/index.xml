@@ -13,21 +13,21 @@
       <link>/posts/terraform-workspaces/</link>
       <pubDate>Sun, 19 Mar 2023 17:21:21 +0900</pubDate>
       <guid>/posts/terraform-workspaces/</guid>
-      <description>Terraform에서 개발/운영 환경을 나누기 위해, 폴더/디렉터리를 이용할 때가 있습니다. 하지만 이런 상황도 있죠.&#xA;개발/운영 환경 내 staging/QA 환경이 필요한 경우 테스트를 위해 임시 인프라 구성이 필요한 경우 위와 같은 상황에 대응하기 위해, Terraform에서는 Workspaces 라는 기능을 지원합니다. 이번에는 Terraform의 Workspaces 기능은 무엇인지, 어떻게 사용하면 되는지 알아보려고 합니다.&#xA;Workspaces를 사용하려면? Terraform에서 관리하는 리소스 상태는 backend에 저장합니다. 이러한 데이터는 하나의 workspace에 속합니다. 기본적으로 이런 리소스 상태는 default workspace에 들어 있습니다. 몇몇 backend는 여러 개의 workspace를 지원하며, 하나의 설정과 연결된 여러 상태를 저장할 수 있습니다.</description>
+      <description>&lt;p&gt;Terraform에서 개발/운영 환경을 나누기 위해, 폴더/디렉터리를 이용할 때가 있습니다. 하지만 이런 상황도 있죠.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;개발/운영 환경 내 staging/QA 환경이 필요한 경우&lt;/li&gt;&#xA;&lt;li&gt;테스트를 위해 임시 인프라 구성이 필요한 경우&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;위와 같은 상황에 대응하기 위해, Terraform에서는 Workspaces 라는 기능을 지원합니다. 이번에는 Terraform의 Workspaces 기능은 무엇인지, 어떻게 사용하면 되는지 알아보려고 합니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;workspaces를-사용하려면&#34;&gt;Workspaces를 사용하려면?&lt;/h2&gt;&#xA;&lt;p&gt;Terraform에서 관리하는 리소스 상태는 backend에 저장합니다. 이러한 데이터는 하나의 workspace에 속합니다. 기본적으로 이런 리소스 상태는 default workspace에 들어 있습니다. 몇몇 backend는 여러 개의 workspace를 지원하며, 하나의 설정과 연결된 여러 상태를 저장할 수 있습니다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Terraform vs Pulumi</title>
       <link>/posts/terraform-vs-pulumi/</link>
       <pubDate>Sat, 20 Nov 2021 10:30:24 +0900</pubDate>
       <guid>/posts/terraform-vs-pulumi/</guid>
-      <description>클라우드 환경 내 인프라 구성이 복잡할수록 IaC(Infrastructure as Code) 툴을 고민하게 되는데요. 물론 AWS의 CloudFormation과 같이 클라우드 벤더가 제공하는 서비스가 있지만, 앞으로는 특정 벤더에 종속되는 것을 피하고 싶다는 생각이 들었습니다.&#xA;그러다가 알아본 툴 중에 Terraform과 Pulumi가 있는데요. Terraform은 저도 개인적으로 사용해 본 적이 있었고, Pulumi는 익숙한 개발 언어(Python, TypeScript, Golang, &amp;hellip;)로 인프라 구성을 구축할 수 있다고 해서 관심을 갖게 되었습니다.&#xA;이번 글에서는 AWS에서 EC2, S3 Bucket, IAM Policy, Role 정도를 만드는 정도로 테스트해 보겠습니다.</description>
+      <description>&lt;p&gt;클라우드 환경 내 인프라 구성이 복잡할수록 IaC(Infrastructure as Code) 툴을 고민하게 되는데요. 물론 AWS의 CloudFormation과 같이 클라우드 벤더가 제공하는 서비스가 있지만, 앞으로는 특정 벤더에 종속되는 것을 피하고 싶다는 생각이 들었습니다.&lt;/p&gt;&#xA;&lt;p&gt;그러다가 알아본 툴 중에 Terraform과 Pulumi가 있는데요. Terraform은 저도 개인적으로 사용해 본 적이 있었고, Pulumi는 익숙한 개발 언어(Python, TypeScript, Golang, &amp;hellip;)로 인프라 구성을 구축할 수 있다고 해서 관심을 갖게 되었습니다.&lt;/p&gt;&#xA;&lt;p&gt;이번 글에서는 AWS에서 EC2, S3 Bucket, IAM Policy, Role 정도를 만드는 정도로 테스트해 보겠습니다. 그림으로 표현하면 다음과 같습니다.&lt;/p&gt;</description>
     </item>
     <item>
       <title>CloudFormation과 SAM을 쓰면서 겪었던 일들 모음</title>
       <link>/posts/cloudformation-sam-tmi/</link>
       <pubDate>Sat, 28 Aug 2021 15:51:33 +0900</pubDate>
       <guid>/posts/cloudformation-sam-tmi/</guid>
-      <description>최근 인프라 구성을 CloudFormation을 이용해서 조정해 보았습니다. 그 과정에서 여러 Lambda 함수를 쓸 때는 SAM으로, 그 외의 경우는 CloudFormation을 사용했는데요.&#xA;이번 작업으로 여러 CloudFormation 스택에 흩어져 있던 리소스를 하나로 모으고, 템플릿의 관리 방식도 좀 더 관리하게 편하도록 설정할 수 있게 되었습니다.&#xA;저희 팀이 여러 IaC(Infrastructure as Code) 툴 중에 왜 SAM과 CloudFormation을 사용하는 이유는 이 문서를 참고해 주세요.&#xA;이번 글은 CloudFormation과 SAM을 쓰면서 겪었던 일들을 정리해 보려고 합니다.&#xA;SAM에서 API Gateway 정의를 SAM Template에 넣기 SAM에서 제공하는 AWS::Serverless::Api 리소스는 AWS Gateway의 REST API를 생성해 주는 기능입니다.</description>
+      <description>&lt;p&gt;최근 인프라 구성을 CloudFormation을 이용해서 조정해 보았습니다. 그 과정에서 여러 Lambda 함수를 쓸 때는 SAM으로, 그 외의 경우는 CloudFormation을 사용했는데요.&lt;/p&gt;&#xA;&lt;p&gt;이번 작업으로 여러 CloudFormation 스택에 흩어져 있던 리소스를 하나로 모으고, 템플릿의 관리 방식도 좀 더 관리하게 편하도록 설정할 수 있게 되었습니다.&lt;/p&gt;&#xA;&lt;p&gt;저희 팀이 여러 IaC(Infrastructure as Code) 툴 중에 왜 SAM과 CloudFormation을 사용하는 이유는 &lt;a href=&#34;/posts/retrospect-aws-sam/&#34;&gt;이 문서&lt;/a&gt;를 참고해 주세요.&lt;/p&gt;&#xA;&lt;p&gt;이번 글은 CloudFormation과 SAM을 쓰면서 겪었던 일들을 정리해 보려고 합니다.&lt;/p&gt;&#xA;&lt;h2 id=&#34;sam에서-api-gateway-정의를-sam-template에-넣기&#34;&gt;SAM에서 API Gateway 정의를 SAM Template에 넣기&lt;/h2&gt;&#xA;&lt;p&gt;SAM에서 제공하는 &lt;code&gt;AWS::Serverless::Api&lt;/code&gt; 리소스는 AWS Gateway의 REST API를 생성해 주는 기능입니다. API Gateway에는 &lt;a href=&#34;https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-import-api.html&#34;&gt;OpenAPI 규격으로 작성된 API 스펙을 가지고 올 수 있는 기능&lt;/a&gt;이 있는데요. SAM에서도 마찬가지로 해당 기능을 지원합니다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

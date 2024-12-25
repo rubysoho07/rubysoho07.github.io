@@ -13,7 +13,7 @@
       <link>/posts/aws-session-manager-run-command/</link>
       <pubDate>Thu, 30 Sep 2021 14:38:05 +0900</pubDate>
       <guid>/posts/aws-session-manager-run-command/</guid>
-      <description>AWS의 Systems Manager에는 Run Command와 Session Manager라는 기능이 있습니다.&#xA;SSH를 이용하여 EC2 인스턴스에 접근할 때는 SSH 키 페어가 필요하고, SSH 접속을 위한 보안 그룹을 열어야 하는데요. 위 기능을 이용하면 이러한 과정을 생략하고 원격에서 EC2 인스턴스에 접근하여 명령을 실행할 수 있습니다.&#xA;먼저, Session Manager로 웹 브라우저에서 쉘을 실행하는 방법부터 설명드리겠습니다.&#xA;Session Manager로 웹 브라우저에서 쉘 실행하기 Session Manager로 웹 브라우저에서 쉘을 실행하려면, EC2 인스턴스가 Systems Manager와 관련된 작업을 실행할 수 있는 권한을 부여해야 합니다.</description>
+      <description>&lt;p&gt;AWS의 Systems Manager에는 &lt;a href=&#34;https://aws.amazon.com/ko/blogs/aws/new-ec2-run-command-remote-instance-management-at-scale/&#34;&gt;Run Command&lt;/a&gt;와 &lt;a href=&#34;https://aws.amazon.com/ko/blogs/korea/new-session-manager/&#34;&gt;Session Manager&lt;/a&gt;라는 기능이 있습니다.&lt;/p&gt;&#xA;&lt;p&gt;SSH를 이용하여 EC2 인스턴스에 접근할 때는 SSH 키 페어가 필요하고, SSH 접속을 위한 보안 그룹을 열어야 하는데요. 위 기능을 이용하면 이러한 과정을 생략하고 원격에서 EC2 인스턴스에 접근하여 명령을 실행할 수 있습니다.&lt;/p&gt;&#xA;&lt;p&gt;먼저, Session Manager로 웹 브라우저에서 쉘을 실행하는 방법부터 설명드리겠습니다.&lt;/p&gt;&#xA;&lt;h1 id=&#34;session-manager로-웹-브라우저에서-쉘-실행하기&#34;&gt;Session Manager로 웹 브라우저에서 쉘 실행하기&lt;/h1&gt;&#xA;&lt;p&gt;Session Manager로 웹 브라우저에서 쉘을 실행하려면, EC2 인스턴스가 Systems Manager와 관련된 작업을 실행할 수 있는 권한을 부여해야 합니다.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

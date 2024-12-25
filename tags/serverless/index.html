@@ -17,8 +17,7 @@
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
-  
-    
+		
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
       <script>
         var doNotTrack = false;
@@ -33,10 +32,6 @@
           gtag('config', 'G-JN7PQ7YC6Q');
         }
       </script>
-    
-  
-
-
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -75,11 +70,12 @@
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		최근 인프라 구성을 CloudFormation을 이용해서 조정해 보았습니다. 그 과정에서 여러 Lambda 함수를 쓸 때는 SAM으로, 그 외의 경우는 CloudFormation을 사용했는데요.
-이번 작업으로 여러 CloudFormation 스택에 흩어져 있던 리소스를 하나로 모으고, 템플릿의 관리 방식도 좀 더 관리하게 편하도록 설정할 수 있게 되었습니다.
-저희 팀이 여러 IaC(Infrastructure as Code) 툴 중에 왜 SAM과 CloudFormation을 사용하는 이유는 이 문서를 참고해 주세요.
-이번 글은 CloudFormation과 SAM을 쓰면서 겪었던 일들을 정리해 보려고 합니다.
-SAM에서 API Gateway 정의를 SAM Template에 넣기 SAM에서 제공하는 AWS::Serverless::Api 리소스는 AWS Gateway의 REST API를 생성해 주는 기능입니다.
+		<p>최근 인프라 구성을 CloudFormation을 이용해서 조정해 보았습니다. 그 과정에서 여러 Lambda 함수를 쓸 때는 SAM으로, 그 외의 경우는 CloudFormation을 사용했는데요.</p>
+<p>이번 작업으로 여러 CloudFormation 스택에 흩어져 있던 리소스를 하나로 모으고, 템플릿의 관리 방식도 좀 더 관리하게 편하도록 설정할 수 있게 되었습니다.</p>
+<p>저희 팀이 여러 IaC(Infrastructure as Code) 툴 중에 왜 SAM과 CloudFormation을 사용하는 이유는 <a href="/posts/retrospect-aws-sam/">이 문서</a>를 참고해 주세요.</p>
+<p>이번 글은 CloudFormation과 SAM을 쓰면서 겪었던 일들을 정리해 보려고 합니다.</p>
+<h2 id="sam에서-api-gateway-정의를-sam-template에-넣기">SAM에서 API Gateway 정의를 SAM Template에 넣기</h2>
+<p>SAM에서 제공하는 <code>AWS::Serverless::Api</code> 리소스는 AWS Gateway의 REST API를 생성해 주는 기능입니다. API Gateway에는 <a href="https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-import-api.html">OpenAPI 규격으로 작성된 API 스펙을 가지고 올 수 있는 기능</a>이 있는데요. SAM에서도 마찬가지로 해당 기능을 지원합니다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -96,7 +92,7 @@ SAM에서 API Gateway 정의를 SAM Template에 넣기 SAM에서 제공하는 AW
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		팀에서 AWS SAM을 적극적으로 사용하고 있는데, SAM을 쓰면서 느낀 점들을 예전에 글로 남긴 적이 있었다. 그런데 SAM은 CloudFormation 스택으로 리소스를 생성하다 보니, CloudFormation의 제약 사항을 그대로 가지고 있다. 예를 들어 하나의 CloudFormation 템플릿에서 선언할 수 있는 리소스 수는 200개를 넘지 않아야 한다는 것이 대표적일 것이다. 이러한 문제를 겪으면서, 많은 리소스로 구성되어 있는 애플리케이션을 여러 스택으로 나누는 작업을 해야 했다. 이 글에서는 하나의 서버리스 애플리케이션을 여러 스택으로 나누는 문제를 해결하면서 겪었던 일들을 기록해 보려고 한다.
+		<p>팀에서 AWS SAM을 적극적으로 사용하고 있는데, SAM을 쓰면서 느낀 점들을 예전에 <a href="/posts/retrospect-aws-sam/">글로 남긴 적이 있었다</a>. 그런데 SAM은 CloudFormation 스택으로 리소스를 생성하다 보니, CloudFormation의 제약 사항을 그대로 가지고 있다. 예를 들어 <a href="https://docs.aws.amazon.com/ko_kr/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">하나의 CloudFormation 템플릿에서 선언할 수 있는 리소스 수는 200개를 넘지 않아야 한다</a>는 것이 대표적일 것이다. 이러한 문제를 겪으면서, 많은 리소스로 구성되어 있는 애플리케이션을 여러 스택으로 나누는 작업을 해야 했다. 이 글에서는 하나의 서버리스 애플리케이션을 여러 스택으로 나누는 문제를 해결하면서 겪었던 일들을 기록해 보려고 한다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -113,11 +109,23 @@ SAM에서 API Gateway 정의를 SAM Template에 넣기 SAM에서 제공하는 AW
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		팀 내에서는 Lambda 안에 파이썬 코드를 올려서 쓰고 있지만, 혹시 Pandas와 같은 라이브러리를 Lambda에 올리려면 어떻게 해야 할 지 궁금해서 정리해 본다.
-이 예제에서는 Pandas를 Lambda Layer로 만들고, Layer를 Lambda 함수에 연결해서 사용해 보려고 한다.
-AWS Lambda(Lambda Layer)의 제한 AWS Lambda에는 Lambda Layer라고 해서 의존성이 필요한 것들을 묶어서 별도의 계층으로 만들어 쓸 수 있도록 하고 있다.
-하지만 이런 기능도 제한이 있으니 한 번 확인해 보자.
-참고 문서 AWS Lambda 제한 AWS Lambda 계층 주요 제한 사항 하나의 함수에서 사용할 수 있는 Layer 수: 5 개 함수와 Layer를 모두 합하여 250 MB를 초과할 수 없음 Pandas Lambda Layer 만들기 Lambda Layer의 내용은 /opt 디렉터리에 들어가게 된다.
+		<p>팀 내에서는 Lambda 안에 파이썬 코드를 올려서 쓰고 있지만, 혹시 Pandas와 같은 라이브러리를 Lambda에 올리려면 어떻게 해야 할 지 궁금해서 정리해 본다.</p>
+<p>이 예제에서는 Pandas를 Lambda Layer로 만들고, Layer를 Lambda 함수에 연결해서 사용해 보려고 한다.</p>
+<h2 id="aws-lambdalambda-layer의-제한">AWS Lambda(Lambda Layer)의 제한</h2>
+<p>AWS Lambda에는 Lambda Layer라고 해서 의존성이 필요한 것들을 묶어서 별도의 계층으로 만들어 쓸 수 있도록 하고 있다.</p>
+<p>하지만 이런 기능도 제한이 있으니 한 번 확인해 보자.</p>
+<h3 id="참고-문서">참고 문서</h3>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/gettingstarted-limits.html">AWS Lambda 제한</a></li>
+<li><a href="https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/configuration-layers.html">AWS Lambda 계층</a></li>
+</ul>
+<h3 id="주요-제한-사항">주요 제한 사항</h3>
+<ul>
+<li>하나의 함수에서 사용할 수 있는 Layer 수: 5 개</li>
+<li>함수와 Layer를 모두 합하여 250 MB를 초과할 수 없음</li>
+</ul>
+<h2 id="pandas-lambda-layer-만들기">Pandas Lambda Layer 만들기</h2>
+<p>Lambda Layer의 내용은 <code>/opt</code> 디렉터리에 들어가게 된다. 파이썬 코드의 경우 <code>/opt/python</code>이나 <code>/opt/python/lib/python(버전-예:3.8)/site-packages</code> 디렉터리에 풀릴 것이다.</p>
 	</div>
 </article>
 </main>

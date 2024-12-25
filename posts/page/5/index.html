@@ -17,8 +17,7 @@
 
 	<link rel="shortcut icon" href="/favicon.ico">
 		
-  
-    
+		
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
       <script>
         var doNotTrack = false;
@@ -33,10 +32,6 @@
           gtag('config', 'G-JN7PQ7YC6Q');
         }
       </script>
-    
-  
-
-
 </head>
 <body class="body">
 	<div class="container container--outer">
@@ -75,9 +70,11 @@
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		S3 버킷에는 여러 파일들을 저장할 수 있다. 그런데, 버킷에 저장된 파일의 목록을 보고 싶은 경우가 있을 것이다. 하지만, AWS의 Python SDK인 Boto3에서 list_objects()나 list_objects_v2() 함수를 이용하면 최대 1,000개까지의 object만 가져올 수 있다. [참고] (근본적으로는 AWS의 API가 최대 1,000개까지의 object만 가져오도록 구현되어 있다. - [참고])
-이런 문제를 해결하기 위해, 다음과 같이 Paginator를 이용해 보자.
-Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로 S3를 담당할 클라이언트를 생성한 뒤, get_paginator()로 Paginator를 가져온다. 여기서는 하나의 버킷에서 object들을 가져오기 위해 list_objects_v2를 이용한다.
+		<p>S3 버킷에는 여러 파일들을 저장할 수 있다. 그런데, 버킷에 저장된 파일의 목록을 보고 싶은 경우가 있을 것이다. 하지만, AWS의 Python SDK인 Boto3에서 <code>list_objects()</code>나 <code>list_objects_v2()</code> 함수를 이용하면 최대 1,000개까지의 object만 가져올 수 있다. <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.list_objects_v2">[참고]</a> (근본적으로는 AWS의 API가 최대 1,000개까지의 object만 가져오도록 구현되어 있다. - <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/v2-RESTBucketGET.html">[참고]</a>)</p>
+<p>이런 문제를 해결하기 위해, 다음과 같이 Paginator를 이용해 보자.</p>
+<h3 id="paginator-이용하기">Paginator 이용하기</h3>
+<h4 id="get_paginator로-paginator-가져오기">get_paginator()로 Paginator 가져오기</h4>
+<p>기본적으로 S3를 담당할 클라이언트를 생성한 뒤, get_paginator()로 Paginator를 가져온다. 여기서는 하나의 버킷에서 object들을 가져오기 위해 <code>list_objects_v2</code>를 이용한다. (Boto3 문서에서는 <code>list_objects()</code>보다 <code>list_objects_v2()</code>를 이용하는 것을 권장하니 이를 이용하자.)</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -94,9 +91,33 @@ Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		AWS에는 Step Functions라는 서비스가 있다. 여러 개의 활동(activity)를 조합해서 순서대로 또는 반복적으로 원하는 작업을 실행할 수 있도록 해 주는 서비스이다.
-일반적으로는 여러 개의 Lambda 함수를 연결해서 사용하는 경우가 많다. 하지만 Lambda 함수의 실행 시간이 5분을 넘어가면, 다른 방법을 고려해야 한다. 이럴 때 활동을 생성하고 이를 수행하는 코드를 작성하면, 오래 걸리는 작업도 Step Functions로 이용할 수 있다.
-활동(Activity) 만들기 Step Functions 콘솔의 왼쪽 메뉴에서 활동을 클릭한다. 화면이 바뀌면 우측의 활동 생성을 클릭하여 새로운 활동을 만든다.
+		<p>AWS에는 <a href="https://aws.amazon.com/ko/step-functions/">Step Functions</a>라는 서비스가 있다. 여러 개의 활동(activity)를 조합해서 순서대로 또는 반복적으로 원하는 작업을 실행할 수 있도록 해 주는 서비스이다.</p>
+<p>일반적으로는 여러 개의 Lambda 함수를 연결해서 사용하는 경우가 많다. 하지만 Lambda 함수의 실행 시간이 5분을 넘어가면, 다른 방법을 고려해야 한다. 이럴 때 활동을 생성하고 이를 수행하는 코드를 작성하면, 오래 걸리는 작업도 Step Functions로 이용할 수 있다.</p>
+<h2 id="활동activity-만들기">활동(Activity) 만들기</h2>
+<ol>
+<li>Step Functions 콘솔의 왼쪽 메뉴에서 <code>활동</code>을 클릭한다.</li>
+<li>화면이 바뀌면 우측의 <code>활동 생성</code>을 클릭하여 새로운 활동을 만든다.</li>
+<li>활동 이름 입력 창에서 임의의 활동 이름을 입력한다.</li>
+<li>여기서 나오는 ARN을 메모한다. 활동 이름은 알고 있어도 되지만 몰라도 상관은 없다.</li>
+</ol>
+<h2 id="상태-머신state-machine-만들기">상태 머신(State Machine) 만들기</h2>
+<ol>
+<li>콘솔의 왼쪽 메뉴에서 <code>상태 머신</code>을 클릭한다.</li>
+<li>우측 상단의 <code>상태 머신 생성</code>을 클릭한다.</li>
+<li>상태 머신의 이름을 입력하고, 필요한 경우 IAM 역할을 생성한다. <!-- raw HTML omitted --> (<code>나를 위한 역할 생성</code>에 체크, <code>AWS Step Functions이 Lambda 함수에 대한...</code> 옵션에 체크)</li>
+<li>그리고 <code>상태 머신 정의</code> 칸에는 다음과 같이 입력한다. (여기가 앞에서 메모한 ARN이 사용되는 부분이다. ARN은 뒤에서도 이용하니 메모를 버리지 말자.)</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;StartAt&#34;</span>: <span style="color:#e6db74">&#34;TestActivity&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;States&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;TestActivity&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Type&#34;</span>: <span style="color:#e6db74">&#34;Task&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;앞에서 메모한 ARN 주소&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;End&#34;</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>간단하게 설명을 하자면,</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -113,12 +134,19 @@ Paginator 이용하기 get_paginator()로 Paginator 가져오기 기본적으로
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		최근에 oh-my-zsh를 써 보기 시작했다. (써보면 편하다고는 하는데, 아직까지는 체감을 못하고 있긴 하다.)
-그런데 Visual Studio Code에서 터미널을 쓸 때, 아래처럼 글꼴이 깨지는 현상이 있었다. (현재 테마는 &ldquo;agnoster&quot;이다.)
-이 문제에 대해 찾아보니, 다음과 같은 이슈를 발견할 수 있었다.
-https://github.com/Microsoft/vscode/issues/7116
-여기서 제시하는 해결책은 다음과 같다.
-&ldquo;SourceCodePro+Powerline+Awesome Regular&rdquo; 글꼴을 받아 설치한다. 링크 Visual Studio Code 설정에서 terminal.integrated.fontFamily 항목에 'SourceCodePro+Powerline+Awesome Regular'를 넣는다. (작은 따옴표를 포함해야 한다!) 그러면 아래와 같이 터미널의 글꼴이 깨지지 않게 된다.
+		<p>최근에 oh-my-zsh를 써 보기 시작했다. (써보면 편하다고는 하는데, 아직까지는 체감을 못하고 있긴 하다.)</p>
+<p>그런데 Visual Studio Code에서 터미널을 쓸 때, 아래처럼 글꼴이 깨지는 현상이 있었다. (현재 테마는 &ldquo;agnoster&quot;이다.)</p>
+<figure><img src="/img/vscode-oh-my-zsh-1.png">
+</figure>
+
+<p>이 문제에 대해 찾아보니, 다음과 같은 이슈를 발견할 수 있었다.</p>
+<p><a href="https://github.com/Microsoft/vscode/issues/7116">https://github.com/Microsoft/vscode/issues/7116</a></p>
+<p>여기서 제시하는 해결책은 다음과 같다.</p>
+<ol>
+<li>&ldquo;SourceCodePro+Powerline+Awesome Regular&rdquo; 글꼴을 받아 설치한다. <a href="https://github.com/Falkor/dotfiles/raw/master/fonts/SourceCodePro%2BPowerline%2BAwesome%2BRegular.ttf">링크</a></li>
+<li>Visual Studio Code 설정에서 <code>terminal.integrated.fontFamily</code> 항목에 <code>'SourceCodePro+Powerline+Awesome Regular'</code>를 넣는다. (작은 따옴표를 포함해야 한다!)</li>
+</ol>
+<p>그러면 아래와 같이 터미널의 글꼴이 깨지지 않게 된다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -135,13 +163,22 @@ https://github.com/Microsoft/vscode/issues/7116
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		RDS MySQL을 이용하면, 아래와 같이 CloudWatch에 일반/감사/느린 쿼리 로그를 찍도록 설정할 수 있다.
-로그 찍기 설정(RDS 인스턴스 생성 시)
-그리고 RDS 콘솔에 들어가면 로그 파일을 볼 수 있는데, 일반 로그나 느린 쿼리 로그를 찾을 수 없었다. 그래서 CloudWatch Logs를 찾아봤지만, 역시 로그가 없었다.
-로그 파일이 없다(-_-&hellip;)
-그 이유를 찾아 보니, 파라미터 그룹에 로그 관련 설정을 하지 않은 것이 원인이었다.
-다음과 같이 설정하면 된다.
-먼저, RDS 콘솔에서 파라미터 그룹 메뉴를 클릭한다. 쓰던 파라미터 그룹이 있다면, 그 파라미터 그룹을 클릭하고, 새로 생성해야 한다면 파라미터 그룹 생성을 클릭해서 파라미터 그룹을 만든다.
+		<p>RDS MySQL을 이용하면, 아래와 같이 CloudWatch에 일반/감사/느린 쿼리 로그를 찍도록 설정할 수 있다.</p>
+<figure><img src="/img/rds-logging-1.png"
+    alt="로그 찍기 설정(RDS 인스턴스 생성 시)"><figcaption>
+      <p>로그 찍기 설정(RDS 인스턴스 생성 시)</p>
+    </figcaption>
+</figure>
+
+<p>그리고 RDS 콘솔에 들어가면 로그 파일을 볼 수 있는데, 일반 로그나 느린 쿼리 로그를 찾을 수 없었다. 그래서 CloudWatch Logs를 찾아봤지만, 역시 로그가 없었다.</p>
+<figure><img src="/img/rds-logging-2.png"
+    alt="로그 파일이 없다(-_-&hellip;)"><figcaption>
+      <p>로그 파일이 없다(-_-&hellip;)</p>
+    </figcaption>
+</figure>
+
+<p>그 이유를 찾아 보니, 파라미터 그룹에 로그 관련 설정을 하지 않은 것이 원인이었다.</p>
+<p>다음과 같이 설정하면 된다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -158,11 +195,18 @@ https://github.com/Microsoft/vscode/issues/7116
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		부서에서 사용하는 CodeCommit에 Push를 하려고 하는데, 아래와 같은 오류 때문에 Push를 할 수 없었다.
-fatal: UriFormatException encountered. queryUrl 보통 이런 문제가 발생하면 오류 메시지를 먼저 찾아 보는 편인데, 이상하게 검색이 잘 안 됐었다. (컨디션이 안 좋아서 그랬던가&hellip;-_-) 그러다가 다음과 같은 내용을 발견했다.
-https://github.com/Microsoft/Git-Credential-Manager-for-Windows/issues/587
-내용을 요약하면 다음과 같다.
-Git 원격 저장소의 사용자 이름이 이메일 주소인 경우 이러한 오류가 발생한다. RFC3986에 따르면, URI에 이미 할당되어 있는 문자는 :/?#[]@!$&amp;'()*+,;=이다. @의 경우, %40으로 바꾸면(escaping) 문제를 해결할 수 있다.
+		<p>부서에서 사용하는 CodeCommit에 Push를 하려고 하는데, 아래와 같은 오류 때문에 Push를 할 수 없었다.</p>
+<pre tabindex="0"><code>fatal: UriFormatException encountered.
+queryUrl
+</code></pre><p>보통 이런 문제가 발생하면 오류 메시지를 먼저 찾아 보는 편인데, 이상하게 검색이 잘 안 됐었다. (컨디션이 안 좋아서 그랬던가&hellip;-_-) 그러다가 다음과 같은 내용을 발견했다.</p>
+<p><a href="https://github.com/Microsoft/Git-Credential-Manager-for-Windows/issues/587">https://github.com/Microsoft/Git-Credential-Manager-for-Windows/issues/587</a></p>
+<p>내용을 요약하면 다음과 같다.</p>
+<ul>
+<li>Git 원격 저장소의 사용자 이름이 이메일 주소인 경우 이러한 오류가 발생한다.</li>
+<li>RFC3986에 따르면, URI에 이미 할당되어 있는 문자는 <code>:/?#[]@!$&amp;'()*+,;=</code>이다.</li>
+<li><code>@</code>의 경우, <code>%40</code>으로 바꾸면(escaping) 문제를 해결할 수 있다.</li>
+</ul>
+<p>위에 올라온 프로그램의 경우는 사용자 이름을 체크해서 변경이 필요하면 변경하고, 아니면 그대로 사용하는 식으로 처리한 것 같다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -179,11 +223,20 @@ Git 원격 저장소의 사용자 이름이 이메일 주소인 경우 이러한
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		test라는 함수가 있고, dev, release라는 별칭(alias)이 존재한다고 하자. 그리고 모든 별칭은 동일한 버전을 가리킨다고 하자.
-이 경우 context 객체의 invoked_function_arn은 어떻게 달라지는지 보자. 테스트를 위해, 다음과 같이 파이썬으로 함수를 작성하였다.
-import json def lambda_handler(event, context): print(context.invoked_function_arn) return &#34;Success&#34; 그리고 CloudWatch에 기록된 로그를 보자.
-dev인 경우
-START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1 arn:aws:lambda:ap-northeast-2:256724228018:function:test:dev END RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Duration: 1.56 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 22 MB release인 경우
+		<p>test라는 함수가 있고, dev, release라는 별칭(alias)이 존재한다고 하자. 그리고 모든 별칭은 동일한 버전을 가리킨다고 하자.</p>
+<p>이 경우 context 객체의 invoked_function_arn은 어떻게 달라지는지 보자. 테스트를 위해, 다음과 같이 파이썬으로 함수를 작성하였다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> json
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lambda_handler</span>(event, context): 
+</span></span><span style="display:flex;"><span>    print(context<span style="color:#f92672">.</span>invoked_function_arn)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Success&#34;</span>
+</span></span></code></pre></div><p>그리고 CloudWatch에 기록된 로그를 보자.</p>
+<p>dev인 경우</p>
+<pre tabindex="0"><code>START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1
+arn:aws:lambda:ap-northeast-2:256724228018:function:test:dev
+END RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a
+REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a  Duration: 1.56 ms       Billed Duration: 100 ms         Memory Size: 128 MB     Max Memory Used: 22 MB
+</code></pre><p>release인 경우</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -200,12 +253,28 @@ START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1 arn:aws:lambda:
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		최근에 Timestamp가 있는 데이터를 다루다가, 신기한 버그를 발견하여 여기에 기록해 본다. 해당 문제가 수정된 것 같기는 한데, 아직 배포는 안 된 것 같다.
-Windows에서 발생하는 버그 fromtimestamp 함수의 버그 (Windows)
-해당 이슈에 대해 설명한 부분을 확인하면, 0에서 86399 사이의 값을 입력하면 OSError가 발생한다.
-Ubuntu에서는? 잘 동작한다. 심지어 Windows 10에 깔린 Ubuntu를 이용했고, 3.5.x 버전인데도 멀쩡히 잘 돌아간다.
-Ubuntu에서는 정상적으로 동작한다.
-참고자료 https://bugs.python.org/issue29097 https://docs.python.org/3/whatsnew/changelog.html 
+		<p>최근에 Timestamp가 있는 데이터를 다루다가, 신기한 버그를 발견하여 여기에 기록해 본다. 해당 문제가 수정된 것 같기는 한데, 아직 배포는 안 된 것 같다.</p>
+<h3 id="windows에서-발생하는-버그">Windows에서 발생하는 버그</h3>
+<figure><img src="/img/python_fromtimestamp_windows.png"
+    alt="fromtimestamp 함수의 버그 (Windows)"><figcaption>
+      <p>fromtimestamp 함수의 버그 (Windows)</p>
+    </figcaption>
+</figure>
+
+<p><a href="https://bugs.python.org/issue29097">해당 이슈</a>에 대해 설명한 부분을 확인하면, <strong><em>0에서 86399</em></strong> 사이의 값을 입력하면 OSError가 발생한다.</p>
+<h3 id="ubuntu에서는">Ubuntu에서는?</h3>
+<p>잘 동작한다. 심지어 Windows 10에 깔린 Ubuntu를 이용했고, 3.5.x 버전인데도 멀쩡히 잘 돌아간다.</p>
+<figure><img src="/img/python_fromtimestamp_ubuntu.png"
+    alt="Ubuntu에서는 정상적으로 동작한다."><figcaption>
+      <p>Ubuntu에서는 정상적으로 동작한다.</p>
+    </figcaption>
+</figure>
+
+<h3 id="참고자료">참고자료</h3>
+<ul>
+<li><a href="https://bugs.python.org/issue29097">https://bugs.python.org/issue29097</a></li>
+<li><a href="https://docs.python.org/3/whatsnew/changelog.html">https://docs.python.org/3/whatsnew/changelog.html</a></li>
+</ul>
 	</div>
 </article><article class="list__item post">
 	
@@ -222,9 +291,19 @@ Ubuntu에서는 정상적으로 동작한다.
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		파이썬에는 PEP-8이라는 Python Code Style Guide가 있다. 모든 내용을 한 번에 정리하기 어려워서 그냥 코딩하다가 궁금한 것 위주로 정리해 보려고 한다.
-이번 글에서는 &lsquo;_&rsquo;(Underscore)가 붙는 변수나 메서드에 관련한 내용을 정리하려고 한다.
-Trailing underscore _single_leading_underscore: 이런 경우 from M import *에서는 _로 시작하는 object를 import 하지 않는다. single_trailing_underscore_: 파이썬 언어 내에서 사용되는 키워드와의 충돌을 피하기 위해 작성한다. BeautifulSoup에서 HTML의 class를 기준으로 무언가를 찾을 때 class_와 같이 속성을 지정해 줄 때가 있다.
+		<blockquote>
+<p>파이썬에는 <a href="https://www.python.org/dev/peps/pep-0008/">PEP-8</a>이라는 Python Code Style Guide가 있다. 모든 내용을 한 번에 정리하기 어려워서 그냥 코딩하다가 궁금한 것 위주로 정리해 보려고 한다.</p>
+</blockquote>
+<p>이번 글에서는 &lsquo;_&rsquo;(Underscore)가 붙는 변수나 메서드에 관련한 내용을 정리하려고 한다.</p>
+<h3 id="trailing-underscore">Trailing underscore</h3>
+<ul>
+<li><code>_single_leading_underscore</code>: 이런 경우 <code>from M import *</code>에서는 <code>_</code>로 시작하는 object를 import 하지 않는다.</li>
+<li><code>single_trailing_underscore_</code>: 파이썬 언어 내에서 사용되는 키워드와의 충돌을 피하기 위해 작성한다. BeautifulSoup에서 HTML의 class를 기준으로 무언가를 찾을 때 <code>class_</code>와 같이 속성을 지정해 줄 때가 있다.</li>
+<li><code>__double_leading_underscore</code>: 클래스 속성의 이름을 정할 때 name mangling을 피한다. 아래에 그 예가 있으니 참고하면 될 것 같다.</li>
+<li><code>__double_leading_and_trailing_underscore__</code>: 사용자가 컨트롤하는 네임스페이스에 있는 &ldquo;magic&rdquo; object나 속성이다. 예를 들어 <code>__init__</code>, <code>__import__</code>, <code>__file__</code>등이 있다. 이러한 이름을 새로 만들 일은 거의 없을 것 같다.</li>
+</ul>
+<h3 id="package-and-module-names">Package and Module Names</h3>
+<p>파이썬 모듈에서 C나 C++로 작성한 확장 모듈을 이용할 때, C나 C++ 모듈은 앞에 <code>_</code>를 하나 붙여준다. PEP-8 문서에서는 <code>_socket</code>을 예로 들고 있다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -241,9 +320,11 @@ Trailing underscore _single_leading_underscore: 이런 경우 from M import *에
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		예전에 어떤 소스를 보다가 클래스 내부에 @property 데코레이터가 붙어 있는 경우를 본 적이 있다. 어떤 경우에 사용하는지 궁금해서 한 번 정리해 보려 한다.
-property() 함수 먼저 property() 함수에 대해 살펴보자.
-class property(fget=None, fset=None, fdel=None, doc=None) 페이지 아래에 링크한 자료를 살펴보면, property 함수는 property 속성을 반환한다고 나와 있다. 그리고 fget 인자에는 속성 값에 대한 getter 함수, fset 인자에는 속성 값에 대한 setter 함수, fdel 인자에는 속성 값을 지우는 함수를 지정한다고 한다. 그리고 doc 인자는 속성에 대한 docstring을 넣어주면 된다.
+		<p>예전에 어떤 소스를 보다가 클래스 내부에 <code>@property</code> 데코레이터가 붙어 있는 경우를 본 적이 있다. 어떤 경우에 사용하는지 궁금해서 한 번 정리해 보려 한다.</p>
+<h3 id="property-함수">property() 함수</h3>
+<p>먼저 property() 함수에 대해 살펴보자.</p>
+<pre tabindex="0"><code>class property(fget=None, fset=None, fdel=None, doc=None)
+</code></pre><p>페이지 아래에 링크한 자료를 살펴보면, property 함수는 property 속성을 반환한다고 나와 있다. 그리고 fget 인자에는 속성 값에 대한 getter 함수, fset 인자에는 속성 값에 대한 setter 함수, fdel 인자에는 속성 값을 지우는 함수를 지정한다고 한다. 그리고 doc 인자는 속성에 대한 docstring을 넣어주면 된다.</p>
 	</div>
 </article><article class="list__item post">
 	
@@ -260,10 +341,14 @@ class property(fget=None, fset=None, fdel=None, doc=None) 페이지 아래에 �
 </div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		여러 국가에 걸쳐 시간과 관련된 데이터를 얻을 때 시간대가 가장 이슈가 될 것이다. 그리고 AWS와 같이 UTC를 기준으로 하는 서비스가 있기 때문에, 우리나라의 시간대를 기준으로 프로그램을 만들 때 고민이 되는 부분이 있다.
-시간대를 다루기 위해 pytz와 같은 라이브러리가 있지만, 이번에는 파이썬이 기본적으로 제공하는 datetime 모듈만 이용해서 시간대를 다루어 보고자 한다.
-현재 시간 구하기 / UTC 기준 시간 구하기 현재 시간을 구하기 위해서는 datetime.datetime.now()를 이용한다.
-&gt;&gt;&gt; import datetime &gt;&gt;&gt; datetime.datetime.now() datetime.datetime(2018, 5, 17, 21, 43, 13, 554579) 한편, UTC 기준의 현재 시간을 구하기 위해서는 datetime.
+		<p>여러 국가에 걸쳐 시간과 관련된 데이터를 얻을 때 시간대가 가장 이슈가 될 것이다. 그리고 AWS와 같이 UTC를 기준으로 하는 서비스가 있기 때문에, 우리나라의 시간대를 기준으로 프로그램을 만들 때 고민이 되는 부분이 있다.</p>
+<p>시간대를 다루기 위해 pytz와 같은 라이브러리가 있지만, 이번에는 파이썬이 기본적으로 제공하는 datetime 모듈만 이용해서 시간대를 다루어 보고자 한다.</p>
+<h3 id="현재-시간-구하기--utc-기준-시간-구하기">현재 시간 구하기 / UTC 기준 시간 구하기</h3>
+<p>현재 시간을 구하기 위해서는 <code>datetime.datetime.now()</code>를 이용한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">import</span> datetime
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> datetime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>now()
+</span></span><span style="display:flex;"><span>datetime<span style="color:#f92672">.</span>datetime(<span style="color:#ae81ff">2018</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">17</span>, <span style="color:#ae81ff">21</span>, <span style="color:#ae81ff">43</span>, <span style="color:#ae81ff">13</span>, <span style="color:#ae81ff">554579</span>)
+</span></span></code></pre></div><p>한편, UTC 기준의 현재 시간을 구하기 위해서는 <code>datetime.datetime.utcnow()</code>를 이용한다.</p>
 	</div>
 </article>
 </main>
