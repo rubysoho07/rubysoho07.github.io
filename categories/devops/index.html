@@ -59,6 +59,23 @@
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/container-image-size-test/" rel="bookmark">
+			Base image에 따른 컨테이너 이미지 크기 테스트
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2025-07-13T10:23:00&#43;09:00">2025-07-13</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/devops/" rel="category">DevOps</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>컨테이너 이미지의 크기는 기본적으로 이미지를 저장하는 비용과 관련 있습니다. AWS의 ECR은 private repository에 저장된 이미지에 월 GB 당 0.1 USD를 부과합니다. (<a href="https://aws.amazon.com/ko/ecr/pricing/">출처</a>) 한편 컨테이너 이미지를 실행하는 환경에서도 컨테이너 이미지 크기가 중요할 수 있는데요. 예를 들어 EC2와 같은 서버에서 컨테이너 이미지를 실행한다고 했을 때, 이미지의 크기가 작을수록 다운로드에 걸리는 시간이 줄어들 것이고, 이는 서버에서 컨테이너를 처음으로 실행하는 데 걸리는 시간에도 영향을 줄 수 있습니다. 그리고 ECR의 경우 동일 리전에서는 전송 비용을 받지 않지만, 리전이 달라지면 전송 비용을 받기도 하니 네트워크 비용도 고려하면 좋지 않을까 싶습니다.</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/argo-workflows/" rel="bookmark">
 			Argo Workflows 이용해 보기
 			</a>
@@ -268,6 +285,7 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/acm/" title="ACM">ACM</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ai/" title="AI">AI</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/airflow/" title="Airflow">Airflow</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/alpine/" title="Alpine">Alpine</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/amazon-q/" title="Amazon Q">Amazon Q</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/arcade-fire/" title="Arcade Fire">Arcade Fire</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/argo/" title="Argo">Argo</a>
@@ -282,6 +300,8 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/datetime/" title="Datetime">Datetime</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ddos/" title="DDoS">DDoS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/devops/" title="DevOps">DevOps</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/distroless/" title="Distroless">Distroless</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/docker/" title="Docker">Docker</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ec2/" title="EC2">EC2</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/eks/" title="EKS">EKS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/filter/" title="Filter">Filter</a>
@@ -365,6 +385,7 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9E%90%EA%B2%A9%EC%A6%9D/" title="자격증">자격증</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%B1%85/" title="책">책</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%BB%A4%EB%A6%AC%EC%96%B4/" title="커리어">커리어</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/" title="컨테이너">컨테이너</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%85%8C%EC%8A%A4%ED%8A%B8/" title="테스트">테스트</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%9A%8C%EA%B3%A0/" title="회고">회고</a>
 	</div>
@@ -406,7 +427,7 @@
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2024 Yungon Park.
+			&copy; 2025 Yungon Park.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>

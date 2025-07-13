@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.140.1">
+	<meta name="generator" content="Hugo 0.148.1">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>GoniGoni!</title>
@@ -55,6 +55,28 @@
 			
 <main class="main list" role="main">
 	<article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/posts/python-string-interpolation/" rel="bookmark">
+			파이썬 문자열 다루기 - str.format()
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-12-01T20:54:00&#43;09:00">2018-12-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>문자열을 다루다 보면 <code>.format()</code>을 사용하는데, .format()으로 어떻게 문자열 중간을 채워볼 지에 대해 알아보겠다. 이 글은 필요할 때 매번 찾아보다가 귀찮아서 정리해 본 것이다.</p>
+<h3 id="들어가기-전에">들어가기 전에&hellip;</h3>
+<p>혹시 C를 배워본 적이 있는지? C에는 <code>printf()</code>라는 함수가 있다. 변수의 내용을 표시하기 위해 아래 코드와 같이 <code>%d</code>, <code>%f</code>등의 문자열을 사용한 적이 있을 것이다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">printf</span>(<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">%</span>d<span style="color:#960050;background-color:#1e0010">&#39;</span>, a);
+</span></span></code></pre></div><p>파이썬 또한 이런 방법을 지원한다. 하지만 튜플이나 딕셔너리와 같은 자료형은 제대로 표시되지 않는 문제가 있다고 한다. <a href="https://docs.python.org/3/library/stdtypes.html#old-string-formatting">자세한 내용은 링크를 참조하자.</a></p>
+	</div>
+</article><article class="list__item post">
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
@@ -313,8 +335,7 @@ REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a  Duration: 1.56 ms       
 	</header>
 	<div class="content list__excerpt post__content clearfix">
 		<blockquote>
-<p>파이썬에는 <a href="https://www.python.org/dev/peps/pep-0008/">PEP-8</a>이라는 Python Code Style Guide가 있다. 모든 내용을 한 번에 정리하기 어려워서 그냥 코딩하다가 궁금한 것 위주로 정리해 보려고 한다.</p>
-</blockquote>
+<p>파이썬에는 <a href="https://www.python.org/dev/peps/pep-0008/">PEP-8</a>이라는 Python Code Style Guide가 있다. 모든 내용을 한 번에 정리하기 어려워서 그냥 코딩하다가 궁금한 것 위주로 정리해 보려고 한다.</p></blockquote>
 <p>이번 글에서는 &lsquo;_&rsquo;(Underscore)가 붙는 변수나 메서드에 관련한 내용을 정리하려고 한다.</p>
 <h3 id="trailing-underscore">Trailing underscore</h3>
 <ul>
@@ -325,27 +346,6 @@ REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a  Duration: 1.56 ms       
 </ul>
 <h3 id="package-and-module-names">Package and Module Names</h3>
 <p>파이썬 모듈에서 C나 C++로 작성한 확장 모듈을 이용할 때, C나 C++ 모듈은 앞에 <code>_</code>를 하나 붙여준다. PEP-8 문서에서는 <code>_socket</code>을 예로 들고 있다.</p>
-	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/python-property-decorator/" rel="bookmark">
-			Python `@property` 데코레이터와 getter/setter
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-05-18T23:36:00&#43;09:00">2018-05-18</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>예전에 어떤 소스를 보다가 클래스 내부에 <code>@property</code> 데코레이터가 붙어 있는 경우를 본 적이 있다. 어떤 경우에 사용하는지 궁금해서 한 번 정리해 보려 한다.</p>
-<h3 id="property-함수">property() 함수</h3>
-<p>먼저 property() 함수에 대해 살펴보자.</p>
-<pre tabindex="0"><code>class property(fget=None, fset=None, fdel=None, doc=None)
-</code></pre><p>페이지 아래에 링크한 자료를 살펴보면, property 함수는 property 속성을 반환한다고 나와 있다. 그리고 fget 인자에는 속성 값에 대한 getter 함수, fset 인자에는 속성 값에 대한 setter 함수, fdel 인자에는 속성 값을 지우는 함수를 지정한다고 한다. 그리고 doc 인자는 속성에 대한 docstring을 넣어주면 된다.</p>
 	</div>
 </article>
 </main>
@@ -399,6 +399,7 @@ REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a  Duration: 1.56 ms       
 		<a class="widget-taglist__link widget__link btn" href="/tags/acm/" title="ACM">ACM</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ai/" title="AI">AI</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/airflow/" title="Airflow">Airflow</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/alpine/" title="Alpine">Alpine</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/amazon-q/" title="Amazon Q">Amazon Q</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/arcade-fire/" title="Arcade Fire">Arcade Fire</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/argo/" title="Argo">Argo</a>
@@ -413,6 +414,8 @@ REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a  Duration: 1.56 ms       
 		<a class="widget-taglist__link widget__link btn" href="/tags/datetime/" title="Datetime">Datetime</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ddos/" title="DDoS">DDoS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/devops/" title="DevOps">DevOps</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/distroless/" title="Distroless">Distroless</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/docker/" title="Docker">Docker</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/ec2/" title="EC2">EC2</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/eks/" title="EKS">EKS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/filter/" title="Filter">Filter</a>
@@ -496,6 +499,7 @@ REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a  Duration: 1.56 ms       
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%9E%90%EA%B2%A9%EC%A6%9D/" title="자격증">자격증</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%B1%85/" title="책">책</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%BB%A4%EB%A6%AC%EC%96%B4/" title="커리어">커리어</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/" title="컨테이너">컨테이너</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%85%8C%EC%8A%A4%ED%8A%B8/" title="테스트">테스트</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%ED%9A%8C%EA%B3%A0/" title="회고">회고</a>
 	</div>
@@ -537,7 +541,7 @@ REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a  Duration: 1.56 ms       
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2024 Yungon Park.
+			&copy; 2025 Yungon Park.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>

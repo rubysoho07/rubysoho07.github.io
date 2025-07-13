@@ -102,21 +102,21 @@
 <p>그리고 간략하게 Terraform 코드를 만들고, <code>main.tf</code> 라는 이름으로 저장합니다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span><span style="color:#a6e22e">terraform</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">required_providers</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">aws</span> = {
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">source</span> = <span style="color:#e6db74">&#34;hashicorp/aws&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">aws</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">source</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hashicorp/aws&#34;</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">backend</span> <span style="color:#e6db74">&#34;s3&#34;</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">bucket</span> = <span style="color:#e6db74">&#34;(YOUR_BACKEND_BUCKET)&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">key</span> = <span style="color:#e6db74">&#34;main/main.tfstate&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">region</span> = <span style="color:#e6db74">&#34;ap-northeast-2&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">dynamodb_table</span> = <span style="color:#e6db74">&#34;(YOUR_BACKEND_LOCK_TABLE)&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">bucket</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;(YOUR_BACKEND_BUCKET)&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">key</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;main/main.tfstate&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">region</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ap-northeast-2&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">dynamodb_table</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;(YOUR_BACKEND_LOCK_TABLE)&#34;</span>
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">
-</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">provider</span> <span style="color:#e6db74">&#34;aws&#34;</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">region</span> = <span style="color:#e6db74">&#34;ap-northeast-2&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">provider</span> <span style="color:#e6db74">&#34;aws&#34;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">region</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ap-northeast-2&#34;</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>그리고 파일이 있는 폴더에서 터미널을 실행 후, <code>terraform init</code> 명령을 실행하여 초기화 합니다.</p>
 <h3 id="workspace-목록-확인하기">Workspace 목록 확인하기</h3>
@@ -167,7 +167,7 @@
 <h3 id="테스트용-s3-버킷-만들기">테스트용 S3 버킷 만들기</h3>
 <p>앞서 만든 <code>main.tf</code> 파일 끝에 아래 내용을 추가합니다. 사용 중인 워크스페이스는 <code>${terraform.workspace}</code>와 같은 방법으로 참조할 수 있습니다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-terraform" data-lang="terraform"><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;aws_s3_bucket&#34;</span> <span style="color:#e6db74">&#34;test&#34;</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">bucket</span> = <span style="color:#e6db74">&#34;your-test-bucket-</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">terraform</span>.<span style="color:#a6e22e">workspace</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">bucket</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;your-test-bucket-</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">terraform</span>.<span style="color:#a6e22e">workspace</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>저는 현재 default workspace에서 작업 중인데요. <code>terraform plan</code> 명령을 실행하면 다음과 같이 <code>your-test-bucket-default</code> 라는 버킷을 생성할 거라고 합니다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ terraform plan 
@@ -328,7 +328,7 @@
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2024 Yungon Park.
+			&copy; 2025 Yungon Park.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Distroless on GoniGoni!</title>
+    <link>/tags/distroless/</link>
+    <description>Recent content in Distroless on GoniGoni!</description>
+    <generator>Hugo</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Sun, 13 Jul 2025 10:23:00 +0900</lastBuildDate>
+    <atom:link href="/tags/distroless/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Base image에 따른 컨테이너 이미지 크기 테스트</title>
+      <link>/posts/container-image-size-test/</link>
+      <pubDate>Sun, 13 Jul 2025 10:23:00 +0900</pubDate>
+      <guid>/posts/container-image-size-test/</guid>
+      <description>&lt;p&gt;컨테이너 이미지의 크기는 기본적으로 이미지를 저장하는 비용과 관련 있습니다. AWS의 ECR은 private repository에 저장된 이미지에 월 GB 당 0.1 USD를 부과합니다. (&lt;a href=&#34;https://aws.amazon.com/ko/ecr/pricing/&#34;&gt;출처&lt;/a&gt;) 한편 컨테이너 이미지를 실행하는 환경에서도 컨테이너 이미지 크기가 중요할 수 있는데요. 예를 들어 EC2와 같은 서버에서 컨테이너 이미지를 실행한다고 했을 때, 이미지의 크기가 작을수록 다운로드에 걸리는 시간이 줄어들 것이고, 이는 서버에서 컨테이너를 처음으로 실행하는 데 걸리는 시간에도 영향을 줄 수 있습니다. 그리고 ECR의 경우 동일 리전에서는 전송 비용을 받지 않지만, 리전이 달라지면 전송 비용을 받기도 하니 네트워크 비용도 고려하면 좋지 않을까 싶습니다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

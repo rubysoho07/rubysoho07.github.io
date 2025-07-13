@@ -6,8 +6,36 @@
     <description>Recent content in Tags on GoniGoni!</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 25 Dec 2024 21:49:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 13 Jul 2025 10:23:00 +0900</lastBuildDate>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Alpine</title>
+      <link>/tags/alpine/</link>
+      <pubDate>Sun, 13 Jul 2025 10:23:00 +0900</pubDate>
+      <guid>/tags/alpine/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Distroless</title>
+      <link>/tags/distroless/</link>
+      <pubDate>Sun, 13 Jul 2025 10:23:00 +0900</pubDate>
+      <guid>/tags/distroless/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>/tags/docker/</link>
+      <pubDate>Sun, 13 Jul 2025 10:23:00 +0900</pubDate>
+      <guid>/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>컨테이너</title>
+      <link>/tags/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/</link>
+      <pubDate>Sun, 13 Jul 2025 10:23:00 +0900</pubDate>
+      <guid>/tags/%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Reachability Analyzer</title>
       <link>/tags/reachability-analyzer/</link>
