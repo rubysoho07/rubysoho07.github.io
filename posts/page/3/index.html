@@ -59,6 +59,28 @@
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/cloudformation-sam-tmi/" rel="bookmark">
+			CloudFormation과 SAM을 쓰면서 겪었던 일들 모음
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2021-08-28T15:51:33&#43;09:00">2021-08-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>최근 인프라 구성을 CloudFormation을 이용해서 조정해 보았습니다. 그 과정에서 여러 Lambda 함수를 쓸 때는 SAM으로, 그 외의 경우는 CloudFormation을 사용했는데요.</p>
+<p>이번 작업으로 여러 CloudFormation 스택에 흩어져 있던 리소스를 하나로 모으고, 템플릿의 관리 방식도 좀 더 관리하게 편하도록 설정할 수 있게 되었습니다.</p>
+<p>저희 팀이 여러 IaC(Infrastructure as Code) 툴 중에 왜 SAM과 CloudFormation을 사용하는 이유는 <a href="/posts/retrospect-aws-sam/">이 문서</a>를 참고해 주세요.</p>
+<p>이번 글은 CloudFormation과 SAM을 쓰면서 겪었던 일들을 정리해 보려고 합니다.</p>
+<h2 id="sam에서-api-gateway-정의를-sam-template에-넣기">SAM에서 API Gateway 정의를 SAM Template에 넣기</h2>
+<p>SAM에서 제공하는 <code>AWS::Serverless::Api</code> 리소스는 AWS Gateway의 REST API를 생성해 주는 기능입니다. API Gateway에는 <a href="https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-import-api.html">OpenAPI 규격으로 작성된 API 스펙을 가지고 올 수 있는 기능</a>이 있는데요. SAM에서도 마찬가지로 해당 기능을 지원합니다.</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/eks-nlb-acm-test/" rel="bookmark">
 			EKS 내 NGINX Ingress에서 NLB와 ACM 연동 방법 살펴보기
 			</a>
@@ -259,27 +281,6 @@
 </span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">8</span>]
 </span></span></code></pre></div><p>함수 정의를 보면, <code>iterable</code> 뒤에 <code>...</code>이 붙는 것을 볼 수 있다. 여러 iterable을 붙이면 어떻게 될까?</p>
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/porting-simcity-backup-to-golang/" rel="bookmark">
-			SimCity 백업 프로그램을 Go로 포팅하기
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2020-10-19T20:44:49&#43;09:00">2020-10-19</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/go/" rel="category">Go</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>어릴적부터 도시를 짓는 게임을 좋아했습니다. 예전에 심시티 3000을 제 돈 주고 산 걸로 시작해서, 심시티 4를 거쳐 지금은 시티즈 스카이라인을 가끔씩 플레이합니다.</p>
-<p>예전에 쓰던 컴퓨터에서 심시티 4를 돌릴 때 외부에서 받은 건물이나, 제가 만든 도시, 그리고 스크린샷을 백업하는 프로그램을 파이썬으로 만든 적이 있었습니다.</p>
-<p>그러다가 이 프로그램을 Go로 포팅하는 일을 해 보고 싶어서 시도해 보게 되었습니다.</p>
-<p>파일 목록을 검색하고 파일을 쓰고 읽는 부분들이 많아서, 개인적으로는 해 볼 만한 내용이었다고 생각합니다.</p>
-<p>그러면 어떤 차이가 있는지 한 번 살펴보도록 하겠습니다.</p>
-	</div>
 </article>
 </main>
 
@@ -343,6 +344,7 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/beta-band/" title="Beta Band">Beta Band</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/big-data/" title="Big Data">Big Data</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/boto3/" title="Boto3">Boto3</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cloud-run/" title="Cloud Run">Cloud Run</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/cloudformation/" title="CloudFormation">CloudFormation</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/container/" title="Container">Container</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/datetime/" title="Datetime">Datetime</a>
@@ -353,9 +355,11 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/ec2/" title="EC2">EC2</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/eks/" title="EKS">EKS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/filter/" title="Filter">Filter</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/flask/" title="Flask">Flask</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/font/" title="Font">Font</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/format/" title="Format">Format</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/fromtimestamp/" title="Fromtimestamp">Fromtimestamp</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/gcp/" title="GCP">GCP</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/getter/" title="Getter">Getter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/git/" title="Git">Git</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/go/" title="Go">Go</a>

@@ -59,6 +59,28 @@
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/albums-with-gcp-cloud-run/" rel="bookmark">
+			GCP Cloud Run으로 음반 관리하기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2025-11-19T14:00:00&#43;09:00">2025-11-19</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/devops/" rel="category">DevOps</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="들어가며">들어가며</h2>
+<p>제가 살면서 처음으로 구매한 음반은 Green Day의 베스트 앨범인 <a href="https://open.spotify.com/album/6HUIbDhzmqcwxrxUfTuHdW">International Superhits!</a> 입니다. 중학교 2학년 때 제가 살던 동네의 월마트에서 테이프를 샀던 기억이 있습니다. 그로부터 20여 년이 지났는데요. 지금까지 본가와 서울 집에 있는 CD와 테이프를 모두 합쳐보니 150장이 넘더라구요. (참고로 예전에 핫뮤직이라는 락 음악 전문 잡지가 있었는데, 부록으로 주는 샘플러를 빼고 계산했어요. 실제로는 좀 더 많지 않을까 싶습니다)</p>
+<figure><img src="/img/albums-with-cloud-run-1.png">
+</figure>
+
+<p>지금도 가끔씩 &ldquo;이건 CD로 갖고 있어야겠다&quot;는 앨범이 있어서, 알라딘 중고서점과 같은 곳을 뒤져 볼 때가 있습니다. 검색을 하다 보면 &ldquo;이거 예전에 샀던 건가?&rdquo; 라는 생각이 들 때가 있어요. 그래서 제가 지금까지 구매한 앨범을 검색할 시스템이 필요하다고 생각했습니다. 예전에 Django로 만들고 방치했던 것이 있었는데, 이걸 완전히 바꿔서 진행해 보려고 했습니다.</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/container-image-size-test/" rel="bookmark">
 			Base image에 따른 컨테이너 이미지 크기 테스트
 			</a>
@@ -240,24 +262,6 @@
 </ul>
 <p>그리고 EKS의 IAM Roles for Service Accounts(이후 IRSA로 표기) 기능은 STS(Security Token Service)의 <code>AssumeRoleWithWebIdentity</code> API 호출을 통해 권한을 얻습니다. (<a href="https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html">참고</a>) 그렇기 때문에 STS을 사용할 수 있어야 합니다.</p>
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/london-record-stores/" rel="bookmark">
-			런던 음반 매장 여행기
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2023-04-16T22:06:50&#43;09:00">2023-04-16</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>최근에 런던 여행을 다녀 왔습니다. 이번 런던 여행은 두 가지 목적이 있었습니다. 첫번째는 프리미어 리그를 보러 가는 것이었고, 두번째는 음반 가게를 구경하며 제가 갖고 싶었던 것들을 구해오는 것이 목표였습니다. 마침 제가 여행을 다녀온 주에 토트넘과 브라이튼의 경기가 있어서 관람했는데요. 그 경기에서 손흥민 선수가 프리미어 리그 100번째 골을 넣었죠. 이번 이야기는 두번째 목표를 이루기 위해 떠난 여정을 설명드리고자 합니다.</p>
-<p>사실 런던에는 정말 많은 음반 매장이 있고, 이걸 모두 설명해 드리는 데는 한계가 있을 것입니다. 이 글에서는 제가 다녀온 곳들을 위주로 정리해 보고자 합니다.</p>
-	</div>
 </article>
 </main>
 
@@ -320,6 +324,7 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/beta-band/" title="Beta Band">Beta Band</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/big-data/" title="Big Data">Big Data</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/boto3/" title="Boto3">Boto3</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cloud-run/" title="Cloud Run">Cloud Run</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/cloudformation/" title="CloudFormation">CloudFormation</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/container/" title="Container">Container</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/datetime/" title="Datetime">Datetime</a>
@@ -330,9 +335,11 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/ec2/" title="EC2">EC2</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/eks/" title="EKS">EKS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/filter/" title="Filter">Filter</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/flask/" title="Flask">Flask</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/font/" title="Font">Font</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/format/" title="Format">Format</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/fromtimestamp/" title="Fromtimestamp">Fromtimestamp</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/gcp/" title="GCP">GCP</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/getter/" title="Getter">Getter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/git/" title="Git">Git</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/go/" title="Go">Go</a>

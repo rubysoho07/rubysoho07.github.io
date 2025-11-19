@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cloud Run on GoniGoni!</title>
+    <link>/tags/cloud-run/</link>
+    <description>Recent content in Cloud Run on GoniGoni!</description>
+    <generator>Hugo</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Wed, 19 Nov 2025 14:00:00 +0900</lastBuildDate>
+    <atom:link href="/tags/cloud-run/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GCP Cloud Run으로 음반 관리하기</title>
+      <link>/posts/albums-with-gcp-cloud-run/</link>
+      <pubDate>Wed, 19 Nov 2025 14:00:00 +0900</pubDate>
+      <guid>/posts/albums-with-gcp-cloud-run/</guid>
+      <description>&lt;h2 id=&#34;들어가며&#34;&gt;들어가며&lt;/h2&gt;&#xA;&lt;p&gt;제가 살면서 처음으로 구매한 음반은 Green Day의 베스트 앨범인 &lt;a href=&#34;https://open.spotify.com/album/6HUIbDhzmqcwxrxUfTuHdW&#34;&gt;International Superhits!&lt;/a&gt; 입니다. 중학교 2학년 때 제가 살던 동네의 월마트에서 테이프를 샀던 기억이 있습니다. 그로부터 20여 년이 지났는데요. 지금까지 본가와 서울 집에 있는 CD와 테이프를 모두 합쳐보니 150장이 넘더라구요. (참고로 예전에 핫뮤직이라는 락 음악 전문 잡지가 있었는데, 부록으로 주는 샘플러를 빼고 계산했어요. 실제로는 좀 더 많지 않을까 싶습니다)&lt;/p&gt;&#xA;&lt;figure&gt;&lt;img src=&#34;/img/albums-with-cloud-run-1.png&#34;&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;지금도 가끔씩 &amp;ldquo;이건 CD로 갖고 있어야겠다&amp;quot;는 앨범이 있어서, 알라딘 중고서점과 같은 곳을 뒤져 볼 때가 있습니다. 검색을 하다 보면 &amp;ldquo;이거 예전에 샀던 건가?&amp;rdquo; 라는 생각이 들 때가 있어요. 그래서 제가 지금까지 구매한 앨범을 검색할 시스템이 필요하다고 생각했습니다. 예전에 Django로 만들고 방치했던 것이 있었는데, 이걸 완전히 바꿔서 진행해 보려고 했습니다.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

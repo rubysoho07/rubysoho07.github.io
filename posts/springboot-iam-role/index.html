@@ -74,7 +74,8 @@
 </ul>
 <p>그리고 EKS의 IAM Roles for Service Accounts(이후 IRSA로 표기) 기능은 STS(Security Token Service)의 <code>AssumeRoleWithWebIdentity</code> API 호출을 통해 권한을 얻습니다. (<a href="https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html">참고</a>) 그렇기 때문에 STS을 사용할 수 있어야 합니다.</p>
 <blockquote>
-<p>In 2014, AWS Identity and Access Management added support for federated identities using OpenID Connect (OIDC). This feature allows you to authenticate AWS API calls with supported identity providers and receive a valid OIDC JSON web token (JWT). You can pass this token to the AWS STS <code>AssumeRoleWithWebIdentity</code> API operation and receive IAM temporary role credentials. You can use these credentials to interact with any AWS service, including Amazon S3 and DynamoDB.</p></blockquote>
+<p>In 2014, AWS Identity and Access Management added support for federated identities using OpenID Connect (OIDC). This feature allows you to authenticate AWS API calls with supported identity providers and receive a valid OIDC JSON web token (JWT). You can pass this token to the AWS STS <code>AssumeRoleWithWebIdentity</code> API operation and receive IAM temporary role credentials. You can use these credentials to interact with any AWS service, including Amazon S3 and DynamoDB.</p>
+</blockquote>
 <p>순서 상 Web Identity Token을 먼저 받아서 사용하도록 되어 있는데, IRSA를 사용하지 못한다면 STS를 사용할 수 있는지 확인해 보시기 바랍니다. 자세한 설명을 듣고 싶으시다면 계속 읽어 주세요.</p>
 <h1 id="spring-boot-애플리케이션-생성하기">Spring Boot 애플리케이션 생성하기</h1>
 <p>간단하게 S3 버킷 목록을 읽는 Spring Boot 애플리케이션을 만들어 보겠습니다. Spring의 <a href="https://spring.io/quickstart">Quickstart Guide</a>를 이용해서 애플리케이션을 생성해 주세요. 저는 다음과 같이 설정했습니다.</p>
@@ -161,11 +162,11 @@
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># build/libs에 jar 파일이 생성된 것을 볼 수 있습니다.</span>
 </span></span></code></pre></div><h1 id="컨테이너-이미지-생성하기">컨테이너 이미지 생성하기</h1>
 <p>Gradle로 빌드하면 jar 파일이 나오는데, 이 파일을 가지고 컨테이너 이미지를 생성해 보겠습니다. 아래는 이 프로젝트에서 사용할 Dockerfile 입니다. 아래 내용을 복사해서 Dockerfile로 저장해 주세요.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> amazoncorretto:17</span><span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">amazoncorretto:17</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span><span style="color:#e6db74"> 8080</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span> <span style="color:#e6db74">8080</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /app</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span> <span style="color:#e6db74">/app</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> build/libs/eks-iam-role-poc-0.0.1-SNAPSHOT.jar /app<span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">

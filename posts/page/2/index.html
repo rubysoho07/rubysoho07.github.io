@@ -59,6 +59,24 @@
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/london-record-stores/" rel="bookmark">
+			런던 음반 매장 여행기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2023-04-16T22:06:50&#43;09:00">2023-04-16</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>최근에 런던 여행을 다녀 왔습니다. 이번 런던 여행은 두 가지 목적이 있었습니다. 첫번째는 프리미어 리그를 보러 가는 것이었고, 두번째는 음반 가게를 구경하며 제가 갖고 싶었던 것들을 구해오는 것이 목표였습니다. 마침 제가 여행을 다녀온 주에 토트넘과 브라이튼의 경기가 있어서 관람했는데요. 그 경기에서 손흥민 선수가 프리미어 리그 100번째 골을 넣었죠. 이번 이야기는 두번째 목표를 이루기 위해 떠난 여정을 설명드리고자 합니다.</p>
+<p>사실 런던에는 정말 많은 음반 매장이 있고, 이걸 모두 설명해 드리는 데는 한계가 있을 것입니다. 이 글에서는 제가 다녀온 곳들을 위주로 정리해 보고자 합니다.</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/terraform-workspaces/" rel="bookmark">
 			Terraform Workspaces 기능 정리
 			</a>
@@ -256,28 +274,6 @@
 <h1 id="session-manager로-웹-브라우저에서-쉘-실행하기">Session Manager로 웹 브라우저에서 쉘 실행하기</h1>
 <p>Session Manager로 웹 브라우저에서 쉘을 실행하려면, EC2 인스턴스가 Systems Manager와 관련된 작업을 실행할 수 있는 권한을 부여해야 합니다.</p>
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/cloudformation-sam-tmi/" rel="bookmark">
-			CloudFormation과 SAM을 쓰면서 겪었던 일들 모음
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2021-08-28T15:51:33&#43;09:00">2021-08-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>최근 인프라 구성을 CloudFormation을 이용해서 조정해 보았습니다. 그 과정에서 여러 Lambda 함수를 쓸 때는 SAM으로, 그 외의 경우는 CloudFormation을 사용했는데요.</p>
-<p>이번 작업으로 여러 CloudFormation 스택에 흩어져 있던 리소스를 하나로 모으고, 템플릿의 관리 방식도 좀 더 관리하게 편하도록 설정할 수 있게 되었습니다.</p>
-<p>저희 팀이 여러 IaC(Infrastructure as Code) 툴 중에 왜 SAM과 CloudFormation을 사용하는 이유는 <a href="/posts/retrospect-aws-sam/">이 문서</a>를 참고해 주세요.</p>
-<p>이번 글은 CloudFormation과 SAM을 쓰면서 겪었던 일들을 정리해 보려고 합니다.</p>
-<h2 id="sam에서-api-gateway-정의를-sam-template에-넣기">SAM에서 API Gateway 정의를 SAM Template에 넣기</h2>
-<p>SAM에서 제공하는 <code>AWS::Serverless::Api</code> 리소스는 AWS Gateway의 REST API를 생성해 주는 기능입니다. API Gateway에는 <a href="https://docs.aws.amazon.com/ko_kr/apigateway/latest/developerguide/api-gateway-import-api.html">OpenAPI 규격으로 작성된 API 스펙을 가지고 올 수 있는 기능</a>이 있는데요. SAM에서도 마찬가지로 해당 기능을 지원합니다.</p>
-	</div>
 </article>
 </main>
 
@@ -341,6 +337,7 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/beta-band/" title="Beta Band">Beta Band</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/big-data/" title="Big Data">Big Data</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/boto3/" title="Boto3">Boto3</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/cloud-run/" title="Cloud Run">Cloud Run</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/cloudformation/" title="CloudFormation">CloudFormation</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/container/" title="Container">Container</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/datetime/" title="Datetime">Datetime</a>
@@ -351,9 +348,11 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/ec2/" title="EC2">EC2</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/eks/" title="EKS">EKS</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/filter/" title="Filter">Filter</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/flask/" title="Flask">Flask</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/font/" title="Font">Font</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/format/" title="Format">Format</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/fromtimestamp/" title="Fromtimestamp">Fromtimestamp</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/gcp/" title="GCP">GCP</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/getter/" title="Getter">Getter</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/git/" title="Git">Git</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/go/" title="Go">Go</a>
