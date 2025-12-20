@@ -20,7 +20,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -79,7 +79,7 @@
 </span></span></code></pre></div><p>저장한 파일 이름을 이용해서 다음 명령으로 IAM Role을 생성합시다. 그리고 SSM을 EC2에서 사용할 수 있도록 하기 위해 AmazonEC2RoleforSSM Policy를 연결해 줍니다.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>aws iam create-role --role-name AWSSSMTestRole --assume-role-policy-document file://./assume-role.json
 </span></span><span style="display:flex;"><span>aws iam attach-role-policy --role-name AWSSSMTestRole <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --policy-arn <span style="color:#e6db74">&#34;arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM&#34;</span>
+</span></span></span><span style="display:flex;"><span>    --policy-arn <span style="color:#e6db74">&#34;arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM&#34;</span>
 </span></span></code></pre></div><p>CLI로 작업하는 경우, 인스턴스 프로파일에 생성한 Role을 추가해야 합니다. (콘솔로 작업하는 경우, IAM Role 생성 시 자동으로 수행됩니다.)</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>aws iam create-instance-profile --instance-profile-name AWS_SSM_Instance_Profile
 </span></span><span style="display:flex;"><span>aws iam add-role-to-instance-profile --instance-profile-name AWS_SSM_Instance_Profile --role-name AWSSSMTestRole

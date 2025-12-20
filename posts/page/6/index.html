@@ -21,7 +21,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -56,6 +56,44 @@
 	<header class="main__header">
 		<h1 class="main__title">Posts</h1>
 	</header><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/posts/python-datetime-fromtimestamp/" rel="bookmark">
+			Python Datetime의 fromtimestamp() 사용 시 주의할 점
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-09-13T00:08:00&#43;09:00">2018-09-13</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>최근에 Timestamp가 있는 데이터를 다루다가, 신기한 버그를 발견하여 여기에 기록해 본다. 해당 문제가 수정된 것 같기는 한데, 아직 배포는 안 된 것 같다.</p>
+<h3 id="windows에서-발생하는-버그">Windows에서 발생하는 버그</h3>
+<figure><img src="/img/python_fromtimestamp_windows.png"
+    alt="fromtimestamp 함수의 버그 (Windows)"><figcaption>
+      <p>fromtimestamp 함수의 버그 (Windows)</p>
+    </figcaption>
+</figure>
+
+<p><a href="https://bugs.python.org/issue29097">해당 이슈</a>에 대해 설명한 부분을 확인하면, <strong><em>0에서 86399</em></strong> 사이의 값을 입력하면 OSError가 발생한다.</p>
+<h3 id="ubuntu에서는">Ubuntu에서는?</h3>
+<p>잘 동작한다. 심지어 Windows 10에 깔린 Ubuntu를 이용했고, 3.5.x 버전인데도 멀쩡히 잘 돌아간다.</p>
+<figure><img src="/img/python_fromtimestamp_ubuntu.png"
+    alt="Ubuntu에서는 정상적으로 동작한다."><figcaption>
+      <p>Ubuntu에서는 정상적으로 동작한다.</p>
+    </figcaption>
+</figure>
+
+<h3 id="참고자료">참고자료</h3>
+<ul>
+<li><a href="https://bugs.python.org/issue29097">https://bugs.python.org/issue29097</a></li>
+<li><a href="https://docs.python.org/3/whatsnew/changelog.html">https://docs.python.org/3/whatsnew/changelog.html</a></li>
+</ul>
+	</div>
+</article><article class="list__item post">
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
@@ -283,6 +321,8 @@ OK
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/aws/">AWS</a></li>
 			<li class="widget__item">
+				<a class="widget__link" href="/categories/azure/">Azure</a></li>
+			<li class="widget__item">
 				<a class="widget__link" href="/categories/data-engineering/">Data Engineering</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/devops/">DevOps</a></li>
@@ -317,6 +357,7 @@ OK
 		<a class="widget-taglist__link widget__link btn" href="/tags/argo/" title="Argo">Argo</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/argo-workflow/" title="Argo Workflow">Argo Workflow</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws/" title="AWS">AWS</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/azure/" title="Azure">Azure</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/belle-and-sebastian/" title="Belle and Sebastian">Belle and Sebastian</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/beta-band/" title="Beta Band">Beta Band</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/big-data/" title="Big Data">Big Data</a>

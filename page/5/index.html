@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.152.2">
+	<meta name="generator" content="Hugo 0.153.0">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>GoniGoni!</title>
@@ -22,7 +22,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN7PQ7YC6Q"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -55,6 +55,27 @@
 			
 <main class="main list" role="main">
 	<article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/posts/retrospect-2018/" rel="bookmark">
+			2018년 회고
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2019-01-01T18:13:00&#43;09:00">2019-01-01</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>개인적으로는 변화가 많은 한 해였습니다. 업무의 분야가 바뀌었고, 새로운 환경에 적응해야 했으며, 주로 쓰는 프로그래밍 언어도 바뀌었습니다. 2018년에 일어났던 일들 중 주요한 몇 가지에 대해 다루어 보려고 합니다.</p>
+<h1 id="서비스를-만드는-경험">서비스를 만드는 경험</h1>
+<p>서비스를 만드는 기업으로 이직하겠다는 생각은 계속 했지만, 이를 행동으로 옮긴 건 작년이 처음이었습니다. 그 과정에서 제가 느낀 점은 두 가지로 요약할 수 있을 것 같아요.</p>
+<h2 id="1-협업-이야기">1. 협업 이야기</h2>
+<p>저는 서비스를 기반부터 개발하는 경험이 부족했습니다. 교육 분야에서 비슷한 서비스를 개발한 사례가 많지 않아, 특히 데이터를 다루는 서비스를 어떻게 개발하는지에 대해 많이 찾아봤었습니다. 이 과정에서 많은 삽질이 있었습니다. 그리고 부서에 개발자가 많지 않은 상황이었는데, 중간에 개발자가 나오고 들어오는 경우가 있었습니다. 나갈 사람이 하던 일을 이어갈 수 있도록 하는 부분과, 새로 들어온 사람에게 개발하는 서비스가 어떤 의미가 있는지를 이야기 하는 데 많은 에너지를 쓴 것 같네요.</p>
+	</div>
+</article><article class="list__item post">
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
@@ -307,44 +328,6 @@ END RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a
 REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a  Duration: 1.56 ms       Billed Duration: 100 ms         Memory Size: 128 MB     Max Memory Used: 22 MB
 </code></pre><p>release인 경우</p>
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/python-datetime-fromtimestamp/" rel="bookmark">
-			Python Datetime의 fromtimestamp() 사용 시 주의할 점
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-09-13T00:08:00&#43;09:00">2018-09-13</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>최근에 Timestamp가 있는 데이터를 다루다가, 신기한 버그를 발견하여 여기에 기록해 본다. 해당 문제가 수정된 것 같기는 한데, 아직 배포는 안 된 것 같다.</p>
-<h3 id="windows에서-발생하는-버그">Windows에서 발생하는 버그</h3>
-<figure><img src="/img/python_fromtimestamp_windows.png"
-    alt="fromtimestamp 함수의 버그 (Windows)"><figcaption>
-      <p>fromtimestamp 함수의 버그 (Windows)</p>
-    </figcaption>
-</figure>
-
-<p><a href="https://bugs.python.org/issue29097">해당 이슈</a>에 대해 설명한 부분을 확인하면, <strong><em>0에서 86399</em></strong> 사이의 값을 입력하면 OSError가 발생한다.</p>
-<h3 id="ubuntu에서는">Ubuntu에서는?</h3>
-<p>잘 동작한다. 심지어 Windows 10에 깔린 Ubuntu를 이용했고, 3.5.x 버전인데도 멀쩡히 잘 돌아간다.</p>
-<figure><img src="/img/python_fromtimestamp_ubuntu.png"
-    alt="Ubuntu에서는 정상적으로 동작한다."><figcaption>
-      <p>Ubuntu에서는 정상적으로 동작한다.</p>
-    </figcaption>
-</figure>
-
-<h3 id="참고자료">참고자료</h3>
-<ul>
-<li><a href="https://bugs.python.org/issue29097">https://bugs.python.org/issue29097</a></li>
-<li><a href="https://docs.python.org/3/whatsnew/changelog.html">https://docs.python.org/3/whatsnew/changelog.html</a></li>
-</ul>
-	</div>
 </article>
 </main>
 
@@ -368,6 +351,8 @@ REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a  Duration: 1.56 ms       
 		<ul class="widget__list">
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/aws/">AWS</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/categories/azure/">Azure</a></li>
 			<li class="widget__item">
 				<a class="widget__link" href="/categories/data-engineering/">Data Engineering</a></li>
 			<li class="widget__item">
@@ -403,6 +388,7 @@ REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a  Duration: 1.56 ms       
 		<a class="widget-taglist__link widget__link btn" href="/tags/argo/" title="Argo">Argo</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/argo-workflow/" title="Argo Workflow">Argo Workflow</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/aws/" title="AWS">AWS</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/azure/" title="Azure">Azure</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/belle-and-sebastian/" title="Belle and Sebastian">Belle and Sebastian</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/beta-band/" title="Beta Band">Beta Band</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/big-data/" title="Big Data">Big Data</a>
