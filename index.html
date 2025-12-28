@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.153.0">
+	<meta name="generator" content="Hugo 0.153.3">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>GoniGoni!</title>
@@ -55,6 +55,37 @@
 			
 <main class="main list" role="main">
 	<article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/posts/starting-azure-2/" rel="bookmark">
+			AWS만 쓰던 사람이 Azure 써 보는 이야기: (2) 서버
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2025-12-28T08:04:10&#43;09:00">2025-12-28</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/azure/" rel="category">Azure</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>지난 글에 이어서 AWS만 써 온 사람이 Azure를 사용해 보는 이야기를 계속하겠습니다. 이번 글에서는 AWS와 비교해서 Azure에서 가상 머신을 관리하는 방법을 이야기 해 보려고 합니다. 이번 글에서는 Azure CLI와 Terraform을 사용하는 경우가 많아서 이러한 툴이 설치되어 있으면 좋습니다.</p>
+<p>글이 길어서 이번 글에서 다루는 내용을 간단하게 요약하겠습니다. 아래 내용을 참고해 주세요.</p>
+<ul>
+<li>EC2 vs 가상 머신
+<ul>
+<li>서버 크기 선택</li>
+<li>OS 이미지 선택</li>
+<li>네트워크 설정</li>
+<li>SSH 키 페어 관리</li>
+</ul>
+</li>
+<li>오토 스케일링 그룹 vs VMSS(가상 머신 확장 집합)</li>
+</ul>
+<h2 id="가상-머신">가상 머신</h2>
+<p>AWS의 EC2와 같은 서비스로 Azure의 가상 머신(Virtual Machines) 서비스가 있습니다. 포털에서 가상 머신을 만드는 방법을 전부 알려드리지 않고, 차이점 위주로 설명해 보겠습니다.</p>
+	</div>
+</article><article class="list__item post">
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
@@ -227,29 +258,6 @@
 		<h2 id="들어가며">들어가며</h2>
 <p>인터넷 서비스를 운영하다 보면 DDoS 공격을 받는 경우가 종종 있습니다. 해킹 목적으로 사이트를 공격한다거나, 경쟁사를 견제하기 위한 목적으로 DDoS 공격을 하는 사례가 있습니다. 그 외에도 실수로 API 호출을 너무 많이 하는 바람에 의도치 않게 상대 서비스를 다운시키는 경우도 있겠죠. 이러한 DDoS 공격을 막기 위해, 클라우드 벤더에서 제공하는 기능이나 여러 회사에서 제공하는 솔루션 제품들을 사용할 수 있습니다.</p>
 <p>이번 글에서는 공격에 사용된 IP 주소 목록이 있을 때, IP 주소의 세부 정보를 얻을 수 있는 방법에 대해 이야기 해 보고자 합니다.</p>
-	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/move-2023/" rel="bookmark">
-			2023년 하반기 이직 후기
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2023-08-06T18:00:00&#43;09:00">2023-08-06</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<figure><img src="/img/move-2023-1.png"
-    alt="2022년 펜타포트 락 페스티벌에서 찍은 &lsquo;퇴사&rsquo; 깃발. 퇴사 기념 짤로 쓰고 싶었는데 실패했네요. (이 깃발은 올해에도 등장했습니다)"><figcaption>
-      <p>2022년 펜타포트 락 페스티벌에서 찍은 &lsquo;퇴사&rsquo; 깃발. 퇴사 기념 짤로 쓰고 싶었는데 실패했네요. (이 깃발은 올해에도 등장했습니다)</p>
-    </figcaption>
-</figure>
-
-<p>회사 상황이 어려워져서 재직 중이던 회사를 떠나게 되었습니다. 이에 의도하지 않은 이직을 하게 되었는데요. 조금 급하게 이직을 한 감이 있지만, 그 과정을 돌아보려고 합니다. 그리고 앞으로 어떻게 커리어를 이어 나갈지에 대해 고민한 내용도 이야기 해 보고자 합니다.</p>
 	</div>
 </article>
 </main>

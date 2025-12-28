@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.153.0">
+	<meta name="generator" content="Hugo 0.153.3">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>GoniGoni!</title>
@@ -55,6 +55,35 @@
 			
 <main class="main list" role="main">
 	<article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/posts/bitnami-mongodb/" rel="bookmark">
+			EC2에 Bitnami MongoDB 이미지 올리기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2019-02-16T22:30:00&#43;09:00">2019-02-16</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>최근에 AWS에서 MongoDB와 호환되는 <a href="https://aws.amazon.com/ko/documentdb/">DocumentDB</a>를 출시했지만, <del>아직 서울 리전에서는 사용할 수 없다.</del></p>
+<p>(2019년 5월에 서울 리전에 출시되었습니다. <a href="https://aws.amazon.com/ko/blogs/korea/amazon-documentdb-and-kinesis-analytics-seoul-region/">링크한 글을 확인해 주세요~</a>)</p>
+<p>그렇지만 필요에 따라 MongoDB를 쓸 일이 있을 것이다. AWS에서 Bitnami의 이미지를 활용해서 EC2에 MongoDB를 올려보고, 시험 삼아 데이터를 넣어보자.</p>
+<h3 id="ec2-설정">EC2 설정</h3>
+<p>EC2 인스턴스를 생성하기 위해 AWS의 EC2 콘솔로 들어간다. 아래 스크린샷과 같은 화면이 나오면, &lsquo;인스턴스 시작&rsquo;을 누른다.</p>
+<figure><img src="/img/bitnami-mongodb-1.png">
+</figure>
+
+<p>그리고 검색어에서 MongoDB를 입력하고, 왼쪽에서 AWS Marketplace를 누른다.</p>
+<figure><img src="/img/bitnami-mongodb-2.png">
+</figure>
+
+<p>스크롤을 아래로 내리다 보면, &lsquo;MongoDB Certified by Bitnami&rsquo;가 있다. 오른쪽의 선택 버튼을 누른다.</p>
+	</div>
+</article><article class="list__item post">
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
@@ -297,36 +326,6 @@ queryUrl
 <li><code>@</code>의 경우, <code>%40</code>으로 바꾸면(escaping) 문제를 해결할 수 있다.</li>
 </ul>
 <p>위에 올라온 프로그램의 경우는 사용자 이름을 체크해서 변경이 필요하면 변경하고, 아니면 그대로 사용하는 식으로 처리한 것 같다.</p>
-	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/check-lambda-version/" rel="bookmark">
-			AWS Lambda에서 별칭(alias)으로 함수 버전 구분하기
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-10-02T23:16:00&#43;09:00">2018-10-02</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>test라는 함수가 있고, dev, release라는 별칭(alias)이 존재한다고 하자. 그리고 모든 별칭은 동일한 버전을 가리킨다고 하자.</p>
-<p>이 경우 context 객체의 invoked_function_arn은 어떻게 달라지는지 보자. 테스트를 위해, 다음과 같이 파이썬으로 함수를 작성하였다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> json
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lambda_handler</span>(event, context): 
-</span></span><span style="display:flex;"><span>    print(context<span style="color:#f92672">.</span>invoked_function_arn)
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Success&#34;</span>
-</span></span></code></pre></div><p>그리고 CloudWatch에 기록된 로그를 보자.</p>
-<p>dev인 경우</p>
-<pre tabindex="0"><code>START RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a Version: 1
-arn:aws:lambda:ap-northeast-2:256724228018:function:test:dev
-END RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a
-REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a  Duration: 1.56 ms       Billed Duration: 100 ms         Memory Size: 128 MB     Max Memory Used: 22 MB
-</code></pre><p>release인 경우</p>
 	</div>
 </article>
 </main>
