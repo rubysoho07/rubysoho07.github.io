@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.153.3">
+	<meta name="generator" content="Hugo 0.154.5">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>GoniGoni!</title>
@@ -55,6 +55,31 @@
 			
 <main class="main list" role="main">
 	<article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/posts/starting-azure-3/" rel="bookmark">
+			AWS만 쓰던 사람이 Azure 써 보는 이야기: (3) 스토리지
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2026-01-14T22:50:00&#43;09:00">2026-01-14</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/azure/" rel="category">Azure</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p><a href="/posts/starting-azure-1/">1편</a>, <a href="/posts/starting-azure-2/">2편</a>에 이어서 AWS만 써 온 사람이 Azure를 사용해 보는 이야기를 이어가겠습니다. 저는 인프라의 가장 중요한 구성요소는 네트워크, 컴퓨팅 리소스, 스토리지라고 생각하는데요. 이번 글에서는 인프라의 가장 중요한 요소 중 하나인 스토리지에 대한 이야기를 해 보겠습니다.</p>
+<h2 id="azure의-스토리지-서비스-비교하기">Azure의 스토리지 서비스 비교하기</h2>
+<p>파일을 저장할 곳을 생각한다면 다음과 같은 기준으로 선택을 하지 않을까 싶습니다.</p>
+<ul>
+<li>서버 내 파일 시스템에 마운트 하는 HDD/SSD → 블록 스토리지</li>
+<li>서버에 마운트하지 않고, 자유롭게 업로드/다운로드 하는 스토리지 → 객체 스토리지</li>
+<li>여러 서버에서 동시에 연결할 수 있는 스토리지 → 네트워크 스토리지 (NFS/SMB 프로토콜 기반)</li>
+</ul>
+<p>AWS와 Azure에서 각각의 용도에 맞는 서비스를 비교해 보면 다음과 같습니다. 하나씩 살펴보시죠.</p>
+	</div>
+</article><article class="list__item post">
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
@@ -240,30 +265,11 @@
 	<div class="content list__excerpt post__content clearfix">
 		<p>대학을 졸업하고 사회에 나온 지 딱 10 년이 되었습니다. 대학 시절의 전공은 지금 하는 일과 거리가 멀지만, 복수전공 후 IT 업계로 전직한 계기를 설명하자면 글이 길어질 듯 하여 생략하겠습니다. 사실 갑자기 IT 업계에 관심이 생겨서는 아니었고, 예전부터 코드로 프로그램을 만드는 데 관심이 있기는 했습니다. (<a href="https://www.dt.co.kr/contents.html?article_no=20000829171241002">관련기사</a> - 직접 인터뷰 한 건 아니고, 공개된 정보를 통해 작성된 기사) 그래서 중학생 때까지는 장래희망에 프로그래머라고 계속 적었던 기억이 있습니다. 한참 돌아서 오기는 했지만, 결국 IT 업계에서 일하게 되었고 10 년 간 여러 가지 업무를 해 왔네요. 심지어 최근 2 년 간은 팀 리더로서 일했고, 앞으로도 당분간 팀을 이끄는 역할을 하게 될 듯 합니다.</p>
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/ip-location-api/" rel="bookmark">
-			IP 주소로부터 여러 가지 정보를 가져오기
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2023-08-27T18:57:25&#43;09:00">2023-08-27</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/devops/" rel="category">DevOps</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<h2 id="들어가며">들어가며</h2>
-<p>인터넷 서비스를 운영하다 보면 DDoS 공격을 받는 경우가 종종 있습니다. 해킹 목적으로 사이트를 공격한다거나, 경쟁사를 견제하기 위한 목적으로 DDoS 공격을 하는 사례가 있습니다. 그 외에도 실수로 API 호출을 너무 많이 하는 바람에 의도치 않게 상대 서비스를 다운시키는 경우도 있겠죠. 이러한 DDoS 공격을 막기 위해, 클라우드 벤더에서 제공하는 기능이나 여러 회사에서 제공하는 솔루션 제품들을 사용할 수 있습니다.</p>
-<p>이번 글에서는 공격에 사용된 IP 주소 목록이 있을 때, IP 주소의 세부 정보를 얻을 수 있는 방법에 대해 이야기 해 보고자 합니다.</p>
-	</div>
 </article>
 </main>
 
 <div class="pagination">
-	<span class="pagination__item pagination__item--current">1/6</span>
+	<span class="pagination__item pagination__item--current">1/7</span>
 	<a class="pagination__item pagination__item--next btn" href="/page/2/">»</a>
 </div>
 
@@ -458,7 +464,7 @@
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2025 Yungon Park.
+			&copy; 2026 Yungon Park.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>

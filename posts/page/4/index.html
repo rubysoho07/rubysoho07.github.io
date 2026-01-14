@@ -59,6 +59,26 @@
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/collecting-data-from-scratch/" rel="bookmark">
+			데이터 수집 단계를 처음부터 구현해 보기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2021-01-24T19:36:57&#43;09:00">2021-01-24</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/data-engineering/" rel="category">Data Engineering</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>2021년에는 매월 최소한 글 한 편은 블로그에 올려야겠다고 생각했습니다. 그 달에 공부했던 것, 새로 알게 된 것들을 주로 정리해서 올릴 예정입니다.</p>
+<p>이번 달은 <strong>&lsquo;데이터 수집 단계를 처음부터 구현해 보기&rsquo;</strong> 라는 주제로 테스트 해 본 것들을 정리해 보겠습니다.</p>
+<h2 id="왜-이-일을-하게-되었나">왜 이 일을 하게 되었나?</h2>
+<p>지금 제가 회사에서 하는 일은 학생의 학습 데이터를 수집하고 분석하는 인프라를 구축/운영하는 것입니다. 3년 간 AWS를 기반으로 여러 서비스들을 운영해 보면서, &lsquo;만약 AWS를 쓰지 않는 환경이라면, 어떻게 시스템 구축을 할 것인가?&lsquo;를 고민하게 되었습니다. 그러면서 &lsquo;새로운 방식으로 지금까지 만들었던 것들을 다시 구축해 보면 어떨까?&rsquo; 라는 생각이 들었습니다. 그래서 데이터를 수집하고 분석하는 시스템을 처음부터 구축해 보려고 합니다.</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/retrospect-2020/" rel="bookmark">
 			2020년 회고
 			</a>
@@ -263,31 +283,12 @@
 <li>
 <p>Serverless Framework는 다양한 클라우드 벤더를 지원하지만, 다른 AWS 서비스를 연동하는 데 제약이 있지 않을까? 하는 막연한 생각이 들었다. (잘 찾아보니 내가 원하는 것들은 구현 가능할 것 같더라. 내가 잘못 생각했던 것 같다)</p>
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/hortonworks-sandbox-on-aws/" rel="bookmark">
-			Hortonworks Sandbox를 AWS에서 사용하기
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2019-10-16T21:05:00&#43;09:00">2019-10-16</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<h2 id="들어가며">들어가며</h2>
-<p>최근에 <a href="http://www.yes24.com/Product/Goods/44307209">&lsquo;하둡과 스파크를 활용한 실용 데이터 과학&rsquo;</a>이라는 책을 읽고 따라해 보고 있다. 이 책에서는 실습을 위해 호튼웍스(Hortonworks)의 Sandbox 이미지를 사용해 보기를 권장하고 있다. 그런데 설치 방법을 찾다 보니, 권장 사양이 높은 것 같다는 생각이 들었다. 이 이미지를 VirtualBox에서 사용할 때, 메모리 용량이 8GB로 설정되어 있었다. 그런데 지금 내가 쓰고 있는 노트북의 메모리 용량이 8GB라 좀 어려울 것 같았다. 그래서 AWS에 이 이미지를 올려보게 되었다.</p>
-<p><strong>(주의: 이 글에서 설명하는 내용은 AWS의 Free Tier 범위를 넘어가므로 사용한 만큼 요금이 부과됩니다. 크레딧이 있거나 비용 지불이 가능한 경우에 사용하시기 바랍니다. 비용 발생에 대한 책임은 독자에게 있습니다.)</strong></p>
-	</div>
 </article>
 </main>
 
 <div class="pagination">
 	<a class="pagination__item pagination__item--prev btn" href="/posts/page/3/">«</a>
-	<span class="pagination__item pagination__item--current">4/6</span>
+	<span class="pagination__item pagination__item--current">4/7</span>
 	<a class="pagination__item pagination__item--next btn" href="/posts/page/5/">»</a>
 </div>
 
@@ -483,7 +484,7 @@
 	<div class="container footer__container flex">
 		
 		<div class="footer__copyright">
-			&copy; 2025 Yungon Park.
+			&copy; 2026 Yungon Park.
 			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
 		</div>
 	</div>
