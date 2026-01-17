@@ -59,6 +59,38 @@
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/logging-rds/" rel="bookmark">
+			RDS MySQL에서 일반/느린 쿼리 로그 찍기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-10-03T14:24:00&#43;09:00">2018-10-03</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>RDS MySQL을 이용하면, 아래와 같이 CloudWatch에 일반/감사/느린 쿼리 로그를 찍도록 설정할 수 있다.</p>
+<figure><img src="/img/rds-logging-1.png"
+    alt="로그 찍기 설정(RDS 인스턴스 생성 시)"><figcaption>
+      <p>로그 찍기 설정(RDS 인스턴스 생성 시)</p>
+    </figcaption>
+</figure>
+
+<p>그리고 RDS 콘솔에 들어가면 로그 파일을 볼 수 있는데, 일반 로그나 느린 쿼리 로그를 찾을 수 없었다. 그래서 CloudWatch Logs를 찾아봤지만, 역시 로그가 없었다.</p>
+<figure><img src="/img/rds-logging-2.png"
+    alt="로그 파일이 없다(-_-&hellip;)"><figcaption>
+      <p>로그 파일이 없다(-_-&hellip;)</p>
+    </figcaption>
+</figure>
+
+<p>그 이유를 찾아 보니, 파라미터 그룹에 로그 관련 설정을 하지 않은 것이 원인이었다.</p>
+<p>다음과 같이 설정하면 된다.</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/git-error-at/" rel="bookmark">
 			Git 원격 저장소에서 사용자 이름에 &#39;@&#39;이 들어가면 동작하지 않는 경우
 			</a>
@@ -300,27 +332,6 @@ OK
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> datetime
 </span></span><span style="display:flex;"><span>now <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>now()
 </span></span></code></pre></div><p>이 글을 쓰는 시점에서 now의 내용은 다음과 같다.</p>
-	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/use-sed-to-replace-text/" rel="bookmark">
-			sed를 이용한 텍스트 파일 바꾸기
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-04-21T21:09:00&#43;09:00">2018-04-21</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/linux/" rel="category">Linux</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>쉘 스크립트를 만들 때, 텍스트 파일의 내용을 바꾸는 기능이 필요할 때가 있다. 이 경우 <code>sed</code>를 쓰는데, sed의 사용 방법이 헷갈릴 때가 많아 이 기회에 정리를 해 보고자 한다. 이 글에서는 기본적인 사용 방법과 내가 주로 사용하는 기능만 정리하였다. sed가 지원하는 전체 기능이 궁금하다면, man page(<code>man sed</code>)를 확인하는 것이 최선이다.</p>
-<h3 id="텍스트-바꾸기">텍스트 바꾸기</h3>
-<p>기본적으로 sed를 이용해서 텍스트를 바꾸는 방법은 다음과 같다.</p>
-<pre tabindex="0"><code>$ sed -i &#39;s/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/g&#39; &lt;파일 이름&gt;
-</code></pre><p>여기서 <code>-i</code>, <code>s/&lt;원래 내용&gt;/&lt;바꿀 내용&gt;/</code>, <code>g</code>가 의미하는 내용은 다음과 같다.</p>
 	</div>
 </article>
 </main>
