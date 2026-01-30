@@ -108,7 +108,7 @@
 <p>참고자료: <a href="https://github.com/awslabs/serverless-application-model/issues/138">GitHub 이슈</a></p>
 <p>S3 버킷을 만들고, 거기에 Lambda Trigger를 연동하고, 필요한 IAM Role을 생성했을 때 이런 이슈가 발생했었다. 이러면 IAM Role이 S3와 Lambda를 참조하고, Lambda가 S3와 IAM Role을 참조하는 상황이어서 그런 것 같았다.</p>
 <p>이 경우 아래와 같이 S3 버킷 이름을 Parameters에 빼고, Lambda, S3 버킷, IAM Role이 참조하도록 만들었더니 해결되었다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># 윗부분 생략 </span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># 윗부분 생략 </span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">Parameters</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">MyBucketName</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">String</span>
@@ -139,7 +139,7 @@
 </span></span></code></pre></div><h3 id="api-gateway와-cognito-연동하기">API Gateway와 Cognito 연동하기</h3>
 <p>참고자료: <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-controlling-access-to-apis.html">AWS 문서 - Controlling Access to API Gateway APIs</a></p>
 <p>보통은 API 리소스의 Auth 속성에 설정해 주면 된다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Resources</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Resources</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">MyApi</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">AWS::Serverless::Api</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">Properties</span>:
@@ -151,7 +151,7 @@
 </span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Resources 속성 안에 MyCognitoUserPool이 있다고 가정한다.</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">UserPoolArn</span>: !<span style="color:#ae81ff">GetAtt MyCognitoUserPool.Arn   </span>
 </span></span></code></pre></div><p>API 리소스 안에 DefinitionBody 속성을 설정했다면, DefinitionBody 속성에도 이런 내용을 넣어야 할 것이다. (물론 Function 리소스의 Events 속성에 API를 연결했다면 없어도 무방하다)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">paths</span>: 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">paths</span>: 
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">/test-path</span>: 
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">post</span>: 
 </span></span><span style="display:flex;"><span>      <span style="color:#75715e"># 중간 과정 생략</span>
@@ -163,7 +163,7 @@
 <p>참고자료: <a href="https://github.com/awslabs/serverless-application-model/issues/300">관련 GitHub 이슈</a></p>
 <p>S3의 특정 조건을 기준으로 Events 속성을 지정했는데, 배포 후 살펴보니 Lambda 함수에 트리거 정보가 없었다.</p>
 <p>이 경우 아래와 같이 Lambda의 Permission을 Resources에 추가하면 해결 가능하더라.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Resources</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Resources</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e"># 함수(TestLambdaFunction)나 버킷(TestBucket) 관련 정보가 있다고 가정합니다.</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">MyFunctionPermission</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">AWS::Lambda::Permission</span>

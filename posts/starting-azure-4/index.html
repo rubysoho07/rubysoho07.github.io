@@ -83,7 +83,7 @@
 <h3 id="클러스터-구성">클러스터 구성</h3>
 <p>AWS에서 EKS 클러스터를 구성하는 것과 같이 Azure에서도 AKS 클러스터를 생성할 수 있습니다. 클러스터 생성 방법은 <a href="https://learn.microsoft.com/ko-kr/azure/aks/learn/quick-kubernetes-deploy-cli">링크</a>를 참조하세요. (페이지 왼쪽을 보시면 Terrafrom과 같은 다른 방법으로 구성하는 방법도 나와 있습니다)</p>
 <p>kubeconfig 파일을 받을 때는 Azure CLI를 이용하여 아래 명령을 입력하시면 됩니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># &#39;-f FILENAME&#39; 옵션은 기본 kubeconfig($HOME/.kube/config) 대신 다른 이름으로 저장할 때 사용합니다. </span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># &#39;-f FILENAME&#39; 옵션은 기본 kubeconfig($HOME/.kube/config) 대신 다른 이름으로 저장할 때 사용합니다. </span>
 </span></span><span style="display:flex;"><span>az aks get-credentials --resource-group <span style="color:#f92672">(</span>리소스 그룹 이름<span style="color:#f92672">)</span> --name <span style="color:#f92672">(</span>클러스터 이름<span style="color:#f92672">)</span> --admin -f $HOME/.kube/aks.config
 </span></span></code></pre></div><p>Terraform으로 간단한 클러스터를 생성해 봤는데 3분~4분 정도 소요되었습니다.</p>
 <p><strong>노드 풀 구성 시 주의할 점</strong></p>
@@ -102,13 +102,13 @@
 <p><strong>ACR에서 이미지를 가져올 수 있는 권한 추가</strong></p>
 <p>EKS에서는 각각의 워커 노드에 ECR에 대한 읽기 전용 권한을 부여하면 Private 이미지를 가져올 수 있습니다. AKS에서는 클러스터 단위로 권한을 설정할 수 있습니다. (<a href="https://learn.microsoft.com/ko-kr/azure/aks/cluster-container-registry-integration?tabs=azure-cli">참고자료</a>)</p>
 <p>(1) Azure CLI를 이용하는 방법</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 새 클러스터를 만들 때 연결하기</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 새 클러스터를 만들 때 연결하기</span>
 </span></span><span style="display:flex;"><span>az aks create --name &lt;cluster-name&gt; --resource-group &lt;resource-group-name&gt; --generate-ssh-keys --attach-acr &lt;acr-name&gt;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 기존에 있던 클러스터에 연결하기</span>
 </span></span><span style="display:flex;"><span>az aks update --name &lt;cluster-name&gt; --resource-group &lt;resource-group-name&gt; --attach-acr &lt;acr-name&gt;
 </span></span></code></pre></div><p>(2) Terraform으로 구성하는 방법</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-hcl" data-lang="hcl"><span style="display:flex;"><span><span style="color:#75715e"># azurerm_container_registry 리소스 및 azurerm_kubernetes_cluster 리소스가 있다고 가정합니다. 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-hcl" data-lang="hcl"><span style="display:flex;"><span><span style="color:#75715e"># azurerm_container_registry 리소스 및 azurerm_kubernetes_cluster 리소스가 있다고 가정합니다. 
 </span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;azurerm_role_assignment&#34; &#34;acr_role&#34;</span> {
 </span></span><span style="display:flex;"><span>  principal_id                     <span style="color:#f92672">=</span> <span style="color:#66d9ef">azurerm_kubernetes_cluster</span>.<span style="color:#66d9ef">your_cluster</span>.<span style="color:#66d9ef">kubelet_identity</span>[<span style="color:#ae81ff">0</span>].<span style="color:#66d9ef">object_id</span>
 </span></span><span style="display:flex;"><span>  role_definition_name             <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;AcrPull&#34;</span>
@@ -125,9 +125,9 @@
 <p>근데 컨테이너용 Application Gateway를 연결하려고 하다 보니 이래저래 고려해야 할 점이 많더라구요. 더 쉬운 방법이 있을지 찾아보다가 <a href="https://learn.microsoft.com/ko-kr/azure/aks/app-routing">Application Routing</a> 기능을 발견했습니다. 이 기능을 이용하면 ingress-nginx를 설치하지 않아도 바로 Ingress를 연결할 수 있습니다.</p>
 <p>AKS 클러스터에 애플리케이션 라우팅을 활성화 해 봅시다.</p>
 <p>(1) Azure CLI</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>az aks approuting enable --resource-group &lt;ResourceGroupName&gt; --name &lt;ClusterName&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>az aks approuting enable --resource-group &lt;ResourceGroupName&gt; --name &lt;ClusterName&gt;
 </span></span></code></pre></div><p>(2) Terraform</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-hcl" data-lang="hcl"><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;azurerm_kubernetes_cluster&#34; &#34;my_aks_cluster&#34;</span> {<span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-hcl" data-lang="hcl"><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;azurerm_kubernetes_cluster&#34; &#34;my_aks_cluster&#34;</span> {<span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  # (중간 생략)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  # 아래 내용을 추가해 주세요.
@@ -138,7 +138,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">  # (중간 생략)
 </span></span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>이제 Ingress를 다음과 같이 설정해서 배포합니다. (<code>spec.ingressClassName: webapprouting.kubernetes.azure.com</code> 부분에 주목!)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># Service, Deployment는 생략했습니다. (다음 파트의 YAML 파일 내용 중, Service의 spec.type만 ClusterIP로 바꿔서 넣어도 됩니다)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># Service, Deployment는 생략했습니다. (다음 파트의 YAML 파일 내용 중, Service의 spec.type만 ClusterIP로 바꿔서 넣어도 됩니다)</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">networking.k8s.io/v1</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Ingress</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
@@ -157,13 +157,13 @@
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">port</span>:
 </span></span><span style="display:flex;"><span>              <span style="color:#f92672">number</span>: <span style="color:#ae81ff">80</span>
 </span></span></code></pre></div><p><code>kubectl get ingress</code> 명령으로 조회해 보면 아래와 같이 나옵니다. <code>ADDRESS</code> 항목이 비어 있으면 조금 기다렸다가 다시 확인해 주세요.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ kubectl get ingress
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ kubectl get ingress
 </span></span><span style="display:flex;"><span>NAME            CLASS                                HOSTS   ADDRESS        PORTS   AGE
 </span></span><span style="display:flex;"><span>nginx-ingress   webapprouting.kubernetes.azure.com   *       <span style="color:#f92672">(</span>임의의 IP 주소<span style="color:#f92672">)</span>  <span style="color:#ae81ff">80</span>      73s
 </span></span></code></pre></div><p><code>ADDRESS</code> 항목에 있는 IP를 복사해서 웹 브라우저에 접속해 보면 페이지가 나오는 것을 볼 수 있습니다.</p>
 <h3 id="service에-type-loadbalancer를-지정하면">Service에 <code>type: LoadBalancer</code>를 지정하면?</h3>
 <p>아래와 같은 k8s manifest를 작성 후 <code>test.yaml</code> 파일로 저장합니다. 그리고 <code>kubectl apply -f test.yaml</code>을 실행해 보겠습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">nginx-deployment</span>
@@ -199,12 +199,12 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">targetPort</span>: <span style="color:#ae81ff">80</span>
 </span></span></code></pre></div><p>Ingress Controller를 설치하지 않았을 때, Service의 <code>spec.type</code> 항목의 Load Balancer를 지정하면 어떻게 동작할까요?</p>
 <p><strong>EKS에서 동작</strong>: CLB와 CLB에 연결된 보안 그룹을 생성합니다. 워커 노드를 타겟 인스턴스로 지정합니다. <code>kubectl</code>에서 조회해 보면 아래와 같이 표시됩니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ kubectl get svc
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ kubectl get svc
 </span></span><span style="display:flex;"><span>NAME            TYPE           CLUSTER-IP       EXTERNAL-IP      PORT<span style="color:#f92672">(</span>S<span style="color:#f92672">)</span>        AGE
 </span></span><span style="display:flex;"><span>kubernetes      ClusterIP      10.100.0.1       &lt;none&gt;           443/TCP        62m
 </span></span><span style="display:flex;"><span>nginx-service   LoadBalancer   10.100.195.137   <span style="color:#f92672">(</span>CLB DNS name<span style="color:#f92672">)</span>   80:30464/TCP   30m
 </span></span></code></pre></div><p><strong>AKS에서 동작</strong>: AKS가 관리하는 노드 풀에 Load Balancer가 있습니다. (AWS의 NLB와 같다고 생각하시면 됩니다) Load Balancer에 공인 IP를 추가하고 서비스와 연결합니다. <code>kubectl</code>로 조회해 보면 아래와 같습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ kubectl get svc                              
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ kubectl get svc                              
 </span></span><span style="display:flex;"><span>NAME            TYPE           CLUSTER-IP    EXTERNAL-IP   PORT<span style="color:#f92672">(</span>S<span style="color:#f92672">)</span>        AGE
 </span></span><span style="display:flex;"><span>kubernetes      ClusterIP      10.1.0.1      &lt;none&gt;        443/TCP        71m
 </span></span><span style="display:flex;"><span>nginx-service   LoadBalancer   10.1.67.147   <span style="color:#f92672">(</span>Public IP<span style="color:#f92672">)</span>   80:31821/TCP   88s

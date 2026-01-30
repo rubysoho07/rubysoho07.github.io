@@ -68,13 +68,13 @@
 <p>저는 로컬 환경에서 Rancher Desktop을 이용해서 테스트하였습니다. (즉, 로컬 환경에서 Kubernetes를 구동시킬 수 있는 상황이면 아래 내용을 테스트 할 수 있습니다)</p>
 <h2 id="설치-방법">설치 방법</h2>
 <p>이 글을 작성하는 시점의 최신 버전인 3.5.8 버전을 이용해 보겠습니다. 터미널에서 아래 명령을 입력해 주세요.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ARGO_WORKFLOWS_VERSION<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;v3.5.8&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ARGO_WORKFLOWS_VERSION<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;v3.5.8&#34;</span>
 </span></span><span style="display:flex;"><span>kubectl create namespace argo
 </span></span><span style="display:flex;"><span>kubectl apply -n argo -f <span style="color:#e6db74">&#34;https://github.com/argoproj/argo-workflows/releases/download/</span><span style="color:#e6db74">${</span>ARGO_WORKFLOWS_VERSION<span style="color:#e6db74">}</span><span style="color:#e6db74">/quick-start-minimal.yaml&#34;</span>
 </span></span></code></pre></div><p>위의 명령은 테스트용 설치 과정입니다. 프로덕션 목적으로 Argo Workflows를 구축하려면 <a href="https://argo-workflows.readthedocs.io/en/latest/installation/">문서</a>를 참조해 주세요.</p>
 <h3 id="ui에서-확인하기">UI에서 확인하기</h3>
 <p>Argo Workflows는 웹에서 확인할 수 있는 환경을 제공합니다. 포트 포워딩을 하기 위해 터미널에서 아래 명령을 입력해 주세요.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kubectl -n argo port-forward svc/argo-server 2746:2746
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kubectl -n argo port-forward svc/argo-server 2746:2746
 </span></span></code></pre></div><p>웹 브라우저에서 https://localhost:2746 으로 접속하면 아래와 같은 화면을 볼 수 있습니다.</p>
 <figure><img src="/img/argo-workflows-1.png">
 </figure>
@@ -83,7 +83,7 @@
 <p>Argo가 Kubernetes API를 이용해서 Kubernetes 리소스와 통신하기 위해, <code>ServiceAccount</code>, <code>Role</code>, <code>RoleBinding</code> 설정이 필요합니다.</p>
 <p>ServiceAccount를 지정하지 않으면, namespace 내 default ServiceAccount를 이용한다고 하는데요. 이 경우 권한이 충분하지 않아 에러가 발생할 수 있습니다. (<a href="https://argo-workflows.readthedocs.io/en/latest/service-accounts/">참고자료</a>)</p>
 <p>최소한으로 필요한 권한을 이용해서 다음과 같이 ServiceAccount와 권한을 설정해 보겠습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ServiceAccount</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">argo-workflow-sa</span>
@@ -118,7 +118,7 @@
 <p>예전에 Step Functions를 사용했던 경험으로, 유사한 기능을 지원하는지 확인해 보려고 합니다.</p>
 <h3 id="case-1-기본-동작">Case 1: 기본 동작</h3>
 <p>기본 동작을 확인하기 위해 Walk through 문서의 hello world 예제로 시작합니다. 다만 수정할 부분이 하나 있는데요. 앞에서 만든 ServiceAccount를 지정해 줍니다. 이후에 나오는 예제에도 동일하게 설정해야 정상적으로 동작합니다. (<code>serviceAccountName</code> 속성)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">argoproj.io/v1alpha1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">argoproj.io/v1alpha1</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Workflow                  </span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">generateName</span>: <span style="color:#ae81ff">hello-world-   </span>
@@ -166,7 +166,7 @@
 <p>Airflow에 익숙하시다면 DAG(Directed Acyclic Graph)에 대해 들어본 적이 있으실 것입니다. DAG는 방향이 있지만 순환하지 않는 그래프입니다. Airflow와 마찬가지로 Argo Workflows에서도 DAG를 지원합니다. Case 2의 Steps와 다르게, 각각의 작업에 의존성을 지정할 수 있는데요. <code>dependencies</code> 속성으로 지정할 수 있습니다.</p>
 <p>Walk through 문서의 <a href="https://argo-workflows.readthedocs.io/en/latest/walk-through/dag/">DAG</a> 문서로 테스트 해 보겠습니다. 이번에도 잊지 마시고 <code>spec.serviceAccountName</code>에 ServiceAccount를 지정해 주세요.</p>
 <p>예제의 내용 중 <code>spec</code> 부분을 보시죠.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">entrypoint</span>: <span style="color:#ae81ff">diamond</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">serviceAccountName</span>: <span style="color:#ae81ff">argo-workflow-sa   </span> <span style="color:#75715e"># 실행할 때 추가해 주세요.</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">templates</span>:
@@ -214,7 +214,7 @@
 <p>이전 작업의 결과값을 다음 작업의 입력값으로 사용해야 할 때가 있습니다. 이럴 때는 어떻게 하는지 살펴보도록 하겠습니다.</p>
 <p>Walk through 문서의 <a href="https://argo-workflows.readthedocs.io/en/latest/walk-through/output-parameters/">Output Parameters</a> 예제를 가지고 테스트 해 보겠습니다. 이번에도 <code>spec.serviceAccountName</code> 항목을 설정해 주세요.</p>
 <p>이 예제는 <code>generate-parameter</code> → <code>consume-parameter</code> 순으로 실행합니다. 아래 YAML에서 <code>steps</code> 부분을 참고해 주세요.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">argoproj.io/v1alpha1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">argoproj.io/v1alpha1</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Workflow</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">generateName</span>: <span style="color:#ae81ff">output-parameter-</span>
@@ -232,7 +232,7 @@
 </span></span><span style="display:flex;"><span>          - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">message</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;{{steps.generate-parameter.outputs.parameters.hello-param}}&#34;</span>
 </span></span></code></pre></div><p><code>generate-parameter</code> 단계의 결과는 <code>/tmp/hello_world.txt</code> 파일에 저장되고, 이를 <code>outputs.parameters</code> 항목에 <code>hello-param</code>이라는 이름으로 등록합니다. (아래 YAML 참조)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">whalesay</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">whalesay</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">container</span>:
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker/whalesay:latest</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">command</span>: [<span style="color:#ae81ff">sh, -c]</span>
@@ -243,7 +243,7 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">valueFrom</span>:
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/tmp/hello_world.txt</span> <span style="color:#75715e"># hello-world.txt의 내용으로 hello-param 값을 지정</span>
 </span></span></code></pre></div><p>두번째 단계인 <code>consume-parameter</code> 작업에서는 <code>arguments.parameters</code> 단계에 이전 단계에서 지정된 <code>hello-param</code> 값을 가져오도록 합니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">entrypoint</span>: <span style="color:#ae81ff">output-parameter</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">templates</span>:
 </span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">output-parameter</span>

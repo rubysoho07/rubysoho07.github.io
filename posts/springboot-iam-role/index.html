@@ -86,7 +86,7 @@
 </ul>
 <p>생성한 애플리케이션은 IntelliJ와 같은 IDE나 Visual Studio Code와 같은 에디터로 열어 봅니다.</p>
 <p>AWS SDK를 사용하기 위해 <code>build.gradle</code> 파일을 수정합니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>dependencies <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>dependencies <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    implementation <span style="color:#e6db74">&#39;org.springframework.boot:spring-boot-starter-web&#39;</span>
 </span></span><span style="display:flex;"><span>    testImplementation <span style="color:#e6db74">&#39;org.springframework.boot:spring-boot-starter-test&#39;</span>
 </span></span><span style="display:flex;"><span>
@@ -99,7 +99,7 @@
 </span></span></span><span style="display:flex;"><span>    implementation <span style="color:#e6db74">&#39;software.amazon.awssdk:sts&#39;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>그리고 생성된 애플리케이션 내에 S3 버킷 목록을 얻어오기 위한 기능을 추가해 줍니다. 애플리케이션의 클래스 이름은 생성하신 애플리케이션에 따라 다를 수 있습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> kr.gonigoni.eksiamrolepoc;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> kr.gonigoni.eksiamrolepoc;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.boot.SpringApplication;
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -157,12 +157,12 @@
 <li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html">환경 변수로 설정하기</a></li>
 </ul>
 <p>빌드는 다음과 같이 하시면 됩니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>gradle build
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>gradle build
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># build/libs에 jar 파일이 생성된 것을 볼 수 있습니다.</span>
 </span></span></code></pre></div><h1 id="컨테이너-이미지-생성하기">컨테이너 이미지 생성하기</h1>
 <p>Gradle로 빌드하면 jar 파일이 나오는데, 이 파일을 가지고 컨테이너 이미지를 생성해 보겠습니다. 아래는 이 프로젝트에서 사용할 Dockerfile 입니다. 아래 내용을 복사해서 Dockerfile로 저장해 주세요.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">amazoncorretto:17</span><span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">amazoncorretto:17</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">EXPOSE</span> <span style="color:#e6db74">8080</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
@@ -172,13 +172,13 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;java&#34;</span>, <span style="color:#e6db74">&#34;-jar&#34;</span>, <span style="color:#e6db74">&#34;eks-iam-role-poc-0.0.1-SNAPSHOT.jar&#34;</span>]<span style="color:#960050;background-color:#1e0010">
 </span></span></span></code></pre></div><p>저는 우선 Docker Hub에 이미지를 올려서 테스트 해 보겠습니다. 프로젝트의 루트 디렉터리에서 실행해 주세요.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker login
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>docker login
 </span></span><span style="display:flex;"><span>docker build -t eks-iam-role-poc .
 </span></span><span style="display:flex;"><span>docker tag eks-iam-role-poc YOUR_DOCKER_HUB_USER_NAME/eks-iam-role-poc                   
 </span></span><span style="display:flex;"><span>docker push YOUR_DOCKER_HUB_USER_NAME/eks-iam-role-poc
 </span></span></code></pre></div><h1 id="eks-클러스터-생성하기">EKS 클러스터 생성하기</h1>
 <p>eksctl을 이용해서 EKS 클러스터를 생성해 보겠습니다. 이 예제에서는 간단하게 테스트 하기 위해 Fargate를 이용해 보겠습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>eksctl create cluster --name eks-iam-role-poc --region ap-northeast-2 --fargate
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>eksctl create cluster --name eks-iam-role-poc --region ap-northeast-2 --fargate
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># ... </span>
 </span></span><span style="display:flex;"><span>
@@ -188,7 +188,7 @@
 <h2 id="eks-클러스터와-연결할-iam-role-생성하기">EKS 클러스터와 연결할 IAM Role 생성하기</h2>
 <p>먼저 클러스터에 대한 IAM OIDC Provider를 생성합니다. 콘솔에서도 할 수 있는 작업이니, <a href="https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html">매뉴얼</a>을 참고해 주세요.</p>
 <p>IAM Role을 생성할 때 AssumeRolePolicy는 다음과 같이 생성합니다. (<code>eksctl</code>을 이용하면 좀 더 쉽게 생성 가능합니다)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Statement&#34;</span>: [
 </span></span><span style="display:flex;"><span>        {
@@ -219,7 +219,7 @@
 </ul>
 <p>저는 namespace 설정은 안 해서 <code>default</code>로, Service account 이름은 뒤에 있는 manifest의 <code>metadata.name</code> 부분에 설정한 것과 같이 <code>eks-iam-role-poc</code>로 설정했습니다.</p>
 <p>Policy 내용은 다음과 같습니다. 말 그대로 <code>ListAllMyBuckets</code> 권한만 준 상태입니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Statement&#34;</span>: [
 </span></span><span style="display:flex;"><span>        {
@@ -242,7 +242,7 @@
 <li><code>YOUR_DOCKER_HUB_USER_NAME</code>: Docker Hub username 입력 (혹시나 이미지 이름이 다르거나 다른 저장소에 올리셨다면 <code>image</code> 뒤의 전체 내용을 바꿔 주세요)</li>
 <li><code>YOUR_AWS_ACCOUNT_ID</code>: AWS Account ID 입력 (IAM Role 이름이 다르다면, 콘솔에서 ARN을 조회하여 붙여 주세요)</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">eks-iam-role-poc</span>
@@ -299,29 +299,29 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">eks.amazonaws.com/role-arn</span>: <span style="color:#ae81ff">arn:aws:iam::YOUR_AWS_ACCOUNT_ID:role/eks-iam-role-poc</span>
 </span></span></code></pre></div><h1 id="테스트">테스트</h1>
 <p>앞에서 만든 manifest 파일을 배포합니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kubectl apply -f manifest.yaml        
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kubectl apply -f manifest.yaml        
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 출력 내용</span>
 </span></span><span style="display:flex;"><span>deployment.apps/eks-iam-role-poc created
 </span></span><span style="display:flex;"><span>service/eks-iam-role-poc created
 </span></span><span style="display:flex;"><span>serviceaccount/eks-iam-role-poc created
 </span></span></code></pre></div><p>Pod이 정상적으로 실행되고 있는지 확인해 봅니다. Running 상태여야 합니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kubectl get pods
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kubectl get pods
 </span></span><span style="display:flex;"><span>NAME                                READY   STATUS    RESTARTS   AGE
 </span></span><span style="display:flex;"><span>eks-iam-role-poc-7945d8bdf6-c5sdq   1/1     Running   <span style="color:#ae81ff">0</span>          74m
 </span></span></code></pre></div><p>그렇다면 포트 포워딩으로 한 번 확인해 봅니다. Manifest 파일에서, 서비스에 연결된 포트를 80으로 설정해 두었기 때문에, 80을 Target Port로 설정합니다. (임의의 포트로 포워딩 됩니다)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kubectl port-forward service/eks-iam-role-poc :80
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kubectl port-forward service/eks-iam-role-poc :80
 </span></span><span style="display:flex;"><span>Forwarding from 127.0.0.1:61968 -&gt; <span style="color:#ae81ff">8080</span>
 </span></span><span style="display:flex;"><span>Forwarding from <span style="color:#f92672">[</span>::1<span style="color:#f92672">]</span>:61968 -&gt; <span style="color:#ae81ff">8080</span>
 </span></span></code></pre></div><p>웹 브라우저에서 <code>localhost:61968/bucket_list</code> 로 접속하면, 버킷 목록이 표시되는 것을 볼 수 있습니다. (61968 번 포트는 상황에 따라 바뀔 수 있으니 출력 내용을 확인하세요)</p>
 <p>확인했다면 Ctrl + c를 눌러서 실행 중인 포트 포워딩을 종료합니다.</p>
 <h1 id="리소스-정리">리소스 정리</h1>
 <p>먼저 EKS 클러스터 내 리소스를 정리합니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kubectl delete -f manifest.yaml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>kubectl delete -f manifest.yaml
 </span></span><span style="display:flex;"><span>deployment.apps <span style="color:#e6db74">&#34;eks-iam-role-poc&#34;</span> deleted
 </span></span><span style="display:flex;"><span>service <span style="color:#e6db74">&#34;eks-iam-role-poc&#34;</span> deleted
 </span></span><span style="display:flex;"><span>serviceaccount <span style="color:#e6db74">&#34;eks-iam-role-poc&#34;</span> deleted
 </span></span></code></pre></div><p>그리고 EKS 클러스터를 삭제해 줍니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>eksctl delete cluster --name eks-iam-role-poc
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>eksctl delete cluster --name eks-iam-role-poc
 </span></span></code></pre></div><h1 id="참고자료">참고자료</h1>
 <ul>
 <li><a href="https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html">IAM roles for service accounts</a></li>

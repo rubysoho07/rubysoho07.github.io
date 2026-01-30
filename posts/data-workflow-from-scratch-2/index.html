@@ -75,7 +75,7 @@
 <h1 id="s3-버킷에-원격으로-로그를-올리도록-설정하기">S3 버킷에 원격으로 로그를 올리도록 설정하기</h1>
 <p>지난 글에서 시스템 구성으로 KubernetesExecutor를 이용한다고 말씀드렸습니다. KubernetesExecutor를 이용하는 경우, Task가 끝나면 Worker Pod이 사라지면서 로그를 못 찾는 경우도 있기 때문에 로그를 S3 버킷에 저장해 보았습니다.</p>
 <p>먼저 S3에 대한 connection을 설정해 봅니다. <code>s3-bucket-name</code>은 변경하지 않아도 됩니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> json
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> json
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> airflow.models.connection <span style="color:#f92672">import</span> Connection
 </span></span><span style="display:flex;"><span>
@@ -141,7 +141,7 @@ remote_base_log_folder = s3://your-bucket-name
 <li><a href="https://airflow.apache.org/docs/apache-airflow-providers-amazon/stable/operators/index.html">Amazon AWS Operators</a></li>
 </ul>
 <p>그러면 PostgreSQL에 대한 Connection을 등록했다고 가정하고, 이를 이용해서 쿼리를 수행하는 Task를 만들어 보겠습니다. 이 예제에서는 PostgresOperator를 이용합니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> airflow.providers.postgres.operators.postgres <span style="color:#f92672">import</span> PostgresOperator
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> airflow.providers.postgres.operators.postgres <span style="color:#f92672">import</span> PostgresOperator
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>task_1 <span style="color:#f92672">=</span> PostgresOperator(
 </span></span><span style="display:flex;"><span>    task_id<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;run_query&#39;</span>,
@@ -167,7 +167,7 @@ remote_base_log_folder = s3://your-bucket-name
 <li><a href="https://airflow.apache.org/docs/apache-airflow/stable/_api/airflow/hooks/dbapi/index.html">airflow.hooks.dbapi</a>: DB와 관련된 Hooks 기본 구조</li>
 </ul>
 <p>Connection이 등록되어 있다고 가정하고, Hook을 이용해서 DB에서 쿼리하는 예제를 만들어보면 다음과 같습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> airflow.operators.python_operator <span style="color:#f92672">import</span> PythonOperator
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> airflow.operators.python_operator <span style="color:#f92672">import</span> PythonOperator
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> airflow.providers.postgres.hooks.postgres <span style="color:#f92672">import</span> PostgresHook
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">task_test_query</span>():
@@ -188,7 +188,7 @@ remote_base_log_folder = s3://your-bucket-name
 <h1 id="s3에서-파일을-가져와서-분석하기-s3hook">S3에서 파일을 가져와서 분석하기: S3Hook</h1>
 <p>먼저 AWS의 Connection ID를 설정합니다. 설정 방법은 <a href="http://airflow.apache.org/docs/apache-airflow-providers-amazon/stable/connections/aws.html">이 문서</a>를 참고하세요.</p>
 <p>아래 예제는 특정한 버킷에서 Object 목록을 가져와서 출력하는 작업을 수행합니다. DAG 설정은 생략하였습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> airflow.operators.python_operator <span style="color:#f92672">import</span> PythonOperator
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> airflow.operators.python_operator <span style="color:#f92672">import</span> PythonOperator
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> airflow.providers.amazon.aws.hooks.s3 <span style="color:#f92672">import</span> S3Hook
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">task_s3_log_load</span>():

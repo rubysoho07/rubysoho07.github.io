@@ -107,7 +107,7 @@
 <li>Target Unavailable EC2: <strong><strong>트래픽이 들어올 수 있는 방법은 없지만</strong></strong>, 모든 나가는 트래픽을 허용합니다.</li>
 </ul>
 <p>그리고 Terraform으로 서버를 생성해 줍니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>terraform init
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>terraform init
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># (출력 결과 생략)</span>
 </span></span><span style="display:flex;"><span>terraform apply -auto-approve
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># (출력 결과 생략)</span>
@@ -174,7 +174,7 @@
 <p>위의 스크린샷을 보시면 <strong>None of the ingress rules in the following security groups apply</strong> 라는 문구를 볼 수 있습니다. 이 인스턴스와 연결된 보안 그룹에는 ingress 규칙을 설정하지 않았는데요. 그렇기 때문에 접속에 실패하는 것이 당연합니다.</p>
 <h3 id="리소스-정리하기">리소스 정리하기</h3>
 <p>모든 테스트가 끝났다면 사용한 리소스를 정리합니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>terraform destroy -auto-approve
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>terraform destroy -auto-approve
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># (출력 결과 생략)</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 아래와 같은 결과가 나왔는지 꼭 확인하세요!</span>
 </span></span><span style="display:flex;"><span>Destroy complete! Resources: <span style="color:#ae81ff">6</span> destroyed. 

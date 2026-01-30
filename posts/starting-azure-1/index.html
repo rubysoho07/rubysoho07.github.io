@@ -132,7 +132,7 @@
 <li>Azure 가상 네트워크를 설정할 때 <code>/2</code> 블록까지 설정할 수 있긴 합니다. 실제로도 그렇게 설정할 수 있을지는 모르겠네요. 저는 일단 <code>/16</code> 블록으로 설정했습니다.</li>
 </ul>
 <p>AWS든 Azure든, VPC와 가상 네트워크 내부에 서브넷을 설정하여 네트워크를 구분할 수 있습니다. 가상 네트워크를 만든 후, 일정한 기준에 따라 서브넷을 생성하여 영역을 나눕니다. 가상 네트워크와 서브넷을 생성하는 방법은 생략하겠습니다. Terraform으로 구성한다면 다음과 같이 하시면 됩니다. (리소스 그룹을 정의하는 부분은 생략)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-hcl" data-lang="hcl"><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;azurerm_virtual_network&#34; &#34;gonigoni_vnet&#34;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-hcl" data-lang="hcl"><span style="display:flex;"><span><span style="color:#66d9ef">resource</span> <span style="color:#e6db74">&#34;azurerm_virtual_network&#34; &#34;gonigoni_vnet&#34;</span> {
 </span></span><span style="display:flex;"><span>  name                <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gonigoni-vnet&#34;</span>
 </span></span><span style="display:flex;"><span>  address_space       <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;10.0.0.0/16&#34;</span>]
 </span></span><span style="display:flex;"><span>  location            <span style="color:#f92672">=</span> <span style="color:#66d9ef">azurerm_resource_group</span>.<span style="color:#66d9ef">gonigoni</span>.<span style="color:#66d9ef">location</span>

@@ -66,7 +66,7 @@
 <p>그럴 때 어떻게 로그를 만들고 관리할 지를 고민하게 되는데요. 이번 글에서는 Python에서 <code>logging</code> 모듈을 활용해서 어떻게 로그를 관리할 수 있는지 살펴보려고 합니다.</p>
 <h1 id="기본적인-로깅-만들기">기본적인 로깅 만들기</h1>
 <p><code>logging</code> 모듈을 이용해서 로그를 만드는 방법은 다음과 같습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> logging
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> logging
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>logging<span style="color:#f92672">.</span>critical(<span style="color:#e6db74">&#39;Critical log&#39;</span>)
 </span></span><span style="display:flex;"><span>logging<span style="color:#f92672">.</span>error(<span style="color:#e6db74">&#39;Error log&#39;</span>)
@@ -74,7 +74,7 @@
 </span></span><span style="display:flex;"><span>logging<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#39;Info log&#39;</span>)
 </span></span><span style="display:flex;"><span>logging<span style="color:#f92672">.</span>debug(<span style="color:#e6db74">&#39;Debug log&#39;</span>)
 </span></span></code></pre></div><p>스크립트를 실행해 보면 다음과 같이 표시됩니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>CRITICAL:root:Critical log
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>CRITICAL:root:Critical log
 </span></span><span style="display:flex;"><span>ERROR:root:Error log
 </span></span><span style="display:flex;"><span>WARNING:root:Warning log
 </span></span></code></pre></div><p>CRITICAL, ERROR, WARNING은 뭔지 알 것 같습니다. 그런데 갑자기 <code>root</code>는 왜 나오는 걸까요? 그리고 제가 출력하려고 한 INFO, DEBUG 로그는 왜 안 나오는 걸까요?</p>
@@ -83,7 +83,7 @@
 <p>또한 기본적으로 로거에 로그된 이벤트는 모듈에 지정한 로거에서 상위 계층의 로거 객체에 전달됩니다. 즉, 여러 모듈에서 로그가 발생하더라도 최종적으로 로그를 처리하는 건 루트 로거인 것이죠. (자세한 내용은 <a href="https://docs.python.org/ko/3/howto/logging.html#logging-flow">문서</a> 참조)</p>
 <p>어떤 의미인지 설명하기 애매해서, 예제를 가지고 설명해 볼게요.</p>
 <p>아래와 같이 mymodule.py 파일을 만듭니다. Formatter와 Handler에 대해서는 뒤에서 설명할 예정입니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> logging
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> logging
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>logger <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>getLogger(__name__)
 </span></span><span style="display:flex;"><span>formatter <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>Formatter(<span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%(name)s</span><span style="color:#e6db74"> - </span><span style="color:#e6db74">%(message)s</span><span style="color:#e6db74">&#39;</span>)
@@ -94,7 +94,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">my_function</span>():
 </span></span><span style="display:flex;"><span>    logger<span style="color:#f92672">.</span>warning(<span style="color:#e6db74">&#39;My Module Message&#39;</span>)
 </span></span></code></pre></div><p>아래와 같이 logging_test.py 파일을 만듭니다. mymodule 모듈의 my_function 함수를 import 하여 사용하는 부분에 유의해 주세요.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> logging
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> logging
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> mymodule <span style="color:#f92672">import</span> my_function
 </span></span><span style="display:flex;"><span>
@@ -108,7 +108,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>my_function()
 </span></span></code></pre></div><p>logging_test.py 파일을 실행해 보면 다음과 같은 메시지가 출력되는 것을 보실 수 있습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>__main__ - Warning log
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>__main__ - Warning log
 </span></span><span style="display:flex;"><span>mymodule - My Module Message
 </span></span></code></pre></div><p>mymodule에서 생성한 로그는 mymodule의 로거에서 처리되고, 메인(logging_test.py) 프로그램의 로거로 전달되는 것으로 보이네요.</p>
 <p>이를 이용하면 여러 모듈에서 발생한 로그를 모아서 추적할 수 있을 것 같습니다.</p>
@@ -148,7 +148,7 @@
 <p>기본 수준은 <code>WARNING</code>이며, 이보다 숫자 값이 높은 로그만 출력하게 됩니다.</p>
 <p>그런데 로그 수준을 다르게 설정하려면 어떻게 해야 할까요?</p>
 <p>첫번째 방법은 logging 모듈 자체에서 설정하는 방법입니다. (<code>logging.basicConfig</code> 부분에 주목해 주세요)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> logging
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> logging
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>logging<span style="color:#f92672">.</span>basicConfig(level<span style="color:#f92672">=</span>logging<span style="color:#f92672">.</span>DEBUG)
 </span></span><span style="display:flex;"><span>
@@ -166,7 +166,7 @@ DEBUG:root:Debug log
 </code></pre><p>그러면 로거마다 레벨을 다르게 지정하고 싶으면 어떻게 해야 할까요? 이 때는 로거와 핸들러에서 처리할 로그 레벨을 지정해 주어야 합니다.</p>
 <p>핸들러(Handler) 객체는 로거가 받은 로그를 여러 목적지로 보내주는 역할을 하는데요.</p>
 <p>로거 객체에만 DEBUG로 로그 레벨을 설정하더라도 적용되지 않는데, 핸들러 객체를 만들어서 핸들러에도 로그 레벨을 적용해 주면 적용되는 것을 볼 수 있습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> logging
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> logging
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Logger 객체의 로그 레벨을 정해 줍니다.</span>
 </span></span><span style="display:flex;"><span>logger <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>getLogger(__name__)
@@ -207,7 +207,7 @@ DEBUG:root:Debug log
 </ul>
 <p>예를 들어서, 로거 이름, 로그 레벨 이름, 로그 레코드 생성 시간, 메시지 순으로 출력하려면 어떻게 해야 할까요?</p>
 <p>아래 예제를 통해 확인해 보시죠.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> logging
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> logging
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>logger <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>getLogger(__name__)
 </span></span><span style="display:flex;"><span>
@@ -229,7 +229,7 @@ DEBUG:root:Debug log
 __main__ - ERROR - 2021-10-31 15:57:30,550 - Error log
 __main__ - WARNING - 2021-10-31 15:57:30,550 - Warning log
 </code></pre><p>로그를 JSON 포맷의 문자열로 만들 때 포매터 객체를 적절히 만들어 주면 유용할 것 같습니다. 예를 들면 다음과 같은 방식으로 이용할 수 있겠죠?</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> logging
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> logging
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>logger <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>getLogger(__name__)
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># JSON 문자열로 로그를 구성해 봅니다.</span>
@@ -245,9 +245,9 @@ __main__ - WARNING - 2021-10-31 15:57:30,550 - Warning log
 </span></span><span style="display:flex;"><span>    my_function()
 </span></span></code></pre></div><h2 id="로그-메시지에-추가-정보를-같이-넣기">로그 메시지에 추가 정보를 같이 넣기</h2>
 <p>로그 메시지에 추가 정보를 같이 넣을 수도 있습니다. 우선 추가 정보를 딕셔너리 형태로 구성해 봅시다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>d <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;src_ip&#34;</span>: <span style="color:#e6db74">&#34;192.168.0.1&#34;</span>, <span style="color:#e6db74">&#34;user&#34;</span>: <span style="color:#e6db74">&#34;test&#34;</span>}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>d <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;src_ip&#34;</span>: <span style="color:#e6db74">&#34;192.168.0.1&#34;</span>, <span style="color:#e6db74">&#34;user&#34;</span>: <span style="color:#e6db74">&#34;test&#34;</span>}
 </span></span></code></pre></div><p>그리고 포매터 객체를 다음과 같이 설정합니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> logging
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> logging
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>logger <span style="color:#f92672">=</span> logging<span style="color:#f92672">.</span>getLogger(__name__)
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># 아래 줄에 src_ip, user 부분이 들어가 있는 점에 주목해 주세요.</span>
@@ -256,7 +256,7 @@ __main__ - WARNING - 2021-10-31 15:57:30,550 - Warning log
 </span></span><span style="display:flex;"><span>handler<span style="color:#f92672">.</span>setFormatter(formatter)
 </span></span><span style="display:flex;"><span>logger<span style="color:#f92672">.</span>addHandler(handler)
 </span></span></code></pre></div><p>로그를 찍을 때, <code>extra</code>에 앞에서 만든 딕셔너리로 지정해 줍니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>d <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;src_ip&#34;</span>: <span style="color:#e6db74">&#34;192.168.0.1&#34;</span>, <span style="color:#e6db74">&#34;user&#34;</span>: <span style="color:#e6db74">&#34;test&#34;</span>}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>d <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;src_ip&#34;</span>: <span style="color:#e6db74">&#34;192.168.0.1&#34;</span>, <span style="color:#e6db74">&#34;user&#34;</span>: <span style="color:#e6db74">&#34;test&#34;</span>}
 </span></span><span style="display:flex;"><span>logger<span style="color:#f92672">.</span>warning(<span style="color:#e6db74">&#39;Warning log&#39;</span>, extra<span style="color:#f92672">=</span>d)
 </span></span></code></pre></div><p>그러면 다음과 같이 출력됩니다. 아래와 같이 <code>src_ip</code>, <code>user</code>에 해당하는 값을 볼 수 있습니다.</p>
 <pre tabindex="0"><code>WARNING - Warning log - 192.168.0.1 - test

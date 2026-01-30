@@ -155,7 +155,7 @@
 <li>상태 머신의 이름을 입력하고, 필요한 경우 IAM 역할을 생성한다. <!-- raw HTML omitted --> (<code>나를 위한 역할 생성</code>에 체크, <code>AWS Step Functions이 Lambda 함수에 대한...</code> 옵션에 체크)</li>
 <li>그리고 <code>상태 머신 정의</code> 칸에는 다음과 같이 입력한다. (여기가 앞에서 메모한 ARN이 사용되는 부분이다. ARN은 뒤에서도 이용하니 메모를 버리지 말자.)</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;StartAt&#34;</span>: <span style="color:#e6db74">&#34;TestActivity&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;States&#34;</span>: {
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;TestActivity&#34;</span>: {
@@ -216,7 +216,7 @@
 	<div class="content list__excerpt post__content clearfix">
 		<p>test라는 함수가 있고, dev, release라는 별칭(alias)이 존재한다고 하자. 그리고 모든 별칭은 동일한 버전을 가리킨다고 하자.</p>
 <p>이 경우 context 객체의 invoked_function_arn은 어떻게 달라지는지 보자. 테스트를 위해, 다음과 같이 파이썬으로 함수를 작성하였다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> json
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> json
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lambda_handler</span>(event, context): 
 </span></span><span style="display:flex;"><span>    print(context<span style="color:#f92672">.</span>invoked_function_arn)

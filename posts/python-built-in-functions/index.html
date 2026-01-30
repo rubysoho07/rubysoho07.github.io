@@ -68,14 +68,14 @@
 <p>참고: <a href="https://docs.python.org/3/library/functions.html#sum">https://docs.python.org/3/library/functions.html#sum</a></p>
 <pre tabindex="0"><code>sum(iterable[, start])
 </code></pre><p>iterable 객체를 받아서 각 요소들의 합을 구한다. start는 적어주지 않으면 0으로 정해진다. 다음과 같이 사용할 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> test <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> test <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>]
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> sum(test)
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">10</span>
 </span></span></code></pre></div><h3 id="update-2개의-dictionary를-합치고-싶을-때">update(): 2개의 dictionary를 합치고 싶을 때</h3>
 <p>참고: <a href="https://docs.python.org/3/library/stdtypes.html#dict.update">https://docs.python.org/3/library/stdtypes.html#dict.update</a></p>
 <pre tabindex="0"><code>update([other])
 </code></pre><p>두 개의 dictionary를 합치고 싶을 때 이용한다. 원본 dictionary에 동일한 key가 있으면 other에 있는 값으로 덮어 쓴다. 다른 dictionary 뿐만 아니라 key/value 쌍의 iterable을 넣을 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> d <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;a&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;b&#39;</span>: <span style="color:#ae81ff">2</span>}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> d <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;a&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;b&#39;</span>: <span style="color:#ae81ff">2</span>}
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> d<span style="color:#f92672">.</span>update({<span style="color:#e6db74">&#39;b&#39;</span>: <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;c&#39;</span>: <span style="color:#ae81ff">4</span>})
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> d
 </span></span><span style="display:flex;"><span>{<span style="color:#e6db74">&#39;a&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;b&#39;</span>: <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;c&#39;</span>: <span style="color:#ae81ff">4</span>}
@@ -86,7 +86,7 @@
 <p>참고: <a href="https://docs.python.org/3.6/library/functions.html#sorted">https://docs.python.org/3.6/library/functions.html#sorted</a></p>
 <pre tabindex="0"><code>sorted(iterable, *, key=None, reverse=False)
 </code></pre><p>iterable에는 iterable 객체가 들어갈 수 있다. key에는 각각의 요소에서 비교를 위한 키를 추출하기 위해 사용되는 하나의 argument를 받는 함수를 지정한다. 기본값은 None이다. reverse는 boolean 값으로, True인 경우 반대 순서로 정렬하게 된다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> test_list <span style="color:#f92672">=</span> [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> test_list <span style="color:#f92672">=</span> [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>]
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> sorted(test_list)
 </span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">9</span>]
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> sorted(test_list, reverse<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
@@ -95,7 +95,7 @@
 <p>참고: <a href="https://docs.python.org/3.6/library/functions.html#type">https://docs.python.org/3.6/library/functions.html#type</a></p>
 <pre tabindex="0"><code>type(object)
 </code></pre><p>말 그대로 객체의 type을 확인할 수 있는 함수이다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> type(<span style="color:#ae81ff">1</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> type(<span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">int</span><span style="color:#e6db74">&#39;&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> type(<span style="color:#e6db74">&#39;a&#39;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">str</span><span style="color:#e6db74">&#39;&gt;</span>
@@ -112,7 +112,7 @@
 <p>두 함수 모두 iterable을 받는다. 차이점은 다음과 같다.</p>
 <p>any(): iterable 객체 안의 하나라도 True이면 True를 반환한다. 빈 객체이면 False를 반환한다.
 all(): iterable 객체 안의 모든 요소가 True이면 True를 반환한다. 빈 객체인 경우에도 True를 반환한다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> any([<span style="color:#66d9ef">True</span>, <span style="color:#66d9ef">False</span>, <span style="color:#66d9ef">True</span>])
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> any([<span style="color:#66d9ef">True</span>, <span style="color:#66d9ef">False</span>, <span style="color:#66d9ef">True</span>])
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">True</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> all([<span style="color:#66d9ef">True</span>, <span style="color:#66d9ef">False</span>, <span style="color:#66d9ef">True</span>])
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">False</span>
@@ -124,7 +124,7 @@ all(): iterable 객체 안의 모든 요소가 True이면 True를 반환한다. 
 <p>참고: <a href="https://docs.python.org/3/library/functions.html#zip">https://docs.python.org/3/library/functions.html#zip</a></p>
 <p>설명만 들어서는 어떨 때 써야 할 지 애매할 수도 있다. 예제를 통해 알아보자.
 a라는 리스트와 b라는 리스트가 있다고 가정하자. 그런데 두 리스트에 있는 요소를 하나씩 꺼내서 뭔가를 하고 싶은 경우가 있다. zip() 함수는 이러한 경우에 사용할 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> a_list <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> a_list <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>]
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> b_list <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;a&#39;</span>,<span style="color:#e6db74">&#39;b&#39;</span>,<span style="color:#e6db74">&#39;c&#39;</span>]
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">for</span> a, b <span style="color:#f92672">in</span> zip(a_list, b_list):
 </span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>     print(a, b)
@@ -133,7 +133,7 @@ a라는 리스트와 b라는 리스트가 있다고 가정하자. 그런데 두 
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> b
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span> c
 </span></span></code></pre></div><p>참고로 길이가 짧은 iterable을 기준으로 하므로, 이에 유의하자. 길이가 긴 iterable을 기준으로 하고 싶은 경우, itertools 모듈의 zip_longest() 함수를 이용한다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">import</span> itertools
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">import</span> itertools
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#66d9ef">for</span> a, b <span style="color:#f92672">in</span> itertools<span style="color:#f92672">.</span>zip_longest(a_list, b_list):
 </span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>     print(a, b)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>

@@ -102,7 +102,7 @@
 </ul>
 <h2 id="pulumi">Pulumi</h2>
 <p>디렉터리를 만들고, 새로운 프로젝트를 생성합니다. 저는 AWS와 Python을 사용할 예정이므로 <code>pulumi new aws-python</code>이라고 입력했습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir pulumi-test <span style="color:#f92672">&amp;&amp;</span> cd pulumi-test
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir pulumi-test <span style="color:#f92672">&amp;&amp;</span> cd pulumi-test
 </span></span><span style="display:flex;"><span>pulumi new aws-python
 </span></span><span style="display:flex;"><span>Manage your Pulumi stacks by logging in.
 </span></span><span style="display:flex;"><span>Run <span style="color:#e6db74">`</span>pulumi login --help<span style="color:#e6db74">`</span> <span style="color:#66d9ef">for</span> alternative login options.
@@ -116,7 +116,7 @@
 <li>스택: 분리된 설정을 가진 코드</li>
 </ul>
 <p>즉, Project Foo는 개발, 테스트, 운영 단계의 스택으로 나눌 수 있습니다. 또는 여러 리전에 배포해야 할 때와 같이 다른 설정으로 분리할 수도 있다고 합니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>project name: <span style="color:#f92672">(</span>pulumi-test<span style="color:#f92672">)</span> 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>project name: <span style="color:#f92672">(</span>pulumi-test<span style="color:#f92672">)</span> 
 </span></span><span style="display:flex;"><span>project description: <span style="color:#f92672">(</span>A minimal AWS Python Pulumi program<span style="color:#f92672">)</span> 
 </span></span><span style="display:flex;"><span>Created project <span style="color:#e6db74">&#39;pulumi-test&#39;</span>
 </span></span><span style="display:flex;"><span>
@@ -127,7 +127,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>aws:region: The AWS region to deploy into: <span style="color:#f92672">(</span>us-east-1<span style="color:#f92672">)</span> ap-northeast-2
 </span></span></code></pre></div><p>이후에는 dependency를 받고(<code>pip</code>를 이용하는 것 같네요), 다음과 같은 메시지가 출력되면 성공입니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Finished installing dependencies
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Finished installing dependencies
 </span></span><span style="display:flex;"><span>Your new project is ready to go! ✨
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>To perform an initial deployment, run <span style="color:#e6db74">&#39;pulumi up&#39;</span>
@@ -149,7 +149,7 @@
 <li><a href="https://www.pulumi.com/docs/intro/concepts/inputs-outputs/">Inputs and Outputs</a></li>
 </ul>
 <p>Pulumi로 동일한 인프라를 구성하면서 달랐던 점은 다음과 같습니다. 예를 들어 보겠습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> json
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> json
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pulumi_aws <span style="color:#66d9ef">as</span> aws
 </span></span><span style="display:flex;"><span>
@@ -190,7 +190,7 @@
 </code></pre><p>왜 그런지 확인해 보니, Pulumi에서 S3 버킷의 ARN이 해당 리소스의 output으로 등록되어 있지 않은 것이 원인이었습니다. (<a href="https://www.pulumi.com/registry/packages/aws/api-docs/s3/bucket/#outputs">S3 Bucket 문서</a> 참조)</p>
 <p>또한 Output 값을 그대로 사용할 수 없어서, 이를 가공하기 위해 <code>.apply(function)</code> 함수를 사용해야 하는데요. 이 부분 때문에 생각보다 테스트에 많은 시간이 소요되었습니다.</p>
 <p>결국 최종 코드는 다음과 같이 바뀌었습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">make_bucket_policy</span>(bucket_name: str):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">make_bucket_policy</span>(bucket_name: str):
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> json<span style="color:#f92672">.</span>dumps({
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Statement&#34;</span>: [{
@@ -211,13 +211,13 @@
 </span></span></code></pre></div><h1 id="인프라-배포-방법">인프라 배포 방법</h1>
 <h2 id="terraform-1">Terraform</h2>
 <p>다음 명령으로 배포합니다. init 작업으로 Provider를 가져온 뒤, apply 명령으로 인프라를 배포합니다. apply 명령으로 배포할 때, 진짜 배포할 거냐고 물어보면 <code>yes</code>를 정확하게 입력합니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ terraform init
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ terraform init
 </span></span><span style="display:flex;"><span>$ terraform apply
 </span></span></code></pre></div><p>삭제할 때는 다음 명령을 입력합니다. 진짜 삭제할 거냐고 물어보면 <code>yes</code>를 정확히 입력합니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ terraform destroy
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ terraform destroy
 </span></span></code></pre></div><h2 id="pulumi-1">Pulumi</h2>
 <p>인프라를 배포할 때는 <code>pulumi up</code> 명령을 사용합니다. 스택을 선택하고, 생성할 것인지 물어보면 방향키를 이용하여 yes를 선택한 뒤, 엔터를 눌러줍니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>pulumi up     
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>pulumi up     
 </span></span><span style="display:flex;"><span>Please choose a stack, or create a new one: yungon-iac-test
 </span></span><span style="display:flex;"><span>Previewing update <span style="color:#f92672">(</span>yungon-iac-test<span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>
@@ -263,7 +263,7 @@
 
 <p>삭제할 때는 다음 명령을 이용합니다. 생성한 스택을 선택 후 엔터 키를 누르고, 방향키로 yes를 선택 후 엔터 키를 누르면 리소스를 삭제합니다.</p>
 <p>리소스를 삭제하는 과정도 표시되는 링크를 따라 들어가면 확인할 수 있습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ pulumi destroy
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ pulumi destroy
 </span></span><span style="display:flex;"><span>Please choose a stack: yungon-iac-test
 </span></span><span style="display:flex;"><span>Previewing destroy <span style="color:#f92672">(</span>yungon-iac-test<span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>

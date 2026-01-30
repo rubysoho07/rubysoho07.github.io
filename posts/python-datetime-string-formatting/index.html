@@ -65,10 +65,10 @@
 			<p>파이썬을 쓰다 보면 문자열을 다루는 경우가 많은데, 문자열을 특정한 양식에 맞추어야 하는 경우가 종종 있었다. 이 경우 <a href="http://pyformat.info">PyFormat</a>과 같은 사이트를 참조한다. 하지만 날짜나 시간을 formatting 할 때는 상세한 규칙이 정리되어 있지 않아서 이 참에 정리를 해 보려고 한다.</p>
 <p>문자열을 넣거나 숫자를 다루는 경우, PyFormat에 자세한 내용이 있어서 생략한다.</p>
 <p>이 글에서는 현재 시간을 datetime 객체로 받고, 이를 가지고 날짜와 시간을 문자열로 formatting 해 볼 것이다. (아래 코드 참조)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> datetime
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> datetime
 </span></span><span style="display:flex;"><span>now <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>now()
 </span></span></code></pre></div><p>이 글을 쓰는 시점에서 now의 내용은 다음과 같다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> now
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> now
 </span></span><span style="display:flex;"><span>datetime<span style="color:#f92672">.</span>datetime(<span style="color:#ae81ff">2018</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">21</span>, <span style="color:#ae81ff">58</span>, <span style="color:#ae81ff">48</span>, <span style="color:#ae81ff">136538</span>)
 </span></span></code></pre></div><h3 id="날짜를-formatting-할-때-규칙">날짜를 formatting 할 때 규칙</h3>
 <p><strong><code>%Y</code>: 연도를 4자리로 나타내고 싶을 때 사용한다.</strong></p>
@@ -102,18 +102,18 @@
 <p>전체 텍스트를 표시) <code>now.strftime(&quot;%B&quot;)</code> 또는 <code>&quot;{:%B}&quot;.format(now)</code></p>
 <p>결과) <code>'May'</code></p>
 <p>(이 글을 쓴 시점이 5월이라 &lsquo;May&rsquo;로 똑같이 표시되지만, 다음 코드를 실행해보면 다름을 알 수 있다.)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> after_1_month <span style="color:#f92672">=</span> now <span style="color:#f92672">+</span> datetime<span style="color:#f92672">.</span>timedelta(days<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> after_1_month <span style="color:#f92672">=</span> now <span style="color:#f92672">+</span> datetime<span style="color:#f92672">.</span>timedelta(days<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;{:%B}&#34;</span><span style="color:#f92672">.</span>format(after_1_month)
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;June&#39;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#e6db74">&#34;{:%b}&#34;</span><span style="color:#f92672">.</span>format(after_1_month)
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;Jun&#39;</span>
 </span></span></code></pre></div><p><strong>한글 locale을 이용해서 표시하기</strong></p>
 <p>우리는 한국 사람이므로 한글로 날짜/시간을 표시할 때가 있다. 이러한 경우에 대처하기 위해 locale 설정을 해 주자.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">import</span> locale
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> <span style="color:#f92672">import</span> locale
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> locale<span style="color:#f92672">.</span>setlocale(locale<span style="color:#f92672">.</span>LC_TIME,<span style="color:#e6db74">&#39;ko_KR.UTF-8&#39;</span>)
 </span></span></code></pre></div><p><code>locale.LC_TIME</code>을 설정한 경우, 시간 설정에 대해서만 해당 locale이 적용된다. 그리고 뒤의 <code>'ko_KR.UTF-8'</code>은 locale 설정을 한국으로 했다면 비워도 상관 없다. (빈 문자열은 사용자의 기본 설정을 따르도록 함)</p>
 <p>그리고 위의 코드들을 실행해 보면 다음과 같은 결과들을 볼 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> now<span style="color:#f92672">.</span>strftime(<span style="color:#e6db74">&#34;%b&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> now<span style="color:#f92672">.</span>strftime(<span style="color:#e6db74">&#34;%b&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39; 5월&#39;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&gt;&gt;&gt;</span> now<span style="color:#f92672">.</span>strftime(<span style="color:#e6db74">&#34;%B&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;5월&#39;</span>

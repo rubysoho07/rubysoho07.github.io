@@ -67,13 +67,13 @@
 <h3 id="paginator-이용하기">Paginator 이용하기</h3>
 <h4 id="get_paginator로-paginator-가져오기">get_paginator()로 Paginator 가져오기</h4>
 <p>기본적으로 S3를 담당할 클라이언트를 생성한 뒤, get_paginator()로 Paginator를 가져온다. 여기서는 하나의 버킷에서 object들을 가져오기 위해 <code>list_objects_v2</code>를 이용한다. (Boto3 문서에서는 <code>list_objects()</code>보다 <code>list_objects_v2()</code>를 이용하는 것을 권장하니 이를 이용하자.)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> boto3
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> boto3
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>client <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>client(<span style="color:#e6db74">&#39;s3&#39;</span>)
 </span></span><span style="display:flex;"><span>paginator <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>get_paginator(<span style="color:#e6db74">&#39;list_objects_v2&#39;</span>)
 </span></span></code></pre></div><h4 id="paginator를-이용해서-버킷의-파일-목록-가져오기">Paginator를 이용해서 버킷의 파일 목록 가져오기</h4>
 <p>Paginator의 <code>paginate()</code> 메소드를 이용하면, 지정한 paginator에서 응답을 페이지 단위로 저장하는 iterator를 만든다. 게시판에서 페이지 단위로 글 목록을 만드는 것과 비슷하다고 보면 된다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>response_iterator <span style="color:#f92672">=</span> paginator<span style="color:#f92672">.</span>paginate(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>response_iterator <span style="color:#f92672">=</span> paginator<span style="color:#f92672">.</span>paginate(
 </span></span><span style="display:flex;"><span>    Bucket<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;string&#39;</span>,
 </span></span><span style="display:flex;"><span>    Prefix<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;string&#39;</span>
 </span></span><span style="display:flex;"><span>)
@@ -83,7 +83,7 @@
 <li>Prefix: S3 버킷에 올라간 파일은 키를 갖고 있다. <code>bucket 이름/111/222/333.txt</code>와 같이 파일이 저장되어 있는데, <code>111/222</code> 폴더 안에 있는 파일 목록을 얻으려면 <code>111/222</code>와 같이 적어주면 된다.</li>
 </ul>
 <p>이렇게 생성된 iterator를 이용해 파일 이름만 출력해 보자. 여기서 파일 이름은 앞에서 지정한 <code>Prefix</code> 옵션을 포함해서 출력된다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> page <span style="color:#f92672">in</span> response_iterator:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> page <span style="color:#f92672">in</span> response_iterator:
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> content <span style="color:#f92672">in</span> page[<span style="color:#e6db74">&#39;Contents&#39;</span>]:
 </span></span><span style="display:flex;"><span>        print(content[<span style="color:#e6db74">&#39;Key&#39;</span>])
 </span></span></code></pre></div><p>위의 코드에서 <code>content['Key']</code> 부분에서 <code>'Key'</code> 대신 다른 정보도 가져올 수 있다.</p>

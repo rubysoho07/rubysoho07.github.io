@@ -77,7 +77,7 @@
 <p>파이썬 모듈에서 C나 C++로 작성한 확장 모듈을 이용할 때, C나 C++ 모듈은 앞에 <code>_</code>를 하나 붙여준다. PEP-8 문서에서는 <code>_socket</code>을 예로 들고 있다.</p>
 <h3 id="global-variable-names">Global Variable Names</h3>
 <p><code>from M import *</code>을 사용하여 모듈을 import 하는 경우, <code>__all__</code> 변수를 사용해서 특정한 global 변수를 외부에서 쓰지 못 하도록 막을 수 있다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># M.py</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># M.py</span>
 </span></span><span style="display:flex;"><span>__all__ <span style="color:#f92672">=</span> [aaa, bbb]
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>aaa <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
@@ -87,7 +87,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">ccc</span>():
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;ccc&#39;</span>
 </span></span></code></pre></div><p>아래와 같이 M 모듈을 import 하고 ccc를 실행하면 예외가 발생한다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> M <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> M <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>print(aaa)
 </span></span><span style="display:flex;"><span>print(bbb)

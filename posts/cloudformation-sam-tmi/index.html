@@ -81,7 +81,7 @@
 <h2 id="sam에서-api-gateway-연동-시-openapi-definition에-awsregion-값을-얻어올-수-없는-이슈">SAM에서 API Gateway 연동 시 OpenAPI Definition에 <code>${AWS::Region}</code> 값을 얻어올 수 없는 이슈</h2>
 <p>참고자료: <a href="https://stackoverflow.com/questions/53582820/unable-to-parse-api-definition-because-of-a-malformed-integration-at-path-pric">Stack Overflow</a></p>
 <p>예를 들어, 다음과 같이 API 정의를 넣었다고 가정해 보겠습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">x-amazon-apigateway-integration</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">x-amazon-apigateway-integration</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">httpMethod</span>: <span style="color:#ae81ff">post</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">aws</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">uri</span>:
@@ -106,7 +106,7 @@
 <p>이 때는 <code>sam build</code> 명령을 사용할 때 <code>--use-container</code> 옵션을 추가하여 빌드합니다. 다만 Docker를 설치한 뒤, 실행하고 있어야 정상적으로 동작합니다.</p>
 <h2 id="sam으로-이벤트-스케줄을-정할-때-if-condition-true-false-조건이-동작하지-않는-문제">SAM으로 이벤트 스케줄을 정할 때 <code>!If [Condition, true, false]</code> 조건이 동작하지 않는 문제</h2>
 <p>SAM에는 다음과 같이 특정 시간이나 일정한 주기로 Lambda 함수를 수행할 수 있도록 설정하는 기능이 있습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Resources</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Resources</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">MyLambdaFunction</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">Type</span>: <span style="color:#ae81ff">AWS::Serverless::Function</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">Properties</span>:
@@ -129,11 +129,11 @@
 <li>조건에 따라 값을 다르게 구성하고 싶을 때</li>
 </ul>
 <p>기본적인 구성은 다음과 같습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Conditions</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Conditions</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">Logical ID</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">Intrinsic function</span>
 </span></span></code></pre></div><p>그리고 예제를 한 번 보시죠.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">AWSTemplateFormatVersion</span>: <span style="color:#e6db74">2010-09-09</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">AWSTemplateFormatVersion</span>: <span style="color:#e6db74">2010-09-09</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">Parameters</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">EnvType</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">Description</span>: <span style="color:#ae81ff">Environment type.</span>
@@ -149,7 +149,7 @@
 </span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">prod</span>
 </span></span></code></pre></div><p>위 템플릿으로 스택을 만들 때 <code>EnvType</code>이라는 파라미터가 <code>prod</code>면, <code>CreateProdResources</code> Condition이 true가 됩니다.</p>
 <p>이런 조건을 어떻게 사용할 지는 다음 예제를 소개해 드리겠습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Resources</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Resources</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">EC2Instance</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">Type</span>: <span style="color:#e6db74">&#39;AWS::EC2::Instance&#39;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">Properties</span>:
@@ -172,13 +172,13 @@
 </span></span></code></pre></div><p>위 예제의 경우, 각 리소스에 <code>Condition</code> 속성이 있습니다. 만약 <code>CreateProdResources</code> 속성이 true면 MountPoint와 NewVolume 리소스가 함께 생성될 것입니다.</p>
 <p>그리고 조건에 따라 다른 값을 넣도록 하려면, CloudFormation이 제공하는 내장 함수를 이용할 수 있습니다. <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-conditions.html">Condition Functions</a> 문서를 한 번 참고해 보세요.</p>
 <p>예를 들어 아래 예시와 같이, 개발/운영 인프라에 따라 버킷 이름을 바꾸는 방법이 있겠습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Resources</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Resources</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">MyBucket</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">Type</span>: <span style="color:#e6db74">&#39;AWS::S3::Bucket&#39;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">BucketName</span>: !<span style="color:#ae81ff">If [CreateProdResources, &#39;my-dev-bucket&#39;, &#39;my-ops-bucket&#39;]</span>
 </span></span></code></pre></div><h2 id="cloudformation의-fnif-함수의-결과를-array로-할당하려면">CloudFormation의 <code>Fn::If</code> 함수의 결과를 Array로 할당하려면?</h2>
 <p>YAML로 작성하는 경우, 다음과 같이 작성하면 Array로 들어갑니다. (<a href="https://stackoverflow.com/questions/56970457/how-to-use-fnif-with-array-values-in-cloud-formation-templates">참고자료</a>)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Value</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Value</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">Fn::If</span>:
 </span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">MyCondition</span>
 </span></span><span style="display:flex;"><span>      - - <span style="color:#ae81ff">Value1</span>
