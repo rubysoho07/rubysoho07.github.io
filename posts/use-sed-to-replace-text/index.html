@@ -124,7 +124,46 @@
  1253  python -m pip install selenium
  1254  python -m pip freeze | grep selenium
  1255  python -m pip install pytz
-</code></pre><h3 id="여담-macos에서-invalid-command-code--despite-escaping-periods-오류가-발생하는-경우">여담: macOS에서 <code>invalid command code ., despite escaping periods</code> 오류가 발생하는 경우</h3>
+</code></pre><h4 id="예제-4-문자숫자공백만-가져와서-대체하는-방법">예제 4: 문자/숫자/공백만 가져와서 대체하는 방법</h4>
+<p>(2026-01-30 추가)</p>
+<p>문자열 패턴에서 문자/숫자/공백만 가져와서 대체하는 방법에 대해 알아보자.</p>
+<p>아래와 같은 텍스트 파일을 저장했다고 하자. (text.txt 파일로 저장한다)</p>
+<pre tabindex="0"><code>abcd
+defg
+1234
+5678
+    
+</code></pre><p>(참고: 마지막 줄은 스페이스를 4번 눌렀다)</p>
+<p>이 파일에서 알파벳만, 숫자만, 공백만 바꿔보겠다. 일반적으로 사용하는 정규 표현식을 쓰려면 <code>-E</code> 옵션을 추가한다. <code>sed</code> 명령에서는 Extended Regular Expression이라 한다. 기본 정규 표현식과 다른 점은 <a href="https://www.gnu.org/software/sed/manual/html_node/ERE-syntax.html#ERE-syntax">링크</a>를 참조한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 알파벳만 바꾸기</span>
+</span></span><span style="display:flex;"><span>sed -E -i <span style="color:#e6db74">&#39;s/[[:alpha:]]+$/replaced-alphabets/&#39;</span> test.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 숫자만 바꾸기</span>
+</span></span><span style="display:flex;"><span>sed -E -i <span style="color:#e6db74">&#39;s/[[:digit:]]+$/replaced-numbers/&#39;</span> test.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 공백만 바꾸기</span>
+</span></span><span style="display:flex;"><span>sed -E -i <span style="color:#e6db74">&#39;s/[[:blank:]]/replaced-blank/&#39;</span> test.txt
+</span></span></code></pre></div><p>결과는 다음과 같다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ cat test.txt
+</span></span><span style="display:flex;"><span>replaced-alphabets
+</span></span><span style="display:flex;"><span>replaced-alphabets
+</span></span><span style="display:flex;"><span>replaced-numbers
+</span></span><span style="display:flex;"><span>replaced-numbers
+</span></span><span style="display:flex;"><span>replaced-blank   
+</span></span></code></pre></div><h4 id="예제-5-특정-패턴을-제외하는-방법">예제 5: 특정 패턴을 제외하는 방법</h4>
+<p>(2026-01-30 추가)</p>
+<p>특정 패턴을 제외하고 텍스트를 바꿔야 하는 상황이 있을 수 있다. 아래와 같이 <code>[]</code> 안의 맨 앞에 <code>^</code>를 추가하면 된다. 앞의 test.txt 파일을 가지고 테스트 해 보자.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 숫자가 아닌 것만 바꾸기</span>
+</span></span><span style="display:flex;"><span>sed -E -i <span style="color:#e6db74">&#39;s/[^[:digit:]]+/replaced-lines/&#39;</span> test.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 결과: 문자열로만 구성된 라인, 공백으로만 구성된 라인이 바뀌었다.</span>
+</span></span><span style="display:flex;"><span>$ cat test.txt 
+</span></span><span style="display:flex;"><span>replaced-lines
+</span></span><span style="display:flex;"><span>replaced-lines
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1234</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5678</span>
+</span></span><span style="display:flex;"><span>replaced-lines
+</span></span></code></pre></div><h3 id="여담-macos에서-invalid-command-code--despite-escaping-periods-오류가-발생하는-경우">여담: macOS에서 <code>invalid command code ., despite escaping periods</code> 오류가 발생하는 경우</h3>
 <p>예전에 macOS에서 sed를 썼을 때, 위와 같은 명령을 썼음에도 불구하고 <code>invalid command code ., despite escaping periods</code> 오류가 발생한 적이 있다.</p>
 <p>이 경우 다음과 같이 <code>-i</code> 뒤에 <code>''</code>를 넣고, 패턴 앞에 <code>-e</code> 옵션을 넣어 해결하면 된다.</p>
 <p>원래 명령: <code>sed -i 's/n.m/aaa/g' test.txt</code>
