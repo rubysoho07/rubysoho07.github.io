@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.155.0">
+	<meta name="generator" content="Hugo 0.155.1">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>GoniGoni!</title>
@@ -55,6 +55,28 @@
 			
 <main class="main list" role="main">
 	<article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/posts/python-datetime-string-formatting/" rel="bookmark">
+			Python 날짜/시간을 문자열로 만들기 위한 규칙 정리
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-05-14T23:24:00&#43;09:00">2018-05-14</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>파이썬을 쓰다 보면 문자열을 다루는 경우가 많은데, 문자열을 특정한 양식에 맞추어야 하는 경우가 종종 있었다. 이 경우 <a href="http://pyformat.info">PyFormat</a>과 같은 사이트를 참조한다. 하지만 날짜나 시간을 formatting 할 때는 상세한 규칙이 정리되어 있지 않아서 이 참에 정리를 해 보려고 한다.</p>
+<p>문자열을 넣거나 숫자를 다루는 경우, PyFormat에 자세한 내용이 있어서 생략한다.</p>
+<p>이 글에서는 현재 시간을 datetime 객체로 받고, 이를 가지고 날짜와 시간을 문자열로 formatting 해 볼 것이다. (아래 코드 참조)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> datetime
+</span></span><span style="display:flex;"><span>now <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>datetime<span style="color:#f92672">.</span>now()
+</span></span></code></pre></div><p>이 글을 쓰는 시점에서 now의 내용은 다음과 같다.</p>
+	</div>
+</article><article class="list__item post">
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
@@ -216,6 +238,7 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/pandas/" title="Pandas">Pandas</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/parameter-store/" title="Parameter Store">Parameter Store</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pep-8/" title="Pep-8">Pep-8</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/playwright/" title="Playwright">Playwright</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/professional/" title="Professional">Professional</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/property/" title="Property">Property</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/pulumi/" title="Pulumi">Pulumi</a>
