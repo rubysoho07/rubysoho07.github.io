@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.155.1">
+	<meta name="generator" content="Hugo 0.161.1">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>GoniGoni!</title>
@@ -55,6 +55,49 @@
 			
 <main class="main list" role="main">
 	<article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/posts/step-function-with-python/" rel="bookmark">
+			Python으로 Step Functions 활동 만들기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-10-04T23:21:00&#43;09:00">2018-10-04</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>AWS에는 <a href="https://aws.amazon.com/ko/step-functions/">Step Functions</a>라는 서비스가 있다. 여러 개의 활동(activity)를 조합해서 순서대로 또는 반복적으로 원하는 작업을 실행할 수 있도록 해 주는 서비스이다.</p>
+<p>일반적으로는 여러 개의 Lambda 함수를 연결해서 사용하는 경우가 많다. 하지만 Lambda 함수의 실행 시간이 5분을 넘어가면, 다른 방법을 고려해야 한다. 이럴 때 활동을 생성하고 이를 수행하는 코드를 작성하면, 오래 걸리는 작업도 Step Functions로 이용할 수 있다.</p>
+<h2 id="활동activity-만들기">활동(Activity) 만들기</h2>
+<ol>
+<li>Step Functions 콘솔의 왼쪽 메뉴에서 <code>활동</code>을 클릭한다.</li>
+<li>화면이 바뀌면 우측의 <code>활동 생성</code>을 클릭하여 새로운 활동을 만든다.</li>
+<li>활동 이름 입력 창에서 임의의 활동 이름을 입력한다.</li>
+<li>여기서 나오는 ARN을 메모한다. 활동 이름은 알고 있어도 되지만 몰라도 상관은 없다.</li>
+</ol>
+<h2 id="상태-머신state-machine-만들기">상태 머신(State Machine) 만들기</h2>
+<ol>
+<li>콘솔의 왼쪽 메뉴에서 <code>상태 머신</code>을 클릭한다.</li>
+<li>우측 상단의 <code>상태 머신 생성</code>을 클릭한다.</li>
+<li>상태 머신의 이름을 입력하고, 필요한 경우 IAM 역할을 생성한다. <!-- raw HTML omitted --> (<code>나를 위한 역할 생성</code>에 체크, <code>AWS Step Functions이 Lambda 함수에 대한...</code> 옵션에 체크)</li>
+<li>그리고 <code>상태 머신 정의</code> 칸에는 다음과 같이 입력한다. (여기가 앞에서 메모한 ARN이 사용되는 부분이다. ARN은 뒤에서도 이용하니 메모를 버리지 말자.)</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;StartAt&#34;</span>: <span style="color:#e6db74">&#34;TestActivity&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;States&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;TestActivity&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Type&#34;</span>: <span style="color:#e6db74">&#34;Task&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;앞에서 메모한 ARN 주소&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;End&#34;</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>간단하게 설명을 하자면,</p>
+	</div>
+</article><article class="list__item post">
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
@@ -307,38 +350,6 @@ REPORT RequestId: 2dce0b80-5fb4-11e8-b5b7-41e11422a67a  Duration: 1.56 ms       
 <pre tabindex="0"><code>sum(iterable[, start])
 </code></pre><p>iterable 객체를 받아서 각 요소들의 합을 구한다. start는 적어주지 않으면 0으로 정해진다. 다음과 같이 사용할 수 있다.</p>
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/python-making-test-module/" rel="bookmark">
-			파이썬에서 테스트 코드를 만들면서 겪은 일들
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-05-15T22:35:00&#43;09:00">2018-05-15</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/python/" rel="category">Python</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>이번 글에서는 파이썬에서 테스트 코드를 만들면서 겪었던 시행착오에 대해 소개하고자 한다. 여기서는 파이썬에 내장된 <code>unittest</code>를 이용한다.</p>
-<h3 id="테스트를-수행하는-기준은">테스트를 수행하는 기준은?</h3>
-<p>간단한 코드를 만들어 보자. 파일 이름은 <code>aaa.py</code>로 저장한다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> unittest
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestExample</span>(unittest<span style="color:#f92672">.</span>TestCase):
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_a</span>(self):
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>assertEqual(<span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>, <span style="color:#66d9ef">False</span>)
-</span></span></code></pre></div><p>그리고 쉘에서 <code>python -m unittest</code>를 입력하면, 아무 테스트도 실행하지 않는다.</p>
-<pre tabindex="0"><code>$ python -m unittest
-
-----------------------------------------------------------------------
-Ran 0 tests in 0.000s
-
-OK
-</code></pre><p>왜 그럴까? <code>unittest</code> 라이브러리는 기본적으로 실행하는 top-level 디렉터리에서 <code>test</code>로 시작하는 파일을 찾아서 테스트를 수행한다. <a href="https://docs.python.org/3/library/unittest.html#test-discovery">(참고)</a> 일단 파일 이름을 test로 시작하도록 바꾼 뒤 아래와 같이 테스트해 보자.</p>
-	</div>
 </article>
 </main>
 
@@ -481,6 +492,8 @@ OK
 		<a class="widget-taglist__link widget__link btn" href="/tags/warning/" title="Warning">Warning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zookeeper/" title="ZooKeeper">ZooKeeper</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zsh/" title="Zsh">Zsh</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4/" title="개인정보">개인정보</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EA%B4%80%EB%A6%AC%EC%82%AC/" title="개인정보관리사">개인정보관리사</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B5%90%EC%9C%A1/" title="교육">교육</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98/" title="내장 함수">내장 함수</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" title="네트워크">네트워크</a>

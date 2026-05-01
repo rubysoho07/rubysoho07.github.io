@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.155.1">
+	<meta name="generator" content="Hugo 0.161.1">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>GoniGoni!</title>
@@ -55,6 +55,31 @@
 			
 <main class="main list" role="main">
 	<article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/posts/retrospect-2019/" rel="bookmark">
+			Retrospect 2019
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2020-01-04T15:11:05&#43;09:00">2020-01-04</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/everything/" rel="category">Everything</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>2020년이 된 지 4일이 되었지만, 지난 1년 간에 있었던 일들을 정리해 보려 합니다.</p>
+<h2 id="발표">발표</h2>
+<h3 id="aws-summit-seoul-2019">AWS Summit Seoul 2019</h3>
+<p>커뮤니티 세션에서 저희 부서의 데이터 저장 기반 구축 사례를 소개했습니다. 다음 영상에서 확인하실 수 있습니다. (<a href="https://www.slideshare.net/awskorea/aws-aws-summit-seoul-2019-141290094">슬라이드는 여기를 눌러주세요</a>)</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/wxScotB5lXk?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>PyCon Korea 외의 다른 행사에서 발표하는 건 처음이었는데요. 정말 많은 분들이 오셔서 긴장했는데, 어떻게든 잘 넘어갔던 것 같아요. 발표한 내용은 재작년(2018) 말 기준으로 구성했던 내용이고, 현재 저희 팀의 AWS 인프라는 많은 부분이 바뀐 상태입니다. 그리고 작년 AWS Summit을 기점으로 AWSKRUG 내 소모임도 가끔씩 참석하게 되었습니다.</p>
+	</div>
+</article><article class="list__item post">
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
@@ -255,49 +280,6 @@
 <h4 id="get_paginator로-paginator-가져오기">get_paginator()로 Paginator 가져오기</h4>
 <p>기본적으로 S3를 담당할 클라이언트를 생성한 뒤, get_paginator()로 Paginator를 가져온다. 여기서는 하나의 버킷에서 object들을 가져오기 위해 <code>list_objects_v2</code>를 이용한다. (Boto3 문서에서는 <code>list_objects()</code>보다 <code>list_objects_v2()</code>를 이용하는 것을 권장하니 이를 이용하자.)</p>
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/step-function-with-python/" rel="bookmark">
-			Python으로 Step Functions 활동 만들기
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2018-10-04T23:21:00&#43;09:00">2018-10-04</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/aws/" rel="category">AWS</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>AWS에는 <a href="https://aws.amazon.com/ko/step-functions/">Step Functions</a>라는 서비스가 있다. 여러 개의 활동(activity)를 조합해서 순서대로 또는 반복적으로 원하는 작업을 실행할 수 있도록 해 주는 서비스이다.</p>
-<p>일반적으로는 여러 개의 Lambda 함수를 연결해서 사용하는 경우가 많다. 하지만 Lambda 함수의 실행 시간이 5분을 넘어가면, 다른 방법을 고려해야 한다. 이럴 때 활동을 생성하고 이를 수행하는 코드를 작성하면, 오래 걸리는 작업도 Step Functions로 이용할 수 있다.</p>
-<h2 id="활동activity-만들기">활동(Activity) 만들기</h2>
-<ol>
-<li>Step Functions 콘솔의 왼쪽 메뉴에서 <code>활동</code>을 클릭한다.</li>
-<li>화면이 바뀌면 우측의 <code>활동 생성</code>을 클릭하여 새로운 활동을 만든다.</li>
-<li>활동 이름 입력 창에서 임의의 활동 이름을 입력한다.</li>
-<li>여기서 나오는 ARN을 메모한다. 활동 이름은 알고 있어도 되지만 몰라도 상관은 없다.</li>
-</ol>
-<h2 id="상태-머신state-machine-만들기">상태 머신(State Machine) 만들기</h2>
-<ol>
-<li>콘솔의 왼쪽 메뉴에서 <code>상태 머신</code>을 클릭한다.</li>
-<li>우측 상단의 <code>상태 머신 생성</code>을 클릭한다.</li>
-<li>상태 머신의 이름을 입력하고, 필요한 경우 IAM 역할을 생성한다. <!-- raw HTML omitted --> (<code>나를 위한 역할 생성</code>에 체크, <code>AWS Step Functions이 Lambda 함수에 대한...</code> 옵션에 체크)</li>
-<li>그리고 <code>상태 머신 정의</code> 칸에는 다음과 같이 입력한다. (여기가 앞에서 메모한 ARN이 사용되는 부분이다. ARN은 뒤에서도 이용하니 메모를 버리지 말자.)</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;StartAt&#34;</span>: <span style="color:#e6db74">&#34;TestActivity&#34;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;States&#34;</span>: {
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;TestActivity&#34;</span>: {
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Type&#34;</span>: <span style="color:#e6db74">&#34;Task&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;앞에서 메모한 ARN 주소&#34;</span>,
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;End&#34;</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>간단하게 설명을 하자면,</p>
-	</div>
 </article>
 </main>
 
@@ -440,6 +422,8 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/warning/" title="Warning">Warning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zookeeper/" title="ZooKeeper">ZooKeeper</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zsh/" title="Zsh">Zsh</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4/" title="개인정보">개인정보</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EA%B4%80%EB%A6%AC%EC%82%AC/" title="개인정보관리사">개인정보관리사</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B5%90%EC%9C%A1/" title="교육">교육</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98/" title="내장 함수">내장 함수</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" title="네트워크">네트워크</a>

@@ -59,6 +59,37 @@
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
+			<a href="/posts/eks-resources-with-eksctl/" rel="bookmark">
+			eksctl로 생성한 EKS 클러스터의 리소스 살펴 보기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2022-07-17T21:45:26&#43;09:00">2022-07-17</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/devops/" rel="category">DevOps</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<p>AWS에서 Kubernetes를 사용하려면 여러 방법이 있겠지만, 가장 편한 방법은 EKS 서비스를 이용하는 것이죠. EKS 클러스터를 생성하는 방법은 여러 가지가 있는데요. 이번 글에서는 eksctl이라는 프로그램을 이용해서 EKS 클러스터를 생성하는 방법을 알아보고, 어떤 리소스를 생성하는지 알아보려고 합니다.</p>
+<p>먼저 Kubernetes 클러스터의 구조를 알아보고, EKS에서는 어떤 차이점이 있는지 알아 보겠습니다.</p>
+<h1 id="kubernetes-클러스터의-구조와-eks">Kubernetes 클러스터의 구조와 EKS</h1>
+<p>Kubernetes 클러스터는 다음과 같이 구성되어 있습니다.</p>
+<figure><img src="https://d33wubrfki0l68.cloudfront.net/2475489eaf20163ec0f54ddc1d92aa8d4c87c96b/e7c81/images/docs/components-of-kubernetes.svg"
+    alt="출처: kubernetes.io"><figcaption>
+      <p>출처: <a href="https://kubernetes.io/ko/docs/concepts/overview/components/">kubernetes.io</a></p>
+    </figcaption>
+</figure>
+
+<ul>
+<li><a href="https://kubernetes.io/ko/docs/concepts/architecture/nodes/">노드(Node)</a>: 컨테이너 내의 애플리케이션을 실행하는 서버들의 집합으로, 파드(Pod)는 워커 노드에서 동작합니다. 앞으로 노드 또는 워커 노드라는 말이 계속 등장할텐데, 똑같은 것으로 이해해 주시면 됩니다.</li>
+<li><strong>컨트롤 플레인(Control Plane)</strong>: 워커 노드와 클러스터 내의 파드를 관리합니다. 프로덕션 환경에서는 컨트롤 플레인을 여러 머신에 배포하여 내결함성/고가용성을 확보합니다.</li>
+</ul>
+<p>컨트롤 플레인은 다음과 같은 구성요소들을 가지고 있습니다.</p>
+	</div>
+</article><article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
 			<a href="/posts/aws-sap-c01/" rel="bookmark">
 			AWS Certified Solutions Architect - Professional 시험 후기
 			</a>
@@ -251,34 +282,6 @@
 <p>이러한 배지 시스템은 스마트 폰의 앱이나 웹 사이트에서도 볼 수 있습니다. 예를 들어 제가 운동할 때 사용하는 앱 중 하나인 Nike Training Club은 특정한 조건을 달성하면 새로운 기록을 만들 수 있는데요.</p>
 <p>아래는 Nike Training Club 앱에서 제가 달성한 기록들 중 일부입니다.</p>
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/data-workflow-from-scratch-2/" rel="bookmark">
-			데이터 분석 워크플로우를 처음부터 만들어 보기 (2)
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2021-04-26T21:20:19&#43;09:00">2021-04-26</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/data-engineering/" rel="category">Data Engineering</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>2월에 올렸던 <a href="/posts/data-workflow-from-scratch/">데이터 분석 워크플로우를 처음부터 만들어 보기</a>에 이어서 작성하는 두번째 글입니다.</p>
-<p>그동안 시도해 봤던 것들은 다음과 같습니다.</p>
-<ul>
-<li>S3 버킷에 원격으로 로그 올리도록 설정하기</li>
-<li>Airflow 2.x 버전에서 KubernetesExecutor를 사용하는 데, DAG이나 Task를 수동으로 실행할 때 에러가 발생하는 이유는?</li>
-<li>DAG에서 DB 이용하기: DB와 관련된 Operator 이용하기, Hooks 이용하기</li>
-<li>S3에서 파일을 가져와서 분석하기: S3Hook</li>
-</ul>
-<p>테스트 한 환경은 Airflow 2.0.1, 2.0.2 버전입니다.</p>
-<p>전체 내용은 <a href="https://github.com/rubysoho07/data-workflow-from-scratch">GitHub 저장소</a>에서 확인하실 수 있습니다.</p>
-<h1 id="s3-버킷에-원격으로-로그를-올리도록-설정하기">S3 버킷에 원격으로 로그를 올리도록 설정하기</h1>
-<p>지난 글에서 시스템 구성으로 KubernetesExecutor를 이용한다고 말씀드렸습니다. KubernetesExecutor를 이용하는 경우, Task가 끝나면 Worker Pod이 사라지면서 로그를 못 찾는 경우도 있기 때문에 로그를 S3 버킷에 저장해 보았습니다.</p>
-	</div>
 </article>
 </main>
 
@@ -422,6 +425,8 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/warning/" title="Warning">Warning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zookeeper/" title="ZooKeeper">ZooKeeper</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zsh/" title="Zsh">Zsh</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4/" title="개인정보">개인정보</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EA%B4%80%EB%A6%AC%EC%82%AC/" title="개인정보관리사">개인정보관리사</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B5%90%EC%9C%A1/" title="교육">교육</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98/" title="내장 함수">내장 함수</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" title="네트워크">네트워크</a>

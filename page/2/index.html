@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.155.1">
+	<meta name="generator" content="Hugo 0.161.1">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>GoniGoni!</title>
@@ -55,6 +55,32 @@
 			
 <main class="main list" role="main">
 	<article class="list__item post">
+	
+	<header class="list__header">
+		<h2 class="list__title post__title">
+			<a href="/posts/manage-secrets-in-eks-with-ascp/" rel="bookmark">
+			EKS에서 ASCP로 Parameter Store/Secrets Manager 이용하기
+			</a>
+		</h2>
+		<div class="list__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2024-06-23T20:51:32&#43;09:00">2024-06-23</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/devops/" rel="category">DevOps</a>
+	</span>
+</div></div>
+	</header>
+	<div class="content list__excerpt post__content clearfix">
+		<h2 id="배경">배경</h2>
+<p>어떤 애플리케이션이든 민감한 정보를 관리할 필요가 있습니다. DB에 연결하기 위한 사용자 정보 및 비밀번호가 필요할 것이고, 외부 API를 호출하기 위해 API 키가 필요할 수도 있죠. 이러한 정보를 관리하는 방법에는 여러 가지가 있는데요. 이번에는 EKS 클러스터가 있다고 가정하고, AWS의 Parameter Store, Secrets Manager에 있는 값을 어떻게 Pod에 넣을 수 있을지 살펴 보겠습니다.</p>
+<h2 id="준비하기">준비하기</h2>
+<ul>
+<li>AWS CLI 설치</li>
+<li><code>kubectl</code>, <code>helm</code> 설치</li>
+<li>EKS 클러스터: 콘솔에서 생성하거나 <code>eksctl</code>과 같은 툴로 생성해 주세요. (<strong>테스트 후 비용 문제로 클러스터는 꼭 삭제해 주시기 바랍니다.</strong>)</li>
+</ul>
+<h2 id="secrets-store-csi-driver--ascpamazon-secrets-manager-and-config-provider-설치">Secrets Store CSI Driver &amp; ASCP(Amazon Secrets Manager and Config Provider) 설치</h2>
+<p>Kubernetes에서는 <a href="https://github.com/kubernetes-sigs/secrets-store-csi-driver">Secret Store CSI Driver</a>라는 것이 있습니다. 민감한 정보를 CSI Volume으로 관리할 수 있도록 하는 도구입니다. 즉, 민감한 정보를 특정 볼륨에 마운트 하는 방식으로 관리하는 것입니다. 이 도구는 여러가지 외부 Secret store provider를 지원하는데요. Azure, GCP, Vault 뿐만 아니라 AWS도 지원합니다.</p>
+	</div>
+</article><article class="list__item post">
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
@@ -240,37 +266,6 @@
 <p><a href="https://namu.wiki/w/%EA%B5%AC%EA%B8%80">나무위키</a>에 따르면, 구글은 1998년에 설립되어 24년이 넘은 회사입니다. 그만큼 많은 엔지니어들이 대규모의 서비스를 구축하고 운영한 역사가 있고, 이러한 과정에서 배운 것들이 아주 많을 것입니다.</p>
 <p>최근 저의 경험을 돌이켜 보면, 사수가 없이 일하는 경우가 많았습니다. 그리고 지금은 제가 작은 팀을 이끌어야 하는 상황이 되었네요. 이러한 상황을 겪다 보니 다른 사람들은 어떻게 일하는지 궁금했는데, 마침 이 책이 나와서 반갑다는 생각이 들었습니다.</p>
 	</div>
-</article><article class="list__item post">
-	
-	<header class="list__header">
-		<h2 class="list__title post__title">
-			<a href="/posts/eks-resources-with-eksctl/" rel="bookmark">
-			eksctl로 생성한 EKS 클러스터의 리소스 살펴 보기
-			</a>
-		</h2>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0a14 14 0 1 1 0 28 1 1 0 0 1 0-28m0 3a3 3 0 1 0 0 22 3 3 0 0 0 0-22m1 4h-2v8.4l6.8 4.4L22 18l-6-3.8z"/></svg><time class="meta__text" datetime="2022-07-17T21:45:26&#43;09:00">2022-07-17</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2 1 2h8v11H0V2z"/></svg><span class="meta__text"><a class="meta__link" href="/categories/devops/" rel="category">DevOps</a>
-	</span>
-</div></div>
-	</header>
-	<div class="content list__excerpt post__content clearfix">
-		<p>AWS에서 Kubernetes를 사용하려면 여러 방법이 있겠지만, 가장 편한 방법은 EKS 서비스를 이용하는 것이죠. EKS 클러스터를 생성하는 방법은 여러 가지가 있는데요. 이번 글에서는 eksctl이라는 프로그램을 이용해서 EKS 클러스터를 생성하는 방법을 알아보고, 어떤 리소스를 생성하는지 알아보려고 합니다.</p>
-<p>먼저 Kubernetes 클러스터의 구조를 알아보고, EKS에서는 어떤 차이점이 있는지 알아 보겠습니다.</p>
-<h1 id="kubernetes-클러스터의-구조와-eks">Kubernetes 클러스터의 구조와 EKS</h1>
-<p>Kubernetes 클러스터는 다음과 같이 구성되어 있습니다.</p>
-<figure><img src="https://d33wubrfki0l68.cloudfront.net/2475489eaf20163ec0f54ddc1d92aa8d4c87c96b/e7c81/images/docs/components-of-kubernetes.svg"
-    alt="출처: kubernetes.io"><figcaption>
-      <p>출처: <a href="https://kubernetes.io/ko/docs/concepts/overview/components/">kubernetes.io</a></p>
-    </figcaption>
-</figure>
-
-<ul>
-<li><a href="https://kubernetes.io/ko/docs/concepts/architecture/nodes/">노드(Node)</a>: 컨테이너 내의 애플리케이션을 실행하는 서버들의 집합으로, 파드(Pod)는 워커 노드에서 동작합니다. 앞으로 노드 또는 워커 노드라는 말이 계속 등장할텐데, 똑같은 것으로 이해해 주시면 됩니다.</li>
-<li><strong>컨트롤 플레인(Control Plane)</strong>: 워커 노드와 클러스터 내의 파드를 관리합니다. 프로덕션 환경에서는 컨트롤 플레인을 여러 머신에 배포하여 내결함성/고가용성을 확보합니다.</li>
-</ul>
-<p>컨트롤 플레인은 다음과 같은 구성요소들을 가지고 있습니다.</p>
-	</div>
 </article>
 </main>
 
@@ -413,6 +408,8 @@
 		<a class="widget-taglist__link widget__link btn" href="/tags/warning/" title="Warning">Warning</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zookeeper/" title="ZooKeeper">ZooKeeper</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/zsh/" title="Zsh">Zsh</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4/" title="개인정보">개인정보</a>
+		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EA%B4%80%EB%A6%AC%EC%82%AC/" title="개인정보관리사">개인정보관리사</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EA%B5%90%EC%9C%A1/" title="교육">교육</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%82%B4%EC%9E%A5-%ED%95%A8%EC%88%98/" title="내장 함수">내장 함수</a>
 		<a class="widget-taglist__link widget__link btn" href="/tags/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/" title="네트워크">네트워크</a>
